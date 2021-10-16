@@ -25,6 +25,10 @@ public class PaymentMethodController {
 	@Autowired
 	private PaymentMethodService paymentMethodService;
 
+	@GetMapping("/add-paymentmethod")
+	public String getaddPaymenType(Model model) {
+		return "paymentmethod/add";
+	}
 	
 	/**
 	 * getPaymentMethods
@@ -35,9 +39,9 @@ public class PaymentMethodController {
 	@GetMapping("/paymentmethod")
 	public String getPaymentMethods(Model model) {
 		List<PaymentMethod> paymentMethods = paymentMethodService.getPaymentMethods();
-		model.addAttribute("cities", paymentMethods);
+		model.addAttribute("items", paymentMethods);
 		
-		return "paymentMethod/cities";
+		return "paymentmethod/paymentmethods";
 	}
 
 	/**
@@ -46,11 +50,11 @@ public class PaymentMethodController {
 	 * @param paymentMethod
 	 * @return
 	 */
-	@PostMapping("/addpaymentMethod")
+	@PostMapping("/addpaymentmethod")
 
 	public String addPaymentMethod(PaymentMethod paymentMethod) {
 		paymentMethodService.save(paymentMethod);
-		return "redirect:/cities";
+		return "redirect:/paymentmethods";
 	}
 
 	/**
@@ -76,11 +80,11 @@ public class PaymentMethodController {
 	 * @param model
 	 * @return
 	 */
-	@PostMapping("/updatepaymentMethod/{id}")
+	@PostMapping("/updatepaymentmethod/{id}")
 	public String updatePaymentMethod(@PathVariable("id") long id, @Validated PaymentMethod paymentMethod, BindingResult result, Model model) {
 
 		paymentMethodService.save(paymentMethod);
-		return "redirect:/cities";
+		return "redirect:/paymentmethods";
 	}
 
 	/**
@@ -93,6 +97,6 @@ public class PaymentMethodController {
 	@Transactional
 	public String deletePaymentMethod(@PathVariable("id") Long id) {
 		paymentMethodService.delete(id);
-		return "redirect:/cities";
+		return "redirect:/paymentmethods";
 	}
 }

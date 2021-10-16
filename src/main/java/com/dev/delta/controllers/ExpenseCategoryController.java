@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.transaction.Transactional;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -20,8 +21,13 @@ import com.dev.delta.services.ExpenseCategoryService;
 
 @Controller
 public class ExpenseCategoryController {
+	@Autowired
 	private ExpenseCategoryService expenseCategoryService;
 
+	@GetMapping("/add-expensecategory")
+	public String getaddAmenity(Model model) {
+		return "expensecategory/add";
+	}
 	/**
 	 * expenseCategoryService
 	 */
@@ -35,10 +41,10 @@ public class ExpenseCategoryController {
 	@GetMapping("/expensecategories")
 	public String getExpenseCategorys(Model model) {
 		List<ExpenseCategory> expenseCategorys = expenseCategoryService.getExpenseCategorys();
-		model.addAttribute("cities", expenseCategorys);
+		model.addAttribute("items", expenseCategorys);
 	
 
-		return "expenseCategory/cities";
+		return "expensecategory/expensecategories";
 	}
 
 	/**
@@ -51,7 +57,7 @@ public class ExpenseCategoryController {
 
 	public String addExpenseCategory(ExpenseCategory expenseCategory) {
 		expenseCategoryService.save(expenseCategory);
-		return "redirect:/cities";
+		return "redirect:/expensecategories";
 	}
 
 	/**
@@ -77,11 +83,11 @@ public class ExpenseCategoryController {
 	 * @param model
 	 * @return
 	 */
-	@PostMapping("/updateexpenseCategory/{id}")
+	@PostMapping("/updateexpensecategory/{id}")
 	public String updateExpenseCategory(@PathVariable("id") long id, @Validated ExpenseCategory expenseCategory, BindingResult result, Model model) {
 
 		expenseCategoryService.save(expenseCategory);
-		return "redirect:/cities";
+		return "redirect:/expensecategories";
 	}
 
 	/**
@@ -90,11 +96,11 @@ public class ExpenseCategoryController {
 	 * @param id
 	 * @return
 	 */
-	@GetMapping("/deleteexpenseCategory/{id}")
+	@GetMapping("/deleteexpensecategory/{id}")
 	@Transactional
 	public String deleteExpenseCategory(@PathVariable("id") Long id) {
 		expenseCategoryService.delete(id);
-		return "redirect:/cities";
+		return "redirect:/expensecategories";
 	}
 	
 }

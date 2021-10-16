@@ -25,6 +25,11 @@ public class CityController {
 	private CityService cityService;
 
 	
+	@GetMapping("/add-city")
+	public String getaddCity(Model model) {
+		return "city/add";
+	}
+	
 	/**
 	 * getCitys
 	 * 
@@ -35,7 +40,7 @@ public class CityController {
 	public String getCitys(Model model) {
 		List<City> citys = cityService.getCitys();
 		
-		model.addAttribute("cities", citys);
+		model.addAttribute("items", citys);
 	
 		return "city/cities";
 	}

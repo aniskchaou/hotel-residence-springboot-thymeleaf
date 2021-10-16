@@ -25,6 +25,10 @@ public class ExtraBedController {
 	@Autowired
 	private ExtraBedService extraBedService;
 
+	@GetMapping("/add-extrabed")
+	public String getaddExtraBed(Model model) {
+		return "extrabed/add";
+	}
 	
 	/**
 	 * getExtraBeds
@@ -36,9 +40,9 @@ public class ExtraBedController {
 	public String getExtraBeds(Model model) {
 		List<ExtraBed> extraBeds = extraBedService.getExtraBeds();
 	
-		model.addAttribute("cities", extraBeds);
+		model.addAttribute("items", extraBeds);
 	
-		return "extraBed/cities";
+		return "extrabed/extrabeds";
 	}
 
 	/**
@@ -47,11 +51,11 @@ public class ExtraBedController {
 	 * @param extraBed
 	 * @return
 	 */
-	@PostMapping("/addextraBed")
+	@PostMapping("/addextrabed")
 
 	public String addExtraBed(ExtraBed extraBed) {
 		extraBedService.save(extraBed);
-		return "redirect:/cities";
+		return "redirect:/extrabeds";
 	}
 
 	/**
@@ -61,7 +65,7 @@ public class ExtraBedController {
 	 * @param model
 	 * @return
 	 */
-	@RequestMapping("/extraBed/{id}")
+	@RequestMapping("/extrabed/{id}")
 	public String findById(@PathVariable("id") int id, Model model) {
 		ExtraBed extraBed = extraBedService.findById(id).get();
 		model.addAttribute("extraBed", extraBed);
@@ -77,11 +81,11 @@ public class ExtraBedController {
 	 * @param model
 	 * @return
 	 */
-	@PostMapping("/updateextraBed/{id}")
+	@PostMapping("/updateextrabed/{id}")
 	public String updateExtraBed(@PathVariable("id") long id, @Validated ExtraBed extraBed, BindingResult result, Model model) {
 
 		extraBedService.save(extraBed);
-		return "redirect:/cities";
+		return "redirect:/extrabeds";
 	}
 
 	/**
@@ -90,10 +94,10 @@ public class ExtraBedController {
 	 * @param id
 	 * @return
 	 */
-	@GetMapping("/deleteextraBed/{id}")
+	@GetMapping("/deleteextrabed/{id}")
 	@Transactional
 	public String deleteExtraBed(@PathVariable("id") Long id) {
 		extraBedService.delete(id);
-		return "redirect:/cities";
+		return "redirect:/extrabeds";
 	}
 }

@@ -25,6 +25,10 @@ public class EmployeeController {
 	@Autowired
 	private EmployeeService employeeService;
 
+	@GetMapping("/add-employee")
+	public String getadEmployee(Model model) {
+		return "employee/add";
+	}
 
 	/**
 	 * getEmployees
@@ -36,9 +40,9 @@ public class EmployeeController {
 	public String getEmployees(Model model) {
 		List<Employee> employees = employeeService.getEmployees();
 		
-		model.addAttribute("cities", employees);
+		model.addAttribute("items", employees);
 	
-		return "employee/cities";
+		return "employee/employees";
 	}
 
 	/**
@@ -51,7 +55,7 @@ public class EmployeeController {
 
 	public String addEmployee(Employee employee) {
 		employeeService.save(employee);
-		return "redirect:/cities";
+		return "redirect:/employees";
 	}
 
 	/**
@@ -81,7 +85,7 @@ public class EmployeeController {
 	public String updateEmployee(@PathVariable("id") long id, @Validated Employee employee, BindingResult result, Model model) {
 
 		employeeService.save(employee);
-		return "redirect:/cities";
+		return "redirect:/employees";
 	}
 
 	/**
@@ -94,7 +98,7 @@ public class EmployeeController {
 	@Transactional
 	public String deleteEmployee(@PathVariable("id") Long id) {
 		employeeService.delete(id);
-		return "redirect:/cities";
+		return "redirect:/employees";
 	}
 	
 }

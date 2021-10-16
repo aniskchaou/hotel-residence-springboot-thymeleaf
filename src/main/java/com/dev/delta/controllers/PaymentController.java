@@ -26,6 +26,11 @@ public class PaymentController {
 	private PaymentService paymentService;
 
 
+	@GetMapping("/add-payment")
+	public String getaddPayment(Model model) {
+		return "payment/add";
+	}
+	
 	/**
 	 * getPayments
 	 * 
@@ -35,9 +40,9 @@ public class PaymentController {
 	@GetMapping("/payments")
 	public String getPayments(Model model) {
 		List<Payment> payments = paymentService.getPayments();
-		model.addAttribute("cities", payments);
+		model.addAttribute("items", payments);
 		
-		return "payment/cities";
+		return "payment/payments";
 	}
 
 	/**
@@ -50,7 +55,7 @@ public class PaymentController {
 
 	public String addPayment(Payment payment) {
 		paymentService.save(payment);
-		return "redirect:/cities";
+		return "redirect:/payments";
 	}
 
 	/**
@@ -80,7 +85,7 @@ public class PaymentController {
 	public String updatePayment(@PathVariable("id") long id, @Validated Payment payment, BindingResult result, Model model) {
 
 		paymentService.save(payment);
-		return "redirect:/cities";
+		return "redirect:/payments";
 	}
 
 	/**
@@ -93,6 +98,6 @@ public class PaymentController {
 	@Transactional
 	public String deletePayment(@PathVariable("id") Long id) {
 		paymentService.delete(id);
-		return "redirect:/cities";
+		return "redirect:/payments";
 	}
 }

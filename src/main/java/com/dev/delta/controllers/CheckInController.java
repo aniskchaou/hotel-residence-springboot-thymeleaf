@@ -25,6 +25,11 @@ public class CheckInController {
 	@Autowired
 	private CheckInService checkInService;
 
+	@GetMapping("/add-checkin")
+	public String getaddCheckIn(Model model) {
+		
+		return "checkin/add";
+	}
 
 	/**
 	 * getCheckIns
@@ -36,9 +41,9 @@ public class CheckInController {
 	public String getCheckIns(Model model) {
 		List<CheckIn> checkIns = checkInService.getCheckIns();
 
-		model.addAttribute("cities", checkIns);
+		model.addAttribute("items", checkIns);
 
-		return "checkIn/cities";
+		return "checkin/checkins";
 	}
 
 	/**
@@ -47,11 +52,11 @@ public class CheckInController {
 	 * @param checkIn
 	 * @return
 	 */
-	@PostMapping("/addcheckIn")
+	@PostMapping("/addcheckin")
 
 	public String addCheckIn(CheckIn checkIn) {
 		checkInService.save(checkIn);
-		return "redirect:/cities";
+		return "redirect:/checkins";
 	}
 
 	/**
@@ -77,11 +82,11 @@ public class CheckInController {
 	 * @param model
 	 * @return
 	 */
-	@PostMapping("/updatecheckIn/{id}")
+	@PostMapping("/updatecheckin/{id}")
 	public String updateCheckIn(@PathVariable("id") long id, @Validated CheckIn checkIn, BindingResult result, Model model) {
 
 		checkInService.save(checkIn);
-		return "redirect:/cities";
+		return "redirect:/checkins";
 	}
 
 	/**
@@ -90,10 +95,10 @@ public class CheckInController {
 	 * @param id
 	 * @return
 	 */
-	@GetMapping("/deletecheckIn/{id}")
+	@GetMapping("/deletecheckin/{id}")
 	@Transactional
 	public String deleteCheckIn(@PathVariable("id") Long id) {
 		checkInService.delete(id);
-		return "redirect:/cities";
+		return "redirect:/checkins";
 	}
 }

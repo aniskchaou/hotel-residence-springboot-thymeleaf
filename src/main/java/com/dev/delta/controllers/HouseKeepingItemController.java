@@ -24,6 +24,11 @@ public class HouseKeepingItemController {
 	@Autowired
 	private HouseKeepingItemService houseKeepingItemService;
 
+	@GetMapping("/add-housekeepingitem")
+	public String getaddAmenity(Model model) {
+
+		return "housekeepingitems/add";
+	}
 
 	/**
 	 * getHouseKeepingItems
@@ -35,9 +40,9 @@ public class HouseKeepingItemController {
 	public String getHouseKeepingItems(Model model) {
 		List<HouseKeepingItem> houseKeepingItems = houseKeepingItemService.getHouseKeepingItems();
 
-		model.addAttribute("cities", houseKeepingItems);
+		model.addAttribute("items", houseKeepingItems);
 
-		return "houseKeepingItem/cities";
+		return "housekeepingitem/housekeepingitems";
 	}
 
 	/**
@@ -46,11 +51,11 @@ public class HouseKeepingItemController {
 	 * @param houseKeepingItem
 	 * @return
 	 */
-	@PostMapping("/addhouseKeepingItem")
+	@PostMapping("/addhousekeepingitem")
 
 	public String addHouseKeepingItem(HouseKeepingItem houseKeepingItem) {
 		houseKeepingItemService.save(houseKeepingItem);
-		return "redirect:/cities";
+		return "redirect:/housekeepingitems";
 	}
 
 	/**
@@ -60,7 +65,7 @@ public class HouseKeepingItemController {
 	 * @param model
 	 * @return
 	 */
-	@RequestMapping("/houseKeepingItem/{id}")
+	@RequestMapping("/housekeepingitem/{id}")
 	public String findById(@PathVariable("id") int id, Model model) {
 		HouseKeepingItem houseKeepingItem = houseKeepingItemService.findById(id).get();
 		model.addAttribute("houseKeepingItem", houseKeepingItem);
@@ -76,11 +81,11 @@ public class HouseKeepingItemController {
 	 * @param model
 	 * @return
 	 */
-	@PostMapping("/updatehouseKeepingItem/{id}")
+	@PostMapping("/updatehousekeepingitem/{id}")
 	public String updateHouseKeepingItem(@PathVariable("id") long id, @Validated HouseKeepingItem houseKeepingItem, BindingResult result, Model model) {
 
 		houseKeepingItemService.save(houseKeepingItem);
-		return "redirect:/cities";
+		return "redirect:/housekeepingitems";
 	}
 
 	/**
@@ -89,10 +94,10 @@ public class HouseKeepingItemController {
 	 * @param id
 	 * @return
 	 */
-	@GetMapping("/deletehouseKeepingItem/{id}")
+	@GetMapping("/deletehousekeepingitem/{id}")
 	@Transactional
 	public String deleteHouseKeepingItem(@PathVariable("id") Long id) {
 		houseKeepingItemService.delete(id);
-		return "redirect:/cities";
+		return "redirect:/housekeepingitems";
 	}
 }

@@ -25,6 +25,10 @@ public class RoomController {
 	@Autowired
 	private RoomService roomService;
 
+	@GetMapping("/add-room")
+	public String getaddRoom(Model model) {
+		return "room/add";
+	}
 
 	/**
 	 * getRooms
@@ -36,10 +40,10 @@ public class RoomController {
 	public String getRooms(Model model) {
 		List<Room> rooms = roomService.getRooms();
 	
-		model.addAttribute("cities", rooms);
+		model.addAttribute("items", rooms);
 	
 
-		return "room/cities";
+		return "room/rooms";
 	}
 
 	/**
@@ -52,7 +56,7 @@ public class RoomController {
 
 	public String addRoom(Room room) {
 		roomService.save(room);
-		return "redirect:/cities";
+		return "redirect:/rooms";
 	}
 
 	/**
@@ -82,7 +86,7 @@ public class RoomController {
 	public String updateRoom(@PathVariable("id") long id, @Validated Room room, BindingResult result, Model model) {
 
 		roomService.save(room);
-		return "redirect:/cities";
+		return "redirect:/rooms";
 	}
 
 	/**
@@ -95,6 +99,6 @@ public class RoomController {
 	@Transactional
 	public String deleteRoom(@PathVariable("id") Long id) {
 		roomService.delete(id);
-		return "redirect:/cities";
+		return "redirect:/rooms";
 	}
 }

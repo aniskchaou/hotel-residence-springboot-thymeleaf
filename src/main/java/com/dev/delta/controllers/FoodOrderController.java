@@ -25,6 +25,12 @@ public class FoodOrderController {
 	@Autowired
 	private FoodOrderService foodOrderService;
 
+	
+	@GetMapping("/add-foodorder")
+	public String getaddAmenity(Model model) {
+		return "foodorder/add";
+	}
+	
 	/**
 	 * getFoodOrders
 	 * 
@@ -35,9 +41,9 @@ public class FoodOrderController {
 	public String getFoodOrders(Model model) {
 		List<FoodOrder> foodOrders = foodOrderService.getFoodOrders();
 	
-		model.addAttribute("cities", foodOrders);
+		model.addAttribute("items", foodOrders);
 	
-		return "foodOrder/cities";
+		return "foodorder/foodorders";
 	}
 
 	/**
@@ -46,11 +52,11 @@ public class FoodOrderController {
 	 * @param foodOrder
 	 * @return
 	 */
-	@PostMapping("/addfoodOrder")
+	@PostMapping("/addfoodorder")
 
 	public String addFoodOrder(FoodOrder foodOrder) {
 		foodOrderService.save(foodOrder);
-		return "redirect:/cities";
+		return "redirect:/foodorders";
 	}
 
 	/**
@@ -76,11 +82,11 @@ public class FoodOrderController {
 	 * @param model
 	 * @return
 	 */
-	@PostMapping("/updatefoodOrder/{id}")
+	@PostMapping("/updatefoodorder/{id}")
 	public String updateFoodOrder(@PathVariable("id") long id, @Validated FoodOrder foodOrder, BindingResult result, Model model) {
 
 		foodOrderService.save(foodOrder);
-		return "redirect:/cities";
+		return "redirect:/foodorders";
 	}
 
 	/**
@@ -89,11 +95,11 @@ public class FoodOrderController {
 	 * @param id
 	 * @return
 	 */
-	@GetMapping("/deletefoodOrder/{id}")
+	@GetMapping("/deletefoodorder/{id}")
 	@Transactional
 	public String deleteFoodOrder(@PathVariable("id") Long id) {
 		foodOrderService.delete(id);
-		return "redirect:/cities";
+		return "redirect:/foodorders";
 	}
 
 

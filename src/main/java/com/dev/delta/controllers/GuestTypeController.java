@@ -25,6 +25,11 @@ public class GuestTypeController {
 	@Autowired
 	private GuestTypeService guesTypeService;
 
+	@GetMapping("/add-guesttype")
+	public String getaddGuestType(Model model) {
+
+		return "guesttype/add";
+	}
 	
 	/**
 	 * getGuestTypes
@@ -36,9 +41,9 @@ public class GuestTypeController {
 	public String getGuestTypes(Model model) {
 		List<GuestType> guesTypes = guesTypeService.getGuestTypes();
 
-		model.addAttribute("cities", guesTypes);
+		model.addAttribute("items", guesTypes);
 	
-		return "guesType/cities";
+		return "guesttype/guesttypes";
 	}
 
 	/**
@@ -47,11 +52,11 @@ public class GuestTypeController {
 	 * @param guesType
 	 * @return
 	 */
-	@PostMapping("/addguesType")
+	@PostMapping("/addguestype")
 
 	public String addGuestType(GuestType guesType) {
 		guesTypeService.save(guesType);
-		return "redirect:/cities";
+		return "redirect:/guesttypes";
 	}
 
 	/**
@@ -77,11 +82,11 @@ public class GuestTypeController {
 	 * @param model
 	 * @return
 	 */
-	@PostMapping("/updateguesType/{id}")
+	@PostMapping("/updateguestype/{id}")
 	public String updateGuestType(@PathVariable("id") long id, @Validated GuestType guesType, BindingResult result, Model model) {
 
 		guesTypeService.save(guesType);
-		return "redirect:/cities";
+		return "redirect:/guesttypes";
 	}
 
 	/**
@@ -90,10 +95,10 @@ public class GuestTypeController {
 	 * @param id
 	 * @return
 	 */
-	@GetMapping("/deleteguesType/{id}")
+	@GetMapping("/deleteguestype/{id}")
 	@Transactional
 	public String deleteGuestType(@PathVariable("id") Long id) {
 		guesTypeService.delete(id);
-		return "redirect:/cities";
+		return "redirect:/guesttypes";
 	}
 }

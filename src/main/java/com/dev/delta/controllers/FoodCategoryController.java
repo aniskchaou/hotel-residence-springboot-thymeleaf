@@ -25,6 +25,10 @@ public class FoodCategoryController {
 	@Autowired
 	private FoodCategoryService foodCategoryService;
 
+	@GetMapping("/add-foodcategory")
+	public String getaddAmenity(Model model) {
+       return "foodcategory/add";
+	}
 
 	/**
 	 * getFoodCategorys
@@ -36,9 +40,9 @@ public class FoodCategoryController {
 	public String getFoodCategorys(Model model) {
 		List<FoodCategory> foodCategorys = foodCategoryService.getFoodCategorys();
 	
-		model.addAttribute("cities", foodCategorys);
+		model.addAttribute("items", foodCategorys);
 	
-		return "foodCategory/cities";
+		return "foodcategory/foodcategories";
 	}
 
 	/**
@@ -47,11 +51,11 @@ public class FoodCategoryController {
 	 * @param foodCategory
 	 * @return
 	 */
-	@PostMapping("/addfoodCategory")
+	@PostMapping("/addfoodcategory")
 
 	public String addFoodCategory(FoodCategory foodCategory) {
 		foodCategoryService.save(foodCategory);
-		return "redirect:/cities";
+		return "redirect:/foodcategories";
 	}
 
 	/**
@@ -61,7 +65,7 @@ public class FoodCategoryController {
 	 * @param model
 	 * @return
 	 */
-	@RequestMapping("/foodCategory/{id}")
+	@RequestMapping("/foodcategory/{id}")
 	public String findById(@PathVariable("id") int id, Model model) {
 		FoodCategory foodCategory = foodCategoryService.findById(id).get();
 		model.addAttribute("foodCategory", foodCategory);
@@ -77,11 +81,11 @@ public class FoodCategoryController {
 	 * @param model
 	 * @return
 	 */
-	@PostMapping("/updatefoodCategory/{id}")
+	@PostMapping("/updatefoodcategory/{id}")
 	public String updateFoodCategory(@PathVariable("id") long id, @Validated FoodCategory foodCategory, BindingResult result, Model model) {
 
 		foodCategoryService.save(foodCategory);
-		return "redirect:/cities";
+		return "redirect:/foodcategories";
 	}
 
 	/**
@@ -90,11 +94,11 @@ public class FoodCategoryController {
 	 * @param id
 	 * @return
 	 */
-	@GetMapping("/deletefoodCategory/{id}")
+	@GetMapping("/deletefoodcategory/{id}")
 	@Transactional
 	public String deleteFoodCategory(@PathVariable("id") Long id) {
 		foodCategoryService.delete(id);
-		return "redirect:/cities";
+		return "redirect:/foodcategories";
 	}
 	
 }

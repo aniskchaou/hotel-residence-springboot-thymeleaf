@@ -1,0 +1,79 @@
+    <div class="menu-inner" th:fragment="menu">
+                    <nav>
+                        <ul class="metismenu" id="menu">
+                           <li><a href="invoice.html"><i class="ti-receipt"></i> <span>Dashboard</span></a></li>
+                            <li>
+                                <a href="javascript:void(0)" aria-expanded="true"><i class="ti-layout-sidebar-left"></i><span>Check Ins
+                                    </span></a>
+                                <ul class="collapse">
+                                    <li><a th:href="@{/checkins}">Check In</a></li>
+                                    <li><a th:href="@{/customers}">Customer</a></li>
+                                     <li><a th:href="@{/guesttypes}">Guest Types</a></li>
+                                 
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)" aria-expanded="true"><i class="ti-pie-chart"></i><span>Rooms</span></a>
+                                <ul class="collapse">
+                                    <li><a th:href="@{/rooms}">Rooms</a></li>
+                                    <li><a th:href="@{/roomtypes}">Romm Types</a></li>
+                                    <li><a th:href="@{/amenities}">Amenity</a></li>
+                                    <li><a th:href="@{/extrabeds}">Extra Beds</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)" aria-expanded="true"><i class="ti-palette"></i><span>Foods</span></a>
+                                <ul class="collapse">
+                                    <li><a th:href="@{/foods}">Food</a></li>
+                                    <li><a th:href="@{/foodorders}">Food Order</a></li>
+                                    <li><a th:href="@{/foodcategories}">Food Category</a></li>
+                                    
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)" aria-expanded="true"><i class="ti-slice"></i><span>Employees</span></a>
+                                <ul class="collapse">
+                                    <li><a th:href="@{/employees}">Employees</a></li>
+                                    <li><a th:href="@{/departements}">Departement</a></li>
+                                     <li><a th:href="@{/designations}">Designation</a></li>
+                                      <li><a th:href="@{/shifts}">Shift</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)" aria-expanded="true"><i class="fa fa-table"></i>
+                                    <span>House keping</span></a>
+                                <ul class="collapse">
+                                    <li><a th:href="@{/housekeepings}">House keping</a></li>
+                                    <li><a th:href="@{/housekeepingitems}">House Keeping Items</a></li>
+                                </ul>
+                            </li>
+                           
+                            
+                            <li>
+                                <a href="javascript:void(0)" aria-expanded="true"><i class="ti-layers-alt"></i> <span>Expense</span></a>
+                                <ul class="collapse">
+                                    <li><a th:href="@{/expenses}">Expense</a></li>
+                                    <li><a th:href="@{/expensecategory}">Expense Category</a></li>
+                                  
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)" aria-expanded="true"><i class="fa fa-exclamation-triangle"></i>
+                                    <span>Payment</span></a>
+                                <ul class="collapse">
+                                    <li><a th:href="@{/payments}">Payment</a></li>
+                                    <li><a th:href="@{/paymentmethods}">Payment Method</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)" aria-expanded="true"><i class="fa fa-align-left"></i> Utilities<span>
+                                </span></a>
+                                <ul class="collapse">
+                                    <li><a th:href="@{/cities}">City</a></li>
+                                    <li><a th:href="@{/countries}">Country</a></li>
+                                </ul>
+                            </li>
+                             <li><a th:href="@{/settings}"><i class="ti-map-alt"></i> <span>Settings</span></a></li>
+                        </ul>
+                    </nav>
+                </div>

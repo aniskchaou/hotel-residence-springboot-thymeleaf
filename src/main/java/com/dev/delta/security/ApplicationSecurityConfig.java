@@ -33,7 +33,7 @@ public class ApplicationSecurityConfig extends WebSecurityConfigurerAdapter {
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		http.csrf().disable().authorizeRequests()
-				.antMatchers("/login", "/resources/**", "/css/**", "/fonts/**", "/img/**").permitAll()
+				.antMatchers("/login", "/resources/**", "/css/**", "/fonts/**", "/img/**","/assets/**").permitAll()
 				.antMatchers("/register", "/resources/**", "/css/**", "/fonts/**", "/img/**", "/js/**", "/dist/**",
 						"/plugins/**")
 				.permitAll().antMatchers("/adduser").permitAll().anyRequest().authenticated().and().formLogin()

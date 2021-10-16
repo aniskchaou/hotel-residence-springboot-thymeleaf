@@ -25,6 +25,10 @@ public class ShiftController {
 	@Autowired
 	private ShiftService shiftService;
 
+	@GetMapping("/add-shift")
+	public String getaddShift(Model model) {
+		return "shift/add";
+	}
 
 	/**
 	 * getShifts
@@ -36,9 +40,9 @@ public class ShiftController {
 	public String getShifts(Model model) {
 		List<Shift> shifts = shiftService.getShifts();
 
-		model.addAttribute("cities", shifts);
+		model.addAttribute("items", shifts);
 	
-		return "shift/cities";
+		return "shift/shifts";
 	}
 
 	/**
@@ -51,7 +55,7 @@ public class ShiftController {
 
 	public String addShift(Shift shift) {
 		shiftService.save(shift);
-		return "redirect:/cities";
+		return "redirect:/shifts";
 	}
 
 	/**
@@ -81,7 +85,7 @@ public class ShiftController {
 	public String updateShift(@PathVariable("id") long id, @Validated Shift shift, BindingResult result, Model model) {
 
 		shiftService.save(shift);
-		return "redirect:/cities";
+		return "redirect:/shifts";
 	}
 
 	/**
@@ -94,6 +98,6 @@ public class ShiftController {
 	@Transactional
 	public String deleteShift(@PathVariable("id") Long id) {
 		shiftService.delete(id);
-		return "redirect:/cities";
+		return "redirect:/shifts";
 	}
 }

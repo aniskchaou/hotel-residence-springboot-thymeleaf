@@ -25,6 +25,10 @@ public class DepartementController {
 	@Autowired
 	private DepartementService departementService;
 
+	@GetMapping("/add-departement")
+	public String getaddDepartement(Model model) {
+		return "departement/add";
+	}
 	
 	/**
 	 * getDepartements
@@ -35,9 +39,9 @@ public class DepartementController {
 	@GetMapping("/departements")
 	public String getDepartements(Model model) {
 		List<Departement> departements = departementService.getDepartements();
-		model.addAttribute("cities", departements);
+		model.addAttribute("items", departements);
 
-		return "departement/cities";
+		return "departement/departements";
 	}
 
 	/**
@@ -50,7 +54,7 @@ public class DepartementController {
 
 	public String addDepartement(Departement departement) {
 		departementService.save(departement);
-		return "redirect:/cities";
+		return "redirect:/departements";
 	}
 
 	/**
@@ -80,7 +84,7 @@ public class DepartementController {
 	public String updateDepartement(@PathVariable("id") long id, @Validated Departement departement, BindingResult result, Model model) {
 
 		departementService.save(departement);
-		return "redirect:/cities";
+		return "redirect:/departements";
 	}
 
 	/**
@@ -93,6 +97,6 @@ public class DepartementController {
 	@Transactional
 	public String deleteDepartement(@PathVariable("id") Long id) {
 		departementService.delete(id);
-		return "redirect:/cities";
+		return "redirect:/departements";
 	}
 }

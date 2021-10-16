@@ -27,6 +27,13 @@ public class CountryController {
 	private CountryService countryService;
 
 	
+	@GetMapping("/add-country")
+	public String getaddAmenity(Model model) {
+		
+		return "country/add";
+	}
+	
+	
 	/**
 	 * getCountrys
 	 * 
@@ -37,9 +44,9 @@ public class CountryController {
 	public String getCountrys(Model model) {
 		List<Country> countrys = countryService.getCountrys();
 		
-		model.addAttribute("cities", countrys);
+		model.addAttribute("items", countrys);
 		
-		return "country/cities";
+		return "country/countries";
 	}
 
 	/**
@@ -52,7 +59,7 @@ public class CountryController {
 
 	public String addCountry(Country country) {
 		countryService.save(country);
-		return "redirect:/cities";
+		return "redirect:/countries";
 	}
 
 	/**
@@ -82,7 +89,7 @@ public class CountryController {
 	public String updateCountry(@PathVariable("id") long id, @Validated Country country, BindingResult result, Model model) {
 
 		countryService.save(country);
-		return "redirect:/cities";
+		return "redirect:/countries";
 	}
 
 	/**
@@ -95,6 +102,6 @@ public class CountryController {
 	@Transactional
 	public String deleteCountry(@PathVariable("id") Long id) {
 		countryService.delete(id);
-		return "redirect:/cities";
+		return "redirect:/countries";
 	}
 }

@@ -25,6 +25,11 @@ public class RoomTypeController {
 	@Autowired
 	private RoomTypeService roomTypeService;
 
+	@GetMapping("/add-roomtype")
+	public String getaddRoomType(Model model) {
+
+		return "roomtypes/add";
+	}
 
 	/**
 	 * getRoomTypes
@@ -36,9 +41,9 @@ public class RoomTypeController {
 	public String getRoomTypes(Model model) {
 		List<RoomType> roomTypes = roomTypeService.getRoomTypes();
 	
-		model.addAttribute("cities", roomTypes);
+		model.addAttribute("items", roomTypes);
 	
-		return "roomType/cities";
+		return "roomType/roomtypes";
 	}
 
 	/**
@@ -47,11 +52,11 @@ public class RoomTypeController {
 	 * @param roomType
 	 * @return
 	 */
-	@PostMapping("/addroomType")
+	@PostMapping("/addroomtype")
 
 	public String addRoomType(RoomType roomType) {
 		roomTypeService.save(roomType);
-		return "redirect:/cities";
+		return "redirect:/roomtypes";
 	}
 
 	/**
@@ -77,11 +82,11 @@ public class RoomTypeController {
 	 * @param model
 	 * @return
 	 */
-	@PostMapping("/updateroomType/{id}")
+	@PostMapping("/updateroomtype/{id}")
 	public String updateRoomType(@PathVariable("id") long id, @Validated RoomType roomType, BindingResult result, Model model) {
 
 		roomTypeService.save(roomType);
-		return "redirect:/cities";
+		return "redirect:/roomtypes";
 	}
 
 	/**
@@ -90,10 +95,10 @@ public class RoomTypeController {
 	 * @param id
 	 * @return
 	 */
-	@GetMapping("/deleteroomType/{id}")
+	@GetMapping("/deleteroomtype/{id}")
 	@Transactional
 	public String deleteRoomType(@PathVariable("id") Long id) {
 		roomTypeService.delete(id);
-		return "redirect:/cities";
+		return "redirect:/roomtypes";
 	}
 }

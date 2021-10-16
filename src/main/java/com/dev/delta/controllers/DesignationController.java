@@ -25,6 +25,11 @@ public class DesignationController {
 	@Autowired
 	private DesignationService designationService;
 
+	@GetMapping("/add-designation")
+	public String getaddDesignation(Model model) {
+		return "designation/add";
+	}
+	
 	/**
 	 * getDesignations
 	 * 
@@ -35,9 +40,9 @@ public class DesignationController {
 	public String getDesignations(Model model) {
 		List<Designation> designations = designationService.getDesignations();
 
-		model.addAttribute("cities", designations);
+		model.addAttribute("items", designations);
 
-		return "designation/cities";
+		return "designation/designations";
 	}
 
 	/**
@@ -50,7 +55,7 @@ public class DesignationController {
 
 	public String addDesignation(Designation designation) {
 		designationService.save(designation);
-		return "redirect:/cities";
+		return "redirect:/designations";
 	}
 
 	/**
@@ -80,7 +85,7 @@ public class DesignationController {
 	public String updateDesignation(@PathVariable("id") long id, @Validated Designation designation, BindingResult result, Model model) {
 
 		designationService.save(designation);
-		return "redirect:/cities";
+		return "redirect:/designations";
 	}
 
 	/**
@@ -93,6 +98,6 @@ public class DesignationController {
 	@Transactional
 	public String deleteDesignation(@PathVariable("id") Long id) {
 		designationService.delete(id);
-		return "redirect:/cities";
+		return "redirect:/designations";
 	}
 }

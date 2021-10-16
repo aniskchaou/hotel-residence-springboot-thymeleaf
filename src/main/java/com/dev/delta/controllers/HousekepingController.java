@@ -25,6 +25,11 @@ public class HousekepingController {
 	@Autowired
 	private HousekepingService housekeepingService;
 
+	@GetMapping("/add-housekeeping")
+	public String getaddHouseKeeping(Model model) {
+
+		return "housekeeping/add";
+	}
 	
 	/**
 	 * getHousekeepings
@@ -36,9 +41,9 @@ public class HousekepingController {
 	public String getHousekeepings(Model model) {
 		List<Housekeping> housekeepings = housekeepingService.getHousekeepings();
 		
-		model.addAttribute("cities", housekeepings);
+		model.addAttribute("items", housekeepings);
 	
-		return "housekeeping/cities";
+		return "housekeeping/housekeepings";
 	}
 
 	/**
@@ -51,7 +56,7 @@ public class HousekepingController {
 
 	public String addHousekeeping(Housekeping housekeeping) {
 		housekeepingService.save(housekeeping);
-		return "redirect:/cities";
+		return "redirect:/housekeepings";
 	}
 
 	/**
@@ -81,7 +86,7 @@ public class HousekepingController {
 	public String updateHousekeeping(@PathVariable("id") long id, @Validated Housekeping housekeeping, BindingResult result, Model model) {
 
 		housekeepingService.save(housekeeping);
-		return "redirect:/cities";
+		return "redirect:/housekeepings";
 	}
 
 	/**
@@ -94,6 +99,6 @@ public class HousekepingController {
 	@Transactional
 	public String deleteHousekeeping(@PathVariable("id") Long id) {
 		housekeepingService.delete(id);
-		return "redirect:/cities";
+		return "redirect:/housekeepings";
 	}
 }

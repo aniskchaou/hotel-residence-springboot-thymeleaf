@@ -25,6 +25,14 @@ public class AmenityController {
 	@Autowired
 	private AmenityService amenityService;
 
+	@GetMapping("/add-amenity")
+	public String getaddAmenity(Model model) {
+		List<Amenity> amenitys = amenityService.getAmenitys();
+		
+		model.addAttribute("cities", amenitys);
+		
+		return "amenity/add";
+	}
 	
 	/**
 	 * getAmenitys
@@ -36,9 +44,9 @@ public class AmenityController {
 	public String getAmenitys(Model model) {
 		List<Amenity> amenitys = amenityService.getAmenitys();
 		
-		model.addAttribute("cities", amenitys);
+		model.addAttribute("items", amenitys);
 		
-		return "amenity/cities";
+		return "amenity/amenities";
 	}
 
 	/**
@@ -51,7 +59,7 @@ public class AmenityController {
 
 	public String addAmenity(Amenity amenity) {
 		amenityService.save(amenity);
-		return "redirect:/cities";
+		return "redirect:/amenities";
 	}
 
 	/**
@@ -81,7 +89,7 @@ public class AmenityController {
 	public String updateAmenity(@PathVariable("id") long id, @Validated Amenity amenity, BindingResult result, Model model) {
 
 		amenityService.save(amenity);
-		return "redirect:/cities";
+		return "redirect:/amenities";
 	}
 
 	/**
@@ -94,7 +102,7 @@ public class AmenityController {
 	@Transactional
 	public String deleteAmenity(@PathVariable("id") Long id) {
 		amenityService.delete(id);
-		return "redirect:/cities";
+		return "redirect:/amenities";
 	}
 	
 }

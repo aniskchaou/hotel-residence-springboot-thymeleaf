@@ -26,6 +26,11 @@ public class FoodController {
 	private FoodService foodService;
 
 
+	@GetMapping("/add-food")
+	public String getaddFood(Model model) {
+		return "food/add";
+	}
+	
 	/**
 	 * getFoods
 	 * 
@@ -35,9 +40,9 @@ public class FoodController {
 	@GetMapping("/foods")
 	public String getFoods(Model model) {
 		List<Food> foods = foodService.getFoods();
-		model.addAttribute("cities", foods);
+		model.addAttribute("items", foods);
 		
-		return "food/cities";
+		return "food/foods";
 	}
 
 	/**
@@ -50,7 +55,7 @@ public class FoodController {
 
 	public String addFood(Food food) {
 		foodService.save(food);
-		return "redirect:/cities";
+		return "redirect:/foods";
 	}
 
 	/**
@@ -80,7 +85,7 @@ public class FoodController {
 	public String updateFood(@PathVariable("id") long id, @Validated Food food, BindingResult result, Model model) {
 
 		foodService.save(food);
-		return "redirect:/cities";
+		return "redirect:/foods";
 	}
 
 	/**
@@ -93,6 +98,6 @@ public class FoodController {
 	@Transactional
 	public String deleteFood(@PathVariable("id") Long id) {
 		foodService.delete(id);
-		return "redirect:/cities";
+		return "redirect:/foods";
 	}
 }

@@ -25,6 +25,11 @@ public class CustomerController {
 	@Autowired
 	private CustomerService customerService;
 
+	@GetMapping("/add-customer")
+	public String getaddCustomer(Model model) {
+
+		return "customer/add";
+	}
 	
 	/**
 	 * getCustomers
@@ -36,9 +41,9 @@ public class CustomerController {
 	public String getCustomers(Model model) {
 		List<Customer> customers = customerService.getCustomers();
 
-		model.addAttribute("cities", customers);
+		model.addAttribute("items", customers);
 	
-		return "customer/cities";
+		return "customer/customers";
 	}
 
 	/**
@@ -51,7 +56,7 @@ public class CustomerController {
 
 	public String addCustomer(Customer customer) {
 		customerService.save(customer);
-		return "redirect:/cities";
+		return "redirect:/customers";
 	}
 
 	/**
@@ -81,7 +86,7 @@ public class CustomerController {
 	public String updateCustomer(@PathVariable("id") long id, @Validated Customer customer, BindingResult result, Model model) {
 
 		customerService.save(customer);
-		return "redirect:/cities";
+		return "redirect:/customers";
 	}
 
 	/**
@@ -94,7 +99,7 @@ public class CustomerController {
 	@Transactional
 	public String deleteCustomer(@PathVariable("id") Long id) {
 		customerService.delete(id);
-		return "redirect:/cities";
+		return "redirect:/customers";
 	}
 	
 }

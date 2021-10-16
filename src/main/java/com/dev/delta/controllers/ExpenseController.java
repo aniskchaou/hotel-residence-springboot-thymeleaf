@@ -25,6 +25,10 @@ public class ExpenseController {
 	@Autowired
 	private ExpenseService expenseService;
 
+	@GetMapping("/add-expense")
+	public String getaddExpense(Model model) {
+		return "expense/add";
+	}
 
 	/**
 	 * getExpenses
@@ -36,9 +40,9 @@ public class ExpenseController {
 	public String getExpenses(Model model) {
 		List<Expense> expenses = expenseService.getExpenses();
 		
-		model.addAttribute("cities", expenses);
+		model.addAttribute("items", expenses);
 		
-		return "expense/cities";
+		return "expense/expenses";
 	}
 
 	/**
@@ -51,7 +55,7 @@ public class ExpenseController {
 
 	public String addExpense(Expense expense) {
 		expenseService.save(expense);
-		return "redirect:/cities";
+		return "redirect:/expenses";
 	}
 
 	/**
@@ -81,7 +85,7 @@ public class ExpenseController {
 	public String updateExpense(@PathVariable("id") long id, @Validated Expense expense, BindingResult result, Model model) {
 
 		expenseService.save(expense);
-		return "redirect:/cities";
+		return "redirect:/expenses";
 	}
 
 	/**
@@ -94,6 +98,6 @@ public class ExpenseController {
 	@Transactional
 	public String deleteExpense(@PathVariable("id") Long id) {
 		expenseService.delete(id);
-		return "redirect:/cities";
+		return "redirect:/expenses";
 	}
 }
