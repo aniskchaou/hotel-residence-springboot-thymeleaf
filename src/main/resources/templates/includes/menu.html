@@ -1,7 +1,7 @@
     <div class="menu-inner" th:fragment="menu">
                     <nav>
                         <ul class="metismenu" id="menu">
-                           <li><a href="invoice.html"><i class="ti-receipt"></i> <span>Dashboard</span></a></li>
+                           <li><a th:href="@{/dashboard}"><i class="ti-receipt"></i> <span>Dashboard</span></a></li>
                             <li>
                                 <a href="javascript:void(0)" aria-expanded="true"><i class="ti-layout-sidebar-left"></i><span>Check Ins
                                     </span></a>
@@ -66,6 +66,16 @@
                                 </ul>
                             </li>
                             <li>
+                                <a href="javascript:void(0)" aria-expanded="true"><i class="fa fa-align-left"></i> Webite<span>
+                                </span></a>
+                                <ul class="collapse">
+                                    <li><a th:href="@{/informationsadmin}">Informations</a></li>
+                                    <li><a th:href="@{/blogsadmin}">Blog</a></li>
+                                    <li><a th:href="@{/messagesadmin}">Message</a></li>
+                                    <li><a th:href="@{/homeadmin}">Home</a></li>
+                                </ul>
+                            </li>
+                            <li>
                                 <a href="javascript:void(0)" aria-expanded="true"><i class="fa fa-align-left"></i> Utilities<span>
                                 </span></a>
                                 <ul class="collapse">
@@ -73,7 +83,7 @@
                                     <li><a th:href="@{/countries}">Country</a></li>
                                 </ul>
                             </li>
-                             <li><a th:href="@{/settings}"><i class="ti-map-alt"></i> <span>Settings</span></a></li>
+                            
                         </ul>
                     </nav>
                 </div>
