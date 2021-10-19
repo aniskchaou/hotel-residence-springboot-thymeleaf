@@ -14,8 +14,14 @@ public class Message {
 	String name;
 	String email;
 	String subject;
-	String message;
+	String msg;
 	
+	@Override
+	public String toString() {
+		return "Message [id=" + id + ", name=" + name + ", email=" + email + ", subject=" + subject + ", message="
+				+ msg + "]";
+	}
+
 	public Message() {
 		// TODO Auto-generated constructor stub
 	}
@@ -25,7 +31,7 @@ public class Message {
 		this.name = name;
 		this.email = email;
 		this.subject = subject;
-		this.message = message;
+		this.msg = message;
 	}
 
 	public Long getId() {
@@ -60,13 +66,15 @@ public class Message {
 		this.subject = subject;
 	}
 
-	public String getMessage() {
-		return message;
+	public String getMsg() {
+		return msg;
 	}
 
-	public void setMessage(String message) {
-		this.message = message;
+	public void setMsg(String msg) {
+		this.msg = msg;
 	}
+
+	
 	
 	
 	

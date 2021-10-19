@@ -22,4 +22,10 @@ public class MessageService {
 	public List<Message> getMessages() {
 		return messageRepository.findAll();
 	}
+
+	public void addMessage(Message message) {
+		System.out.println(message.toString());
+		messageRepository.save(message);
+		
+	}
 }

@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 
 import com.dev.delta.entities.Message;
 import com.dev.delta.services.MessageService;
@@ -23,5 +24,13 @@ public class MessageController {
 		model.addAttribute("items", msgs);
 		
 		return "message/messages";
+	}
+	
+	@PostMapping("/addmessage")
+	public String addMessage(Message message) {
+		
+		messageService.addMessage(message);
+		return "website/contact";
+		
 	}
 }

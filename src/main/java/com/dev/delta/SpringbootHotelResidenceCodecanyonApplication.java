@@ -6,6 +6,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import com.dev.delta.dto.AmenityDTO;
+import com.dev.delta.dto.InformationHotelDTO;
 import com.dev.delta.dto.UserDTO;
 
 @SpringBootApplication
@@ -13,6 +14,10 @@ public class SpringbootHotelResidenceCodecanyonApplication implements CommandLin
 
 	@Autowired
 	UserDTO userDTO;
+	
+	@Autowired
+	InformationHotelDTO informationHotelDTO;
+	
 	
 	@Autowired
 	AmenityDTO amenityDTO;
@@ -25,6 +30,7 @@ public class SpringbootHotelResidenceCodecanyonApplication implements CommandLin
 		// TODO Auto-generated method stub
 		userDTO.populate();
 		amenityDTO.populate();
+		informationHotelDTO.populate();
 	}
 
 }
