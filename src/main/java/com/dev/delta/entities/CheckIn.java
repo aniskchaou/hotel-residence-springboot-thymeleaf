@@ -26,34 +26,39 @@ public class CheckIn {
 	@JoinColumn(name = "city_id")
 	City city;
 	String Gender;
-	String Age;
+	String Age="0";
 	String CheckIn;
 	String CheckOut;
-	String DurationofStay;
-	String Adults ;
-	String Kids;
-	String RoomPlan;
-	String BookedBy; 
-	String VehicleNumber;
-	String Remark;
-	String IDNo;
+	String DurationofStay="0";
+	String Adults="0" ;
+	String Kids="0";
+	String RoomPlan="";
+	String BookedBy=""; 
+	String VehicleNumber="000-000-000";
+	String Remark="";
+	String IDNo="00000000000000000";
 	String NameOtherPerson;
 	String GenderOtherPerson;
 	String AgeOtherPerson;
 	String AddressOtherPerson;
-	String IDNoOtherPerson;
-	String AdvancePayment;
+	String IDNoOtherPerson="00000000000000000";
+	String AdvancePayment="0";
+	String Status="Unpaid";
 	
 	public CheckIn() {
 		// TODO Auto-generated constructor stub
 	}
+
+
+	
+	
 
 	public CheckIn(com.dev.delta.entities.GuestType guestType, String fullname, String email, String mobile,
 			String address, com.dev.delta.entities.Country country, City city, String gender, String age,
 			String checkIn, String checkOut, String durationofStay, String adults, String kids, String roomPlan,
 			String bookedBy, String vehicleNumber, String remark, String iDNo, String nameOtherPerson,
 			String genderOtherPerson, String ageOtherPerson, String addressOtherPerson, String iDNoOtherPerson,
-			String advancePayment) {
+			String advancePayment, String status) {
 		super();
 		GuestType = guestType;
 		Fullname = fullname;
@@ -80,7 +85,28 @@ public class CheckIn {
 		AddressOtherPerson = addressOtherPerson;
 		IDNoOtherPerson = iDNoOtherPerson;
 		AdvancePayment = advancePayment;
+		Status = status;
 	}
+
+
+
+
+
+	public String getStatus() {
+		return Status;
+	}
+
+
+
+
+
+	public void setStatus(String status) {
+		Status = status;
+	}
+
+
+
+
 
 	public Long getId() {
 		return id;

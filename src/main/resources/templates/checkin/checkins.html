@@ -114,7 +114,7 @@
 												<th>Email</th>
 												<th>CheckIn</th>
 												<th>CheckOut</th>
-												<th>Duration</th>
+												<th>Status</th>
 												<th></th>
 											</tr>
 										</thead>
@@ -124,13 +124,48 @@
 												<td th:text="${item.Email}"></td>
 												<td th:text="${item.CheckIn}"></td>
 												<td th:text="${item.CheckOut}"></td>
-												<td th:text="${item.DurationofStay}"></td>
-												<td><a type="button" 
+												<td th:text="${item.status}"></td>
+												<td>
+												<a type="button" 
+													class="btn btn-flat btn-primary btn-xs mb-3"
+													th:href="@{/checkin/{id}(id=${item.id}) }"> 
+													<i class="fa fa-eye" aria-hidden="true"></i>
+												</a>
+												
+												<a type="button" 
+													class="btn btn-flat btn-secondary btn-xs mb-3"
+													th:href="@{/invoice/{id}(id=${item.id}) }"> 
+													<i class="fa fa-paper-plane" aria-hidden="true"></i>
+												</a>
+												
+												<a type="button" 
+													class="btn btn-flat btn-success btn-xs mb-3"
+													th:href="@{/sendemail/{id}(id=${item.id}) }"> 
+													<i class="fa fa-file" aria-hidden="true"></i>
+												</a>
+												
+												
+												<a type="button" 
 													onclick="return confirm('Are you sure?') ? true : false;"
 													class="btn btn-flat btn-danger btn-xs mb-3"
 													th:href="@{/deleteamenity/{id}(id=${item.id}) }"> 
 													<i class="fa fa-trash" aria-hidden="true"></i>
-												</a></td>
+												</a>
+												
+												<a type="button" "
+													class="btn btn-flat btn-danger btn-xs mb-3"
+													th:href="@{/foodorder/{id}(id=${item.id}) }"> 
+													<i class="fa fa-utensils" aria-hidden="true"></i>
+												</a>
+												
+												<a type="button" 
+													class="btn btn-flat btn-danger btn-xs mb-3"
+													th:href="@{/deleteamenity/{id}(id=${item.id}) }"> 
+													<i class="fa fa-sign-out-alt" aria-hidden="true"></i>
+												</a>
+												
+												
+												</td>
 											</tr>
 
 										</tbody>

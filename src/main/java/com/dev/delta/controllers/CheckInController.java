@@ -66,7 +66,7 @@ public class CheckInController {
 	 * @param model
 	 * @return
 	 */
-	@RequestMapping("/checkIn/{id}")
+	@RequestMapping("/checkin/{id}")
 	public String findById(@PathVariable("id") int id, Model model) {
 		CheckIn checkIn = checkInService.findById(id).get();
 		model.addAttribute("checkIn", checkIn);

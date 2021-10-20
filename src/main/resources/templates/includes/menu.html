@@ -18,6 +18,7 @@
                                     <li><a th:href="@{/rooms}">Rooms</a></li>
                                     <li><a th:href="@{/roomtypes}">Romm Types</a></li>
                                     <li><a th:href="@{/amenities}">Amenity</a></li>
+                                     <li><a th:href="@{/beds}">Beds</a></li>
                                     <li><a th:href="@{/extrabeds}">Extra Beds</a></li>
                                 </ul>
                             </li>
@@ -58,6 +59,14 @@
                                 </ul>
                             </li>
                             <li>
+                                <a href="javascript:void(0)" aria-expanded="true"><i class="fa fa-align-left"></i> Luandry<span>
+                                </span></a>
+                                <ul class="collapse">
+                                    <li><a th:href="@{/subscribers}">Laundry Orders</a></li>
+                                    <li><a th:href="@{/users}">Laundry Item</a></li>
+                                </ul>
+                            </li>
+                            <li>
                                 <a href="javascript:void(0)" aria-expanded="true"><i class="fa fa-exclamation-triangle"></i>
                                     <span>Payment</span></a>
                                 <ul class="collapse">
@@ -71,8 +80,9 @@
                                 <ul class="collapse">
                                     <li><a th:href="@{/informationsadmin}">Informations</a></li>
                                     <li><a th:href="@{/blogsadmin}">Blog</a></li>
+                                     <li><a th:href="@{/blogsadmin}">Blog Category</a></li>
                                     <li><a th:href="@{/messagesadmin}">Message</a></li>
-                                    <li><a th:href="@{/homeadmin}">Home</a></li>
+                                    <li><a th:href="@{/services}">Services</a></li>
                                 </ul>
                             </li>
                             <li>
@@ -83,6 +93,26 @@
                                     <li><a th:href="@{/countries}">Country</a></li>
                                 </ul>
                             </li>
+                            
+                              <li>
+                                <a href="javascript:void(0)" aria-expanded="true"><i class="fa fa-align-left"></i> Users<span>
+                                </span></a>
+                                <ul class="collapse">
+                                    <li><a th:href="@{/subscribers}">Subscribers</a></li>
+                                    <li><a th:href="@{/users}">Users</a></li>
+                                </ul>
+                            </li>
+                            
+                              <li>
+                                <a href="javascript:void(0)" aria-expanded="true"><i class="fa fa-align-left"></i> Report<span>
+                                </span></a>
+                                <ul class="collapse">
+                                    <li><a th:href="@{/subscribers}">Subscribers</a></li>
+                                    <li><a th:href="@{/users}">Users</a></li>
+                                </ul>
+                            </li>
+                            
+                              
                             
                         </ul>
                     </nav>

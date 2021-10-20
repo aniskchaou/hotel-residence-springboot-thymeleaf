@@ -15,7 +15,7 @@ public class Expense {
 	@ManyToOne
 	@JoinColumn(name = "category_id")
 	ExpenseCategory Category ;
-	String Title;
+	String name;
 	String Amount;
 	String Date;
 	String Remark;
@@ -27,7 +27,7 @@ public class Expense {
 	public Expense(ExpenseCategory category, String title, String amount, String date, String remark) {
 		super();
 		Category = category;
-		Title = title;
+		name = title;
 		Amount = amount;
 		Date = date;
 		Remark = remark;
@@ -49,12 +49,12 @@ public class Expense {
 		Category = category;
 	}
 
-	public String getTitle() {
-		return Title;
+	public String getName() {
+		return name;
 	}
 
-	public void setTitle(String title) {
-		Title = title;
+	public void setName(String title) {
+		name = title;
 	}
 
 	public String getAmount() {
