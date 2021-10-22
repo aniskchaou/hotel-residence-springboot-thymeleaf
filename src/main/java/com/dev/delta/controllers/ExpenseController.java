@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.dev.delta.entities.Expense;
+import com.dev.delta.services.ExpenseCategoryService;
 import com.dev.delta.services.ExpenseService;
 
 @Controller
@@ -25,8 +26,11 @@ public class ExpenseController {
 	@Autowired
 	private ExpenseService expenseService;
 
+	@Autowired
+	private ExpenseCategoryService expenseCategoryService;
 	@GetMapping("/add-expense")
 	public String getaddExpense(Model model) {
+		model.addAttribute("categories",expenseCategoryService.getExpenseCategorys());
 		return "expense/add";
 	}
 

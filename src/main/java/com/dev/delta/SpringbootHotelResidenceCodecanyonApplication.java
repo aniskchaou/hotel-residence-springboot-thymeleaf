@@ -12,6 +12,7 @@ import com.dev.delta.dto.CheckInDTO;
 import com.dev.delta.dto.CityDTO;
 import com.dev.delta.dto.CountryDTO;
 import com.dev.delta.dto.CustomerDTO;
+import com.dev.delta.dto.DesignationDTO;
 import com.dev.delta.dto.ExpenseCategoryDTO;
 import com.dev.delta.dto.ExpenseDTO;
 import com.dev.delta.dto.ExtraBedDTO;
@@ -21,6 +22,7 @@ import com.dev.delta.dto.GuestTypeDTO;
 import com.dev.delta.dto.InformationHotelDTO;
 import com.dev.delta.dto.RoomDTO;
 import com.dev.delta.dto.RoomTypeDTO;
+import com.dev.delta.dto.ShiftDTO;
 import com.dev.delta.dto.UserDTO;
 
 @SpringBootApplication
@@ -77,6 +79,13 @@ public class SpringbootHotelResidenceCodecanyonApplication implements CommandLin
 	@Autowired
 	FoodDTO foodDTO;
 	
+	
+	@Autowired
+	ShiftDTO shiftDTO;
+	
+	@Autowired
+	DesignationDTO designationDTO;
+	
 	public static void main(String[] args) {
 		SpringApplication.run(SpringbootHotelResidenceCodecanyonApplication.class, args);
 	}
@@ -100,6 +109,9 @@ public class SpringbootHotelResidenceCodecanyonApplication implements CommandLin
 	    expenseDTO.populate();
 	    foodCategoryDTO.populate();
 	    foodDTO.populate();
+	    shiftDTO.populate();
+	    designationDTO.populate();
+	   
 	    
 	    
 	}

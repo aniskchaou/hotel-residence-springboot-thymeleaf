@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.dev.delta.entities.Payment;
+import com.dev.delta.services.PaymentMethodService;
 import com.dev.delta.services.PaymentService;
 
 @Controller
@@ -25,12 +26,15 @@ public class PaymentController {
 	@Autowired
 	private PaymentService paymentService;
 
+	@Autowired
+	private PaymentMethodService paymentMethodService;
 
 	@GetMapping("/add-payment")
 	public String getaddPayment(Model model) {
+		model.addAttribute("paymentMethods", paymentMethodService.getPaymentMethods());
 		return "payment/add";
 	}
-	
+
 	/**
 	 * getPayments
 	 * 
@@ -41,7 +45,7 @@ public class PaymentController {
 	public String getPayments(Model model) {
 		List<Payment> payments = paymentService.getPayments();
 		model.addAttribute("items", payments);
-		
+
 		return "payment/payments";
 	}
 
@@ -82,7 +86,8 @@ public class PaymentController {
 	 * @return
 	 */
 	@PostMapping("/updatepayment/{id}")
-	public String updatePayment(@PathVariable("id") long id, @Validated Payment payment, BindingResult result, Model model) {
+	public String updatePayment(@PathVariable("id") long id, @Validated Payment payment, BindingResult result,
+			Model model) {
 
 		paymentService.save(payment);
 		return "redirect:/payments";

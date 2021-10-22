@@ -15,6 +15,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.dev.delta.entities.Customer;
+import com.dev.delta.services.CityService;
+import com.dev.delta.services.CountryService;
 import com.dev.delta.services.CustomerService;
 
 @Controller
@@ -25,8 +27,17 @@ public class CustomerController {
 	@Autowired
 	private CustomerService customerService;
 
+	@Autowired
+	private CityService cityService;
+	
+	@Autowired
+	private CountryService countryService;
+	
 	@GetMapping("/add-customer")
 	public String getaddCustomer(Model model) {
+
+		model.addAttribute("cities", cityService.getCitys());
+		model.addAttribute("countries", countryService.getCountrys());
 
 		return "customer/add";
 	}

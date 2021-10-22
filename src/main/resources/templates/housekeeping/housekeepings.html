@@ -111,13 +111,13 @@
 										<thead class="bg-light text-capitalize">
 											<tr>
 												<th>Room</th>
-												<th>HousekeepingItem</th>
+												<th>House keeping Item</th>
 												<th></th>
 											</tr>
 										</thead>
 										<tbody>
 											<tr th:each="item:${items}">
-												<td th:text="${item.Room}"></td>
+												<td th:text="${item.Room.RoomNo}"></td>
 												<td th:text="${item.HousekeepingItem}"></td>
 												<td><a type="button" 
 													onclick="return confirm('Are you sure?') ? true : false;"

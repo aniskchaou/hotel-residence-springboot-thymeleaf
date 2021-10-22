@@ -72,7 +72,7 @@
                     <div class="col-sm-6 clearfix">
                         <div class="user-profile pull-right">
                             <img class="avatar user-thumb" src="assets/images/author/avatar.png" alt="avatar">
-                            <h4 class="user-name dropdown-toggle" data-toggle="dropdown">Kumkum Rai <i class="fa fa-angle-down"></i></h4>
+                            <h4 class="user-name dropdown-toggle" data-toggle="dropdown" th:text ="${#authentication.getPrincipal().getUsername()}"> <i class="fa fa-angle-down"></i></h4>
                             <div class="dropdown-menu">
                               <a class="dropdown-item" th:href="@{/profile}">Profile</a> <a
 									class="dropdown-item" th:href="@{/settings}">Settings</a> <a
@@ -90,16 +90,16 @@
                         <div class="card">
                           <div class="card-body">
                                         
-                                        <form class="needs-validation" novalidate="" th:action="@{/addamenity}" method="post">
+                                        <form class="needs-validation" novalidate="" th:action="@{/addcountry}" method="post">
                                             <div class="form-row">
                                                 <div class="col-md-4 mb-3">
                                                     <label for="validationCustom01">Name</label>
-                                                    <input name="name" type="text" class="form-control" id="validationCustom01" placeholder="First name"  required="">
+                                                    <input name="name" type="text" class="form-control" id="validationCustom01" placeholder="Name"  required="required">
                                                    
                                                 </div>
                                                 <div class="col-md-4 mb-3">
                                                     <label for="validationCustom02">Status</label>
-                                                    <input name="status" type="text" class="form-control" id="validationCustom02" placeholder="Last name"  required="">
+                                                    <input name="status" type="text" class="form-control" id="validationCustom02" placeholder="Name"  required="required">
                                                    
                                                 </div>
                                             </div>

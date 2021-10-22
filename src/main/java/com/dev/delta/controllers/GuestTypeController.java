@@ -52,7 +52,7 @@ public class GuestTypeController {
 	 * @param guesType
 	 * @return
 	 */
-	@PostMapping("/addguestype")
+	@PostMapping("/addguesttype")
 
 	public String addGuestType(GuestType guesType) {
 		guesTypeService.save(guesType);

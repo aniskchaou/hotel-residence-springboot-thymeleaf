@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.dev.delta.entities.Food;
+import com.dev.delta.services.FoodCategoryService;
 import com.dev.delta.services.FoodService;
 
 @Controller
@@ -25,9 +26,12 @@ public class FoodController {
 	@Autowired
 	private FoodService foodService;
 
+	@Autowired
+	private FoodCategoryService foodCategoryService;
 
 	@GetMapping("/add-food")
 	public String getaddFood(Model model) {
+		model.addAttribute("foodCategories",foodCategoryService.getFoodCategorys());
 		return "food/add";
 	}
 	

@@ -36,7 +36,7 @@ public class PaymentMethodController {
 	 * @param model
 	 * @return
 	 */
-	@GetMapping("/paymentmethod")
+	@GetMapping("/paymentmethods")
 	public String getPaymentMethods(Model model) {
 		List<PaymentMethod> paymentMethods = paymentMethodService.getPaymentMethods();
 		model.addAttribute("items", paymentMethods);

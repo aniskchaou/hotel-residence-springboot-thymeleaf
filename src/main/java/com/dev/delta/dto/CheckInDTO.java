@@ -21,6 +21,8 @@ public class CheckInDTO implements DTO {
 		checkIn.setCheckOut(dt.toString());
 		checkIn.setCity(city);
 		checkIn.setCountry(country);
+		checkIn.setFullname("John Doe");
+		checkIn.setEmail("contact@gmail.com");
 		checkIn.setGuestType(guestType1);
 		checkInService.save(checkIn);
 	}

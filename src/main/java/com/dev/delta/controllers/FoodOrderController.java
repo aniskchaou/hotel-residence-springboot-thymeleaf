@@ -15,7 +15,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.dev.delta.entities.FoodOrder;
+import com.dev.delta.services.CustomerService;
 import com.dev.delta.services.FoodOrderService;
+import com.dev.delta.services.FoodService;
 
 @Controller
 public class FoodOrderController {
@@ -25,9 +27,16 @@ public class FoodOrderController {
 	@Autowired
 	private FoodOrderService foodOrderService;
 
+	@Autowired
+	private CustomerService  customerService;
+	
+	@Autowired
+	private FoodService foodService;
 	
 	@GetMapping("/add-foodorder")
 	public String getaddAmenity(Model model) {
+		model.addAttribute("customers",customerService.getCustomers());
+		model.addAttribute("foods",foodService.getFoods());
 		return "foodorder/add";
 	}
 	

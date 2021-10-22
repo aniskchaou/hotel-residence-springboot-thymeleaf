@@ -27,6 +27,7 @@
     <link rel="stylesheet" href="assets/css/responsive.css">
     <!-- modernizr css -->
     <script src="assets/js/vendor/modernizr-2.8.3.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/css/bootstrap-select.min.css">
 </head>
 
 <body>
@@ -89,18 +90,101 @@
                     <div class="col-12 mt-5">
                         <div class="card">
                           <div class="card-body">
-                                        <form class="needs-validation" novalidate="" th:action="@{/addamenity}" method="post">
-                                            <div class="form-row">
+                                        <form class="needs-validation" novalidate="" th:action="@{/addroomtype}" method="post">
+                                         
+ 
+                                                 <div class="form-row">
                                                 <div class="col-md-4 mb-3">
                                                     <label for="validationCustom01">Name</label>
-                                                    <input name="name" type="text" class="form-control" id="validationCustom01" placeholder="First name"  required="">
+                                                    <input name="Title" type="text" class="form-control" id="validationCustom01" placeholder="Name"  required="required">
+                                                   
+                                                </div>
+                                                <div class="col-md-4 mb-3">
+                                                    <label for="validationCustom02">Short Code</label>
+                                                    <input name="ShortCode" type="text" class="form-control" id="validationCustom02" placeholder="Short Code"  required="required">
+                                                   
+                                                </div>
+                                                  <div class="col-md-4 mb-3">
+                                                    <label for="validationCustom02">Adult Capacity</label>
+                                                    <input name="AdultCapacity" type="number" class="form-control" id="validationCustom02" placeholder="Adult Capacity"  required="required">
+                                                   
+                                                </div>
+                                            </div>
+                                            
+                                              <div class="form-row">
+                                                <div class="col-md-4 mb-3">
+                                                    <label for="validationCustom01">Kids Capacity</label>
+                                                    <input name="KidsCapacity" type="number" class="form-control" id="validationCustom01" placeholder="Kids Capacity"  required="required">
+                                                   
+                                                </div>
+                                                <div class="col-md-4 mb-3">
+                                                    <label for="validationCustom02">Base Price</label>
+                                                    <input name="BasePrice" type="number" class="form-control" id="validationCustom02" placeholder="Base Price" required="required">
+                                                   
+                                                </div>
+                                                  <div class="col-md-4 mb-3">
+                                                    <label for="validationCustom02">Amenity</label>
+                                                   <select name="amenity" data-live-search="true"
+														type="text" class="form-control selectpicker" required="required">
+														<option th:value="${u.id}" th:each="u:${amenities}"
+															th:text="${u.name}"></option>
+													</select>
+													
+                                                </div>
+                                            </div>
+                                            
+                                            
+                                              <div class="form-row">
+                                                <div class="col-md-4 mb-3">
+                                                    <label for="validationCustom01">Air Conditioner</label>
+                                                    <input name="AirConditioner" type="checkbox" class="form-control" id="validationCustom01" placeholder="Air Conditioner"  >
+                                                   
+                                                </div>
+                                                <div class="col-md-4 mb-3">
+                                                    <label for="validationCustom02">Bath Tub</label>
+                                                    <input name="BathTub" type="checkbox" class="form-control" id="validationCustom02" placeholder="Bath Tub"  >
+                                                   
+                                                </div>
+                                                  <div class="col-md-4 mb-3">
+                                                    <label for="validationCustom02">Coffee Maker</label>
+                                                    <input name="CoffeeMaker" type="checkbox" class="form-control" id="validationCustom02" placeholder="Coffee Maker"  >
+                                                   
+                                                </div>
+                                            </div>
+                                            
+                                            
+                                              <div class="form-row">
+                                                <div class="col-md-4 mb-3">
+                                                    <label for="validationCustom01">Double Bed</label>
+                                                    <input name="DoubleBed" type="checkbox" class="form-control" id="validationCustom01" placeholder="Double Bed"  >
+                                                   
+                                                </div>
+                                                <div class="col-md-4 mb-3">
+                                                    <label for="validationCustom02">Free Newspaper</label>
+                                                    <input name="FreeNewspaper" type="checkbox" class="form-control" id="validationCustom02" placeholder="Free Newspaper"  >
+                                                   
+                                                </div>
+                                                  <div class="col-md-4 mb-3">
+                                                    <label for="validationCustom02">Mini Fridge</label>
+                                                    <input name="MiniFridge" type="checkbox" class="form-control" id="validationCustom02" placeholder="Mini Fridge"  >
+                                                   
+                                                </div>
+                                            </div>
+                                            
+                                                <div class="form-row">
+                                                <div class="col-md-4 mb-3">
+                                                    <label for="validationCustom01">Wifi</label>
+                                                    <input name="wifi" type="checkbox" class="form-control" id="validationCustom01" placeholder="Wifi"  >
                                                    
                                                 </div>
                                                 <div class="col-md-4 mb-3">
                                                     <label for="validationCustom02">Status</label>
-                                                    <input name="status" type="text" class="form-control" id="validationCustom02" placeholder="Last name"  required="">
-                                                   
+                                                    <select class="form-control" name="Status">
+                                                     <option value="Active">Active</option>
+                                                     <option value="Inactive">Inactive</option>
+                                                    </select>  
                                                 </div>
+                                              
                                             </div>
                                             <button class="btn btn-primary" type="submit"><i class="fa fa-plus" aria-hidden="true"></i>
                                               Create</button>

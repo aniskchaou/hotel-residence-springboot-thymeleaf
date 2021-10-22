@@ -105,6 +105,22 @@
 									type="button" class="btn btn-rounded btn-success mb-3">
 										<i class="fa fa-plus" aria-hidden="true"></i> Create
 									</a>
+									<a  th:href="@{/customers}"
+									type="button" class="btn btn-rounded btn-primary mb-3">
+										 Customers
+									</a>
+									<a  th:href="@{/foods}"
+									type="button" class="btn btn-rounded btn-info mb-3">
+										 Foods
+									</a>
+									<a  th:href="@{/laundries}"
+									type="button" class="btn btn-rounded btn-secondary mb-3">
+										 Laundries
+									</a>
+									<a  th:href="@{/rooms}"
+									type="button" class="btn btn-rounded btn-warning mb-3">
+										 Rooms
+									</a>
 								</h4>
 								<div class="data-tables">
 									<table id="dataTable" class="text-center">
@@ -127,44 +143,54 @@
 												<td th:text="${item.status}"></td>
 												<td>
 												<a type="button" 
+												 data-toggle="tooltip" data-placement="top" title="view checkin"
 													class="btn btn-flat btn-primary btn-xs mb-3"
 													th:href="@{/checkin/{id}(id=${item.id}) }"> 
-													<i class="fa fa-eye" aria-hidden="true"></i>
+													<i class="fa fa-eye" aria-hidden="true"></i> View checkin
 												</a>
 												
 												<a type="button" 
+												 data-toggle="tooltip" data-placement="top" title="view invoice"
 													class="btn btn-flat btn-secondary btn-xs mb-3"
 													th:href="@{/invoice/{id}(id=${item.id}) }"> 
-													<i class="fa fa-paper-plane" aria-hidden="true"></i>
+													<i class="fa fa-paper-plane" aria-hidden="true"></i> view invoice
 												</a>
 												
 												<a type="button" 
+												data-toggle="tooltip" data-placement="top" title="send mail"
 													class="btn btn-flat btn-success btn-xs mb-3"
 													th:href="@{/sendemail/{id}(id=${item.id}) }"> 
-													<i class="fa fa-file" aria-hidden="true"></i>
+													<i class="fa fa-file" aria-hidden="true"></i> Send Mail
 												</a>
 												
+												<a type="button" 
+												data-toggle="tooltip" data-placement="top" title="add room"
+													class="btn btn-flat btn-warning btn-xs mb-3"
+													th:href="@{/assignroom/{id}(id=${item.id}) }"> 
+													<i class="fa fa-bed"></i> Add Room
+												</a>
 												
 												<a type="button" 
+												data-toggle="tooltip" data-placement="top" title="order laundry"
 													onclick="return confirm('Are you sure?') ? true : false;"
-													class="btn btn-flat btn-danger btn-xs mb-3"
-													th:href="@{/deleteamenity/{id}(id=${item.id}) }"> 
-													<i class="fa fa-trash" aria-hidden="true"></i>
-												</a>
-												
-												<a type="button" "
-													class="btn btn-flat btn-danger btn-xs mb-3"
-													th:href="@{/foodorder/{id}(id=${item.id}) }"> 
-													<i class="fa fa-utensils" aria-hidden="true"></i>
+													class="btn btn-flat btn-info btn-xs mb-3"
+													th:href="@{/orderlaundry/{id}(id=${item.id}) }"> 
+													<i class="fa fa-air-freshener" aria-hidden="true"></i> Order Laundry
 												</a>
 												
 												<a type="button" 
-													class="btn btn-flat btn-danger btn-xs mb-3"
-													th:href="@{/deleteamenity/{id}(id=${item.id}) }"> 
-													<i class="fa fa-sign-out-alt" aria-hidden="true"></i>
+												data-toggle="tooltip" data-placement="top" title="order food"
+													class="btn btn-flat btn-warning btn-xs mb-3"
+													th:href="@{/foodorder/{id}(id=${item.id}) }"> 
+													<i class="fa fa-hamburger" aria-hidden="true"></i> Food Order
 												</a>
 												
-												
+												<a type="button" 
+												data-toggle="tooltip" data-placement="top" title="checkout"
+													class="btn btn-flat btn-primary btn-xs mb-3"
+													th:href="@{/deleteamenity/{id}(id=${item.id}) }"> 
+													<i class="fa fa-sign-out" aria-hidden="true"></i> CheckOut
+												</a>
 												</td>
 											</tr>
 

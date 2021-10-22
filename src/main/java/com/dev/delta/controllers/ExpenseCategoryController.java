@@ -53,7 +53,7 @@ public class ExpenseCategoryController {
 	 * @param expenseCategory
 	 * @return
 	 */
-	@PostMapping("/addexpenseCategory")
+	@PostMapping("/addexpensecategory")
 
 	public String addExpenseCategory(ExpenseCategory expenseCategory) {
 		expenseCategoryService.save(expenseCategory);

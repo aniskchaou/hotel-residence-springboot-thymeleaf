@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 
 import com.dev.delta.entities.Bed;
 import com.dev.delta.services.BedService;
@@ -23,5 +24,16 @@ public class BedController {
 		model.addAttribute("items", beds);
 		
 		return "bed/beds";
+	}
+	
+	@GetMapping("/add-bed")
+	public String getaddBed(Model model) {
+		return "bed/add";
+	}
+	
+	@PostMapping("/addbed")
+	public String addBed(Bed bed) {
+		bedService.save(bed);
+		return "redirect:/beds";
 	}
 }

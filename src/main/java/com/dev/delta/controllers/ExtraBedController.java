@@ -15,7 +15,11 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.dev.delta.entities.ExtraBed;
+import com.dev.delta.services.BedService;
+import com.dev.delta.services.CustomerService;
 import com.dev.delta.services.ExtraBedService;
+import com.dev.delta.services.RoomService;
+import com.dev.delta.services.RoomTypeService;
 
 @Controller
 public class ExtraBedController {
@@ -25,8 +29,25 @@ public class ExtraBedController {
 	@Autowired
 	private ExtraBedService extraBedService;
 
+	@Autowired
+	CustomerService customerService;
+	
+	@Autowired
+	RoomService roomService;
+	
+	@Autowired
+	BedService bedService;
+	
+	@Autowired
+	RoomTypeService roomTypeService;
+	
 	@GetMapping("/add-extrabed")
 	public String getaddExtraBed(Model model) {
+		
+		model.addAttribute("roomTypes", roomTypeService.getRoomTypes());
+		model.addAttribute("customers", customerService.getCustomers());
+		model.addAttribute("rooms", roomService.getRooms());
+		model.addAttribute("beds", bedService.getBeds());
 		return "extrabed/add";
 	}
 	
@@ -52,7 +73,6 @@ public class ExtraBedController {
 	 * @return
 	 */
 	@PostMapping("/addextrabed")
-
 	public String addExtraBed(ExtraBed extraBed) {
 		extraBedService.save(extraBed);
 		return "redirect:/extrabeds";

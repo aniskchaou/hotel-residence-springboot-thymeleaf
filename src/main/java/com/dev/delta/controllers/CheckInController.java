@@ -16,6 +16,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.dev.delta.entities.CheckIn;
 import com.dev.delta.services.CheckInService;
+import com.dev.delta.services.CityService;
+import com.dev.delta.services.CountryService;
+import com.dev.delta.services.GuestTypeService;
+import com.dev.delta.services.RoomTypeService;
 @Controller
 public class CheckInController {
 
@@ -24,10 +28,26 @@ public class CheckInController {
 	 */
 	@Autowired
 	private CheckInService checkInService;
+	
+	@Autowired
+	private CityService cityService;
+	
+	@Autowired
+	private CountryService countryService;
+	
+	@Autowired
+	private GuestTypeService guestTypeService;
+	
+	@Autowired
+	private RoomTypeService roomTypeService;
 
 	@GetMapping("/add-checkin")
 	public String getaddCheckIn(Model model) {
-		
+		model.addAttribute("guestTypes", guestTypeService.getGuestTypes());
+		model.addAttribute("cities", cityService.getCitys());
+		model.addAttribute("countries", countryService.getCountrys());
+		model.addAttribute("guestTypes", guestTypeService.getGuestTypes());
+		model.addAttribute("roomTypes", roomTypeService.getRoomTypes());
 		return "checkin/add";
 	}
 
@@ -45,6 +65,8 @@ public class CheckInController {
 
 		return "checkin/checkins";
 	}
+	
+	
 
 	/**
 	 * addCheckIn
@@ -56,7 +78,17 @@ public class CheckInController {
 
 	public String addCheckIn(CheckIn checkIn) {
 		checkInService.save(checkIn);
+		
 		return "redirect:/checkins";
+	}
+	
+	
+	@PostMapping("/addcheckinuser")
+
+	public String addCheckInUser(CheckIn checkIn) {
+		checkInService.save(checkIn);
+		
+		return "redirect:/";
 	}
 
 	/**

@@ -16,18 +16,17 @@ public class FoodOrder {
 	@JoinColumn(name = "customer_id")
 	Customer customer;
 	String NoofPersons;
-	@ManyToOne
-	@JoinColumn(name = "waiter_id")
-	Employee WaiterName;
+
+	String WaiterName;
 	@ManyToOne
 	@JoinColumn(name = "food_id")
 	Food FoodItem;
-	
+
 	public FoodOrder() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public FoodOrder(Customer customer, String noofPersons, Employee waiterName, Food foodItem) {
+	public FoodOrder(Customer customer, String noofPersons, String waiterName, Food foodItem) {
 		super();
 		this.customer = customer;
 		NoofPersons = noofPersons;
@@ -59,11 +58,11 @@ public class FoodOrder {
 		NoofPersons = noofPersons;
 	}
 
-	public Employee getWaiterName() {
+	public String getWaiterName() {
 		return WaiterName;
 	}
 
-	public void setWaiterName(Employee waiterName) {
+	public void setWaiterName(String waiterName) {
 		WaiterName = waiterName;
 	}
 
@@ -74,7 +73,5 @@ public class FoodOrder {
 	public void setFoodItem(Food foodItem) {
 		FoodItem = foodItem;
 	}
-	
-	
 
 }

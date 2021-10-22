@@ -27,7 +27,7 @@ public class HouseKeepingItemController {
 	@GetMapping("/add-housekeepingitem")
 	public String getaddAmenity(Model model) {
 
-		return "housekeepingitems/add";
+		return "housekeepingitem/add";
 	}
 
 	/**

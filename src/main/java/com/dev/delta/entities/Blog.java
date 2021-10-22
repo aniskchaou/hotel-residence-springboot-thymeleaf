@@ -1,5 +1,8 @@
 package com.dev.delta.entities;
 
+import java.beans.Transient;
+
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -15,9 +18,19 @@ public class Blog {
 	String body;
 	String date;
 	String user;
+	@Column(nullable = true, length = 64)
+    private String photos;
 	
 	public Blog() {
 		// TODO Auto-generated constructor stub
+	}
+
+	public String getPhotos() {
+		return photos;
+	}
+
+	public void setPhotos(String photos) {
+		this.photos = photos;
 	}
 
 	public Blog(String title, String body, String date, String user) {
@@ -28,6 +41,13 @@ public class Blog {
 		this.user = user;
 	}
 
+	@Transient
+    public String getPhotosImagePath() {
+        if (photos == null || id == null) return null;
+         
+        return "/photos/" + id + "/" + photos;
+    }
+	
 	public Long getId() {
 		return id;
 	}

@@ -7,6 +7,7 @@ import com.dev.delta.entities.CheckIn;
 import com.dev.delta.entities.City;
 import com.dev.delta.entities.Country;
 import com.dev.delta.entities.Customer;
+import com.dev.delta.entities.Designation;
 import com.dev.delta.entities.Expense;
 import com.dev.delta.entities.ExpenseCategory;
 import com.dev.delta.entities.ExtraBed;
@@ -17,12 +18,14 @@ import com.dev.delta.entities.InformationHotel;
 import com.dev.delta.entities.Message;
 import com.dev.delta.entities.Room;
 import com.dev.delta.entities.RoomType;
+import com.dev.delta.entities.Shift;
 import com.dev.delta.entities.User;
 import com.github.javafaker.Faker;
 
 public interface DTO {
 	Faker faker = new Faker();
 	public User user = new User();
+	public User user1 = new User();
 	public InformationHotel informationHotel = new InformationHotel();
 	Amenity amenity = new Amenity();
 	Amenity amenity1 = new Amenity();
@@ -49,6 +52,7 @@ public interface DTO {
 	Food food=new Food();
 	FoodCategory foodCategory=new FoodCategory();
 	FoodCategory foodCategory2=new FoodCategory();
-    
+	Shift shift=new Shift();
+    Designation designation=new Designation();
 	public void populate();
 }

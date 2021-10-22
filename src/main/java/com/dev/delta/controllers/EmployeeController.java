@@ -15,7 +15,11 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.dev.delta.entities.Employee;
+import com.dev.delta.services.CityService;
+import com.dev.delta.services.CountryService;
+import com.dev.delta.services.DesignationService;
 import com.dev.delta.services.EmployeeService;
+import com.dev.delta.services.ShiftService;
 
 @Controller
 public class EmployeeController {
@@ -25,8 +29,25 @@ public class EmployeeController {
 	@Autowired
 	private EmployeeService employeeService;
 
+	
+	@Autowired
+	DesignationService designationService;
+	
+	@Autowired
+	private CityService cityService;
+	
+	@Autowired
+	private CountryService countryService;
+	
+	@Autowired
+	private ShiftService  shiftService;
+	
 	@GetMapping("/add-employee")
 	public String getadEmployee(Model model) {
+		model.addAttribute("cities",cityService.getCitys());
+		model.addAttribute("designations",designationService.getDesignations());
+		model.addAttribute("countries",countryService.getCountrys());
+		model.addAttribute("shifts",shiftService.getShifts());
 		return "employee/add";
 	}
 

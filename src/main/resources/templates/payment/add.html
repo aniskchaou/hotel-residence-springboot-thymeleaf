@@ -27,6 +27,8 @@
     <link rel="stylesheet" href="assets/css/responsive.css">
     <!-- modernizr css -->
     <script src="assets/js/vendor/modernizr-2.8.3.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/css/bootstrap-select.min.css">
+    
 </head>
 
 <body>
@@ -88,33 +90,37 @@
                     <!-- data table start -->
                     <div class="col-12 mt-5">
                         <div class="card">
-                                        <form class="needs-validation" novalidate="" th:action="@{/addamenity}" method="post">
+                                        <form class="needs-validation" novalidate="" th:action="@{/addpayment}" method="post">
                                             <div class="form-row">
                                                 <div class="col-md-4 mb-3">
                                                     <label for="validationCustom01">Order Number</label>
-                                                    <input name="OrderNumber" type="text" class="form-control" id="validationCustom01" placeholder="First name"  required="">
+                                                    <input name="OrderNumber" type="number" class="form-control" id="validationCustom01" placeholder="Order Number"  required="">
                                                    
                                                 </div>
                                                 <div class="col-md-4 mb-3">
-                                                    <label for="validationCustom02">InvoiceNumber</label>
-                                                    <input name="InvoiceNumber" type="text" class="form-control" id="validationCustom02" placeholder="Last name"  required="">
+                                                    <label for="validationCustom02">Invoice Number</label>
+                                                    <input name="InvoiceNumber" type="number" class="form-control" id="validationCustom02" placeholder="Invoice Number"  required="">
                                                    
                                                 </div>
                                                  <div class="col-md-4 mb-3">
                                                     <label for="validationCustom02">Date</label>
-                                                    <input name="Date" type="text" class="form-control" id="validationCustom02" placeholder="Last name"  required="">
+                                                    <input name="Date" type="date" class="form-control" id="validationCustom02" placeholder="Date"  required="">
                                                    
                                                 </div>
                                             </div>
                                              <div class="form-row">
                                                 <div class="col-md-4 mb-3">
                                                     <label for="validationCustom01">PaymentMethod</label>
-                                                    <input name="PaymentMethod" type="text" class="form-control" id="validationCustom01" placeholder="First name"  required="">
-                                                   
+                                                   <select name="PaymentMethod" data-live-search="true"
+														type="text" class="form-control selectpicker" required="required">
+														<option th:value="${u.id}" th:each="u:${paymentMethods}"
+															th:text="${u.name}"></option>
+													</select>
+													
                                                 </div>
                                                 <div class="col-md-4 mb-3">
                                                     <label for="validationCustom02">Amount</label>
-                                                    <input name="Amount" type="text" class="form-control" id="validationCustom02" placeholder="Last name"  required="">
+                                                    <input name="Amount" type="number" class="form-control" id="validationCustom02" placeholder="Amount"  required="">
                                                    
                                                 </div>
                                                 

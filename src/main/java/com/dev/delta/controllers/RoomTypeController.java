@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.dev.delta.entities.RoomType;
+import com.dev.delta.services.AmenityService;
 import com.dev.delta.services.RoomTypeService;
 
 @Controller
@@ -25,10 +26,13 @@ public class RoomTypeController {
 	@Autowired
 	private RoomTypeService roomTypeService;
 
+	
+	@Autowired
+	private AmenityService  amenityService;
 	@GetMapping("/add-roomtype")
 	public String getaddRoomType(Model model) {
-
-		return "roomtypes/add";
+		model.addAttribute("amenities", amenityService.getAmenitys());
+		return "roomtype/add";
 	}
 
 	/**

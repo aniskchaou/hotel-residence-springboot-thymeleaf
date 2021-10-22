@@ -16,6 +16,10 @@ public class UserDTO implements DTO {
 		user.setUsername("admin");
 		user.setPassword("admin");
 		userRepository.save(user);
+		
+		user1.setUsername("employee");
+		user1.setPassword("employee");
+		userRepository.save(user1);
 	}
 
 }

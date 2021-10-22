@@ -13,21 +13,12 @@ public class CustomerDTO implements DTO{
 	
 	@Override
 	public void populate() {
-		
-		
-
-		String streetName = faker.address().streetName();
-		String number = faker.address().buildingNumber();
-		//String city = faker.address().city();
-		String country = faker.address().country();
-		customer.setAddress(streetName);
+		customer.setAddress(faker.address().streetName());
 		customer.setCity(city);
 		customer.setMobile(faker.phoneNumber().cellPhone().toString());
 		customer.setFullname(faker.name().fullName());
 		customer.setEmail(faker.internet().emailAddress());
-		customerRepository.save(customer);
-		
-		
+		customerRepository.save(customer);	
 	}
 
 }

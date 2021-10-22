@@ -101,7 +101,7 @@
 						<div class="card">
 							<div class="card-body">
 								<h4 class="header-title">
-									<a  th:href="@{/add-checkin}"
+									<a  th:href="@{/add-blog}"
 									type="button" class="btn btn-rounded btn-success mb-3">
 										<i class="fa fa-plus" aria-hidden="true"></i> Create
 									</a>
@@ -110,6 +110,7 @@
 									<table id="dataTable" class="text-center">
 										<thead class="bg-light text-capitalize">
 											<tr>
+											    <th>Image</th>
 												<th>Subject</th>
 												<th>Date</th>
 												<th></th>
@@ -117,7 +118,8 @@
 										</thead>
 										<tbody>
 											<tr th:each="item:${items}">
-												<td th:text="${item.subject}"></td>
+											    <td><img th:src="@{${'/photos/'+item.photos}}" /></td>
+												<td th:text="${item.title}"></td>
 												<td th:text="${item.date}"></td>
 												<td><a type="button" 
 													onclick="return confirm('Are you sure?') ? true : false;"
@@ -126,9 +128,7 @@
 													<i class="fa fa-trash" aria-hidden="true"></i>
 												</a></td>
 											</tr>
-
-										</tbody>
-										
+										</tbody>		
 									</table>
 								</div>
 							</div>

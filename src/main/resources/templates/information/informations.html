@@ -101,7 +101,7 @@
 						<div class="card">
 							<div class="card-body">
 								<h4 class="header-title">
-									<a  th:href="@{/add-checkin}"
+									<a  th:href="@{/add-hotelinformation}"
 									type="button" class="btn btn-rounded btn-success mb-3">
 										<i class="fa fa-plus" aria-hidden="true"></i> Create
 									</a>
@@ -118,7 +118,7 @@
 										<tbody>
 											<tr th:each="item:${items}">
 												<td th:text="${item.name}"></td>
-												<td th:text="${item.address}"></td>
+												<td th:text="${item.adress}"></td>
 												<td><a type="button" 
 													onclick="return confirm('Are you sure?') ? true : false;"
 													class="btn btn-flat btn-danger btn-xs mb-3"
