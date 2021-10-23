@@ -56,7 +56,6 @@ public class FoodController {
 	 * @return
 	 */
 	@PostMapping("/addfood")
-
 	public String addFood(Food food) {
 		foodService.save(food);
 		return "redirect:/foods";

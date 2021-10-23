@@ -70,10 +70,10 @@
 				<div class="row align-items-center">
 					<div class="col-sm-6">
 						<div class="breadcrumbs-area clearfix">
-							<h4 class="page-title pull-left">Galleries</h4>
+							<h4 class="page-title pull-left">Blog Categories</h4>
 							<ul class="breadcrumbs pull-left">
 								<li><a href="index.html">Home</a></li>
-								<li><span>Galleries</span></li>
+								<li><span>Blog Catagories</span></li>
 							</ul>
 						</div>
 					</div>
@@ -101,7 +101,7 @@
 						<div class="card">
 							<div class="card-body">
 								<h4 class="header-title">
-									<a  th:href="@{/add-gallery}"
+									<a  th:href="@{/add-blogcategory}"
 									type="button" class="btn btn-rounded btn-success mb-3">
 										<i class="fa fa-plus" aria-hidden="true"></i> Create
 									</a>
@@ -110,19 +110,17 @@
 									<table id="dataTable" class="text-center">
 										<thead class="bg-light text-capitalize">
 											<tr>
-												<th>Title</th>
-												<th>SubTitle</th>
+												<th>Name</th>
 												<th></th>
 											</tr>
 										</thead>
 										<tbody>
 											<tr th:each="item:${items}">
-												<td th:text="${item.title}"></td>
-												<td th:text="${item.subTitle}"></td>
+												<td th:text="${item.name}"></td>
 												<td><a type="button" 
 													onclick="return confirm('Are you sure?') ? true : false;"
 													class="btn btn-flat btn-danger btn-xs mb-3"
-													th:href="@{/deletegallery/{id}(id=${item.id}) }"> 
+													th:href="@{/deleteamenity/{id}(id=${item.id}) }"> 
 													<i class="fa fa-trash" aria-hidden="true"></i>
 												</a></td>
 											</tr>

@@ -3,6 +3,7 @@ package com.dev.delta.dto;
 import com.dev.delta.entities.Amenity;
 import com.dev.delta.entities.Bed;
 import com.dev.delta.entities.Blog;
+import com.dev.delta.entities.BlogCategory;
 import com.dev.delta.entities.CheckIn;
 import com.dev.delta.entities.City;
 import com.dev.delta.entities.Country;
@@ -13,6 +14,7 @@ import com.dev.delta.entities.ExpenseCategory;
 import com.dev.delta.entities.ExtraBed;
 import com.dev.delta.entities.Food;
 import com.dev.delta.entities.FoodCategory;
+import com.dev.delta.entities.Gallery;
 import com.dev.delta.entities.GuestType;
 import com.dev.delta.entities.InformationHotel;
 import com.dev.delta.entities.Message;
@@ -54,5 +56,17 @@ public interface DTO {
 	FoodCategory foodCategory2=new FoodCategory();
 	Shift shift=new Shift();
     Designation designation=new Designation();
+    Blog  blog2=new Blog();
+    Blog blog3=new Blog();
+    Blog blog4=new Blog();
+    BlogCategory blogCategory=new BlogCategory();
+    BlogCategory blogCategory1=new BlogCategory();
+    BlogCategory blogCategory2=new BlogCategory();
+    BlogCategory blogCategory3=new BlogCategory();
+    Gallery gallery=new Gallery();
+    Gallery gallery2=new Gallery();
+    Gallery gallery3=new Gallery();
+    Gallery gallery4=new Gallery();
+    
 	public void populate();
 }

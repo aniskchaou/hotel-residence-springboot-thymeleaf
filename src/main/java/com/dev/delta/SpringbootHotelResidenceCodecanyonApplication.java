@@ -7,6 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import com.dev.delta.dto.AmenityDTO;
 import com.dev.delta.dto.BedDTO;
+import com.dev.delta.dto.BlogCategoryDTO;
 import com.dev.delta.dto.BlogDTO;
 import com.dev.delta.dto.CheckInDTO;
 import com.dev.delta.dto.CityDTO;
@@ -18,6 +19,7 @@ import com.dev.delta.dto.ExpenseDTO;
 import com.dev.delta.dto.ExtraBedDTO;
 import com.dev.delta.dto.FoodCategoryDTO;
 import com.dev.delta.dto.FoodDTO;
+import com.dev.delta.dto.GalleryDTO;
 import com.dev.delta.dto.GuestTypeDTO;
 import com.dev.delta.dto.InformationHotelDTO;
 import com.dev.delta.dto.RoomDTO;
@@ -86,6 +88,12 @@ public class SpringbootHotelResidenceCodecanyonApplication implements CommandLin
 	@Autowired
 	DesignationDTO designationDTO;
 	
+	@Autowired
+	BlogCategoryDTO  blogCategoryDTO;
+	
+	@Autowired
+	GalleryDTO  galleryDTO;
+	
 	public static void main(String[] args) {
 		SpringApplication.run(SpringbootHotelResidenceCodecanyonApplication.class, args);
 	}
@@ -93,6 +101,7 @@ public class SpringbootHotelResidenceCodecanyonApplication implements CommandLin
 	@Override
 	public void run(String... args) throws Exception {
 		userDTO.populate();
+		blogCategoryDTO.populate();
 		amenityDTO.populate();
 		informationHotelDTO.populate();
 		roomTypeDTO.populate();
@@ -111,9 +120,7 @@ public class SpringbootHotelResidenceCodecanyonApplication implements CommandLin
 	    foodDTO.populate();
 	    shiftDTO.populate();
 	    designationDTO.populate();
-	   
-	    
-	    
+	    galleryDTO.populate();   
 	}
 
 }

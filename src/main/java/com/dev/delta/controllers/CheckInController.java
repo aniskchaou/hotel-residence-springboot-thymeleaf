@@ -99,10 +99,10 @@ public class CheckInController {
 	 * @return
 	 */
 	@RequestMapping("/checkin/{id}")
-	public String findById(@PathVariable("id") int id, Model model) {
+	public String findById(@PathVariable("id") Long id, Model model) {
 		CheckIn checkIn = checkInService.findById(id).get();
-		model.addAttribute("checkIn", checkIn);
-		return "editActivities";
+		model.addAttribute("item", checkIn);
+		return "checkin/view";
 	}
 
 	/**

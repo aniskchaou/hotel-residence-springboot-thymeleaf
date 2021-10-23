@@ -1,6 +1,8 @@
 package com.dev.delta.controllers;
 
 import java.io.IOException;
+import java.text.ParseException;
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,7 +16,10 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.view.RedirectView;
 
 import com.dev.delta.entities.Blog;
+import com.dev.delta.entities.BlogCategory;
+import com.dev.delta.services.BlogCategoryService;
 import com.dev.delta.services.BlogService;
+import com.dev.delta.util.DateBlogUtil;
 import com.dev.delta.util.FileUploadUtil;
 
 @Controller
@@ -22,6 +27,9 @@ public class BlogController {
 
 	@Autowired
 	BlogService blogService;
+	
+	@Autowired
+	BlogCategoryService blogCategoryService;
 
 	@GetMapping("/blogsadmin")
 	public String getBlogs(Model model) {
@@ -33,15 +41,21 @@ public class BlogController {
 
 	@GetMapping("/add-blog")
 	public String getBlog(Model model) {
+		List<BlogCategory> categories=blogCategoryService.getBlogCategories();
+		model.addAttribute("categories",categories);
 		return "blog/add";
 	}
 
 	@PostMapping("/addblog")
-	public RedirectView saveBlog(Blog blog, @RequestParam("photo") MultipartFile multipartFile) throws IOException {
+	public RedirectView saveBlog(Blog blog, @RequestParam("photo") MultipartFile multipartFile) throws IOException, ParseException {
 
 		String fileName = StringUtils.cleanPath(multipartFile.getOriginalFilename());
-		System.out.println(fileName);
+		//System.out.println(fileName);
 		blog.setPhotos(fileName);
+		Date date=DateBlogUtil.toDate(blog.getDate(), "yyyy-mm-dd");
+		blog.setDay(DateBlogUtil.toDayName(date.getDay()));
+		blog.setMonth(DateBlogUtil.toMonthName(date.getMonth()));
+		//blog.setMonth(fileName);
 		Blog savedBlog = blogService.save(blog);
 		//String uploadDir = "src/main/resources/static/photos/" + savedBlog.getId();
 		String uploadDir = "src/main/resources/static/photos/";

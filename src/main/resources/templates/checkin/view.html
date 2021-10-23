@@ -7,13 +7,13 @@
 <title>Amenities</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="shortcut icon" type="image/png"
-	href="assets/images/icon/favicon.ico">
-<link rel="stylesheet" href="assets/css/bootstrap.min.css">
-<link rel="stylesheet" href="assets/css/font-awesome.min.css">
-<link rel="stylesheet" href="assets/css/themify-icons.css">
-<link rel="stylesheet" href="assets/css/metisMenu.css">
-<link rel="stylesheet" href="assets/css/owl.carousel.min.css">
-<link rel="stylesheet" href="assets/css/slicknav.min.css">
+	href="../assets/images/icon/favicon.ico">
+<link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+<link rel="stylesheet" href="../assets/css/font-awesome.min.css">
+<link rel="stylesheet" href="../assets/css/themify-icons.css">
+<link rel="stylesheet" href="../assets/css/metisMenu.css">
+<link rel="stylesheet" href="../assets/css/owl.carousel.min.css">
+<link rel="stylesheet" href="../assets/css/slicknav.min.css">
 <!-- amcharts css -->
 <link rel="stylesheet"
 	href="https://www.amcharts.com/lib/3/plugins/export/export.css"
@@ -28,12 +28,12 @@
 <link rel="stylesheet" type="text/css"
 	href="https://cdn.datatables.net/responsive/2.2.3/css/responsive.jqueryui.min.css">
 <!-- style css -->
-<link rel="stylesheet" href="assets/css/typography.css">
-<link rel="stylesheet" href="assets/css/default-css.css">
-<link rel="stylesheet" href="assets/css/styles.css">
-<link rel="stylesheet" href="assets/css/responsive.css">
+<link rel="stylesheet" href="../assets/css/typography.css">
+<link rel="stylesheet" href="../assets/css/default-css.css">
+<link rel="stylesheet" href="../assets/css/styles.css">
+<link rel="stylesheet" href="../assets/css/responsive.css">
 <!-- modernizr css -->
-<script src="assets/js/vendor/modernizr-2.8.3.min.js"></script>
+<script src="../assets/js/vendor/modernizr-2.8.3.min.js"></script>
 </head>
 
 <body>
@@ -51,7 +51,7 @@
 		<div class="sidebar-menu">
 			<div class="sidebar-header">
 				<div class="logo">
-					<a th:href="@{/}"><img src="assets/images/icon/logo.png"
+					<a th:href="@{/}"><img src="../assets/images/icon/logo.png"
 						alt="logo"></a>
 				</div>
 			</div>
@@ -70,17 +70,17 @@
 				<div class="row align-items-center">
 					<div class="col-sm-6">
 						<div class="breadcrumbs-area clearfix">
-							<h4 class="page-title pull-left">Galleries</h4>
+							<h4 class="page-title pull-left">Check In</h4>
 							<ul class="breadcrumbs pull-left">
 								<li><a href="index.html">Home</a></li>
-								<li><span>Galleries</span></li>
+								<li><span>Check In</span></li>
 							</ul>
 						</div>
 					</div>
 					<div class="col-sm-6 clearfix">
 						<div class="user-profile pull-right">
 							<img class="avatar user-thumb"
-								src="assets/images/author/avatar.png" alt="avatar">
+								src="../assets/images/author/avatar.png" alt="avatar">
 							<h4 class="user-name dropdown-toggle" data-toggle="dropdown">
 								Admin <i class="fa fa-angle-down"></i>
 							</h4>
@@ -100,61 +100,68 @@
 					<div class="col-12 mt-5">
 						<div class="card">
 							<div class="card-body">
-								<h4 class="header-title">
-									<a  th:href="@{/add-gallery}"
-									type="button" class="btn btn-rounded btn-success mb-3">
-										<i class="fa fa-plus" aria-hidden="true"></i> Create
-									</a>
-								</h4>
 								<div class="data-tables">
+								<h4 class="header-title">
+								<a  th:href="@{/checkins}"
+									type="button" class="btn btn-rounded btn-success mb-3">
+										<i class="fa fa-arrow-left" aria-hidden="true"></i> Back
+									</a>
+									<a  th:href="@{/deleteamenity/{id}(id=${item.id}) }"
+									type="button" class="btn btn-rounded btn-danger mb-3">
+										<i class="fa fa-trash" aria-hidden="true"></i> Remove
+									</a>
+									
+								</h4>
+								
+								
 									<table id="dataTable" class="text-center">
-										<thead class="bg-light text-capitalize">
-											<tr>
-												<th>Title</th>
-												<th>SubTitle</th>
-												<th></th>
-											</tr>
-										</thead>
-										<tbody>
-											<tr th:each="item:${items}">
-												<td th:text="${item.title}"></td>
-												<td th:text="${item.subTitle}"></td>
-												<td><a type="button" 
-													onclick="return confirm('Are you sure?') ? true : false;"
-													class="btn btn-flat btn-danger btn-xs mb-3"
-													th:href="@{/deletegallery/{id}(id=${item.id}) }"> 
-													<i class="fa fa-trash" aria-hidden="true"></i>
-												</a></td>
-											</tr>
-
-										</tbody>
-										
+										<tr>
+											<td><b>Guest Type</b></b></td>
+											<td><p th:text="${item.GuestType}"></p></td>
+										</tr>
+										<tr>
+											<td><b>Fullname</b></b></td>
+											<td><p th:text="${item.Fullname}"></p></td>
+										</tr>
+										<tr>
+											<td><b>Email</b></b></td>
+											<td><p th:text="${item.Email}"></p></td>
+										</tr>
+										<tr>
+											<td><b>Mobile</b></b></td>
+											<td><p th:text="${item.Mobile}"></p></td>
+										</tr>
+										<tr>
+											<td><b>Address</b></b></td>
+											<td><p th:text="${item.Address}"></p></td>
+										</tr>
 									</table>
 								</div>
 							</div>
 						</div>
 					</div>
-					<!-- data table end -->
-					<!-- Primary table start -->
-
-					<!-- Primary table end -->
-					<!-- Dark table start -->
-
-					<!-- Dark table end -->
 				</div>
+				<!-- data table end -->
+				<!-- Primary table start -->
+
+				<!-- Primary table end -->
+				<!-- Dark table start -->
+
+				<!-- Dark table end -->
 			</div>
 		</div>
-		<!-- main content area end -->
-		<!-- footer area start-->
-		<footer>
-			<div th:insert="includes/footer :: footer"></div>
-		</footer>
-		<!-- footer area end-->
+	</div>
+	<!-- main content area end -->
+	<!-- footer area start-->
+	<footer>
+		<div th:insert="includes/footer :: footer"></div>
+	</footer>
+	<!-- footer area end-->
 	</div>
 	<div th:insert="includes/settings :: settings"></div>
 	<!-- page container area end -->
 	<!-- offset area start -->
-	<div th:insert="includes/scripts :: scripts"></div>
+	<div th:insert="includes/scripts2 :: scripts"></div>
 	<!-- offset area end -->
 	<!-- jquery latest version -->
 

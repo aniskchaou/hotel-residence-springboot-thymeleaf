@@ -52,7 +52,7 @@ public class CheckInService {
 	 * @param id
 	 * @return
 	 */
-	public Optional<CheckIn> findById(int id) {
+	public Optional<CheckIn> findById(Long id) {
 		return checkInRepository.findById(id);
 	}
 
