@@ -138,7 +138,7 @@ public class WebsiteController {
 		model.addAttribute("subscriberNB",Integer.toString(subscriberNB) );
 		model.addAttribute("hotel",hotel );
 		
-		return "/home/index";
+		return "home/index";
 	}
 
 	@GetMapping("/")
@@ -157,7 +157,7 @@ public class WebsiteController {
 		model.addAttribute("image", "1");
 		List<Gallery> galleries = galleryService.getGalleries();
 		model.addAttribute("galleries", galleries);
-		return "/website/index";
+		return "website/index";
 	}
 
 	@GetMapping("/about")
@@ -165,7 +165,7 @@ public class WebsiteController {
 		Long id = 1L;
 		InformationHotel informationHotel = informationService.findById(id).get();
 		model.addAttribute("hotel", informationHotel);
-		return "/website/about";
+		return "website/about";
 	}
 
 	@GetMapping("/contact")
@@ -173,7 +173,7 @@ public class WebsiteController {
 		Long id = 1L;
 		InformationHotel informationHotel = informationService.findById(id).get();
 		model.addAttribute("hotel", informationHotel);
-		return "/website/contact";
+		return "website/contact";
 	}
 
 	@GetMapping("/blog")
@@ -185,6 +185,6 @@ public class WebsiteController {
 		List<BlogCategory> blogCategories = blogCategoryService.getBlogCategories();
 		model.addAttribute("items", blogs);
 		model.addAttribute("categories", blogCategories);
-		return "/website/blog";
+		return "website/blog";
 	}
 }
