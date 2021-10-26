@@ -26,4 +26,11 @@ public class BlogCategoryService {
 	public BlogCategory save(BlogCategory blog) {
 		return blogRepository.save(blog);
 	}
+
+	public BlogCategory findById(Long id) {
+		// TODO Auto-generated method stub
+		return blogRepository.getById(id);
+	}
+	
+	
 }

@@ -65,11 +65,11 @@ public class CityController {
 	 * @param model
 	 * @return
 	 */
-	@RequestMapping("/city/{id}")
+	@RequestMapping("/editcity/{id}")
 	public String findById(@PathVariable("id") int id, Model model) {
 		City city = cityService.findById(id).get();
-		model.addAttribute("city", city);
-		return "editActivities";
+		model.addAttribute("item", city);
+		return "city/edit";
 	}
 
 	/**

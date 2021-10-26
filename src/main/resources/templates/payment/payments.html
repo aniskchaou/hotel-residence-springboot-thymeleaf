@@ -122,7 +122,18 @@
 												<td th:text="${item.InvoiceNumber}"></td>
 												<td th:text="${item.Date}"></td>
 												<td th:text="${item.Amount}"></td>
-												<td><a type="button" 
+												<td>
+												<a type="button" 
+													class="btn btn-flat btn-danger btn-xs mb-3"
+													th:href="@{/payment/{id}(id=${item.id}) }"> 
+													<i class="fa fa-eye" aria-hidden="true"></i>
+												</a>
+												<a type="button" 
+													class="btn btn-flat btn-warning btn-xs mb-3"
+													th:href="@{/editpayment/{id}(id=${item.id}) }"> 
+													<i class="fa fa-edit" aria-hidden="true"></i>
+												</a>
+												<a type="button" 
 													onclick="return confirm('Are you sure?') ? true : false;"
 													class="btn btn-flat btn-danger btn-xs mb-3"
 													th:href="@{/deleteamenity/{id}(id=${item.id}) }"> 

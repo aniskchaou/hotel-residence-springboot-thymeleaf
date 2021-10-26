@@ -69,11 +69,11 @@ public class AmenityController {
 	 * @param model
 	 * @return
 	 */
-	@RequestMapping("/amenity/{id}")
-	public String findById(@PathVariable("id") int id, Model model) {
-		Amenity amenity = amenityService.findById(id).get();
-		model.addAttribute("amenity", amenity);
-		return "editActivities";
+	@RequestMapping("/editamenity/{id}")
+	public String findById(@PathVariable("id") Long id, Model model) {
+		Amenity amenity = amenityService.findById(id);
+		model.addAttribute("item", amenity);
+		return "amenity/edit";
 	}
 
 	/**

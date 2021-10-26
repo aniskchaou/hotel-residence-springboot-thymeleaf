@@ -27,4 +27,10 @@ public class BlogService {
 	public Blog save(Blog blog) {
 		return blogRepository.save(blog);
 	}
+
+
+	public Blog findById(Long id) {
+		// TODO Auto-generated method stub
+		return blogRepository.getById(id);
+	}
 }

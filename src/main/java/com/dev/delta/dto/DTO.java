@@ -1,5 +1,6 @@
 package com.dev.delta.dto;
 
+import com.dev.delta.email.EmailSetting;
 import com.dev.delta.entities.Amenity;
 import com.dev.delta.entities.Bed;
 import com.dev.delta.entities.Blog;
@@ -7,6 +8,7 @@ import com.dev.delta.entities.BlogCategory;
 import com.dev.delta.entities.CheckIn;
 import com.dev.delta.entities.City;
 import com.dev.delta.entities.Country;
+import com.dev.delta.entities.Currency;
 import com.dev.delta.entities.Customer;
 import com.dev.delta.entities.Designation;
 import com.dev.delta.entities.Expense;
@@ -18,6 +20,8 @@ import com.dev.delta.entities.Gallery;
 import com.dev.delta.entities.GuestType;
 import com.dev.delta.entities.InformationHotel;
 import com.dev.delta.entities.Message;
+import com.dev.delta.entities.Notification;
+import com.dev.delta.entities.Offer;
 import com.dev.delta.entities.Room;
 import com.dev.delta.entities.RoomType;
 import com.dev.delta.entities.Shift;
@@ -67,6 +71,13 @@ public interface DTO {
     Gallery gallery2=new Gallery();
     Gallery gallery3=new Gallery();
     Gallery gallery4=new Gallery();
+    Offer offer=new Offer();
+    Offer offer2=new Offer();
+    Offer offer3=new Offer();
+    EmailSetting emailSetting=new EmailSetting();
+    Currency currency=new Currency();
+    Notification notification=new Notification();
+    
     
 	public void populate();
 }

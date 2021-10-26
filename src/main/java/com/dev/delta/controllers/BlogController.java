@@ -10,13 +10,17 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.view.RedirectView;
 
+import com.dev.delta.entities.Amenity;
 import com.dev.delta.entities.Blog;
 import com.dev.delta.entities.BlogCategory;
+import com.dev.delta.entities.CheckIn;
 import com.dev.delta.services.BlogCategoryService;
 import com.dev.delta.services.BlogService;
 import com.dev.delta.util.DateBlogUtil;
@@ -64,5 +68,19 @@ public class BlogController {
 		FileUploadUtil.saveFile(uploadDir, fileName, multipartFile);
 
 		return new RedirectView("/blogsadmin", true);
+	}
+	
+	@RequestMapping("/blog/{id}")
+	public String findById(@PathVariable("id") Long id, Model model) {
+		Blog blog = blogService.findById(id);
+		model.addAttribute("item", blog);
+		return "blog/view";
+	}
+	
+	@RequestMapping("/editblog/{id}")
+	public String findBlogById(@PathVariable("id") Long id, Model model) {
+		Blog blog = blogService.findById(id);
+		model.addAttribute("item", blog);
+		return "blog/edit";
 	}
 }

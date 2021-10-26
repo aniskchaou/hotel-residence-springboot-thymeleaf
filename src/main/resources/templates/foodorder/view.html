@@ -108,27 +108,22 @@
 								</h4>
 								<div class="data-tables">
 									<table id="dataTable" class="text-center">
-										<thead class="bg-light text-capitalize">
-											<tr>
-											    <th>Image</th>
-												<th>Subject</th>
-												<th>Date</th>
-												<th></th>
-											</tr>
-										</thead>
-										<tbody>
-											<tr th:each="item:${items}">
-											    <td><img th:src="@{${'/photos/'+item.photos}}" /></td>
-												<td th:text="${item.title}"></td>
-												<td th:text="${item.date}"></td>
-												<td><a type="button" 
-													onclick="return confirm('Are you sure?') ? true : false;"
-													class="btn btn-flat btn-danger btn-xs mb-3"
-													th:href="@{/deleteamenity/{id}(id=${item.id}) }"> 
-													<i class="fa fa-trash" aria-hidden="true"></i>
-												</a></td>
-											</tr>
-										</tbody>		
+										<tr>
+											<td><b>Customer</b></b></td>
+											<td><p th:text="${item.customer}"></p></td>
+										</tr>
+										<tr>
+											<td><b>No Of Persons</b></b></td>
+											<td><p th:text="${item.ENoofPersons}"></p></td>
+										</tr>
+										<tr>
+											<td><b>FoodItem</b></b></td>
+											<td><p th:text="${item.FoodItem}"></p></td>
+										</tr>
+										<tr>
+											<td><b>Waiter Name</b></b></td>
+											<td><p th:text="${item.WaiterName}"></p></td>
+										</tr>
 									</table>
 								</div>
 							</div>

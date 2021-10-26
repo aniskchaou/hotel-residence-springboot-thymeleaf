@@ -64,11 +64,11 @@ public class DepartementController {
 	 * @param model
 	 * @return
 	 */
-	@RequestMapping("/departement/{id}")
+	@RequestMapping("/editdepartement/{id}")
 	public String findById(@PathVariable("id") int id, Model model) {
 		Departement departement = departementService.findById(id).get();
-		model.addAttribute("departement", departement);
-		return "editActivities";
+		model.addAttribute("item", departement);
+		return "departement/edit";
 	}
 
 	/**

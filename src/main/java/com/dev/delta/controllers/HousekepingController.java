@@ -70,12 +70,15 @@ public class HousekepingController {
 	 * @param model
 	 * @return
 	 */
-	@RequestMapping("/housekeeping/{id}")
+	@RequestMapping("/edithousekeeping/{id}")
 	public String findById(@PathVariable("id") int id, Model model) {
 		Housekeping housekeeping = housekeepingService.findById(id).get();
-		model.addAttribute("housekeeping", housekeeping);
-		return "editActivities";
+		model.addAttribute("item", housekeeping);
+		return "housekeeping/edit";
 	}
+	
+	
+	
 
 	/**
 	 * updateHousekeeping

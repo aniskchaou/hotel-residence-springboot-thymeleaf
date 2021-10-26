@@ -67,11 +67,11 @@ public class ServiceController {
 	 * @param model
 	 * @return
 	 */
-	@RequestMapping("/service/{id}")
+	@RequestMapping("/editservice/{id}")
 	public String findById(@PathVariable("id") int id, Model model) {
 		Service service = serviceService.findById(id).get();
-		model.addAttribute("service", service);
-		return "editActivities";
+		model.addAttribute("item", service);
+		return "service/edit";
 	}
 
 	/**

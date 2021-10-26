@@ -85,11 +85,11 @@ public class ExtraBedController {
 	 * @param model
 	 * @return
 	 */
-	@RequestMapping("/extrabed/{id}")
+	@RequestMapping("/editextrabed/{id}")
 	public String findById(@PathVariable("id") int id, Model model) {
 		ExtraBed extraBed = extraBedService.findById(id).get();
-		model.addAttribute("extraBed", extraBed);
-		return "editActivities";
+		model.addAttribute("item", extraBed);
+		return "extrabed/edit";
 	}
 
 	/**

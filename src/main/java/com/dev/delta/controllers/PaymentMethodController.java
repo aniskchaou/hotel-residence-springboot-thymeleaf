@@ -64,11 +64,11 @@ public class PaymentMethodController {
 	 * @param model
 	 * @return
 	 */
-	@RequestMapping("/paymentMethod/{id}")
+	@RequestMapping("/editpaymentmethod/{id}")
 	public String findById(@PathVariable("id") int id, Model model) {
 		PaymentMethod paymentMethod = paymentMethodService.findById(id).get();
-		model.addAttribute("paymentMethod", paymentMethod);
-		return "editActivities";
+		model.addAttribute("item", paymentMethod);
+		return "paymentmethod/edit";
 	}
 
 	/**

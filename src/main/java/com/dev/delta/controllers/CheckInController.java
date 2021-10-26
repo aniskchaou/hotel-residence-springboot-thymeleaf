@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.dev.delta.entities.Amenity;
 import com.dev.delta.entities.CheckIn;
 import com.dev.delta.services.CheckInService;
 import com.dev.delta.services.CityService;
@@ -100,7 +101,7 @@ public class CheckInController {
 	 */
 	@RequestMapping("/checkin/{id}")
 	public String findById(@PathVariable("id") Long id, Model model) {
-		CheckIn checkIn = checkInService.findById(id).get();
+		CheckIn checkIn = checkInService.findById(id);
 		model.addAttribute("item", checkIn);
 		return "checkin/view";
 	}
@@ -132,5 +133,12 @@ public class CheckInController {
 	public String deleteCheckIn(@PathVariable("id") Long id) {
 		checkInService.delete(id);
 		return "redirect:/checkins";
+	}
+	
+	@RequestMapping("/editcheckin/{id}")
+	public String findCheckInById(@PathVariable("id") Long id, Model model) {
+		CheckIn amenity = checkInService.findById(id);
+		model.addAttribute("item", amenity);
+		return "blog/edit";
 	}
 }

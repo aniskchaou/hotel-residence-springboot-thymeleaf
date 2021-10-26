@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.dev.delta.repositories.BlogRepository;
+import com.dev.delta.repositories.NotificationRepository;
 import com.dev.delta.util.DateBlogUtil;
 
 @Service
@@ -14,6 +15,9 @@ public class BlogDTO implements DTO {
 
 	@Autowired
 	BlogRepository blogRepository;
+	
+	@Autowired
+	NotificationRepository  notificationRepository;
 
 	@Override
 	public void populate() {
@@ -63,6 +67,12 @@ public class BlogDTO implements DTO {
 		blogRepository.save(blog2);
 		blogRepository.save(blog3);
 		blogRepository.save(blog4);
+		
+		notification.setName(" Google inks pact for new 35-storey office is created");
+		notification.setDate(new Date().toString());
+		notificationRepository.save(notification);
+		
+		
 
 	}
 

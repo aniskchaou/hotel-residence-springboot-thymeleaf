@@ -1,4 +1,4 @@
-package com.dev.delta.controllers;
+package com.dev.delta.reports;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

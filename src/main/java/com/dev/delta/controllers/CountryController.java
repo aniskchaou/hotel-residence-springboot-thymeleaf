@@ -69,11 +69,11 @@ public class CountryController {
 	 * @param model
 	 * @return
 	 */
-	@RequestMapping("/country/{id}")
+	@RequestMapping("/editcountry/{id}")
 	public String findById(@PathVariable("id") int id, Model model) {
 		Country country = countryService.findById(id).get();
-		model.addAttribute("country", country);
-		return "editActivities";
+		model.addAttribute("item", country);
+		return "country/edit";
 	}
 
 	/**

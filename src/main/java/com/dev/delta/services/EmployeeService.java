@@ -52,8 +52,8 @@ public class EmployeeService {
 	 * @param id
 	 * @return
 	 */
-	public Optional<Employee> findById(int id) {
-		return employeeRepository.findById(id);
+	public Employee findById(Long id) {
+		return employeeRepository.findById(id).get();
 	}
 
 	/**

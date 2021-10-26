@@ -186,12 +186,37 @@
 												</a>
 												
 												<a type="button" 
+												 data-toggle="tooltip" data-placement="top" title="view checkin"
+													class="btn btn-flat btn-primary btn-xs mb-3"
+													th:href="@{/checkin/{id}(id=${item.id}) }"> 
+													<i class="fa fa-eye" aria-hidden="true"></i> Luandry
+												</a>
+												
+												<a type="button" 
+												 data-toggle="tooltip" data-placement="top" title="view checkin"
+													class="btn btn-flat btn-primary btn-xs mb-3"
+													th:href="@{/checkin/{id}(id=${item.id}) }"> 
+													<i class="fa fa-eye" aria-hidden="true"></i> House keeping
+												</a>
+												
+												<a type="button" 
+												 data-toggle="tooltip" data-placement="top" title="view checkin"
+													class="btn btn-flat btn-primary btn-xs mb-3"
+													th:href="@{/checkin/{id}(id=${item.id}) }"> 
+													<i class="fa fa-eye" aria-hidden="true"></i> paid
+												</a>
+												
+												
+												
+												<a type="button" 
 												data-toggle="tooltip" data-placement="top" title="checkout"
 													class="btn btn-flat btn-primary btn-xs mb-3"
 													th:href="@{/deleteamenity/{id}(id=${item.id}) }"> 
 													<i class="fa fa-sign-out" aria-hidden="true"></i> CheckOut
 												</a>
 												</td>
+												
+												
 											</tr>
 
 										</tbody>

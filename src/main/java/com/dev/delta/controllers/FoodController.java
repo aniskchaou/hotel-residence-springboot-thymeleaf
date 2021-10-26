@@ -68,11 +68,11 @@ public class FoodController {
 	 * @param model
 	 * @return
 	 */
-	@RequestMapping("/food/{id}")
+	@RequestMapping("/editfood/{id}")
 	public String findById(@PathVariable("id") int id, Model model) {
 		Food food = foodService.findById(id).get();
-		model.addAttribute("food", food);
-		return "editActivities";
+		model.addAttribute("item", food);
+		return "food/edit";
 	}
 
 	/**

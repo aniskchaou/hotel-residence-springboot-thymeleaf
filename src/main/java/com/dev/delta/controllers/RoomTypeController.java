@@ -70,11 +70,20 @@ public class RoomTypeController {
 	 * @param model
 	 * @return
 	 */
-	@RequestMapping("/roomType/{id}")
-	public String findById(@PathVariable("id") int id, Model model) {
-		RoomType roomType = roomTypeService.findById(id).get();
-		model.addAttribute("roomType", roomType);
-		return "editActivities";
+	@RequestMapping("/roomtype/{id}")
+	public String findById(@PathVariable("id") Long id, Model model) {
+		RoomType roomType = roomTypeService.findById(id);
+		model.addAttribute("item", roomType);
+		return "roomtype/view";
+	}
+	
+	
+	
+	@RequestMapping("/editroomtype/{id}")
+	public String findRoomTypeById(@PathVariable("id") Long id, Model model) {
+		RoomType roomType = roomTypeService.findById(id);
+		model.addAttribute("item", roomType);
+		return "roomtype/edit";
 	}
 
 	/**

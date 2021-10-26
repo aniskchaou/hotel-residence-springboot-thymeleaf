@@ -52,7 +52,6 @@ public class ShiftController {
 	 * @return
 	 */
 	@PostMapping("/addshift")
-
 	public String addShift(Shift shift) {
 		shiftService.save(shift);
 		return "redirect:/shifts";
@@ -65,11 +64,11 @@ public class ShiftController {
 	 * @param model
 	 * @return
 	 */
-	@RequestMapping("/shift/{id}")
+	@RequestMapping("/editshift/{id}")
 	public String findById(@PathVariable("id") int id, Model model) {
 		Shift shift = shiftService.findById(id).get();
-		model.addAttribute("shift", shift);
-		return "editActivities";
+		model.addAttribute("item", shift);
+		return "shift/edit";
 	}
 
 	/**

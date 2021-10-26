@@ -1,6 +1,7 @@
 package com.dev.delta.services;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -22,5 +23,11 @@ public class InformationService {
 	 */
 	public List<InformationHotel> getInformations() {
 		return informationRepository.findAll();
+	}
+	
+	
+	public InformationHotel findById(Long id)
+	{
+		return informationRepository.findById(id).get();
 	}
 }

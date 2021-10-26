@@ -52,7 +52,7 @@ public class RoomService {
 	 * @param id
 	 * @return
 	 */
-	public Optional<Room> findById(int id) {
+	public Optional<Room> findById(Long id) {
 		return roomRepository.findById(id);
 	}
 

@@ -75,11 +75,11 @@ public class FoodOrderController {
 	 * @param model
 	 * @return
 	 */
-	@RequestMapping("/foodOrder/{id}")
+	@RequestMapping("/editfoodorder/{id}")
 	public String findById(@PathVariable("id") int id, Model model) {
 		FoodOrder foodOrder = foodOrderService.findById(id).get();
-		model.addAttribute("foodOrder", foodOrder);
-		return "editActivities";
+		model.addAttribute("item", foodOrder);
+		return "foodorder/edit";
 	}
 
 	/**

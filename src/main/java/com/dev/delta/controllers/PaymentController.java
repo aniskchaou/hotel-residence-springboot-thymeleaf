@@ -70,10 +70,18 @@ public class PaymentController {
 	 * @return
 	 */
 	@RequestMapping("/payment/{id}")
-	public String findById(@PathVariable("id") int id, Model model) {
+	public String findById(@PathVariable("id") Long id, Model model) {
 		Payment payment = paymentService.findById(id).get();
-		model.addAttribute("payment", payment);
-		return "editActivities";
+		model.addAttribute("item", payment);
+		return "payment/view";
+	}
+	
+	
+	@RequestMapping("/editpayment/{id}")
+	public String findPaymentById(@PathVariable("id") Long id, Model model) {
+		Payment payment = paymentService.findById(id).get();
+		model.addAttribute("item", payment);
+		return "payment/edit";
 	}
 
 	/**

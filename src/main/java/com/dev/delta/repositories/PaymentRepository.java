@@ -7,5 +7,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import com.dev.delta.entities.Payment;
 
 public interface PaymentRepository extends JpaRepository<Payment, Long> {
-	Optional<Payment> findById(int id);
+	Optional<Payment> findById(Long id);
 }

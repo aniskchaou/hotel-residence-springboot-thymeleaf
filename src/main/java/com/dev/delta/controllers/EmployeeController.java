@@ -87,10 +87,18 @@ public class EmployeeController {
 	 * @return
 	 */
 	@RequestMapping("/employee/{id}")
-	public String findById(@PathVariable("id") int id, Model model) {
-		Employee employee = employeeService.findById(id).get();
-		model.addAttribute("employee", employee);
-		return "editActivities";
+	public String findById(@PathVariable("id") Long id, Model model) {
+		Employee employee = employeeService.findById(id);
+		model.addAttribute("item", employee);
+		return "employee/view";
+	}
+	
+	
+	@RequestMapping("/editemployee/{id}")
+	public String findEmployeeById(@PathVariable("id") Long id, Model model) {
+		Employee employee = employeeService.findById(id);
+		model.addAttribute("item", employee);
+		return "employee/edit";
 	}
 
 	/**

@@ -65,12 +65,13 @@ public class DesignationController {
 	 * @param model
 	 * @return
 	 */
-	@RequestMapping("/designation/{id}")
+	@RequestMapping("/editdesignation/{id}")
 	public String findById(@PathVariable("id") int id, Model model) {
 		Designation designation = designationService.findById(id).get();
-		model.addAttribute("designation", designation);
-		return "editActivities";
+		model.addAttribute("item", designation);
+		return "designation/edit";
 	}
+	
 
 	/**
 	 * updateDesignation

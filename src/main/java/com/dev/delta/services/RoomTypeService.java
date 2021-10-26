@@ -52,8 +52,8 @@ public class RoomTypeService {
 	 * @param id
 	 * @return
 	 */
-	public Optional<RoomType> findById(int id) {
-		return roomTypeRepository.findById(id);
+	public RoomType findById(Long id) {
+		return roomTypeRepository.findById(id).get();
 	}
 
 	/**

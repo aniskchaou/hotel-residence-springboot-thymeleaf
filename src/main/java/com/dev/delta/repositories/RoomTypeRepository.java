@@ -7,5 +7,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import com.dev.delta.entities.RoomType;
 
 public interface RoomTypeRepository extends JpaRepository<RoomType, Long> {
-	Optional<RoomType> findById(int id);
+	Optional<RoomType> findById(Long id);
 }

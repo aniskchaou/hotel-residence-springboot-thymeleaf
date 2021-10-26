@@ -120,8 +120,19 @@
 											<tr th:each="item:${items}">
 												<td th:text="${item.Firstname}"></td>
 												<td th:text="${item.Email}"></td>
-												<td th:text="${item.Mobile}"></td>
-												<td><a type="button" 
+												<td th:text="${item.Phone}"></td>
+												<td>
+												<a type="button" 
+													class="btn btn-flat btn-primary btn-xs mb-3"
+													th:href="@{/employee/{id}(id=${item.id}) }"> 
+													<i class="fa fa-eye" aria-hidden="true"></i>
+												</a>
+												<a type="button" 
+													class="btn btn-flat btn-warning btn-xs mb-3"
+													th:href="@{/editemployee/{id}(id=${item.id}) }"> 
+													<i class="fa fa-edit" aria-hidden="true"></i>
+												</a>
+												<a type="button" 
 													onclick="return confirm('Are you sure?') ? true : false;"
 													class="btn btn-flat btn-danger btn-xs mb-3"
 													th:href="@{/deleteamenity/{id}(id=${item.id}) }"> 

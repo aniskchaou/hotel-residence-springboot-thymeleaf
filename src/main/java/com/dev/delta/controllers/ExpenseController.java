@@ -69,11 +69,11 @@ public class ExpenseController {
 	 * @param model
 	 * @return
 	 */
-	@RequestMapping("/expense/{id}")
+	@RequestMapping("/editexpense/{id}")
 	public String findById(@PathVariable("id") int id, Model model) {
 		Expense expense = expenseService.findById(id).get();
-		model.addAttribute("expense", expense);
-		return "editActivities";
+		model.addAttribute("item", expense);
+		return "expense/edit";
 	}
 
 	/**

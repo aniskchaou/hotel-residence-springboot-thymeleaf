@@ -67,11 +67,11 @@ public class ExpenseCategoryController {
 	 * @param model
 	 * @return
 	 */
-	@RequestMapping("/expenseCategory/{id}")
+	@RequestMapping("/editexpensecategory/{id}")
 	public String findById(@PathVariable("id") int id, Model model) {
 		ExpenseCategory expenseCategory = expenseCategoryService.findById(id).get();
-		model.addAttribute("expenseCategory", expenseCategory);
-		return "editActivities";
+		model.addAttribute("item", expenseCategory);
+		return "expensecategory/edit";
 	}
 
 	/**

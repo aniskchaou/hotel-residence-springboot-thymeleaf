@@ -119,12 +119,19 @@
 											<tr th:each="item:${items}">
 												<td th:text="${item.name}"></td>
 												<td th:text="${item.status}"></td>
-												<td><a type="button"
+												<td>
+												<a type="button" 
+													class="btn btn-flat btn-warning btn-xs mb-3"
+													th:href="@{/editbed/{id}(id=${item.id}) }"> 
+													<i class="fa fa-edit" aria-hidden="true"></i>
+												</a>
+												<a type="button"
 													onclick="return confirm('Are you sure?') ? true : false;"
 													class="btn btn-flat btn-danger btn-xs mb-3"
 													th:href="@{/deleteamenity/{id}(id=${item.id}) }"> <i
 														class="fa fa-trash" aria-hidden="true"></i>
-												</a></td>
+												</a>
+												</td>
 											</tr>
 
 										</tbody>

@@ -121,10 +121,16 @@
 												<td th:text="${item.type}"></td>
 												<td th:text="${item.start}"></td>
 												<td th:text="${item.end}"></td>
-												<td><a type="button" 
+												<td>
+												<a type="button" 
+													class="btn btn-flat btn-warning btn-xs mb-3"
+													th:href="@{/editshift/{id}(id=${item.id}) }"> 
+													<i class="fa fa-edit" aria-hidden="true"></i>
+												</a>
+												<a type="button" 
 													onclick="return confirm('Are you sure?') ? true : false;"
 													class="btn btn-flat btn-danger btn-xs mb-3"
-													th:href="@{/deleteamenity/{id}(id=${item.id}) }"> 
+													th:href="@{/deleteshift/{id}(id=${item.id}) }"> 
 													<i class="fa fa-trash" aria-hidden="true"></i>
 												</a></td>
 											</tr>

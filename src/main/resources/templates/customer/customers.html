@@ -124,8 +124,13 @@
 												<td>
 												<a type="button" 
 													class="btn btn-flat btn-primary btn-xs mb-3"
-													th:href="@{/find/{id}(id=${item.id}) }"> 
+													th:href="@{/customer/{id}(id=${item.id}) }"> 
 													<i class="fa fa-eye" aria-hidden="true"></i>
+												</a>
+												<a type="button" 
+													class="btn btn-flat btn-warning btn-xs mb-3"
+													th:href="@{/editcustomer/{id}(id=${item.id}) }"> 
+													<i class="fa fa-edit" aria-hidden="true"></i>
 												</a>
 												<a type="button" 
 													onclick="return confirm('Are you sure?') ? true : false;"

@@ -40,4 +40,9 @@ public class BedService {
 	public void save(Bed bed) {
 		bedRepository.save(bed);
 	}
+
+	public Bed findById(Long id) {
+		// TODO Auto-generated method stub
+		return bedRepository.findById(id).get();
+	}
 }

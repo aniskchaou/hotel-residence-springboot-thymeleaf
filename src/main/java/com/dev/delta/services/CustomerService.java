@@ -52,7 +52,7 @@ public class CustomerService {
 	 * @param id
 	 * @return
 	 */
-	public Optional<Customer> findById(int id) {
+	public Optional<Customer> findById(Long id) {
 		return customerRepository.findById(id);
 	}
 

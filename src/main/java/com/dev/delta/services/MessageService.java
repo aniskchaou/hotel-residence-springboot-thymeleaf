@@ -28,4 +28,9 @@ public class MessageService {
 		messageRepository.save(message);
 		
 	}
+	
+	public Message findById(Long id)
+	{
+		return messageRepository.getById(id);
+	}
 }

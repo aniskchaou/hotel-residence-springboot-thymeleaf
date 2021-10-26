@@ -78,10 +78,18 @@ public class CustomerController {
 	 * @return
 	 */
 	@RequestMapping("/customer/{id}")
-	public String findById(@PathVariable("id") int id, Model model) {
+	public String findById(@PathVariable("id") Long id, Model model) {
 		Customer customer = customerService.findById(id).get();
-		model.addAttribute("customer", customer);
-		return "editActivities";
+		model.addAttribute("item", customer);
+		return "customer/view";
+	}
+	
+	
+	@RequestMapping("/editcustomer/{id}")
+	public String finCustomerdById(@PathVariable("id") Long id, Model model) {
+		Customer customer = customerService.findById(id).get();
+		model.addAttribute("item", customer);
+		return "customer/edit";
 	}
 
 	/**

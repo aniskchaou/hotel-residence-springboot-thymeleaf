@@ -108,27 +108,18 @@
 								</h4>
 								<div class="data-tables">
 									<table id="dataTable" class="text-center">
-										<thead class="bg-light text-capitalize">
-											<tr>
-											    <th>Image</th>
-												<th>Subject</th>
-												<th>Date</th>
-												<th></th>
-											</tr>
-										</thead>
-										<tbody>
-											<tr th:each="item:${items}">
-											    <td><img th:src="@{${'/photos/'+item.photos}}" /></td>
-												<td th:text="${item.title}"></td>
-												<td th:text="${item.date}"></td>
-												<td><a type="button" 
-													onclick="return confirm('Are you sure?') ? true : false;"
-													class="btn btn-flat btn-danger btn-xs mb-3"
-													th:href="@{/deleteamenity/{id}(id=${item.id}) }"> 
-													<i class="fa fa-trash" aria-hidden="true"></i>
-												</a></td>
-											</tr>
-										</tbody>		
+										<tr>
+											<td><b>Name</b></b></td>
+											<td><p th:text="${item.name}"></p></td>
+										</tr>
+										<tr>
+											<td><b>Email</b></b></td>
+											<td><p th:text="${item.email}"></p></td>
+										</tr>
+										<tr>
+											<td><b>Subject</b></b></td>
+											<td><p th:text="${item.subject}"></p></td>
+										</tr>
 									</table>
 								</div>
 							</div>

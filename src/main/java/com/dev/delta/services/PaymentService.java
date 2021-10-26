@@ -51,7 +51,7 @@ public class PaymentService {
 	 * @param id
 	 * @return
 	 */
-	public Optional<Payment> findById(int id) {
+	public Optional<Payment> findById(Long id) {
 		return paymentRepository.findById(id);
 	}
 

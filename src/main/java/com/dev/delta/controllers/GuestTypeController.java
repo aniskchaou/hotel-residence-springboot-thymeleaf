@@ -66,11 +66,11 @@ public class GuestTypeController {
 	 * @param model
 	 * @return
 	 */
-	@RequestMapping("/guesType/{id}")
+	@RequestMapping("/editguesttype/{id}")
 	public String findById(@PathVariable("id") int id, Model model) {
 		GuestType guesType = guesTypeService.findById(id).get();
-		model.addAttribute("guesType", guesType);
-		return "editActivities";
+		model.addAttribute("item", guesType);
+		return "gesttype/edit";
 	}
 
 	/**

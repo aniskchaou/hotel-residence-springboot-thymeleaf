@@ -52,8 +52,8 @@ public class AmenityService {
 	 * @param id
 	 * @return
 	 */
-	public Optional<Amenity> findById(int id) {
-		return amenityRepository.findById(id);
+	public Amenity findById(Long id) {
+		return amenityRepository.findById(id).get();
 	}
 
 	/**
