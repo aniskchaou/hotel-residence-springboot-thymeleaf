@@ -12,9 +12,9 @@ public class Shift {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	Long id;
 	String type;
-	@Column(name="shift_start_time")
+	@Column(name="start_time")
 	String start;
-	@Column(name="shift_start_time")
+	@Column(name="end_time")
 	String end;
 	
 	
