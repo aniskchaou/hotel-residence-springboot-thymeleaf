@@ -4,6 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Column;
 
 @Entity
 public class Shift {
@@ -11,7 +12,9 @@ public class Shift {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	Long id;
 	String type;
+	@Column(name="shift_start_time")
 	String start;
+	@Column(name="shift_start_time")
 	String end;
 	
 	
