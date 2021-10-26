@@ -19,9 +19,9 @@ public class InformationHotelDTO implements DTO {
 		informationHotel.setEmail("nfo@6717hotelspa.com");
 		informationHotel.setName("Hotel Residence");
 		informationHotel.setTelephone("13 44 33 4 555  55");
-		informationHotel.setFacebook("https://www.facebook.com/6717.nature.hotel.spa.leclosdesdelices.alsace");
-		informationHotel.setTwitter("https://www.facebook.com/6717.nature.hotel.spa.leclosdesdelices.alsace");
-		informationHotel.setInstagram("https://www.facebook.com/6717.nature.hotel.spa.leclosdesdelices.alsace");
+		informationHotel.setFacebook("https://www.facebook.com");
+		informationHotel.setTwitter("https://www.twitter.com");
+		informationHotel.setInstagram("https://www.instagram.com");
 		informationService.save(informationHotel);
 	}
 

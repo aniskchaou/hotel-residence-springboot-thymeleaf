@@ -23,6 +23,10 @@ public class BlogService {
 		return blogRepository.findAll();
 	}
 	
+	public int getCount()
+	{
+		return (int) blogRepository.count();
+	}
 	
 	public Blog save(Blog blog) {
 		return blogRepository.save(blog);

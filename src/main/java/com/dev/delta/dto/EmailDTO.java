@@ -17,8 +17,8 @@ public class EmailDTO implements DTO {
 		emailSetting.setEnableTLS("true");
 		emailSetting.setHost("smtp.gmail.com");
 		emailSetting.setEmail("587");
-		emailSetting.setPort("kchaouanis27@gmail.com");
-		emailSetting.setPassword("20486902ANis@");
+		emailSetting.setPort("");
+		emailSetting.setPassword("");
 		emailSettingRepository.save(emailSetting);
 	}
 

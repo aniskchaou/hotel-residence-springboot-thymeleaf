@@ -39,7 +39,7 @@
         <div class="sidebar-menu">
             <div class="sidebar-header">
                 <div class="logo">
-                    <a href="index.html"><img src="assets/images/icon/logo.png" alt="logo"></a>
+                    <img src="img/logo.png" alt="">
                 </div>
             </div>
             <div class="main-menu">
@@ -76,7 +76,7 @@
                                     <span th:text="${notificationNB}"></span>
                                 </i>
                                 <div class="dropdown-menu bell-notify-box notify-box">
-                                    <span class="notify-title">You have  new notifications <a th:href="@{/notifications}">view all</a></span>
+                                    <span class="notify-title">You have <b th:text="${notificationNB}"></b>  new notifications <a th:href="@{/notifications}">view all</a></span>
                                     <div class="nofity-list">
                                         <a href="#" class="notify-item" th:each="item:${notifications}">
                                             <div class="notify-thumb"><i class="ti-key btn-danger"></i></div>
@@ -92,7 +92,7 @@
                             <li class="dropdown">
                                 <i class="fa fa-envelope-o dropdown-toggle" data-toggle="dropdown"><span th:text="${messageNB}"></span></i>
                                 <div class="dropdown-menu notify-box nt-enveloper-box">
-                                    <span class="notify-title">You have  new notifications <a th:href="@{/messages}">view all</a></span>
+                                    <span class="notify-title">You have <b th:text="${messageNB}"></b>  new notifications <a th:href="@{/messages}">view all</a></span>
                                     <div class="nofity-list">
                                         <a href="#" class="notify-item"  th:each="item:${messages}">
                                             <div class="notify-thumb">
@@ -131,11 +131,11 @@
                     <div class="col-sm-6 clearfix">
                         <div class="user-profile pull-right">
                             <img class="avatar user-thumb" src="assets/images/author/avatar.png" alt="avatar">
-                            <h4 class="user-name dropdown-toggle" data-toggle="dropdown">Kumkum Rai <i class="fa fa-angle-down"></i></h4>
+                            <h4 class="user-name dropdown-toggle" data-toggle="dropdown" th:text ="${#authentication.getPrincipal().getUsername()}">K <i class="fa fa-angle-down"></i></h4>
                             <div class="dropdown-menu">
-                                <a class="dropdown-item" href="#">Message</a>
-                                <a class="dropdown-item" href="#">Settings</a>
-                                <a class="dropdown-item" href="#">Log Out</a>
+                               <a class="dropdown-item" th:href="@{/profile}">Profile</a> <a
+									class="dropdown-item" th:href="@{/settings}">Settings</a> <a
+									class="dropdown-item" th:href="@{/logout}">Log Out</a>
                             </div>
                         </div>
                     </div>
@@ -151,8 +151,8 @@
                                 <div class="card">
                                     <div class="seo-fact sbg1">
                                         <div class="p-4 d-flex justify-content-between align-items-center">
-                                            <div class="seofct-icon"><i class="ti-thumb-up"></i> Rooms</div>
-                                            <h2>315</h2>
+                                            <div class="seofct-icon"><i class="ti-briefcase"></i> Rooms</div>
+                                            <h2  th:text="${roomNB}"></h2>
                                         </div>
                                        
                                     </div>
@@ -162,8 +162,8 @@
                                 <div class="card">
                                     <div class="seo-fact sbg2">
                                         <div class="p-4 d-flex justify-content-between align-items-center">
-                                            <div class="seofct-icon"><i class="ti-share"></i> Customers</div>
-                                            <h2>44</h2>
+                                            <div class="seofct-icon"><i class="ti-crown"></i> Customers</div>
+                                            <h2  th:text="${customerNB}"></h2>
                                         </div>
                                        
                                     </div>
@@ -174,8 +174,8 @@
                                 <div class="card">
                                     <div class="seo-fact sbg3">
                                         <div class="p-4 d-flex justify-content-between align-items-center">
-                                            <div class="seofct-icon"><i class="ti-share"></i> Checkins</div>
-                                            <h2>44</h2>
+                                            <div class="seofct-icon"><i class="ti-flag-alt"></i> Checkins</div>
+                                            <h2  th:text="${checkinNB}"></h2>
                                         </div>
                                        
                                     </div>
@@ -186,7 +186,7 @@
                                 <div class="card">
                                     <div class="seo-fact sbg4">
                                         <div class="p-4 d-flex justify-content-between align-items-center">
-                                            <div class="seofct-icon"><i class="ti-share"></i> Messages</div>
+                                            <div class="seofct-icon"><i class="ti-comment-alt"></i> Messages</div>
                                             <h2 th:text="${messageNB}"></h2>
                                         </div>
                                        
@@ -198,8 +198,8 @@
                                 <div class="card">
                                     <div class="seo-fact sbg1">
                                         <div class="p-4 d-flex justify-content-between align-items-center">
-                                            <div class="seofct-icon"><i class="ti-share"></i> Beds</div>
-                                            <h2>44</h2>
+                                            <div class="seofct-icon"><i class="ti-map"></i> Beds</div>
+                                            <h2  th:text="${bedNB}"></h2>
                                         </div>
                                        
                                     </div>
@@ -211,8 +211,8 @@
                                 <div class="card">
                                     <div class="seo-fact sbg2">
                                         <div class="p-4 d-flex justify-content-between align-items-center">
-                                            <div class="seofct-icon"><i class="ti-share"></i> Employees</div>
-                                            <h2>44</h2>
+                                            <div class="seofct-icon"><i class="ti-user"></i> Employees</div>
+                                            <h2  th:text="${employeeNB}"></h2>
                                         </div>
                                        
                                     </div>
@@ -223,8 +223,8 @@
                                 <div class="card">
                                     <div class="seo-fact sbg3">
                                         <div class="p-4 d-flex justify-content-between align-items-center">
-                                            <div class="seofct-icon"><i class="ti-share"></i> Laundry orders</div>
-                                            <h2>44</h2>
+                                            <div class="seofct-icon"><i class="ti-apple"></i> Laundry orders</div>
+                                            <h2  th:text="${laundryNB}"></h2>
                                         </div>
                                        
                                     </div>
@@ -236,7 +236,7 @@
                                     <div class="seo-fact sbg4">
                                         <div class="p-4 d-flex justify-content-between align-items-center">
                                             <div class="seofct-icon"><i class="ti-share"></i> Food Orders</div>
-                                            <h2>44</h2>
+                                            <h2 th:text="${foodNB}"></h2>
                                         </div>
                                        
                                     </div>
@@ -247,8 +247,8 @@
                                 <div class="card">
                                     <div class="seo-fact sbg1">
                                         <div class="p-4 d-flex justify-content-between align-items-center">
-                                            <div class="seofct-icon"><i class="ti-share"></i> Offers</div>
-                                            <h2>44</h2>
+                                            <div class="seofct-icon"><i class="ti-rocket"></i> Offers</div>
+                                            <h2 th:text="${offerNB}"></h2>
                                         </div>
                                        
                                     </div>
@@ -259,8 +259,8 @@
                                 <div class="card">
                                     <div class="seo-fact sbg1">
                                         <div class="p-4 d-flex justify-content-between align-items-center">
-                                            <div class="seofct-icon"><i class="ti-share"></i> House Keeping Orders</div>
-                                            <h2>44</h2>
+                                            <div class="seofct-icon"><i class="ti-wand"></i> House Keeping </div>
+                                            <h2 th:text="${housekeepingNB}"></h2>
                                         </div>
                                        
                                     </div>
@@ -272,8 +272,8 @@
                                 <div class="card">
                                     <div class="seo-fact sbg2">
                                         <div class="p-4 d-flex justify-content-between align-items-center">
-                                            <div class="seofct-icon"><i class="ti-share"></i> Blogs</div>
-                                            <h2>44</h2>
+                                            <div class="seofct-icon"><i class="ti-marker"></i> Blogs</div>
+                                            <h2 th:text="${blogNB}"></h2>
                                         </div>
                                        
                                     </div>
@@ -284,8 +284,8 @@
                                 <div class="card">
                                     <div class="seo-fact sbg3">
                                         <div class="p-4 d-flex justify-content-between align-items-center">
-                                            <div class="seofct-icon"><i class="ti-share"></i> Subsrcribers</div>
-                                            <h2>44</h2>
+                                            <div class="seofct-icon"><i class="ti-user"></i> Subsrcribers</div>
+                                            <h2 th:text="${subscriberNB}"></h2>
                                         </div>
                                        
                                     </div>

@@ -16,6 +16,7 @@ import javax.mail.internet.MimeBodyPart;
 import javax.mail.internet.MimeMessage;
 import javax.mail.internet.MimeMultipart;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -27,44 +28,20 @@ import org.springframework.web.bind.annotation.RestController;
 @CrossOrigin(exposedHeaders = "Access-Control-Allow-Origin")
 public class EmailController {
 	
+	@Autowired
+	EmailService  emailService;
+	
+	@Autowired
+	EmailSettingRepository emailSettingRepository;
+	
 	
    @PostMapping(value = "/sendemail")
-   public String sendEmail(@RequestBody String str) throws AddressException, MessagingException, IOException {
-	   sendmail(str);
+   public String sendEmail(@RequestBody String body,@RequestBody String subject,@RequestBody String receiver) throws AddressException, MessagingException, IOException {
+	   Long id=1L;
+	   EmailSetting emailSetting=emailSettingRepository.getById(id);
+	   emailService.sendmail(emailSetting.auth,emailSetting.enableTLS,emailSetting.host,emailSetting.port,emailSetting.email,receiver,
+			   emailSetting.password,body,subject);
       return "Email sent successfully";
    }   
    
-   
-    void sendmail(String str) throws AddressException, MessagingException, IOException {
-	   Properties props = new Properties();
-	   props.put("mail.smtp.auth", "true");
-	   props.put("mail.smtp.starttls.enable", "true");
-	   props.put("mail.smtp.host", "smtp.gmail.com");
-	   props.put("mail.smtp.port", "587");
-	   
-	   Session session = Session.getInstance(props, new javax.mail.Authenticator() {
-	      protected PasswordAuthentication getPasswordAuthentication() {
-	         return new PasswordAuthentication("kchaouanis27@gmail.com", "anis20486902");
-	      }
-	   });
-	   Message msg = new MimeMessage(session);
-	   msg.setFrom(new InternetAddress("kchaouanis27@gmail.com", false));
-
-	   msg.setRecipients(Message.RecipientType.TO, InternetAddress.parse("kchaouanis26@gmail.com"));
-	   msg.setSubject("Tutorials point email");
-	   msg.setContent("Tutorials point email", "text/html");
-	   msg.setSentDate(new Date());
-
-	   MimeBodyPart messageBodyPart = new MimeBodyPart();
-	   messageBodyPart.setContent(str, "text/html");
-
-	   Multipart multipart = new MimeMultipart();
-	   multipart.addBodyPart(messageBodyPart);
-	   MimeBodyPart attachPart = new MimeBodyPart();
-
-	   attachPart.attachFile("C:\\Users\\Admin\\Pictures\\notification.JPG");
-	   multipart.addBodyPart(attachPart);
-	   msg.setContent(multipart);
-	   Transport.send(msg);   
-	}
 }

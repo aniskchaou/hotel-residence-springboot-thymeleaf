@@ -1,7 +1,10 @@
 package com.dev.delta.controllers;
 
+import java.io.IOException;
 import java.util.List;
 
+import javax.mail.MessagingException;
+import javax.mail.internet.AddressException;
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,6 +17,9 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.dev.delta.email.EmailService;
+import com.dev.delta.email.EmailSetting;
+import com.dev.delta.email.EmailSettingRepository;
 import com.dev.delta.entities.Amenity;
 import com.dev.delta.entities.CheckIn;
 import com.dev.delta.services.CheckInService;
@@ -41,6 +47,12 @@ public class CheckInController {
 	
 	@Autowired
 	private RoomTypeService roomTypeService;
+	
+	@Autowired
+	EmailService emailService;
+	
+	@Autowired
+	EmailSettingRepository  emailSettingRepository;
 
 	@GetMapping("/add-checkin")
 	public String getaddCheckIn(Model model) {
@@ -74,22 +86,49 @@ public class CheckInController {
 	 * 
 	 * @param checkIn
 	 * @return
+	 * @throws IOException 
+	 * @throws MessagingException 
+	 * @throws AddressException 
 	 */
 	@PostMapping("/addcheckin")
 
-	public String addCheckIn(CheckIn checkIn) {
+	public String addCheckIn(CheckIn checkIn) throws AddressException, MessagingException, IOException {
 		checkInService.save(checkIn);
-		
+		sendEmail(checkIn);
 		return "redirect:/checkins";
 	}
 	
 	
 	@PostMapping("/addcheckinuser")
 
-	public String addCheckInUser(CheckIn checkIn) {
-		checkInService.save(checkIn);
+	public String addCheckInUser(CheckIn checkIn) throws AddressException, MessagingException, IOException {
 		
+		checkInService.save(checkIn);
+		sendEmail(checkIn);
 		return "redirect:/";
+	}
+	
+	
+	void sendEmail(CheckIn checkIn) throws AddressException, MessagingException, IOException
+	{
+		String subject="";
+		String body="Dear "+checkIn.getFullname()
+				+ "This email is to confirm your booking  on {booking_date} for a single room for {number_of_night} nights with breakfast at the {website_title}."
+				+ " The check-in date shall be on "+checkIn.getCheckIn()+" and the check-out date shall "
+						+ "be on "+checkIn.getCheckOut()+"."
+				+ "Further details of your booking are listed below";
+		 Long id=1L;
+		 
+		   EmailSetting emailSetting=emailSettingRepository.getById(id);
+		   emailService.sendmail(emailSetting.getAuth(),
+				   emailSetting.getEnableTLS(),
+				   emailSetting.getHost(),
+				   emailSetting.getPort(),
+				   emailSetting.getEmail(),
+				   checkIn.getEmail(),
+				   emailSetting.getPassword(),
+				   body,
+				   subject);
 	}
 
 	/**
