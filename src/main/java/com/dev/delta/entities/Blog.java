@@ -19,6 +19,7 @@ public class Blog {
 	String title;
 	String body;
 	String date;
+	@Column(name="user_name_blog")
 	String user;
 	@Column(nullable = true, length = 64)
     private String photos;
