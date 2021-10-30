@@ -1,0 +1,550 @@
+
+<!doctype html>
+<html class="no-js" lang="zxx">
+
+<head>
+<meta charset="utf-8">
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+<title>Montana</title>
+<meta name="description" content="">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- <link rel="manifest" href="site.webmanifest"> -->
+<link rel="shortcut icon" type="image/x-icon" href="img/favicon.png">
+<!-- Place favicon.ico in the root directory -->
+
+<!-- CSS here -->
+<link rel="stylesheet" href="/css/bootstrap.min.css">
+<link rel="stylesheet" href="/css/owl.carousel.min.css">
+<link rel="stylesheet" href="/css/magnific-popup.css">
+<link rel="stylesheet" href="/css/font-awesome.min.css">
+<link rel="stylesheet" href="/css/themify-icons.css">
+<link rel="stylesheet" href="/css/nice-select.css">
+<link rel="stylesheet" href="/css/flaticon.css">
+<link rel="stylesheet" href="/css/gijgo.css">
+<link rel="stylesheet" href="/css/animate.css">
+<link rel="stylesheet" href="/css/slicknav.css">
+<link rel="stylesheet" href="/css/style.css">
+<link rel="stylesheet" href="/css/detail.css">
+<!-- <link rel="stylesheet" href="css/responsive.css"> -->
+</head>
+
+<body>
+	<!--[if lte IE 9]>
+            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
+        <![endif]-->
+
+	<!-- header-start -->
+	<header>
+		<div class="header-area ">
+			<div id="sticky-header" class="main-header-area">
+				<div class="container-fluid p-0">
+					<div class="row align-items-center no-gutters">
+						<div class="col-xl-5 col-lg-6">
+							<div class="main-menu  d-none d-lg-block">
+								<div th:insert="website/nav :: nav"></div>
+							</div>
+						</div>
+						<div class="col-xl-2 col-lg-2">
+							<div class="logo-img">
+								<a href="index.html"> <img src="img/logo.png" alt="">
+								</a>
+							</div>
+						</div>
+						<div class="col-xl-5 col-lg-4 d-none d-lg-block">
+							<div class="book_room">
+								<div class="socail_links">
+									<ul>
+										<li><a th:href="${hotel.facebook}"> <i
+												class="fa fa-facebook-square"></i>
+										</a></li>
+										<li><a th:href="${hotel.twitter}"> <i
+												class="fa fa-twitter"></i>
+										</a></li>
+										<li><a th:href="${hotel.instagram}"> <i
+												class="fa fa-instagram"></i>
+										</a></li>
+									</ul>
+								</div>
+								<div class="book_btn d-none d-lg-block">
+									<a class="popup-with-form" href="#test-form">Check In</a>
+								</div>
+							</div>
+						</div>
+						<div class="col-12">
+							<div class="mobile_menu d-block d-lg-none"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</header>
+	<!-- header-end -->
+
+	<!-- bradcam_area_start -->
+	<div class="bradcam_area breadcam_bg">
+		<h3>About Us</h3>
+	</div>
+	<!-- bradcam_area_end -->
+
+	<!-- about_area_start -->
+	<div class="about_area">
+		<div class="container" id="validation">
+
+			<div class="md-stepper-horizontal orange">
+				<div class="md-step">
+					<div class="md-step-circle">
+						<span>1</span>
+					</div>
+					<div class="md-step-title">Booking</div>
+					<div class="md-step-bar-left"></div>
+					<div class="md-step-bar-right"></div>
+				</div>
+				<div class="md-step">
+					<div class="md-step-circle">
+						<span>2</span>
+					</div>
+					<div class="md-step-title">Details</div>
+					<div class="md-step-bar-left"></div>
+					<div class="md-step-bar-right"></div>
+				</div>
+				<div class="md-step active">
+					<div class="md-step-circle">
+						<span>3</span>
+					</div>
+					<div class="md-step-title">Summary</div>
+					<div class="md-step-bar-left"></div>
+					<div class="md-step-bar-right"></div>
+				</div>
+				<div class="md-step">
+					<div class="md-step-circle">
+						<span>4</span>
+					</div>
+					<div class="md-step-title">Payment</div>
+					<div class="md-step-bar-left"></div>
+					<div class="md-step-bar-right"></div>
+				</div>
+			</div>
+
+			<div class="col-md-12 buttons-prev-next">
+				<a th:href="@{/detailbooking/{id}(id=${roomid}) }"
+					class="genric-btn primary e-large move-left">< Details</a> <a
+					th:href="@{/paymentbooking/{id}(id=${roomid}) }"
+					class="genric-btn primary e-large move-right">Payment ></a>
+			</div>
+
+			<br />
+
+
+
+			<div class="container d-flex justify-content-center mt-50 mb-50">
+				<div class="row">
+					<div class="col-md-12">
+						<div class="card">
+							<div class="card-header bg-transparent header-elements-inline">
+								<h6 class="card-title">Sale invoice</h6>
+								<div class="header-elements">
+									<button type="button" class="btn btn-light btn-sm">
+										<i class="fa fa-file mr-2"></i> Save
+									</button>
+									<button type="button" class="btn btn-light btn-sm ml-3">
+										<i class="fa fa-print mr-2"></i> Print
+									</button>
+								</div>
+							</div>
+							<div class="card-body">
+								<div class="row">
+									<div class="col-sm-6">
+										<div class="mb-4 pull-left">
+											<h6>BBBOOTSTRAP.COM</h6>
+											<ul class="list list-unstyled mb-0 text-left">
+												<li>2269 Six Sigma</li>
+												<li>New york city</li>
+												<li>+1 474 44737 47</li>
+											</ul>
+										</div>
+									</div>
+									<div class="col-sm-6">
+										<div class="mb-4 ">
+											<div class="text-sm-right">
+												<h4 class="invoice-color mb-2 mt-md-2">Invoice #BBB1243</h4>
+												<ul class="list list-unstyled mb-0">
+													<li>Date: <span class="font-weight-semibold">March
+															15, 2020</span></li>
+													<li>Due date: <span class="font-weight-semibold">March
+															30, 2020</span></li>
+												</ul>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="d-md-flex flex-md-wrap">
+									<div class="mb-4 mb-md-2 text-left">
+										<span class="text-muted">Invoice To:</span>
+										<ul class="list list-unstyled mb-0">
+											<li>
+												<h5 class="my-2">Tibco Turang</h5>
+											</li>
+											<li><span class="font-weight-semibold">Samantha
+													Mutual funds Ltd</span></li>
+											<li>Gurung Street</li>
+											<li>23 BB Lane</li>
+											<li>Hong kong</li>
+											<li>234 456 5678</li>
+											<li><a href="#" data-abc="true">tibco@samantha.com</a></li>
+										</ul>
+									</div>
+									<div class="mb-2 ml-auto">
+										<span class="text-muted">Payment Details:</span>
+										<div class="d-flex flex-wrap wmin-md-400">
+											<ul class="list list-unstyled mb-0 text-left">
+												<li>
+													<h5 class="my-2">Total Due:</h5>
+												</li>
+												<li>Bank name:</li>
+												<li>Country:</li>
+												<li>City:</li>
+												<li>Address:</li>
+												<li>IBAN:</li>
+												<li>SWIFT code:</li>
+											</ul>
+											<ul class="list list-unstyled text-right mb-0 ml-auto">
+												<li>
+													<h5 class="font-weight-semibold my-2">$1,090</h5>
+												</li>
+												<li><span class="font-weight-semibold">Hong Kong
+														Bank</span></li>
+												<li>Hong Kong</li>
+												<li>Thurnung street, 21</li>
+												<li>New standard</li>
+												<li><span class="font-weight-semibold">98574959485</span></li>
+												<li><span class="font-weight-semibold">BHDHD98273BER</span></li>
+											</ul>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="table-responsive">
+								<table class="table table-lg">
+									<thead>
+										<tr>
+											<th>Description</th>
+											<th>Rate</th>
+											<th>Hours</th>
+											<th>Total</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td>
+												<h6 class="mb-0">Arts and design template</h6> <span
+												class="text-muted">in reprehenderit in voluptate
+													velit esse cillum dolore eu fugiat nulla pariatur.Duis aute
+													irure dolor in reprehenderit</span>
+											</td>
+											<td>$120</td>
+											<td>180</td>
+											<td><span class="font-weight-semibold">$300</span></td>
+										</tr>
+										<tr>
+											<td>
+												<h6 class="mb-0">Template for desnging the arts</h6> <span
+												class="text-muted">Lorem ipsum dolor sit amet,
+													consectetur adipiscing elit, sed do eiusmod tempor</span>
+											</td>
+											<td>$140</td>
+											<td>100</td>
+											<td><span class="font-weight-semibold">$240</span></td>
+										</tr>
+										<tr>
+											<td>
+												<h6 class="mb-0">Technical support international</h6> <span
+												class="text-muted">Lorem ipsum dolor sit amet,
+													consectetur adipiscing elit, sed do eiusmod tempor</span>
+											</td>
+											<td>$250</td>
+											<td>$250</td>
+											<td><span class="font-weight-semibold">$500</span></td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+							<div class="card-body">
+								<div class="d-md-flex flex-md-wrap">
+									<div class="pt-2 mb-3 wmin-md-400 ml-auto">
+										<h6 class="mb-3 text-left">Total due</h6>
+										<div class="table-responsive">
+											<table class="table">
+												<tbody>
+													<tr>
+														<th class="text-left">Subtotal:</th>
+														<td class="text-right">$1,090</td>
+													</tr>
+													<tr>
+														<th class="text-left">Tax: <span
+															class="font-weight-normal">(25%)</span></th>
+														<td class="text-right">$27</td>
+													</tr>
+													<tr>
+														<th class="text-left">Total:</th>
+														<td class="text-right text-primary">
+															<h5 class="font-weight-semibold">$1,160</h5>
+														</td>
+													</tr>
+												</tbody>
+											</table>
+										</div>
+										<div class="text-right mt-3">
+											<button type="button" class="btn btn-primary">
+												<b><i class="fa fa-paper-plane-o mr-1"></i></b> Send invoice
+											</button>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="card-footer">
+								<span class="text-muted">Lorem ipsum dolor sit amet,
+									consectetur adipiscing elit, sed do eiusmod tempor incididunt
+									ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
+									nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+									commodo consequat.Duis aute irure dolor in reprehenderit in
+									voluptate velit esse cillum dolore eu fugiat nulla
+									pariatur.Duis aute irure dolor in reprehenderit</span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+
+
+			<div class="col-md-12">
+				<a href="#" class="genric-btn primary e-large move-left">Previous</a>
+				<a href="#" class="genric-btn primary e-large move-right">Next</a>
+			</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		</div>
+	</div>
+	<!-- about_area_end -->
+
+	<!-- about_info_area_start -->
+	<div class="about_info_area">
+		<div class="about_active owl-carousel">
+			<div class="single_slider about_bg_1"></div>
+			<div class="single_slider about_bg_1"></div>
+			<div class="single_slider about_bg_1"></div>
+			<div class="single_slider about_bg_1"></div>
+		</div>
+	</div>
+	<!-- about_info_area_start -->
+
+	<!-- about_main_info_start -->
+	<!--  
+	<div class="about_main_info">
+		<div class="container">
+			<div class="row">
+				<div class="col-xl-6 col-md-6">
+					<div class="single_about_info">
+						<h3>
+							We Serve Fresh and <br> Delicious Food
+						</h3>
+						<p>
+							Suscipit libero pretium nullam potenti. Interdum, blandit <br>
+							phasellus consectetuer dolor ornare dapibus enim ut tincidunt <br>
+							rhoncus tellus sollicitudin pede nam maecenas, dolor sem. <br>
+							Neque sollicitudin enim. Dapibus lorem feugiat facilisi <br>
+							faucibus et. Rhoncus.
+						</p>
+					</div>
+				</div>
+				<div class="col-xl-6 col-md-6">
+					<div class="single_about_info">
+						<h3>
+							We Serve Fresh and <br> Delicious Food
+						</h3>
+						<p>
+							Suscipit libero pretium nullam potenti. Interdum, blandit <br>
+							phasellus consectetuer dolor ornare dapibus enim ut tincidunt <br>
+							rhoncus tellus sollicitudin pede nam maecenas, dolor sem. <br>
+							Neque sollicitudin enim. Dapibus lorem feugiat facilisi <br>
+							faucibus et. Rhoncus.
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	-->
+	<!-- about_main_info_end -->
+
+	<!-- forQuery_start -->
+	<div class="forQuery">
+		<div class="container">
+			<div class="row">
+				<div class="col-xl-10 offset-xl-1 col-md-12">
+					<div class="Query_border">
+						<div class="row align-items-center justify-content-center">
+							<div class="col-xl-6 col-md-6">
+								<div class="Query_text">
+									<p>For Reservation 0r Query?</p>
+								</div>
+							</div>
+							<div class="col-xl-6 col-md-6">
+								<div class="phone_num">
+									<a href="#" class="mobile_no">+10 576 377 4789</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- forQuery_end-->
+
+	<!-- instragram_area_start -->
+	<div class="instragram_area">
+		<div class="single_instagram">
+			<img src="img/instragram/1.png" alt="">
+			<div class="ovrelay">
+				<a href="#"> <i class="fa fa-instagram"></i>
+				</a>
+			</div>
+		</div>
+		<div class="single_instagram">
+			<img src="img/instragram/2.png" alt="">
+			<div class="ovrelay">
+				<a href="#"> <i class="fa fa-instagram"></i>
+				</a>
+			</div>
+		</div>
+		<div class="single_instagram">
+			<img src="img/instragram/3.png" alt="">
+			<div class="ovrelay">
+				<a href="#"> <i class="fa fa-instagram"></i>
+				</a>
+			</div>
+		</div>
+		<div class="single_instagram">
+			<img src="img/instragram/4.png" alt="">
+			<div class="ovrelay">
+				<a href="#"> <i class="fa fa-instagram"></i>
+				</a>
+			</div>
+		</div>
+		<div class="single_instagram">
+			<img src="img/instragram/5.png" alt="">
+			<div class="ovrelay">
+				<a href="#"> <i class="fa fa-instagram"></i>
+				</a>
+			</div>
+		</div>
+	</div>
+	<!-- instragram_area_end -->
+
+	<!-- footer -->
+
+
+	<div th:insert="website/footer_website :: footer_website"></div>
+
+	<!-- link that opens popup -->
+
+	<!-- form itself end-->
+	<div th:insert="website/booking :: booking"></div>
+	<!-- footer_end -->
+
+
+
+	<!-- form itself end -->
+
+
+	<!-- JS here -->
+	<script src="js/vendor/modernizr-3.5.0.min.js"></script>
+	<script src="js/vendor/jquery-1.12.4.min.js"></script>
+	<script src="js/popper.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/owl.carousel.min.js"></script>
+	<script src="js/isotope.pkgd.min.js"></script>
+	<script src="js/ajax-form.js"></script>
+	<script src="js/waypoints.min.js"></script>
+	<script src="js/jquery.counterup.min.js"></script>
+	<script src="js/imagesloaded.pkgd.min.js"></script>
+	<script src="js/scrollIt.js"></script>
+	<script src="js/jquery.scrollUp.min.js"></script>
+	<script src="js/wow.min.js"></script>
+	<script src="js/nice-select.min.js"></script>
+	<script src="js/jquery.slicknav.min.js"></script>
+	<script src="js/jquery.magnific-popup.min.js"></script>
+	<script src="js/plugins.js"></script>
+	<script src="js/gijgo.min.js"></script>
+
+	<!--contact js-->
+	<script src="js/contact.js"></script>
+	<script src="js/jquery.ajaxchimp.min.js"></script>
+	<script src="js/jquery.form.js"></script>
+	<script src="js/jquery.validate.min.js"></script>
+	<script src="js/mail-script.js"></script>
+
+	<script src="js/main.js"></script>
+	<script>
+		$('#datepicker').datepicker({
+			iconsLibrary : 'fontawesome',
+			icons : {
+				rightIcon : '<span class="fa fa-caret-down"></span>'
+			}
+		});
+		$('#datepicker2').datepicker({
+			iconsLibrary : 'fontawesome',
+			icons : {
+				rightIcon : '<span class="fa fa-caret-down"></span>'
+			}
+
+		});
+	</script>
+
+	<script
+		src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj"
+		crossorigin="anonymous"></script>
+	<!-- Stepper JavaScript -->
+	<script>
+	location.hash = "#validation";
+const stepButtons = document.querySelectorAll('.step-button');
+const progress = document.querySelector('#progress');
+
+Array.from(stepButtons).forEach((button,index) => {
+    button.addEventListener('click', () => {
+        progress.setAttribute('value', index * 100 /(stepButtons.length - 1) );//there are 3 buttons. 2 spaces.
+
+        stepButtons.forEach((item, secindex)=>{
+            if(index > secindex){
+                item.classList.add('done');
+            }
+            if(index < secindex){
+                item.classList.remove('done');
+            }
+        })
+    })
+})
+</script>
+</body>
+
+</html>
