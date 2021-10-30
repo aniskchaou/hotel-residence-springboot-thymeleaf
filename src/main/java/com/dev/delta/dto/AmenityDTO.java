@@ -3,6 +3,8 @@ package com.dev.delta.dto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.dev.delta.i18n.entities.AmenityI18n;
+import com.dev.delta.i18n.repositories.AmenityI18nRepository;
 import com.dev.delta.repositories.AmenityRepository;
 
 @Service
@@ -11,9 +13,18 @@ public class AmenityDTO implements DTO {
 	@Autowired
 	AmenityRepository amenityRepository;
 	
+	@Autowired
+	AmenityI18nRepository amenityI18nRepository;
 	
 	@Override
 	public void populate() {
+		
+		amenityI18n.setLanguageI18n("DE");
+		amenityI18n.setDescriptionI18n("Deschreibung");
+		amenityI18n.setNameI18n("Namen");
+		amenityI18n.setStatusI18n("Stellung");
+		amenityI18nRepository.save(amenityI18n);
+		
 		
 		amenity.setDescription("Suspendisse sem ex, mattis ut luctus ac, bibendum in metus");
 		amenity.setName("Tea/Coffee Maker");

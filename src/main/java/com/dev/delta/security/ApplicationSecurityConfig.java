@@ -33,9 +33,10 @@ public class ApplicationSecurityConfig extends WebSecurityConfigurerAdapter {
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		http.csrf().disable().authorizeRequests()
-				.antMatchers("/addcheckinuser","/photos/**","/login","/","/about","/contact","/blog","/addmessage","/scss/**","/resources/**", "/css/**", "/fonts/**", "/img/**","/assets/**").permitAll()
-				.antMatchers("/register", "/resources/**", "/css/**", "/fonts/**", "/img/**", "/js/**", "/dist/**",
-						"/plugins/**")
+		        .antMatchers("/amenities/**").hasAnyAuthority("ADMIN")
+				.antMatchers("/changelang/**","/addcheckinuser","/photos/**","/login","/","/about","/contact","/blog","/addmessage","/scss/**","/resources/**", "/css/**", "/fonts/**", "/img/**","/assets/**").permitAll()
+				.antMatchers("/summarybooking/**","/paymentbooking/**","/detailbooking/**", "/bookingroom/**","/validationbooking/**","/room","/register", "/resources/**", "/css/**", "/fonts/**", "/img/**", "/js/**", "/dist/**",
+						"/plugins/**")	
 				.permitAll().antMatchers("/adduser").permitAll().anyRequest().authenticated().and().formLogin()
 				.loginPage("/login").defaultSuccessUrl("/dashboard").permitAll().and().logout().invalidateHttpSession(true).clearAuthentication(true)
 				.logoutRequestMatcher(new AntPathRequestMatcher("/logout")).logoutSuccessUrl("/login").permitAll();

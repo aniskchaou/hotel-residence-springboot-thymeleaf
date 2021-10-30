@@ -109,9 +109,9 @@
 								<div class="data-tables">
 									<table id="dataTable" class="text-center">
 										<thead class="bg-light text-capitalize">
-											<tr>
-												<th>Name</th>
-												<th>Status</th>
+											<tr th:each="item:${itemsI18n}">
+												<th th:text="${item.nameI18n}"></th>
+												<th th:text="${item.statusI18n}"></th>
 												<th></th>
 											</tr>
 										</thead>

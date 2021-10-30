@@ -18,6 +18,7 @@ public class Room {
 	@JoinColumn(name = "unit_id")
 	RoomType RoomType;
 	String Status;
+	String bookedStatus="Available";
 	
 	public Room() {
 		// TODO Auto-generated constructor stub

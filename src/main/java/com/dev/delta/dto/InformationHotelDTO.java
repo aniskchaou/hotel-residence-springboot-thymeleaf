@@ -22,6 +22,7 @@ public class InformationHotelDTO implements DTO {
 		informationHotel.setFacebook("https://www.facebook.com");
 		informationHotel.setTwitter("https://www.twitter.com");
 		informationHotel.setInstagram("https://www.instagram.com");
+		informationHotel.setLang("EN");
 		informationService.save(informationHotel);
 	}
 

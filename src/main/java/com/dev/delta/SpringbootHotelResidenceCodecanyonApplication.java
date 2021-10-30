@@ -25,10 +25,12 @@ import com.dev.delta.dto.GalleryDTO;
 import com.dev.delta.dto.GuestTypeDTO;
 import com.dev.delta.dto.InformationHotelDTO;
 import com.dev.delta.dto.OfferDTO;
+import com.dev.delta.dto.RoleDTO;
 import com.dev.delta.dto.RoomDTO;
 import com.dev.delta.dto.RoomTypeDTO;
 import com.dev.delta.dto.ShiftDTO;
 import com.dev.delta.dto.UserDTO;
+import com.dev.delta.dto.WebsiteDTO;
 import com.twilio.rest.api.v2010.account.Message;
 import com.twilio.type.PhoneNumber;
 
@@ -108,6 +110,12 @@ public class SpringbootHotelResidenceCodecanyonApplication implements CommandLin
 	@Autowired
 	CurrencyDTO currencyDTO;
 	
+	@Autowired
+	RoleDTO roleDTO;
+	
+	@Autowired
+	WebsiteDTO  websiteDTO;
+	
 	public static void main(String[] args) {
 		SpringApplication.run(SpringbootHotelResidenceCodecanyonApplication.class, args);
 	}
@@ -115,6 +123,7 @@ public class SpringbootHotelResidenceCodecanyonApplication implements CommandLin
 	
 	@Override
 	public void run(String... args) throws Exception {
+		roleDTO.populate();
 		userDTO.populate();
 		blogCategoryDTO.populate();
 		amenityDTO.populate();
@@ -139,6 +148,7 @@ public class SpringbootHotelResidenceCodecanyonApplication implements CommandLin
 	    offerDTO.populate();
 	    emailDTO.populate();
 	    currencyDTO.populate();
+	    websiteDTO.populate();
 
 	}
 

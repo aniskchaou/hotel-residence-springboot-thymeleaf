@@ -101,23 +101,28 @@
 						<div class="card">
 							<div class="card-body">
 								<h4 class="header-title">
-									<a  th:href="@{/add-checkin}"
+									<a th:if="${#authentication.getPrincipal().getUser().getRole().getName()=='ADMIN'}"
+									 th:href="@{/add-checkin}"
 									type="button" class="btn btn-rounded btn-success mb-3">
 										<i class="fa fa-plus" aria-hidden="true"></i> Create
 									</a>
-									<a  th:href="@{/customers}"
+									<a  th:if="${#authentication.getPrincipal().getUser().getRole().getName()=='ADMIN'}"
+									 th:href="@{/customers}"
 									type="button" class="btn btn-rounded btn-primary mb-3">
 										 Customers
 									</a>
-									<a  th:href="@{/foods}"
+									<a  th:if="${#authentication.getPrincipal().getUser().getRole().getName()=='ADMIN'}"
+									th:href="@{/foods}"
 									type="button" class="btn btn-rounded btn-info mb-3">
 										 Foods
 									</a>
-									<a  th:href="@{/laundries}"
+									<a  th:if="${#authentication.getPrincipal().getUser().getRole().getName()=='ADMIN'}"
+									th:href="@{/laundries}"
 									type="button" class="btn btn-rounded btn-secondary mb-3">
 										 Laundries
 									</a>
-									<a  th:href="@{/rooms}"
+									<a  th:if="${#authentication.getPrincipal().getUser().getRole().getName()=='ADMIN'}"
+									th:href="@{/rooms}"
 									type="button" class="btn btn-rounded btn-warning mb-3">
 										 Rooms
 									</a>
@@ -149,7 +154,7 @@
 													<i class="fa fa-eye" aria-hidden="true"></i> View checkin
 												</a>
 												
-												<a type="button" 
+												<a type="button" th:if="${#authentication.getPrincipal().getUser().getRole().getName()=='ADMIN'}"
 												 data-toggle="tooltip" data-placement="top" title="view invoice"
 													class="btn btn-flat btn-secondary btn-xs mb-3"
 													th:href="@{/invoice/{id}(id=${item.id}) }"> 
@@ -157,6 +162,7 @@
 												</a>
 												
 												<a type="button" 
+												th:if="${#authentication.getPrincipal().getUser().getRole().getName()=='ADMIN'}"
 												data-toggle="tooltip" data-placement="top" title="send mail"
 													class="btn btn-flat btn-success btn-xs mb-3"
 													th:href="@{/sendemail/{id}(id=${item.id}) }"> 
@@ -164,6 +170,7 @@
 												</a>
 												
 												<a type="button" 
+												th:if="${#authentication.getPrincipal().getUser().getRole().getName()=='ADMIN'}"
 												data-toggle="tooltip" data-placement="top" title="add room"
 													class="btn btn-flat btn-warning btn-xs mb-3"
 													th:href="@{/assignroom/{id}(id=${item.id}) }"> 
@@ -171,6 +178,7 @@
 												</a>
 												
 												<a type="button" 
+												th:if="${#authentication.getPrincipal().getUser().getRole().getName()=='ADMIN'}"
 												data-toggle="tooltip" data-placement="top" title="order laundry"
 													onclick="return confirm('Are you sure?') ? true : false;"
 													class="btn btn-flat btn-info btn-xs mb-3"
@@ -179,6 +187,7 @@
 												</a>
 												
 												<a type="button" 
+												th:if="${#authentication.getPrincipal().getUser().getRole().getName()=='ADMIN'}"
 												data-toggle="tooltip" data-placement="top" title="order food"
 													class="btn btn-flat btn-warning btn-xs mb-3"
 													th:href="@{/foodorder/{id}(id=${item.id}) }"> 
@@ -186,6 +195,7 @@
 												</a>
 												
 												<a type="button" 
+												th:if="${#authentication.getPrincipal().getUser().getRole().getName()=='ADMIN'}"
 												 data-toggle="tooltip" data-placement="top" title="view checkin"
 													class="btn btn-flat btn-primary btn-xs mb-3"
 													th:href="@{/checkin/{id}(id=${item.id}) }"> 
@@ -193,6 +203,7 @@
 												</a>
 												
 												<a type="button" 
+												th:if="${#authentication.getPrincipal().getUser().getRole().getName()=='ADMIN'}"
 												 data-toggle="tooltip" data-placement="top" title="view checkin"
 													class="btn btn-flat btn-primary btn-xs mb-3"
 													th:href="@{/checkin/{id}(id=${item.id}) }"> 
@@ -200,6 +211,7 @@
 												</a>
 												
 												<a type="button" 
+												th:if="${#authentication.getPrincipal().getUser().getRole().getName()=='ADMIN'}"
 												 data-toggle="tooltip" data-placement="top" title="view checkin"
 													class="btn btn-flat btn-primary btn-xs mb-3"
 													th:href="@{/checkin/{id}(id=${item.id}) }"> 
@@ -209,6 +221,7 @@
 												
 												
 												<a type="button" 
+												th:if="${#authentication.getPrincipal().getUser().getRole().getName()=='ADMIN'}"
 												data-toggle="tooltip" data-placement="top" title="checkout"
 													class="btn btn-flat btn-primary btn-xs mb-3"
 													th:href="@{/deleteamenity/{id}(id=${item.id}) }"> 

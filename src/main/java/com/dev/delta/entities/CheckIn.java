@@ -45,6 +45,7 @@ public class CheckIn {
 	String AdvancePayment="0";
 	String Status="Unpaid";
 	
+	
 	public CheckIn() {
 		// TODO Auto-generated constructor stub
 	}

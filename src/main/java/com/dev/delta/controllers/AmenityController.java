@@ -5,6 +5,8 @@ import java.util.List;
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.annotation.Secured;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -15,6 +17,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.dev.delta.entities.Amenity;
+import com.dev.delta.i18n.entities.AmenityI18n;
+import com.dev.delta.i18n.repositories.AmenityI18nRepository;
 import com.dev.delta.services.AmenityService;
 
 @Controller
@@ -25,11 +29,13 @@ public class AmenityController {
 	@Autowired
 	private AmenityService amenityService;
 
+	@Autowired
+	private AmenityI18nRepository   amenityI18nRepository;
+	
 	@GetMapping("/add-amenity")
 	public String getaddAmenity(Model model) {
 		List<Amenity> amenitys = amenityService.getAmenitys();
 		
-		model.addAttribute("cities", amenitys);
 		
 		return "amenity/add";
 	}
@@ -40,11 +46,14 @@ public class AmenityController {
 	 * @param model
 	 * @return
 	 */
+	
 	@GetMapping("/amenities")
+	@PreAuthorize("hasRole('ROLE_ADMIN')")
 	public String getAmenitys(Model model) {
 		List<Amenity> amenitys = amenityService.getAmenitys();
-		
 		model.addAttribute("items", amenitys);
+		List<AmenityI18n> amenitiesI18n=amenityI18nRepository.findAll();
+		model.addAttribute("itemsI18n", amenitiesI18n);
 		
 		return "amenity/amenities";
 	}

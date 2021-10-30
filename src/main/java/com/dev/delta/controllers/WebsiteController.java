@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 
 import com.dev.delta.entities.Blog;
 import com.dev.delta.entities.BlogCategory;
@@ -14,6 +15,9 @@ import com.dev.delta.entities.InformationHotel;
 import com.dev.delta.entities.Message;
 import com.dev.delta.entities.Notification;
 import com.dev.delta.entities.Offer;
+import com.dev.delta.entities.Room;
+import com.dev.delta.i18n.entities.WebsiteMenuI18n;
+import com.dev.delta.i18n.repositories.WebsiteMenuI18nRepository;
 import com.dev.delta.repositories.FoodOrderRespository;
 import com.dev.delta.repositories.HouseKeepingItemRespository;
 import com.dev.delta.repositories.InformationRepository;
@@ -102,6 +106,9 @@ public class WebsiteController {
 	@Autowired
 	SubscriberService  subscriberService;
 	
+	@Autowired
+	WebsiteMenuI18nRepository websiteMenuI18nRepository;
+	
 	@GetMapping("/dashboard")
 	public String homeAdmin(Model model) {
 		List<Message> messages=messageRepository.findAll();
@@ -138,7 +145,7 @@ public class WebsiteController {
 		model.addAttribute("subscriberNB",Integer.toString(subscriberNB) );
 		model.addAttribute("hotel",hotel );
 		
-		return "/home/index";
+		return "home/index";
 	}
 
 	@GetMapping("/")
@@ -146,6 +153,7 @@ public class WebsiteController {
 		Long id = 1L;
 		InformationHotel informationHotel = informationService.findById(id).get();
 		model.addAttribute("hotel", informationHotel);
+		String lang=informationHotel.getLang();
 		List<Offer> offers=offerService.getOffers();
 		model.addAttribute("offers",offers);
 		model.addAttribute("hotel", informationHotel);
@@ -157,7 +165,9 @@ public class WebsiteController {
 		model.addAttribute("image", "1");
 		List<Gallery> galleries = galleryService.getGalleries();
 		model.addAttribute("galleries", galleries);
-		return "/website/index";
+		model.addAttribute("menu", websiteMenuI18nRepository.findByLang(lang));
+		
+		return "website/index";
 	}
 
 	@GetMapping("/about")
@@ -165,7 +175,7 @@ public class WebsiteController {
 		Long id = 1L;
 		InformationHotel informationHotel = informationService.findById(id).get();
 		model.addAttribute("hotel", informationHotel);
-		return "/website/about";
+		return "website/about";
 	}
 
 	@GetMapping("/contact")
@@ -173,7 +183,14 @@ public class WebsiteController {
 		Long id = 1L;
 		InformationHotel informationHotel = informationService.findById(id).get();
 		model.addAttribute("hotel", informationHotel);
-		return "/website/contact";
+		return "website/contact";
+	}
+	
+	@GetMapping("/room")
+	public String room(Model model) {
+		List<Room> rooms=roomService.getRooms();
+		model.addAttribute("items", rooms);
+		return "website/room";
 	}
 
 	@GetMapping("/blog")
@@ -185,6 +202,19 @@ public class WebsiteController {
 		List<BlogCategory> blogCategories = blogCategoryService.getBlogCategories();
 		model.addAttribute("items", blogs);
 		model.addAttribute("categories", blogCategories);
-		return "/website/blog";
+		return "website/blog";
 	}
+	
+	
+	@GetMapping("/changelang/{lang}")
+	public String changelang(@PathVariable("lang") String lang,Model model) {
+		Long id = 1L;
+		InformationHotel informationHotel = informationService.findById(id).get();
+		informationHotel.setLang(lang);
+		System.out.println(informationHotel.toString());
+		informationService.save(informationHotel);
+
+		return "redirect:/";
+	}
+	
 }

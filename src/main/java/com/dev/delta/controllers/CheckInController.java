@@ -20,7 +20,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.dev.delta.email.EmailService;
 import com.dev.delta.email.EmailSetting;
 import com.dev.delta.email.EmailSettingRepository;
-import com.dev.delta.entities.Amenity;
 import com.dev.delta.entities.CheckIn;
 import com.dev.delta.services.CheckInService;
 import com.dev.delta.services.CityService;
@@ -104,7 +103,7 @@ public class CheckInController {
 	public String addCheckInUser(CheckIn checkIn) throws AddressException, MessagingException, IOException {
 		
 		checkInService.save(checkIn);
-		sendEmail(checkIn);
+		//sendEmail(checkIn);
 		return "redirect:/";
 	}
 	

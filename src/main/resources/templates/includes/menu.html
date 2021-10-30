@@ -4,7 +4,7 @@
 		<ul class="metismenu" id="menu">
 			<li><a th:href="@{/dashboard}"><i class="ti-receipt"></i> <span>Dashboard</span></a></li>
 			<li><a th:href="@{/}"><i class="ti-layout"></i> <span>Website</span></a></li>
-			<li><a th:href="@{/}"><i class="ti-layout"></i> <span>Documentation</span></a></li>
+			<li><a href="https://doc-delta-dev-software.herokuapp.com"><i class="ti-layout"></i> <span>Documentation</span></a></li>
 			<li><a href="javascript:void(0)" aria-expanded="true"><i
 					class="ti-layout-sidebar-left"></i><span>Check Ins </span></a>
 				<ul class="collapse">
@@ -21,6 +21,14 @@
 					<li><a th:href="@{/amenities}">Amenity</a></li>
 					<li><a th:href="@{/beds}">Beds</a></li>
 					<li><a th:href="@{/extrabeds}">Extra Beds</a></li>
+				</ul></li>
+					<li><a href="javascript:void(0)" aria-expanded="true"><i
+					class="ti-pie-chart"></i><span>Orders</span></a>
+				<ul class="collapse">
+					<li><a th:href="@{/extrabedrequest}">Extra bed Orders</a></li>
+					<li><a th:href="@{/housekeepingrequest}">House Keeping Orders</a></li>
+					<li><a th:href="@{/foodrequest}">Food Orders</a></li>
+					<li><a th:href="@{/laundryrequest}">Laundry Orders</a></li>
 				</ul></li>
 			<li><a href="javascript:void(0)" aria-expanded="true"><i
 					class="ti-palette"></i><span>Foods</span></a>

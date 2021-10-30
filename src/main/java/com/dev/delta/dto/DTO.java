@@ -22,10 +22,13 @@ import com.dev.delta.entities.InformationHotel;
 import com.dev.delta.entities.Message;
 import com.dev.delta.entities.Notification;
 import com.dev.delta.entities.Offer;
+import com.dev.delta.entities.Role;
 import com.dev.delta.entities.Room;
 import com.dev.delta.entities.RoomType;
 import com.dev.delta.entities.Shift;
 import com.dev.delta.entities.User;
+import com.dev.delta.i18n.entities.AmenityI18n;
+import com.dev.delta.i18n.entities.WebsiteMenuI18n;
 import com.github.javafaker.Faker;
 
 public interface DTO {
@@ -77,6 +80,30 @@ public interface DTO {
     EmailSetting emailSetting=new EmailSetting();
     Currency currency=new Currency();
     Notification notification=new Notification();
+    Role role=new Role();
+    Role role2=new Role();
+    Role role3=new Role();
+    User user3=new User();
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    AmenityI18n amenityI18n=new AmenityI18n();
+    WebsiteMenuI18n websiteMenuI18n=new WebsiteMenuI18n();
+    WebsiteMenuI18n websiteMenu2I18n=new WebsiteMenuI18n();
+    WebsiteMenuI18n websiteMenu3I18n=new WebsiteMenuI18n();
+    WebsiteMenuI18n websiteMenu4I18n=new WebsiteMenuI18n();
+    
+    
+    
+    
+    
     
     
 	public void populate();

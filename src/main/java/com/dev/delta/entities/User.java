@@ -1,11 +1,22 @@
 package com.dev.delta.entities;
 
+import java.util.HashSet;
+import java.util.Set;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
 @Entity
+@Table(name="hotel_user")
 public class User {
 
 	@Id
@@ -13,7 +24,20 @@ public class User {
 	Long id;
 	String username;
 	String password;
+	@ManyToOne
+	@JoinColumn(name = "role_id")
+	Role role;
+    
 	
+
+	public Role getRole() {
+		return role;
+	}
+
+	public void setRole(Role role) {
+		this.role = role;
+	}
+
 	public User() {
 		// TODO Auto-generated constructor stub
 	}

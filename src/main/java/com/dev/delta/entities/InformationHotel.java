@@ -19,9 +19,18 @@ public class InformationHotel {
 	String facebook;
 	String instagram;
 	String twitter;
+	String lang;
 	
 	public InformationHotel() {
 		// TODO Auto-generated constructor stub
+	}
+
+	public String getLang() {
+		return lang;
+	}
+
+	public void setLang(String lang) {
+		this.lang = lang;
 	}
 
 	public InformationHotel(String name, String description, String adress, String email, String telephone,
@@ -107,6 +116,13 @@ public class InformationHotel {
 
 	public void setTwitter(String twitter) {
 		this.twitter = twitter;
+	}
+
+	@Override
+	public String toString() {
+		return "InformationHotel [id=" + id + ", name=" + name + ", description=" + description + ", adress=" + adress
+				+ ", email=" + email + ", telephone=" + telephone + ", facebook=" + facebook + ", instagram="
+				+ instagram + ", twitter=" + twitter + ", lang=" + lang + "]";
 	}
 	
 	
