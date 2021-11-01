@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- <link rel="manifest" href="site.webmanifest"> -->
-    <link rel="shortcut icon" type="image/x-icon" href="img/favicon.png">
+    <link rel="shortcut icon" type="image/x-icon" href="img/logo.png">
     <!-- Place favicon.ico in the root directory -->
 
     <!-- CSS here -->
@@ -40,25 +40,7 @@
                     <div class="row align-items-center no-gutters">
                         <div class="col-xl-5 col-lg-6">
                             <div class="main-menu  d-none d-lg-block">
-                                <nav>
-                                    <ul id="navigation">
-                                        <li><a href="index.html">home</a></li>
-                                        <li><a class="active" href="rooms.html">rooms</a></li>
-                                        <li><a href="about.html">About</a></li>
-                                        <li><a href="#">blog <i class="ti-angle-down"></i></a>
-                                            <ul class="submenu">
-                                                <li><a href="blog.html">blog</a></li>
-                                                <li><a href="single-blog.html">single-blog</a></li>
-                                            </ul>
-                                        </li>
-                                        <li><a href="#">pages <i class="ti-angle-down"></i></a>
-                                            <ul class="submenu">
-                                                <li><a href="elements.html">elements</a></li>
-                                            </ul>
-                                        </li>
-                                        <li><a href="contact.html">Contact</a></li>
-                                    </ul>
-                                </nav>
+                                <div th:insert="website/nav :: nav"></div>
                             </div>
                         </div>
                         <div class="col-xl-2 col-lg-2">
@@ -71,27 +53,37 @@
                         <div class="col-xl-5 col-lg-4 d-none d-lg-block">
                             <div class="book_room">
                                 <div class="socail_links">
-                                    <ul>
+                                     <ul>
                                         <li>
-                                            <a href="#">
-                                                <i class="fa fa-facebook-square"></i>
+                                            <a th:href="@{/changelang/EN}">
+                                               <img src="img/flags/uk.png"/>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="#">
-                                                <i class="fa fa-twitter"></i>
+                                            <a th:href="@{/changelang/ES}">
+                                               <img src="img/flags/es.png"/>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="#">
-                                                <i class="fa fa-instagram"></i>
+                                            <a th:href="@{/changelang/FR}">
+                                               <img src="img/flags/fr.png"/>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a th:href="@{/changelang/AR}">
+                                                <img src="img/flags/sa.png"/>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a th:href="@{/changelang/DE}">
+                                                <img src="img/flags/de.png"/>
                                             </a>
                                         </li>
                                     </ul>
                                 </div>
-                                <div class="book_btn d-none d-lg-block">
+                               <!--  <div class="book_btn d-none d-lg-block">
                                     <a class="popup-with-form" href="#test-form">Book A Room</a>
-                                </div>
+                                </div>--> 
                             </div>
                         </div>
                         <div class="col-12">
@@ -106,7 +98,7 @@
 
     <!-- bradcam_area_start -->
     <div class="bradcam_area breadcam_bg_1">
-        <h3> Rooms</h3>
+        <h3 th:text="${room.pageTitleI18n}"> Rooms</h3>
     </div>
     <!-- bradcam_area_end -->
 
@@ -119,8 +111,8 @@
             <div class="row">
                 <div class="col-xl-12">
                     <div class="section_title text-center mb-100">
-                        <span>Featured Rooms</span>
-                        <h3>Choose a Better Room</h3>
+                        <span th:text="${room.roomTitleI18n}">Featured Rooms</span>
+                        <h3 th:text="${room.roomSubTitleI18n}">Choose a Better Room</h3>
                     </div>
                 </div>
             </div>
@@ -150,30 +142,7 @@
                     </div>
                 </div>
             </div>
-            <div class="single_rooms">
-                <div class="room_thumb">
-                    <img src="img/rooms/3.png" alt="">
-                    <div class="room_heading d-flex justify-content-between align-items-center">
-                        <div class="room_heading_inner">
-                            <span>From $250/night</span>
-                            <h3>Signature Room</h3>
-                        </div>
-                        <a href="#" class="line-button">book now</a>
-                    </div>
-                </div>
-            </div>
-            <div class="single_rooms">
-                <div class="room_thumb">
-                    <img src="img/rooms/4.png" alt="">
-                    <div class="room_heading d-flex justify-content-between align-items-center">
-                        <div class="room_heading_inner">
-                            <span>From $250/night</span>
-                            <h3>Couple Room</h3>
-                        </div>
-                        <a href="#" class="line-button">book now</a>
-                    </div>
-                </div>
-            </div>
+           
                         <div class="single_rooms">
                 <div class="room_thumb">
                     <img src="img/rooms/2.png" alt="">
@@ -198,18 +167,7 @@
                     </div>
                 </div>
             </div>
-            <div class="single_rooms">
-                <div class="room_thumb">
-                    <img src="img/rooms/4.png" alt="">
-                    <div class="room_heading d-flex justify-content-between align-items-center">
-                        <div class="room_heading_inner">
-                            <span>From $250/night</span>
-                            <h3>Couple Room</h3>
-                        </div>
-                        <a href="#" class="line-button">book now</a>
-                    </div>
-                </div>
-            </div>
+           
         </div>
     </div>
     <!-- features_room_end -->
@@ -223,7 +181,7 @@
                         <div class="row align-items-center justify-content-center">
                             <div class="col-xl-6 col-md-6">
                                 <div class="Query_text">
-                                        <p>For Reservation 0r Query?</p>
+                                        <p th:text="${room.reservationSectionI18n}">For Reservation 0r Query?</p>
                                 </div>
                             </div>
                             <div class="col-xl-6 col-md-6">

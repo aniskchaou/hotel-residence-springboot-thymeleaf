@@ -28,7 +28,14 @@ import com.dev.delta.entities.RoomType;
 import com.dev.delta.entities.Shift;
 import com.dev.delta.entities.User;
 import com.dev.delta.i18n.entities.AmenityI18n;
+import com.dev.delta.i18n.entities.WebsiteAboutI18n;
+import com.dev.delta.i18n.entities.WebsiteBlogI18n;
+import com.dev.delta.i18n.entities.WebsiteContactI18n;
+import com.dev.delta.i18n.entities.WebsiteFooterI18n;
+import com.dev.delta.i18n.entities.WebsiteHomeI18n;
 import com.dev.delta.i18n.entities.WebsiteMenuI18n;
+import com.dev.delta.i18n.entities.WebsiteRoomI18n;
+import com.dev.delta.i18n.entities.WebsiteSignInI18n;
 import com.github.javafaker.Faker;
 
 public interface DTO {
@@ -99,6 +106,27 @@ public interface DTO {
     WebsiteMenuI18n websiteMenu2I18n=new WebsiteMenuI18n();
     WebsiteMenuI18n websiteMenu3I18n=new WebsiteMenuI18n();
     WebsiteMenuI18n websiteMenu4I18n=new WebsiteMenuI18n();
+    
+    WebsiteHomeI18n websiteHomeI18n=new WebsiteHomeI18n();
+    WebsiteHomeI18n websiteHomeI18n2=new WebsiteHomeI18n();
+    
+    WebsiteAboutI18n  websiteAboutI18n=new WebsiteAboutI18n();
+    WebsiteAboutI18n  websiteAboutI18n2=new WebsiteAboutI18n();
+    
+    WebsiteBlogI18n websiteBlogI18n=new WebsiteBlogI18n();
+    WebsiteBlogI18n websiteBlogI18n2=new WebsiteBlogI18n();
+    
+    WebsiteContactI18n websiteContactI18n=new WebsiteContactI18n();
+    WebsiteContactI18n websiteContactI18n2=new WebsiteContactI18n();
+    
+    WebsiteFooterI18n websiteFooterI18n=new WebsiteFooterI18n();
+    WebsiteFooterI18n websiteFooterI18n2=new WebsiteFooterI18n();
+    
+    WebsiteRoomI18n  websiteRoomI18n=new WebsiteRoomI18n();
+    WebsiteRoomI18n  websiteRoomI18n2=new WebsiteRoomI18n();
+    
+    WebsiteSignInI18n websiteSignInI18n=new WebsiteSignInI18n();
+    WebsiteSignInI18n websiteSignInI18n2=new WebsiteSignInI18n();
     
     
     

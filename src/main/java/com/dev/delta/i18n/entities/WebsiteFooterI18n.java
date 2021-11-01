@@ -16,10 +16,51 @@ public class WebsiteFooterI18n {
 	String navigationTitleI18n;
 	String newsletterTitleI18n;
 	String newsletterSubTitleI18n;
+	String email;
+	String signUpButton;
+	String lang;
 	
 	public WebsiteFooterI18n() {
 		// TODO Auto-generated constructor stub
 	}
+
+	
+	
+	public String getEmail() {
+		return email;
+	}
+
+
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+
+
+	public String getSignUpButton() {
+		return signUpButton;
+	}
+
+
+
+	public void setSignUpButton(String signUpButton) {
+		this.signUpButton = signUpButton;
+	}
+
+
+
+	public String getLang() {
+		return lang;
+	}
+
+
+
+	public void setLang(String lang) {
+		this.lang = lang;
+	}
+
+
 
 	public Long getId() {
 		return id;

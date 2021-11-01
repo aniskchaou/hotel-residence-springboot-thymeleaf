@@ -20,10 +20,33 @@ public class WebsiteContactI18n {
 	String sendI18n;
 	String phoneSubtitleI18n;
 	String emailSubtitleI18n;
+	String lang;
+	
 	
 	public WebsiteContactI18n() {
 		// TODO Auto-generated constructor stub
 	}
+
+	
+	public Long getId() {
+		return id;
+	}
+
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+
+	public String getLang() {
+		return lang;
+	}
+
+
+	public void setLang(String lang) {
+		this.lang = lang;
+	}
+
 
 	public String getPageTitleI18n() {
 		return pageTitleI18n;

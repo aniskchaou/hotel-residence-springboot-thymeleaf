@@ -137,7 +137,16 @@
 													class="btn btn-flat btn-danger btn-xs mb-3"
 													th:href="@{/deleteamenity/{id}(id=${item.id}) }"> 
 													<i class="fa fa-trash" aria-hidden="true"></i>
-												</a></td>
+												</a>
+													<a type="button" 
+												th:if="${#authentication.getPrincipal().getUser().getRole().getName()=='ADMIN'}"
+												data-toggle="tooltip" data-placement="top" title="send mail"
+													class="btn btn-flat btn-success btn-xs mb-3"
+													th:href="@{/sendemail/{id}(id=${item.id}) }"> 
+													<i class="fa fa-file" aria-hidden="true"></i> Send Mail
+												</a>
+												
+												</td>
 											</tr>
 
 										</tbody>

@@ -92,14 +92,11 @@
 			<li><a href="javascript:void(0)" aria-expanded="true"><i
 					class="fa fa-users"></i> <span>Users </span></a>
 				<ul class="collapse">
+				    <li><a th:href="@{/users}">Users</a></li>
+				    <li><a th:href="@{/roles}">Roles</a></li>
 					<li><a th:href="@{/subscribers}">Subscribers</a></li>
 				</ul></li>
-			<li><a href="javascript:void(0)" aria-expanded="true"><i
-					class="fa fa-flag"></i> <span>Reports </span></a>
-				<ul class="collapse">
-					<li><a th:href="@{/subscribers}">Subscribers</a></li>
-					<li><a th:href="@{/users}">Check Ins</a></li>
-				</ul></li>
+			
 			<li><a th:href="@{/settings}"><i class="ti-receipt"></i> <span>Settings</span></a></li>
 
 		</ul>

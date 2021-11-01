@@ -35,8 +35,6 @@ public class AmenityController {
 	@GetMapping("/add-amenity")
 	public String getaddAmenity(Model model) {
 		List<Amenity> amenitys = amenityService.getAmenitys();
-		
-		
 		return "amenity/add";
 	}
 	

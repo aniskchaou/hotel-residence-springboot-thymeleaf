@@ -26,6 +26,7 @@
 <link rel="stylesheet" href="/css/slicknav.css">
 <link rel="stylesheet" href="/css/style.css">
 <link rel="stylesheet" href="/css/detail.css">
+<link rel="stylesheet" href="/css/paymethod.css">
 <!-- <link rel="stylesheet" href="css/responsive.css"> -->
 </head>
 
@@ -89,156 +90,116 @@
 
 	<!-- about_area_start -->
 	<div class="about_area">
-		<div class="container" id="validation">
+		<div class="container" >
 
-		    <div class="md-stepper-horizontal orange">
-		<div class="md-step">
-			<div class="md-step-circle">
-				<span>1</span>
+			<div class="md-stepper-horizontal orange" id="validation">
+				<div class="md-step">
+					<div class="md-step-circle">
+						<span>1</span>
+					</div>
+					<div class="md-step-title">Booking</div>
+					<div class="md-step-bar-left"></div>
+					<div class="md-step-bar-right"></div>
+				</div>
+				<div class="md-step">
+					<div class="md-step-circle">
+						<span>2</span>
+					</div>
+					<div class="md-step-title">Details</div>
+					<div class="md-step-bar-left"></div>
+					<div class="md-step-bar-right"></div>
+				</div>
+				<div class="md-step">
+					<div class="md-step-circle">
+						<span>3</span>
+					</div>
+					<div class="md-step-title">Summary</div>
+					<div class="md-step-bar-left"></div>
+					<div class="md-step-bar-right"></div>
+				</div>
+				<div class="md-step active">
+					<div class="md-step-circle">
+						<span>4</span>
+					</div>
+					<div class="md-step-title">Payment</div>
+					<div class="md-step-bar-left"></div>
+					<div class="md-step-bar-right"></div>
+				</div>
 			</div>
-			<div class="md-step-title">Booking</div>
-			<div class="md-step-bar-left"></div>
-			<div class="md-step-bar-right"></div>
-		</div>
-		<div class="md-step">
-			<div class="md-step-circle">
-				<span>2</span>
-			</div>
-			<div class="md-step-title">Details</div>
-			<div class="md-step-bar-left"></div>
-			<div class="md-step-bar-right"></div>
-		</div>
-		<div class="md-step">
-			<div class="md-step-circle">
-				<span>3</span>
-			</div>
-			<div class="md-step-title">Summary</div>
-			<div class="md-step-bar-left"></div>
-			<div class="md-step-bar-right"></div>
-		</div>
-		<div class="md-step active">
-			<div class="md-step-circle">
-				<span>4</span>
-			</div>
-			<div class="md-step-title">Payment</div>
-			<div class="md-step-bar-left"></div>
-			<div class="md-step-bar-right"></div>
-		</div>
-	</div>
 
-			<div class="col-md-12 buttons-prev-next">
-				<a th:href="@{/summarybooking/{id}(id=${roomid}) }" class="genric-btn primary e-large move-left">< Summary</a>
-				
+			<!--  <div class="col-md-12 buttons-prev-next">
+				<a th:href="@{/summarybooking/{id}(id=${roomid}) }"
+					class="genric-btn primary e-large move-left">< Summary</a>
+
 			</div>
+            -->
 
 			<br />
 
-
-
-
-
-
-			<div class="col-md-12">
-				<a href="#" class="genric-btn primary e-large move-left">Previous</a>
-				<a href="#" class="genric-btn primary e-large move-right">Next</a>
-			</div>
-
-
-
-
-
-             <div ></div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-		</div>
-	</div>
-	<!-- about_area_end -->
-
-	<!-- about_info_area_start -->
-	<div class="about_info_area">
-		<div class="about_active owl-carousel">
-			<div class="single_slider about_bg_1"></div>
-			<div class="single_slider about_bg_1"></div>
-			<div class="single_slider about_bg_1"></div>
-			<div class="single_slider about_bg_1"></div>
-		</div>
-	</div>
-	<!-- about_info_area_start -->
-
-	<!-- about_main_info_start -->
-	<!--  
-	<div class="about_main_info">
-		<div class="container">
-			<div class="row">
-				<div class="col-xl-6 col-md-6">
-					<div class="single_about_info">
-						<h3>
-							We Serve Fresh and <br> Delicious Food
-						</h3>
-						<p>
-							Suscipit libero pretium nullam potenti. Interdum, blandit <br>
-							phasellus consectetuer dolor ornare dapibus enim ut tincidunt <br>
-							rhoncus tellus sollicitudin pede nam maecenas, dolor sem. <br>
-							Neque sollicitudin enim. Dapibus lorem feugiat facilisi <br>
-							faucibus et. Rhoncus.
-						</p>
-					</div>
+			<div class="container parent" >
+				<div class="col-6">
+					<h2 class="contact-title">Choose the payment method</h2>
 				</div>
-				<div class="col-xl-6 col-md-6">
-					<div class="single_about_info">
-						<h3>
-							We Serve Fresh and <br> Delicious Food
-						</h3>
-						<p>
-							Suscipit libero pretium nullam potenti. Interdum, blandit <br>
-							phasellus consectetuer dolor ornare dapibus enim ut tincidunt <br>
-							rhoncus tellus sollicitudin pede nam maecenas, dolor sem. <br>
-							Neque sollicitudin enim. Dapibus lorem feugiat facilisi <br>
-							faucibus et. Rhoncus.
-						</p>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	-->
-	<!-- about_main_info_end -->
-
-	<!-- forQuery_start -->
-	<div class="forQuery">
-		<div class="container">
-			<div class="row">
-				<div class="col-xl-10 offset-xl-1 col-md-12">
-					<div class="Query_border">
-						<div class="row align-items-center justify-content-center">
-							<div class="col-xl-6 col-md-6">
-								<div class="Query_text">
-									<p>For Reservation 0r Query?</p>
+				<div class="row">
+					<div class='col text-center'>
+						<input type="radio" name="imgbackground" id="img1"
+							class="d-none imgbgchk" value=""> <label for="img1">
+							<img src="/img/payment/paycash.jpg" alt="Image 1">
+							<div class="tick_container">
+								<div class="tick">
+									<i class="fa fa-check"></i>
 								</div>
 							</div>
-							<div class="col-xl-6 col-md-6">
-								<div class="phone_num">
-									<a href="#" class="mobile_no">+10 576 377 4789</a>
+						</label>
+					</div>
+					<div class='col text-center'>
+						<input type="radio" name="imgbackground" id="img2"
+							class="d-none imgbgchk" value=""> <label for="img2">
+							<img src="/img/payment/checkpay.png" alt="Image 2">
+							<div class="tick_container">
+								<div class="tick">
+									<i class="fa fa-check"></i>
 								</div>
 							</div>
-						</div>
+						</label>
+					</div>
+					<div class='col text-center'>
+						<input type="radio" name="imgbackground" id="img3"
+							class="d-none imgbgchk" value=""> <label for="img3">
+							<img src="/img/payment/paypal.png" alt="Image 3">
+							<div class="tick_container">
+								<div class="tick">
+									<i class="fa fa-check"></i>
+								</div>
+							</div>
+						</label>
+					</div>
+					<div class='col text-center'>
+						<input type="radio" name="imgbackground" id="img4"
+							class="d-none imgbgchk" value=""> <label for="img4">
+							<img src="/img/payment/razorpay.png" alt="Image 4">
+							<div class="tick_container">
+								<div class="tick">
+									<i class="fa fa-check"></i>
+								</div>
+							</div>
+						</label>
+					</div>
+				</div>
+
+				<div class="col-md-12">
+					<div class="d-flex justify-content-center">
+						<a style="margin: 3px;" type="button"
+							class="genric-btn primary e-large move-left"   th:href="@{/}" >
+							<i class="fa fa-dollar mr-2"></i> Pay Now
+						</a>
 					</div>
 				</div>
 			</div>
+
 		</div>
 	</div>
-	<!-- forQuery_end-->
+
 
 	<!-- instragram_area_start -->
 	<div class="instragram_area">
@@ -325,6 +286,7 @@
 
 	<script src="js/main.js"></script>
 	<script>
+	location.hash = "#validation";
 		$('#datepicker').datepicker({
 			iconsLibrary : 'fontawesome',
 			icons : {

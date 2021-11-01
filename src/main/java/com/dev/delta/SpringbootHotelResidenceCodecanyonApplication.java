@@ -31,8 +31,6 @@ import com.dev.delta.dto.RoomTypeDTO;
 import com.dev.delta.dto.ShiftDTO;
 import com.dev.delta.dto.UserDTO;
 import com.dev.delta.dto.WebsiteDTO;
-import com.twilio.rest.api.v2010.account.Message;
-import com.twilio.type.PhoneNumber;
 
 @SpringBootApplication
 public class SpringbootHotelResidenceCodecanyonApplication implements CommandLineRunner{
@@ -132,7 +130,6 @@ public class SpringbootHotelResidenceCodecanyonApplication implements CommandLin
 		guestTypeDTO.populate();
 		cityDTO.populate();
 		countryDTO.populate();
-	    checkInDTO.populate();
 	    blogDTO.populate();
 	    customerDTO.populate();
 	    roomDTO.populate();
@@ -149,6 +146,7 @@ public class SpringbootHotelResidenceCodecanyonApplication implements CommandLin
 	    emailDTO.populate();
 	    currencyDTO.populate();
 	    websiteDTO.populate();
+	    checkInDTO.populate();
 
 	}
 

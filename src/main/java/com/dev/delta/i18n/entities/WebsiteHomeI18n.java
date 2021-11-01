@@ -20,10 +20,33 @@ public class WebsiteHomeI18n {
 	String roomTitleI18n;
 	String roomSubTitleI18n;
 	String reservationSectionI18n;
+	String learnmoreButton;
+	String lang;
 	
 	public WebsiteHomeI18n() {
 		// TODO Auto-generated constructor stub
 	}
+
+	
+	public String getLearnmoreButton() {
+		return learnmoreButton;
+	}
+
+
+	public void setLearnmoreButton(String learnmoreButton) {
+		this.learnmoreButton = learnmoreButton;
+	}
+
+
+	public String getLang() {
+		return lang;
+	}
+
+
+	public void setLang(String lang) {
+		this.lang = lang;
+	}
+
 
 	public Long getId() {
 		return id;

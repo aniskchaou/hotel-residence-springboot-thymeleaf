@@ -10,7 +10,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <!-- <link rel="manifest" href="site.webmanifest"> -->
-<link rel="shortcut icon" type="image/x-icon" href="img/favicon.png">
+<link rel="shortcut icon" type="image/x-icon" href="img/logo.png">
 <!-- Place favicon.ico in the root directory -->
 
 <!-- CSS here -->
@@ -55,25 +55,35 @@
 								<div class="socail_links">
 									 <ul>
                                         <li>
-                                            <a th:href="${hotel.facebook}">
-                                                <i class="fa fa-facebook-square"></i>
+                                            <a th:href="@{/changelang/EN}">
+                                               <img src="img/flags/uk.png"/>
                                             </a>
                                         </li>
                                         <li>
-                                            <a th:href="${hotel.twitter}">
-                                                <i class="fa fa-twitter"></i>
+                                            <a th:href="@{/changelang/ES}">
+                                               <img src="img/flags/es.png"/>
                                             </a>
                                         </li>
                                         <li>
-                                            <a th:href="${hotel.instagram}">
-                                                <i class="fa fa-instagram"></i>
+                                            <a th:href="@{/changelang/FR}">
+                                               <img src="img/flags/fr.png"/>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a th:href="@{/changelang/AR}">
+                                                <img src="img/flags/sa.png"/>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a th:href="@{/changelang/DE}">
+                                                <img src="img/flags/de.png"/>
                                             </a>
                                         </li>
                                     </ul>
 								</div>
-								<div class="book_btn d-none d-lg-block">
+								<!--  <div class="book_btn d-none d-lg-block">
 									<a class="popup-with-form" href="#test-form">Check In</a>
-								</div>
+								</div>-->
 							</div>
 						</div>
 						<div class="col-12">
@@ -88,7 +98,7 @@
 
 	<!-- bradcam_area_start -->
 	<div class="bradcam_area breadcam_bg">
-		<h3>About Us</h3>
+		<h3 th:text="${about.pageTitleI18n}">About Us</h3>
 	</div>
 	<!-- bradcam_area_end -->
 
@@ -99,11 +109,11 @@
 				<div class="col-xl-5 col-lg-5">
 					<div class="about_info">
 						<div class="section_title mb-20px">
-							<span>About Us</span>
+							<span th:text="${about.pageTitleI18n}">About Us</span>
 							<h3 th:text="${hotel?.name}"></h3>
 						</div>
 						<p th:text="${hotel?.description}"></p>
-						<a href="#" class="line-button">Learn More</a>
+						<!-- <a href="#" class="line-button">Learn More</a> -->
 					</div>
 				</div>
 				<div class="col-xl-7 col-lg-7">
@@ -180,7 +190,7 @@
 						<div class="row align-items-center justify-content-center">
 							<div class="col-xl-6 col-md-6">
 								<div class="Query_text">
-									<p>For Reservation 0r Query?</p>
+									<p th:text="${about.reservationSectionI18n}">For Reservation 0r Query?</p>
 								</div>
 							</div>
 							<div class="col-xl-6 col-md-6">

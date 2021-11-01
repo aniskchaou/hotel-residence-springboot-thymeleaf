@@ -15,9 +15,9 @@ public class ExtraBedDTO implements DTO{
 	public void populate() {
 		extraBed.setBedNo("103");
 		extraBed.setComment("kjkj");
-		extraBed.setCustomer(customer);
+		//extraBed.setCustomer(customer);
 		extraBed.setRoom(room);
-		extraBed.setRoomType(roomType1);
+		//extraBed.setRoomType(roomType1);
 		extraBed.setExtraBed("1");
 		
 		extraBedRepository.save(extraBed);

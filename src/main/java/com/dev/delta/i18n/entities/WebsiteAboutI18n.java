@@ -13,9 +13,18 @@ public class WebsiteAboutI18n {
 	Long id;
 	String pageTitleI18n;
 	String reservationSectionI18n;
+	String lang;
 	
 	public WebsiteAboutI18n() {
 		// TODO Auto-generated constructor stub
+	}
+
+	public String getLang() {
+		return lang;
+	}
+
+	public void setLang(String lang) {
+		this.lang = lang;
 	}
 
 	public Long getId() {
@@ -41,6 +50,8 @@ public class WebsiteAboutI18n {
 	public void setReservationSectionI18n(String reservationSectionI18n) {
 		this.reservationSectionI18n = reservationSectionI18n;
 	}
+
+
 	
 	
 }

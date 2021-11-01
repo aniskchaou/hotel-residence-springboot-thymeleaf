@@ -14,7 +14,11 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.dev.delta.entities.CheckIn;
 import com.dev.delta.entities.FoodOrder;
+import com.dev.delta.entities.Service;
+import com.dev.delta.repositories.ServiceRepository;
+import com.dev.delta.services.CheckInService;
 import com.dev.delta.services.CustomerService;
 import com.dev.delta.services.FoodOrderService;
 import com.dev.delta.services.FoodRequestOrderService;
@@ -34,10 +38,17 @@ public class FoodOrderController {
 	@Autowired
 	private FoodService foodService;
 	
+	@Autowired
+	private CheckInService  checkInService;
+	
+	@Autowired
+	ServiceRepository  serviceRepository;
+	
 	@GetMapping("/add-foodorder")
 	public String getaddAmenity(Model model) {
 		model.addAttribute("customers",customerService.getCustomers());
 		model.addAttribute("foods",foodService.getFoods());
+		
 		return "foodorder/add";
 	}
 	
@@ -50,7 +61,6 @@ public class FoodOrderController {
 	@GetMapping("/foodorders")
 	public String getFoodOrders(Model model) {
 		List<FoodOrder> foodOrders = foodOrderService.getFoodOrders();
-	
 		model.addAttribute("items", foodOrders);
 	
 		return "foodorder/foodorders";
@@ -66,7 +76,13 @@ public class FoodOrderController {
 
 	public String addFoodOrder(FoodOrder foodOrder) {
 		foodOrderService.save(foodOrder);
-		return "redirect:/foodorders";
+		Service service=new Service();
+		service.setName(foodOrder.getFoodItem().getItemName());
+		service.setCheckin(foodOrder.getCheckin());
+		service.setPrice(foodOrder.getPrice());
+		
+		serviceRepository.save(service);
+		return "redirect:/checkins";
 	}
 
 	/**

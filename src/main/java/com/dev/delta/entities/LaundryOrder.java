@@ -4,6 +4,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class LaundryOrder {
@@ -12,7 +14,9 @@ public class LaundryOrder {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	Long id;
-	String customer;
+	@ManyToOne
+	@JoinColumn(name = "room_id")
+	Room room;
 	String laundryitem;
 	String date;
 	
@@ -20,12 +24,19 @@ public class LaundryOrder {
 		// TODO Auto-generated constructor stub
 	}
 
-	public LaundryOrder(String customer, String laundryitem, String date) {
-		super();
-		this.customer = customer;
-		this.laundryitem = laundryitem;
-		this.date = date;
+	
+
+	public Room getRoom() {
+		return room;
 	}
+
+
+
+	public void setRoom(Room room) {
+		this.room = room;
+	}
+
+
 
 	public Long getId() {
 		return id;
@@ -35,13 +46,7 @@ public class LaundryOrder {
 		this.id = id;
 	}
 
-	public String getCustomer() {
-		return customer;
-	}
 
-	public void setCustomer(String customer) {
-		this.customer = customer;
-	}
 
 	public String getLaundryitem() {
 		return laundryitem;

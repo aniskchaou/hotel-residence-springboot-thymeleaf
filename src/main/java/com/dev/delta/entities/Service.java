@@ -4,6 +4,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Service {
@@ -11,17 +13,14 @@ public class Service {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	Long id;
+	@ManyToOne
+	@JoinColumn(name = "check_id")
+	CheckIn  checkin;
 	String name;
-	String status;
+	String price;
 	
 	public Service() {
 		// TODO Auto-generated constructor stub
-	}
-
-	public Service(String name, String status) {
-		super();
-		this.name = name;
-		this.status = status;
 	}
 
 	public Long getId() {
@@ -32,6 +31,14 @@ public class Service {
 		this.id = id;
 	}
 
+	public CheckIn getCheckin() {
+		return checkin;
+	}
+
+	public void setCheckin(CheckIn checkin) {
+		this.checkin = checkin;
+	}
+
 	public String getName() {
 		return name;
 	}
@@ -40,13 +47,14 @@ public class Service {
 		this.name = name;
 	}
 
-	public String getStatus() {
-		return status;
+	public String getPrice() {
+		return price;
 	}
 
-	public void setStatus(String status) {
-		this.status = status;
+	public void setPrice(String price) {
+		this.price = price;
 	}
+	
 	
 	
 }

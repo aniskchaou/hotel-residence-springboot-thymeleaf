@@ -128,10 +128,7 @@
 						</div>
 					</div>
 
-					<div class="col-md-12 buttons-prev-next">
-						
-						<a th:href="@{/detailbooking/{id}(id=${roomid}) }" class="genric-btn primary e-large move-right">Details ></a>
-					</div>
+					
 
 					<br />
                     <br/>
@@ -139,11 +136,11 @@
 					<div class="row" >
 						<div class="col-xl-5 col-lg-5">
 							<div class="about_info">
-								<div class="section_title mb-20px">
+								<div class="section_title mb-20px" id="validation">
 
 
 									<h3 th:text="${hotel?.name}"></h3>
-									<a href="#" class="genric-btn primary circle arrow">Book
+									<a th:href="@{/detailbooking/{id}(id=${roomid}) }" class="genric-btn primary circle arrow">Book
 										Now</a>
 								</div>
 								<h3>From US$450.00 / night</h3>

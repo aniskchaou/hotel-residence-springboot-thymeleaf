@@ -18,13 +18,25 @@ public class WebsiteBlogI18n {
 	String recentPostI18n;
 	String tagI18n;
 	String instagramFeedI18n;
-	String newsletterTitle;
+	String newsletterTitleI18n;
 	String emailI18n;
 	String sendButtonI18n;
+	String lang;
 	
 	public WebsiteBlogI18n() {
 		// TODO Auto-generated constructor stub
 	}
+
+	
+	public String getLang() {
+		return lang;
+	}
+
+
+	public void setLang(String lang) {
+		this.lang = lang;
+	}
+
 
 	public Long getId() {
 		return id;
@@ -90,12 +102,12 @@ public class WebsiteBlogI18n {
 		this.instagramFeedI18n = instagramFeedI18n;
 	}
 
-	public String getNewsletterTitle() {
-		return newsletterTitle;
+	public String getNewsletterTitleI18n() {
+		return newsletterTitleI18n;
 	}
 
-	public void setNewsletterTitle(String newsletterTitle) {
-		this.newsletterTitle = newsletterTitle;
+	public void setNewsletterTitleI18n(String newsletterTitle) {
+		this.newsletterTitleI18n = newsletterTitle;
 	}
 
 	public String getEmailI18n() {

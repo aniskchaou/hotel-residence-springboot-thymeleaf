@@ -16,7 +16,7 @@ public class FoodDTO implements DTO {
 	
 		food.setCategory(foodCategory);
 		food.setPrice("18");
-		food.setItemName(null);
+		food.setItemName("qdfsd");
 		food.setStatus("Active");
 		foodService.save(food);
 		

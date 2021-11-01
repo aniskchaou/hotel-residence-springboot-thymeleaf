@@ -42,8 +42,8 @@ public class CheckInService {
 	 * 
 	 * @param checkIn
 	 */
-	public void save(CheckIn checkIn) {
-		checkInRepository.save(checkIn);
+	public CheckIn save(CheckIn checkIn) {
+		return checkInRepository.save(checkIn);
 	}
 
 	/**

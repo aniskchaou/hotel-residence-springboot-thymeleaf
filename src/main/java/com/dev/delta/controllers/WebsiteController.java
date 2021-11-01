@@ -16,8 +16,14 @@ import com.dev.delta.entities.Message;
 import com.dev.delta.entities.Notification;
 import com.dev.delta.entities.Offer;
 import com.dev.delta.entities.Room;
-import com.dev.delta.i18n.entities.WebsiteMenuI18n;
+import com.dev.delta.i18n.repositories.WebsiteAboutI18nRepository;
+import com.dev.delta.i18n.repositories.WebsiteBlogI18nRepository;
+import com.dev.delta.i18n.repositories.WebsiteContactI18nRepository;
+import com.dev.delta.i18n.repositories.WebsiteFooterI18nRepository;
+import com.dev.delta.i18n.repositories.WebsiteHomeI18nRepository;
 import com.dev.delta.i18n.repositories.WebsiteMenuI18nRepository;
+import com.dev.delta.i18n.repositories.WebsiteRoomI18nRepository;
+import com.dev.delta.i18n.repositories.WebsiteSignInI18nRepository;
 import com.dev.delta.repositories.FoodOrderRespository;
 import com.dev.delta.repositories.HouseKeepingItemRespository;
 import com.dev.delta.repositories.InformationRepository;
@@ -109,6 +115,27 @@ public class WebsiteController {
 	@Autowired
 	WebsiteMenuI18nRepository websiteMenuI18nRepository;
 	
+	@Autowired
+	WebsiteContactI18nRepository websiteContactI18nRepository;
+	
+	@Autowired
+	WebsiteFooterI18nRepository  websiteFooterI18nRepository;
+	
+	@Autowired
+	WebsiteSignInI18nRepository websiteSignInI18nRepository;
+	
+	@Autowired
+	WebsiteAboutI18nRepository  websiteAboutI18nRepository;
+	
+	@Autowired
+	WebsiteBlogI18nRepository  websiteBlogI18nRepository;
+	
+	@Autowired
+	WebsiteRoomI18nRepository  websiteRoomI18nRepository;
+	
+	@Autowired
+	WebsiteHomeI18nRepository  websiteHomeI18nRepository  ;
+	
 	@GetMapping("/dashboard")
 	public String homeAdmin(Model model) {
 		List<Message> messages=messageRepository.findAll();
@@ -166,7 +193,8 @@ public class WebsiteController {
 		List<Gallery> galleries = galleryService.getGalleries();
 		model.addAttribute("galleries", galleries);
 		model.addAttribute("menu", websiteMenuI18nRepository.findByLang(lang));
-		
+		model.addAttribute("footer", websiteFooterI18nRepository.findByLang(lang));
+		model.addAttribute("home", websiteHomeI18nRepository.findByLang(lang));
 		return "website/index";
 	}
 
@@ -174,7 +202,11 @@ public class WebsiteController {
 	public String about(Model model) {
 		Long id = 1L;
 		InformationHotel informationHotel = informationService.findById(id).get();
+		String lang=informationHotel.getLang();
 		model.addAttribute("hotel", informationHotel);
+		model.addAttribute("menu", websiteMenuI18nRepository.findByLang(lang));
+		model.addAttribute("about", websiteAboutI18nRepository.findByLang(lang));
+		model.addAttribute("footer", websiteFooterI18nRepository.findByLang(lang));
 		return "website/about";
 	}
 
@@ -183,6 +215,10 @@ public class WebsiteController {
 		Long id = 1L;
 		InformationHotel informationHotel = informationService.findById(id).get();
 		model.addAttribute("hotel", informationHotel);
+		String lang=informationHotel.getLang();
+		model.addAttribute("menu", websiteMenuI18nRepository.findByLang(lang));
+		model.addAttribute("contact", websiteContactI18nRepository.findByLang(lang));
+		model.addAttribute("footer", websiteFooterI18nRepository.findByLang(lang));
 		return "website/contact";
 	}
 	
@@ -190,6 +226,12 @@ public class WebsiteController {
 	public String room(Model model) {
 		List<Room> rooms=roomService.getRooms();
 		model.addAttribute("items", rooms);
+		Long id = 1L;
+		InformationHotel informationHotel = informationService.findById(id).get();
+		String lang=informationHotel.getLang();
+		model.addAttribute("menu", websiteMenuI18nRepository.findByLang(lang));
+		model.addAttribute("room", websiteRoomI18nRepository.findByLang(lang));
+		model.addAttribute("footer", websiteFooterI18nRepository.findByLang(lang));
 		return "website/room";
 	}
 
@@ -200,8 +242,12 @@ public class WebsiteController {
 		model.addAttribute("hotel", informationHotel);
 		List<Blog> blogs = blogService.getBlogs();
 		List<BlogCategory> blogCategories = blogCategoryService.getBlogCategories();
+		String lang=informationHotel.getLang();
 		model.addAttribute("items", blogs);
 		model.addAttribute("categories", blogCategories);
+		model.addAttribute("menu", websiteMenuI18nRepository.findByLang(lang));
+		model.addAttribute("blog", websiteBlogI18nRepository.findByLang(lang));
+		model.addAttribute("footer", websiteFooterI18nRepository.findByLang(lang));
 		return "website/blog";
 	}
 	

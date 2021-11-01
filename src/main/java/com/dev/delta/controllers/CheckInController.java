@@ -1,6 +1,7 @@
 package com.dev.delta.controllers;
 
 import java.io.IOException;
+import java.util.Date;
 import java.util.List;
 
 import javax.mail.MessagingException;
@@ -21,10 +22,22 @@ import com.dev.delta.email.EmailService;
 import com.dev.delta.email.EmailSetting;
 import com.dev.delta.email.EmailSettingRepository;
 import com.dev.delta.entities.CheckIn;
+import com.dev.delta.entities.Customer;
+import com.dev.delta.entities.Food;
+import com.dev.delta.entities.Invoice;
+import com.dev.delta.entities.Room;
+import com.dev.delta.entities.Service;
+import com.dev.delta.entities.VAT;
+import com.dev.delta.repositories.InvoiceRepository;
+import com.dev.delta.repositories.ServiceRepository;
+import com.dev.delta.repositories.VATRepository;
 import com.dev.delta.services.CheckInService;
 import com.dev.delta.services.CityService;
 import com.dev.delta.services.CountryService;
+import com.dev.delta.services.CustomerService;
+import com.dev.delta.services.FoodService;
 import com.dev.delta.services.GuestTypeService;
+import com.dev.delta.services.RoomService;
 import com.dev.delta.services.RoomTypeService;
 @Controller
 public class CheckInController {
@@ -52,6 +65,26 @@ public class CheckInController {
 	
 	@Autowired
 	EmailSettingRepository  emailSettingRepository;
+	
+	@Autowired
+	FoodService  foodService;
+	
+	@Autowired
+	CustomerService  customerService;
+	
+	@Autowired
+	RoomService  roomService;
+	
+	@Autowired
+	ServiceRepository  serviceRepository;
+	
+	@Autowired
+	VATRepository  vatRepository;
+	
+	
+	@Autowired
+	InvoiceRepository  invoiceRepository;
+	
 
 	@GetMapping("/add-checkin")
 	public String getaddCheckIn(Model model) {
@@ -99,7 +132,6 @@ public class CheckInController {
 	
 	
 	@PostMapping("/addcheckinuser")
-
 	public String addCheckInUser(CheckIn checkIn) throws AddressException, MessagingException, IOException {
 		
 		checkInService.save(checkIn);
@@ -156,7 +188,12 @@ public class CheckInController {
 	@PostMapping("/updatecheckin/{id}")
 	public String updateCheckIn(@PathVariable("id") long id, @Validated CheckIn checkIn, BindingResult result, Model model) {
 
-		checkInService.save(checkIn);
+		CheckIn checkin=checkInService.save(checkIn);
+		Service service=new Service();
+		service.setCheckin(checkin);
+		service.setName(checkin.getRoom().getRoomType().getTitle());
+		service.setPrice(checkin.getRoom().getRoomType().getBasePrice());
+		serviceRepository.save(service);
 		return "redirect:/checkins";
 	}
 
@@ -179,4 +216,81 @@ public class CheckInController {
 		model.addAttribute("item", amenity);
 		return "blog/edit";
 	}
+	
+	
+	@GetMapping("/orderfood/{id}/{check}")
+	public String OrderFood(@PathVariable("id") Long id,@PathVariable("check") Long checkId,Model model) {
+		//Customer   customer=customerService.findById(id).get();
+	   Room  room=roomService.findById(id).get();
+	   List<Food> foods=foodService.getFoods();
+		model.addAttribute("room", room);
+		model.addAttribute("foods", foods);
+		model.addAttribute("check", checkInService.findById(checkId));
+		return "checkin/orderfood";
+	}
+	
+	
+	@GetMapping("/orderlaundry/{id}/{check}")
+	public String OrderLaundry(@PathVariable("id") Long id,@PathVariable("check") Long checkId,Model model) {
+		Room  room=roomService.findById(id).get();
+		
+		model.addAttribute("room", room);
+		model.addAttribute("check", checkId);
+		return "checkin/orderlaundry";
+	}
+	
+	
+	@GetMapping("/orderextrabed/{id}/{check}")
+	public String OrderExtraBed(@PathVariable("id") Long id,@PathVariable("check") Long checkId,Model model) {
+		Room  room=roomService.findById(id).get();
+
+		model.addAttribute("room", room);
+		model.addAttribute("check", checkId);
+		return "checkin/orderextrabed";
+	}
+	
+	@GetMapping("/orderhousekeeping/{id}/{check}")
+	public String orderHouseKeeping(@PathVariable("id") Long id,@PathVariable("check") Long checkId,Model model) {
+		Room  room=roomService.findById(id).get();
+		model.addAttribute("room", room);
+		model.addAttribute("check", checkId);
+		return "checkin/orderhousekeeping";
+	}
+	
+	
+	
+	@GetMapping("/viewinvoice/{id}")
+	public String viewInvoice(@PathVariable("id") Long id,Model model) {
+		CheckIn checkIn = checkInService.findById(id);
+		
+		Invoice invoice=invoiceRepository.findByCheckIn(checkIn);
+		model.addAttribute("invoice", invoice);
+		
+		return "invoice/view";
+	}
+	
+	@GetMapping("/checkout/{id}")
+	public String checkOut(@PathVariable("id") Long id,Model model) {
+		CheckIn checkIn = checkInService.findById(id);
+		model.addAttribute("item", checkIn);
+		checkIn.setStatus("CheckOut");
+		checkInService.save(checkIn);
+		Invoice invoice=new Invoice();
+		VAT vat= new VAT();
+		vatRepository.save(vat);
+		//create invoice
+		invoice.setCreateAt(new Date().toString());
+		System.err.println(serviceRepository.findByCheckin(checkIn).size());
+		invoice.setItems(serviceRepository.findByCheckin(checkIn));
+		invoice.setVat(vat);
+		invoice.setTotal("199779");
+		invoice.setCheckIn(checkIn);
+		
+		invoiceRepository.save(invoice);
+		
+		return "redirect:/checkins";
+	}
+	
+	
 }
+	

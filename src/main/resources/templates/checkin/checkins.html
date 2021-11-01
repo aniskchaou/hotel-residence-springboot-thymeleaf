@@ -157,32 +157,16 @@
 												<a type="button" th:if="${#authentication.getPrincipal().getUser().getRole().getName()=='ADMIN'}"
 												 data-toggle="tooltip" data-placement="top" title="view invoice"
 													class="btn btn-flat btn-secondary btn-xs mb-3"
-													th:href="@{/invoice/{id}(id=${item.id}) }"> 
+													th:href="@{/viewinvoice/{id}(id=${item.id}) }"> 
 													<i class="fa fa-paper-plane" aria-hidden="true"></i> view invoice
 												</a>
 												
 												<a type="button" 
 												th:if="${#authentication.getPrincipal().getUser().getRole().getName()=='ADMIN'}"
-												data-toggle="tooltip" data-placement="top" title="send mail"
-													class="btn btn-flat btn-success btn-xs mb-3"
-													th:href="@{/sendemail/{id}(id=${item.id}) }"> 
-													<i class="fa fa-file" aria-hidden="true"></i> Send Mail
-												</a>
-												
-												<a type="button" 
-												th:if="${#authentication.getPrincipal().getUser().getRole().getName()=='ADMIN'}"
-												data-toggle="tooltip" data-placement="top" title="add room"
-													class="btn btn-flat btn-warning btn-xs mb-3"
-													th:href="@{/assignroom/{id}(id=${item.id}) }"> 
-													<i class="fa fa-bed"></i> Add Room
-												</a>
-												
-												<a type="button" 
-												th:if="${#authentication.getPrincipal().getUser().getRole().getName()=='ADMIN'}"
 												data-toggle="tooltip" data-placement="top" title="order laundry"
-													onclick="return confirm('Are you sure?') ? true : false;"
+												
 													class="btn btn-flat btn-info btn-xs mb-3"
-													th:href="@{/orderlaundry/{id}(id=${item.id}) }"> 
+													th:href="@{/orderlaundry/{id}/{check}(id=${item.room.id},check=${item.id}) }"> 
 													<i class="fa fa-air-freshener" aria-hidden="true"></i> Order Laundry
 												</a>
 												
@@ -190,7 +174,7 @@
 												th:if="${#authentication.getPrincipal().getUser().getRole().getName()=='ADMIN'}"
 												data-toggle="tooltip" data-placement="top" title="order food"
 													class="btn btn-flat btn-warning btn-xs mb-3"
-													th:href="@{/foodorder/{id}(id=${item.id}) }"> 
+													th:href="@{/orderfood/{id}/{check}(id=${item.room.id},check=${item.id}) }"> 
 													<i class="fa fa-hamburger" aria-hidden="true"></i> Food Order
 												</a>
 												
@@ -198,33 +182,23 @@
 												th:if="${#authentication.getPrincipal().getUser().getRole().getName()=='ADMIN'}"
 												 data-toggle="tooltip" data-placement="top" title="view checkin"
 													class="btn btn-flat btn-primary btn-xs mb-3"
-													th:href="@{/checkin/{id}(id=${item.id}) }"> 
-													<i class="fa fa-eye" aria-hidden="true"></i> Luandry
+													th:href="@{/orderextrabed/{id}/{check}(id=${item.room.id},check=${item.id}) }"> 
+													<i class="fa fa-eye" aria-hidden="true"></i> extra bed
 												</a>
 												
 												<a type="button" 
 												th:if="${#authentication.getPrincipal().getUser().getRole().getName()=='ADMIN'}"
 												 data-toggle="tooltip" data-placement="top" title="view checkin"
 													class="btn btn-flat btn-primary btn-xs mb-3"
-													th:href="@{/checkin/{id}(id=${item.id}) }"> 
+													th:href="@{/orderhousekeeping/{id}/{check}(id=${item.room.id},check=${item.id}) }"> 
 													<i class="fa fa-eye" aria-hidden="true"></i> House keeping
 												</a>
 												
 												<a type="button" 
 												th:if="${#authentication.getPrincipal().getUser().getRole().getName()=='ADMIN'}"
-												 data-toggle="tooltip" data-placement="top" title="view checkin"
-													class="btn btn-flat btn-primary btn-xs mb-3"
-													th:href="@{/checkin/{id}(id=${item.id}) }"> 
-													<i class="fa fa-eye" aria-hidden="true"></i> paid
-												</a>
-												
-												
-												
-												<a type="button" 
-												th:if="${#authentication.getPrincipal().getUser().getRole().getName()=='ADMIN'}"
 												data-toggle="tooltip" data-placement="top" title="checkout"
 													class="btn btn-flat btn-primary btn-xs mb-3"
-													th:href="@{/deleteamenity/{id}(id=${item.id}) }"> 
+													th:href="@{/checkout/{id}(id=${item.id}) }"> 
 													<i class="fa fa-sign-out" aria-hidden="true"></i> CheckOut
 												</a>
 												</td>
