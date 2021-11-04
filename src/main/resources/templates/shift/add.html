@@ -90,28 +90,28 @@
                         <div class="card">
                           <div class="card-body"> 
                                         <form class="needs-validation" novalidate=""  method="post"
-                                        th:action="@{/updateshift/{id}(id=${item.id})}" th:object="${item}"
+                                        th:action="@{/addshift}" 
                                         >
                                             <div class="form-row">
                                                 <div class="col-md-4 mb-3">
                                                     <label for="validationCustom01">type</label>
-                                                    <input th:value="${item.type}" name="type" type="text" class="form-control" id="validationCustom01" placeholder="First name"  required="">
+                                                    <input  name="type" type="text" class="form-control" id="validationCustom01" placeholder="First name"  required="">
                                                    
                                                 </div>
                                                 <div class="col-md-4 mb-3">
                                                     <label for="validationCustom02">Start</label>
-                                                    <input th:value="${item.start}" name="start" type="time" class="form-control" id="validationCustom02" placeholder="Last name"  required="">
+                                                    <input  name="start" type="time" class="form-control" id="validationCustom02" placeholder="Last name"  required="">
                                                    
                                                 </div>
                                                  <div class="col-md-4 mb-3">
                                                     <label for="validationCustom02">End</label>
-                                                    <input th:value="${item.end}" name="end" type="time" class="form-control" id="validationCustom02" placeholder="Last name"  required="">
+                                                    <input  name="end" type="time" class="form-control" id="validationCustom02" placeholder="Last name"  required="">
                                                    
                                                 </div>
                                             </div>
                                              
                                             <button class="btn btn-primary" type="submit"><i class="fa fa-plus" aria-hidden="true"></i>
-                                              Update</button>
+                                              Create</button>
                                         </form>
                                     </div>
                         </div>

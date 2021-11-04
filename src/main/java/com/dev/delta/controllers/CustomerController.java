@@ -88,6 +88,8 @@ public class CustomerController {
 	@RequestMapping("/editcustomer/{id}")
 	public String finCustomerdById(@PathVariable("id") Long id, Model model) {
 		Customer customer = customerService.findById(id).get();
+		model.addAttribute("cities", cityService.getCitys());
+		model.addAttribute("countries", countryService.getCountrys());
 		model.addAttribute("item", customer);
 		return "customer/edit";
 	}

@@ -120,13 +120,13 @@
 												<td>
 												<a type="button" 
 													class="btn btn-flat btn-warning btn-xs mb-3"
-													th:href="@{/editcategory/{id}(id=${item.id}) }"> 
+													th:href="@{/editblogcategory/{id}(id=${item.id}) }"> 
 													<i class="fa fa-edit" aria-hidden="true"></i>
 												</a>
 												<a type="button" 
 													onclick="return confirm('Are you sure?') ? true : false;"
 													class="btn btn-flat btn-danger btn-xs mb-3"
-													th:href="@{/deleteamenity/{id}(id=${item.id}) }"> 
+													th:href="@{/deleteblogcategory/{id}(id=${item.id}) }"> 
 													<i class="fa fa-trash" aria-hidden="true"></i>
 												</a></td>
 											</tr>

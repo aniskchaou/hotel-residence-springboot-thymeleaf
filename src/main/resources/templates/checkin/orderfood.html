@@ -104,7 +104,7 @@
 									th:action="@{/addfoodorder}" method="post">
 									<div class="form-row">
 										<div class="col-md-4 mb-3">
-											<input type="hidden" name="checkin" th:value="${check.id}"/>
+											
 											<label for="validationCustom01">Food Item</label> <select
 												name="FoodItem" data-live-search="true" type="text"
 												class="form-control selectpicker" required="required">
@@ -135,6 +135,11 @@
 												name="price" type="text" class="form-control"
 												id="validationCustom02" placeholder="Price" >
 										</div>
+										
+										<input name="customer" type="hidden" th:value="${customer.id}" />
+										<input name="room" type="hidden" th:value="${room.id}" />
+										<input name="checkin" type="hidden" th:value="${checkin.id}" />
+										
 									</div>
 									
 									<button class="btn btn-primary" type="submit">

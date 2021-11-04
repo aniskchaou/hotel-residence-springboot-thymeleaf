@@ -65,7 +65,7 @@ public class ShiftController {
 	 * @return
 	 */
 	@RequestMapping("/editshift/{id}")
-	public String findById(@PathVariable("id") int id, Model model) {
+	public String findById(@PathVariable("id") long id, Model model) {
 		Shift shift = shiftService.findById(id).get();
 		model.addAttribute("item", shift);
 		return "shift/edit";

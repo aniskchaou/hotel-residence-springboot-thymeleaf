@@ -34,13 +34,13 @@ public class InformationController {
 	public String findById(@PathVariable("id") Long id, Model model) {
 		InformationHotel hotel = informationService.findById(id);
 		model.addAttribute("item", hotel);
-		return "hotel/view";
+		return "information/view";
 	}
 	
 	@RequestMapping("/editinformation/{id}")
 	public String findHotelById(@PathVariable("id") Long id, Model model) {
 		InformationHotel hotel = informationService.findById(id);
 		model.addAttribute("item", hotel);
-		return "hotel/view";
+		return "information/edit";
 	}
 }

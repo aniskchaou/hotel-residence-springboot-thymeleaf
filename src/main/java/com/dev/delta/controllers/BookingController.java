@@ -11,15 +11,22 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.dev.delta.entities.CheckIn;
+import com.dev.delta.entities.Customer;
 import com.dev.delta.entities.InformationHotel;
+import com.dev.delta.entities.Role;
 import com.dev.delta.entities.Room;
+import com.dev.delta.entities.User;
 import com.dev.delta.i18n.repositories.WebsiteFooterI18nRepository;
 import com.dev.delta.i18n.repositories.WebsiteMenuI18nRepository;
+import com.dev.delta.repositories.RoleRepository;
+import com.dev.delta.repositories.UserRepository;
 import com.dev.delta.services.CheckInService;
 import com.dev.delta.services.CityService;
 import com.dev.delta.services.CountryService;
+import com.dev.delta.services.CustomerService;
 import com.dev.delta.services.GuestTypeService;
 import com.dev.delta.services.InformationService;
 import com.dev.delta.services.RoomService;
@@ -54,6 +61,15 @@ public class BookingController {
 	
 	@Autowired
 	RoomService roomService ;
+	
+	@Autowired
+	UserRepository  userRepository;
+	
+	@Autowired
+	CustomerService  customerService;
+	
+	@Autowired
+	RoleRepository  roleRepository;
 	
 	/*@GetMapping("/validationbooking/{id}")
 	public String getBlogs(@PathVariable("id") Long id,Model model) {
@@ -127,11 +143,37 @@ public class BookingController {
 	
 	
 	@PostMapping("/addcheckinregistration")
-	public String addCheckInUser(CheckIn checkIn) throws AddressException, MessagingException, IOException {
+	public String addCheckInUser(CheckIn checkIn,@RequestParam("username") String username,
+            @RequestParam("password") String password) throws AddressException, MessagingException, IOException {
+		System.err.println(username+" "+password);
+		Role role=new Role();
+		role.setName("CLIENT");
+		roleRepository.save(role);
+		User user=new User();
+		user.setPassword(password);
+		user.setUsername(username);
+		user.setRole(role);
+		userRepository.save(user);
 		
+		Customer  customer=new Customer();
+		
+		customer.setAddress(checkIn.getAddress());
+		customer.setAge(checkIn.getAge());
+		customer.setCity(checkIn.getCity());
+		customer.setCountry(checkIn.getCountry());
+		customer.setEmail(checkIn.getEmail());
+		customer.setFullname(checkIn.getFullname());
+		customer.setGender(checkIn.getGender());
+		customer.setMobile(checkIn.getMobile());
+		customer.setUser(user);
+		
+		customerService.save(customer);
+		
+		checkIn.setCutomer(customer);
 		CheckIn checkin=checkInService.save(checkIn);
-		//sendEmail(checkIn);
+
 		return "redirect:/summarybooking/"+checkin.getId();
+		
 	}
 	
 	

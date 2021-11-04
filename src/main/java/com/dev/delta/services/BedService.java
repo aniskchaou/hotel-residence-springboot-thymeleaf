@@ -45,4 +45,9 @@ public class BedService {
 		// TODO Auto-generated method stub
 		return bedRepository.findById(id).get();
 	}
+
+	public void delete(Long id) {
+		// TODO Auto-generated method stub
+		bedRepository.deleteById(id);
+	}
 }

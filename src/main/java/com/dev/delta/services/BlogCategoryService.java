@@ -33,4 +33,11 @@ public class BlogCategoryService {
 	}
 	
 	
+
+	public void delete(Long id) {
+		// TODO Auto-generated method stub
+		blogRepository.deleteById(id);
+	}
+	
+	
 }

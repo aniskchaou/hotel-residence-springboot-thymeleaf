@@ -33,7 +33,7 @@ public class MessageController {
 	public String addMessage(Message message) {
 		
 		messageService.addMessage(message);
-		return "website/contact";
+		return "redirect:/";
 		
 	}
 	

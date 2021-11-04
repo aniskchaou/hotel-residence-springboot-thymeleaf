@@ -79,6 +79,7 @@ public class PaymentController {
 	
 	@RequestMapping("/editpayment/{id}")
 	public String findPaymentById(@PathVariable("id") Long id, Model model) {
+		model.addAttribute("paymentMethods", paymentMethodService.getPaymentMethods());
 		Payment payment = paymentService.findById(id).get();
 		model.addAttribute("item", payment);
 		return "payment/edit";

@@ -1,9 +1,15 @@
 package com.dev.delta;
 
+import java.util.Locale;
+
+import org.hibernate.validator.spi.messageinterpolation.LocaleResolver;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.Bean;
+import org.springframework.web.servlet.i18n.SessionLocaleResolver;
 
 import com.dev.delta.dto.AmenityDTO;
 import com.dev.delta.dto.BedDTO;
@@ -31,6 +37,8 @@ import com.dev.delta.dto.RoomTypeDTO;
 import com.dev.delta.dto.ShiftDTO;
 import com.dev.delta.dto.UserDTO;
 import com.dev.delta.dto.WebsiteDTO;
+import com.dev.delta.entities.InformationHotel;
+import com.dev.delta.services.InformationService;
 
 @SpringBootApplication
 public class SpringbootHotelResidenceCodecanyonApplication implements CommandLineRunner{
@@ -114,6 +122,15 @@ public class SpringbootHotelResidenceCodecanyonApplication implements CommandLin
 	@Autowired
 	WebsiteDTO  websiteDTO;
 	
+	@Autowired
+	InformationService informationService;
+	
+	@Value("${system.lang}")
+	 String lang;
+
+	// Read server.port from app.prop
+	
+	
 	public static void main(String[] args) {
 		SpringApplication.run(SpringbootHotelResidenceCodecanyonApplication.class, args);
 	}
@@ -147,7 +164,30 @@ public class SpringbootHotelResidenceCodecanyonApplication implements CommandLin
 	    currencyDTO.populate();
 	    websiteDTO.populate();
 	    checkInDTO.populate();
+	    
+	   
 
 	}
-
+	
+	
+	
+	@Bean
+    public SessionLocaleResolver localeResolver() {
+		Locale arabicLocale = new Locale.Builder().setLanguageTag("ar-SA-u-nu-arab").build();
+        SessionLocaleResolver slr = new SessionLocaleResolver();
+		if(lang.equals("en"))
+		{
+			slr.setDefaultLocale(Locale.ENGLISH);
+		}else if(lang.equals("ar"))
+		{
+			
+	        slr.setDefaultLocale(arabicLocale);
+		}
+		 
+		
+        return slr;
+    }
+    
+    
+  
 }

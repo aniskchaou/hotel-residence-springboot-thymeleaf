@@ -52,7 +52,7 @@ public class ShiftService {
 	 * @param id
 	 * @return
 	 */
-	public Optional<Shift> findById(int id) {
+	public Optional<Shift> findById(long id) {
 		return shiftRepository.findById(id);
 	}
 

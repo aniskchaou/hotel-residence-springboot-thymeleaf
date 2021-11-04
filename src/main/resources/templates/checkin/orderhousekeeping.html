@@ -8,12 +8,12 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="shortcut icon" type="image/png"
 	href="../assets/images/icon/favicon.ico">
-<link rel="stylesheet" href="../assets/css/bootstrap.min.css">
-<link rel="stylesheet" href="../assets/css/font-awesome.min.css">
-<link rel="stylesheet" href="../assets/css/themify-icons.css">
-<link rel="stylesheet" href="../assets/css/metisMenu.css">
-<link rel="stylesheet" href="../assets/css/owl.carousel.min.css">
-<link rel="stylesheet" href="../assets/css/slicknav.min.css">
+<link rel="stylesheet" href="../../assets/css/bootstrap.min.css">
+<link rel="stylesheet" href="../../assets/css/font-awesome.min.css">
+<link rel="stylesheet" href="../../assets/css/themify-icons.css">
+<link rel="stylesheet" href="../../assets/css/metisMenu.css">
+<link rel="stylesheet" href="../../assets/css/owl.carousel.min.css">
+<link rel="stylesheet" href="../../assets/css/slicknav.min.css">
 <!-- amcharts css -->
 <link rel="stylesheet"
 	href="https://www.amcharts.com/lib/3/plugins/export/export.css"
@@ -28,10 +28,10 @@
 <link rel="stylesheet" type="text/css"
 	href="https://cdn.datatables.net/responsive/2.2.3/css/responsive.jqueryui.min.css">
 <!-- style css -->
-<link rel="stylesheet" href="../assets/css/typography.css">
-<link rel="stylesheet" href="../assets/css/default-css.css">
-<link rel="stylesheet" href="../assets/css/styles.css">
-<link rel="stylesheet" href="../assets/css/responsive.css">
+<link rel="stylesheet" href="../../assets/css/typography.css">
+<link rel="stylesheet" href="../../assets/css/default-css.css">
+<link rel="stylesheet" href="../../assets/css/styles.css">
+<link rel="stylesheet" href="../../assets/css/responsive.css">
 <!-- modernizr css -->
 <script src="../assets/js/vendor/modernizr-2.8.3.min.js"></script>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/css/bootstrap-select.min.css">
@@ -102,7 +102,7 @@
 						<div class="card">
 							<div class="card-body">
 								<form class="needs-validation" novalidate=""
-									th:action="@{/addhousekeeping}" method="post">
+									th:action="@{/addhousekeepingorder}" method="post">
 									<div class="form-row">
 										<input type="hidden" name="room" th:value="${room.id}" />
 										<div class="col-md-4 mb-3">
@@ -132,7 +132,9 @@
 												name="AssignedTo" type="text" class="form-control"
 												id="validationCustom02" placeholder="AssignedTo">
 										</div>
-
+                                         	<input name="customer" type="hidden" th:value="${customer.id}" />
+										<input name="room" type="hidden" th:value="${room.id}" />
+										<input name="checkin" type="hidden" th:value="${checkin.id}" />
 									</div>
 									<button class="btn btn-primary" type="submit">
 										<i class="fa fa-plus" aria-hidden="true"></i> Create
@@ -155,7 +157,7 @@
 	<div th:insert="includes/settings :: settings"></div>
 	<!-- page container area end -->
 	<!-- offset area start -->
-	<div th:insert="includes/scripts2 :: scripts"></div>
+	<div th:insert="includes/scripts3 :: scripts"></div>
 	<!-- offset area end -->
 	<!-- jquery latest version -->
 

@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.dev.delta.entities.CheckIn;
 import com.dev.delta.entities.FoodOrder;
+import com.dev.delta.entities.FoodRequestOrder;
 import com.dev.delta.entities.Service;
 import com.dev.delta.repositories.ServiceRepository;
 import com.dev.delta.services.CheckInService;
@@ -52,6 +53,15 @@ public class FoodOrderController {
 		return "foodorder/add";
 	}
 	
+	
+	@GetMapping("/foodrequest")
+	public String getFoodRequest(Model model) {
+		List<FoodOrder> items = foodOrderService.getFoodOrders();
+		model.addAttribute("items", items);
+		return "request/foodrequestorder";
+	}
+	
+	
 	/**
 	 * getFoodOrders
 	 * 
@@ -80,9 +90,10 @@ public class FoodOrderController {
 		service.setName(foodOrder.getFoodItem().getItemName());
 		service.setCheckin(foodOrder.getCheckin());
 		service.setPrice(foodOrder.getPrice());
-		
+		//System.err.println(foodOrder.toString());
 		serviceRepository.save(service);
-		return "redirect:/checkins";
+		//return "redirect:/checkins";
+		return "redirect:/foodrequest";
 	}
 
 	/**

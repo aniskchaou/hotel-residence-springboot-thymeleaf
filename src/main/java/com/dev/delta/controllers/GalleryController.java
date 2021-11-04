@@ -2,10 +2,13 @@ package com.dev.delta.controllers;
 
 import java.util.List;
 
+import javax.transaction.Transactional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.dev.delta.entities.Gallery;
@@ -34,6 +37,14 @@ public class GalleryController {
 	@PostMapping("/addgallery")
 	public String addFood(Gallery gallery) {
 		galleryService.save(gallery);
+		return "redirect:/galleries";
+	}
+	
+	
+	@GetMapping("/deletegallery/{id}")
+	@Transactional
+	public String deleteGallery(@PathVariable("id") Long id) {
+		galleryService.delete(id);
 		return "redirect:/galleries";
 	}
 }

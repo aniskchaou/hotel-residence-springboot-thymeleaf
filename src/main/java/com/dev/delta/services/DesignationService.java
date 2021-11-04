@@ -51,7 +51,7 @@ public class DesignationService {
 	 * @param id
 	 * @return
 	 */
-	public Optional<Designation> findById(int id) {
+	public Optional<Designation> findById(long id) {
 		return designationRepository.findById(id);
 	}
 

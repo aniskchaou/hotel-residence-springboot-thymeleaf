@@ -48,9 +48,24 @@ public class CheckIn {
 	@ManyToOne
 	@JoinColumn(name = "room_id")
 	Room room;
+	@ManyToOne
+	@JoinColumn(name = "customer_id")
+	Customer cutomer;
 	
 	public CheckIn() {
 		// TODO Auto-generated constructor stub
+	}
+
+    
+
+	public Customer getCutomer() {
+		return cutomer;
+	}
+
+
+
+	public void setCutomer(Customer cutomer) {
+		this.cutomer = cutomer;
 	}
 
 
@@ -287,6 +302,21 @@ public class CheckIn {
 
 	public void setAdvancePayment(String advancePayment) {
 		AdvancePayment = advancePayment;
+	}
+
+
+
+	@Override
+	public String toString() {
+		return "CheckIn [id=" + id + ", GuestType=" + GuestType + ", Fullname=" + Fullname + ", Email=" + Email
+				+ ", Mobile=" + Mobile + ", Address=" + Address + ", Country=" + Country + ", city=" + city
+				+ ", Gender=" + Gender + ", Age=" + Age + ", CheckIn=" + CheckIn + ", CheckOut=" + CheckOut
+				+ ", DurationofStay=" + DurationofStay + ", Adults=" + Adults + ", Kids=" + Kids + ", RoomPlan="
+				+ RoomPlan + ", BookedBy=" + BookedBy + ", VehicleNumber=" + VehicleNumber + ", Remark=" + Remark
+				+ ", IDNo=" + IDNo + ", NameOtherPerson=" + NameOtherPerson + ", GenderOtherPerson=" + GenderOtherPerson
+				+ ", AgeOtherPerson=" + AgeOtherPerson + ", AddressOtherPerson=" + AddressOtherPerson
+				+ ", IDNoOtherPerson=" + IDNoOtherPerson + ", AdvancePayment=" + AdvancePayment + ", paymentStatus="
+				+ paymentStatus + ", Status=" + Status + ", room=" + room + ", cutomer=" + cutomer + "]";
 	}
 	
 	

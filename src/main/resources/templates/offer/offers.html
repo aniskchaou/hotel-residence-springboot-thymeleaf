@@ -118,7 +118,7 @@
 												<td th:text="${item.name}"></td>
 												<td>
 												<a type="button" 
-													class="btn btn-flat btn-danger btn-xs mb-3"
+													class="btn btn-flat btn-primary btn-xs mb-3"
 													th:href="@{/offer/{id}(id=${item.id}) }"> 
 													<i class="fa fa-eye" aria-hidden="true"></i>
 												</a>
@@ -130,7 +130,7 @@
 												<a type="button" 
 													onclick="return confirm('Are you sure?') ? true : false;"
 													class="btn btn-flat btn-danger btn-xs mb-3"
-													th:href="@{/deleteamenity/{id}(id=${item.id}) }"> 
+													th:href="@{/deleteoffer/{id}(id=${item.id}) }"> 
 													<i class="fa fa-trash" aria-hidden="true"></i>
 												</a></td>
 											</tr>

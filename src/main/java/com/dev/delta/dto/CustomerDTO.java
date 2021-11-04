@@ -18,7 +18,17 @@ public class CustomerDTO implements DTO{
 		customer.setMobile(faker.phoneNumber().cellPhone().toString());
 		customer.setFullname(faker.name().fullName());
 		customer.setEmail(faker.internet().emailAddress());
+		customer.setUser(user);
 		customerRepository.save(customer);	
+		
+		
+		customer2.setAddress(faker.address().streetName());
+		customer2.setCity(city);
+		customer2.setMobile(faker.phoneNumber().cellPhone().toString());
+		customer2.setFullname(faker.name().fullName());
+		customer2.setEmail(faker.internet().emailAddress());
+		
+		customerRepository.save(customer2);	
 	}
 
 }

@@ -69,7 +69,8 @@ public class FoodController {
 	 * @return
 	 */
 	@RequestMapping("/editfood/{id}")
-	public String findById(@PathVariable("id") int id, Model model) {
+	public String findById(@PathVariable("id") long id, Model model) {
+		model.addAttribute("foodCategories",foodCategoryService.getFoodCategorys());
 		Food food = foodService.findById(id).get();
 		model.addAttribute("item", food);
 		return "food/edit";

@@ -1,5 +1,61 @@
 package com.dev.delta.i18n.entities;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+
+import com.dev.delta.entities.Room;
+
+@Entity
 public class ExtraBedI18n {
 
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	Long id;
+	String roomI18n;
+	String ExtraBedI18n;
+	String BedNoI18n;
+	String CommentI18n;
+	String langI18n;
+	public Long getId() {
+		return id;
+	}
+	public void setId(Long id) {
+		this.id = id;
+	}
+	public String getRoomI18n() {
+		return roomI18n;
+	}
+	public void setRoomI18n(String roomI18n) {
+		this.roomI18n = roomI18n;
+	}
+	public String getExtraBedI18n() {
+		return ExtraBedI18n;
+	}
+	public void setExtraBedI18n(String extraBedI18n) {
+		ExtraBedI18n = extraBedI18n;
+	}
+	public String getBedNoI18n() {
+		return BedNoI18n;
+	}
+	public void setBedNoI18n(String bedNoI18n) {
+		BedNoI18n = bedNoI18n;
+	}
+	public String getCommentI18n() {
+		return CommentI18n;
+	}
+	public void setCommentI18n(String commentI18n) {
+		CommentI18n = commentI18n;
+	}
+	public String getLangI18n() {
+		return langI18n;
+	}
+	public void setLangI18n(String langI18n) {
+		this.langI18n = langI18n;
+	}
+	
+	
 }

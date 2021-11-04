@@ -22,4 +22,10 @@ public class GalleryService {
 	public void save(Gallery gallery) {
 		galleryRepository.save(gallery);
 	}
+
+
+	public void delete(Long id) {
+		// TODO Auto-generated method stub
+		galleryRepository.deleteById(id);
+	}
 }

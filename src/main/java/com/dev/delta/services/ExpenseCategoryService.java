@@ -51,7 +51,7 @@ public class ExpenseCategoryService {
 	 * @param id
 	 * @return
 	 */
-	public Optional<ExpenseCategory> findById(int id) {
+	public Optional<ExpenseCategory> findById(long id) {
 		return expenseCategoryRepository.findById(id);
 	}
 

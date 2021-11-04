@@ -4,6 +4,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.dev.delta.entities.ExtraBedRequestOrder;
 
-public interface ExtraBedOrderRepository  extends JpaRepository<ExtraBedRequestOrder, Long>{
+public interface ExtraBedRequestRepository  extends JpaRepository<ExtraBedRequestOrder, Long>{
 
 }

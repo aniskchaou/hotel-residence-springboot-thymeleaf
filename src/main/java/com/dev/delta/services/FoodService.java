@@ -51,7 +51,7 @@ public class FoodService {
 	 * @param id
 	 * @return
 	 */
-	public Optional<Food> findById(int id) {
+	public Optional<Food> findById(long id) {
 		return foodRepository.findById(id);
 	}
 

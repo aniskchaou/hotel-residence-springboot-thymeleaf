@@ -82,6 +82,7 @@ public class RoomController {
 	@RequestMapping("/editroom/{id}")
 	public String findRoomById(@PathVariable("id") Long id, Model model) {
 		Room room = roomService.findById(id).get();
+		model.addAttribute("roomTypes", roomTypeService.getRoomTypes());
 		model.addAttribute("item", room);
 		return "room/edit";
 	}

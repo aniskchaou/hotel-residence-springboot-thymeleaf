@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.dev.delta.entities.CheckIn;
+import com.dev.delta.entities.Customer;
 import com.dev.delta.repositories.CheckInRepository;
 
 @Service
@@ -26,6 +27,10 @@ public class CheckInService {
 	 */
 	public List<CheckIn> getCheckIns() {
 		return checkInRepository.findAll();
+	}
+	
+	public List<CheckIn> getCheckInByCustomer(Customer customer) {
+		return checkInRepository.findByCutomer(customer);
 	}
 
 	/**

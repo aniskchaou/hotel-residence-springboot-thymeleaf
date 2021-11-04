@@ -111,20 +111,20 @@
 										<thead class="bg-light text-capitalize">
 											<tr>
 												<th>Name</th>
-												<th>Status</th>
+												<th>Role</th>
 												<th></th>
 											</tr>
 										</thead>
 										<tbody>
 											<tr th:each="item:${items}">
-												<td th:text="${item.name}"></td>
-												<td th:text="${item.status}"></td>
-												<td><a type="button" 
+												<td th:text="${item.username}"></td>
+												<td ><span class="badge badge-info" th:text="${item.role.name}"></span></td>
+												<td><!-- <a type="button" 
 													onclick="return confirm('Are you sure?') ? true : false;"
 													class="btn btn-flat btn-danger btn-xs mb-3"
 													th:href="@{/deleteamenity/{id}(id=${item.id}) }"> 
 													<i class="fa fa-trash" aria-hidden="true"></i>
-												</a></td>
+												</a> --></td>
 											</tr>
 
 										</tbody>

@@ -51,7 +51,7 @@ public class DepartementService {
 	 * @param id
 	 * @return
 	 */
-	public Optional<Departement> findById(int id) {
+	public Optional<Departement> findById(long id) {
 		return departementRepository.findById(id);
 	}
 

@@ -51,7 +51,7 @@ public class GuestTypeService {
 	 * @param id
 	 * @return
 	 */
-	public Optional<GuestType> findById(int id) {
+	public Optional<GuestType> findById(long id) {
 		return guestTypeRepository.findById(id);
 	}
 

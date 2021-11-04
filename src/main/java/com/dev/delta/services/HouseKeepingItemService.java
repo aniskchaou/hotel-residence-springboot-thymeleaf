@@ -51,7 +51,7 @@ public class HouseKeepingItemService {
 	 * @param id
 	 * @return
 	 */
-	public Optional<HouseKeepingItem> findById(int id) {
+	public Optional<HouseKeepingItem> findById(long id) {
 		return houseKeepingItemRepository.findById(id);
 	}
 

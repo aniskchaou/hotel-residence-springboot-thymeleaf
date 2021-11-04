@@ -41,4 +41,9 @@ public class SubscriberService {
 		subcriberRepository.save(subcriber);
 	}
 
+	public void delete(Long id) {
+		// TODO Auto-generated method stub
+		subcriberRepository.deleteById(id);
+	}
+
 }

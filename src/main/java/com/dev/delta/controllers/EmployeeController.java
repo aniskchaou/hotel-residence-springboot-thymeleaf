@@ -98,6 +98,10 @@ public class EmployeeController {
 	public String findEmployeeById(@PathVariable("id") Long id, Model model) {
 		Employee employee = employeeService.findById(id);
 		model.addAttribute("item", employee);
+		model.addAttribute("cities",cityService.getCitys());
+		model.addAttribute("designations",designationService.getDesignations());
+		model.addAttribute("countries",countryService.getCountrys());
+		model.addAttribute("shifts",shiftService.getShifts());
 		return "employee/edit";
 	}
 

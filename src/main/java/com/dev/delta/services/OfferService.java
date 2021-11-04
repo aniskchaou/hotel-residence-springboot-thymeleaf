@@ -45,4 +45,9 @@ public class OfferService {
 	{
 		return offerRepository.getById(id);
 	}
+
+	public void delete(Long id) {
+		// TODO Auto-generated method stub
+		offerRepository.deleteById(id);
+	}
 }

@@ -66,7 +66,7 @@ public class HouseKeepingItemController {
 	 * @return
 	 */
 	@RequestMapping("/edithousekeepingitem/{id}")
-	public String findById(@PathVariable("id") int id, Model model) {
+	public String findById(@PathVariable("id") long id, Model model) {
 		HouseKeepingItem houseKeepingItem = houseKeepingItemService.findById(id).get();
 		model.addAttribute("item", houseKeepingItem);
 		return "housekeepingitem/edit";

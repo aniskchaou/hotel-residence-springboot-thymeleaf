@@ -37,4 +37,9 @@ public class BlogService {
 		// TODO Auto-generated method stub
 		return blogRepository.getById(id);
 	}
+
+	public void delete(Long id) {
+		// TODO Auto-generated method stub
+		blogRepository.deleteById(id);
+	}
 }

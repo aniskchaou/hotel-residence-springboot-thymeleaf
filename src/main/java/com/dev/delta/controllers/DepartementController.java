@@ -65,7 +65,7 @@ public class DepartementController {
 	 * @return
 	 */
 	@RequestMapping("/editdepartement/{id}")
-	public String findById(@PathVariable("id") int id, Model model) {
+	public String findById(@PathVariable("id") long id, Model model) {
 		Departement departement = departementService.findById(id).get();
 		model.addAttribute("item", departement);
 		return "departement/edit";

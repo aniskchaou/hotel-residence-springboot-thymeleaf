@@ -5,6 +5,8 @@ import java.text.ParseException;
 import java.util.Date;
 import java.util.List;
 
+import javax.transaction.Transactional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -82,5 +84,12 @@ public class BlogController {
 		Blog blog = blogService.findById(id);
 		model.addAttribute("item", blog);
 		return "blog/edit";
+	}
+	
+	@GetMapping("/deleteblog/{id}")
+	@Transactional
+	public String deleteBlog(@PathVariable("id") Long id) {
+		blogService.delete(id);
+		return "redirect:/blogsadmin";
 	}
 }

@@ -51,7 +51,7 @@ public class CityService {
 	 * @param id
 	 * @return
 	 */
-	public Optional<City> findById(int id) {
+	public Optional<City> findById(long id) {
 		return cityRepository.findById(id);
 	}
 

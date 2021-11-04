@@ -70,10 +70,10 @@
 				<div class="row align-items-center">
 					<div class="col-sm-6">
 						<div class="breadcrumbs-area clearfix">
-							<h4 class="page-title pull-left">Laundry Orders Request</h4>
+							<h4 class="page-title pull-left">Laundry Orders Orders</h4>
 							<ul class="breadcrumbs pull-left">
 								<li><a href="index.html">Home</a></li>
-								<li><span>Laundry Orders Request</span></li>
+								<li><span>Laundry Orders Orders</span></li>
 							</ul>
 						</div>
 					</div>
@@ -112,25 +112,12 @@
 											<tr>
 												<th>Room</th>
 												<th>House keeping Item</th>
-												<th></th>
 											</tr>
 										</thead>
 										<tbody>
 											<tr th:each="item:${items}">
 												<td th:text="${item.Room.RoomNo}"></td>
 												<td th:text="${item.HousekeepingItem}"></td>
-												<td>
-												<a type="button" 
-													class="btn btn-flat btn-warning btn-xs mb-3"
-													th:href="@{/edithousekeeping/{id}(id=${item.id}) }"> 
-													<i class="fa fa-edit" aria-hidden="true"></i>
-												</a>
-												<a type="button" 
-													onclick="return confirm('Are you sure?') ? true : false;"
-													class="btn btn-flat btn-danger btn-xs mb-3"
-													th:href="@{/deleteamenity/{id}(id=${item.id}) }"> 
-													<i class="fa fa-trash" aria-hidden="true"></i>
-												</a></td>
 											</tr>
 
 										</tbody>

@@ -24,6 +24,9 @@ public class Customer {
 	City City;
 	String Gender;
 	String Age;
+	@ManyToOne
+	@JoinColumn(name = "user_id")
+	User user;
 	
 	public Customer() {
 		// TODO Auto-generated constructor stub
@@ -40,6 +43,14 @@ public class Customer {
 		City = city;
 		Gender = gender;
 		Age = age;
+	}
+
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
 	}
 
 	public Long getId() {

@@ -2,9 +2,13 @@ package com.dev.delta.controllers;
 
 import java.util.List;
 
+import javax.transaction.Transactional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -39,6 +43,22 @@ public class BedController {
 		bedService.save(bed);
 		return "redirect:/beds";
 	}
+	
+	
+	@PostMapping("/updatebed/{id}")
+	public String updateBed(@PathVariable("id") long id, @Validated Bed bed, BindingResult result, Model model) {
+
+		bedService.save(bed);
+		return "redirect:/beds";
+	}
+	
+	@GetMapping("/deletebed/{id}")
+	@Transactional
+	public String deleteBed(@PathVariable("id") Long id) {
+		bedService.delete(id);
+		return "redirect:/beds";
+	}
+
 	
 	
 	@RequestMapping("/editbed/{id}")

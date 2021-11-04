@@ -12,6 +12,7 @@ public class FoodOrder {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	Long id;
+	
 	@ManyToOne
 	@JoinColumn(name = "room_id")
 	Room room;
@@ -27,8 +28,19 @@ public class FoodOrder {
 	
 	
     String price;
+    
+    
+    
 	public FoodOrder() {
 		// TODO Auto-generated constructor stub
+	}
+
+
+
+	@Override
+	public String toString() {
+		return "FoodOrder [id=" + id + ", room=" + room + ", NoofPersons=" + NoofPersons + ", WaiterName=" + WaiterName
+				+ ", FoodItem=" + FoodItem + ", checkin=" + checkin + ", price=" + price + "]";
 	}
 
 

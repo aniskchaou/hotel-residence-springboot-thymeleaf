@@ -118,9 +118,9 @@
 										</thead>
 										<tbody>
 											<tr th:each="item:${items}">
-												<td th:text="${item.customer}"></td>
-												<td th:text="${item.roomType}"></td>
-												<td th:text="${item.room}"></td>
+												<td th:text="${item?.customer}"></td>
+												<td th:text="${item?.roomType}"></td>
+												<td th:text="${item?.room}"></td>
 												<td>
 												<a type="button" 
 													class="btn btn-flat btn-warning btn-xs mb-3"

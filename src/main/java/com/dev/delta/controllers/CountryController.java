@@ -3,6 +3,7 @@ package com.dev.delta.controllers;
 import java.util.List;
 
 import javax.transaction.Transactional;
+import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -28,7 +29,7 @@ public class CountryController {
 
 	
 	@GetMapping("/add-country")
-	public String getaddAmenity(Model model) {
+	public String getaddAmenity(Country country) {
 		
 		return "country/add";
 	}
@@ -57,7 +58,12 @@ public class CountryController {
 	 */
 	@PostMapping("/addcountry")
 
-	public String addCountry(Country country) {
+	public String addCountry(@Valid Country country,BindingResult result, Model model) {
+		if (result.hasErrors()) {
+			return "country/add";
+		  }
+		
+		
 		countryService.save(country);
 		return "redirect:/countries";
 	}
@@ -70,9 +76,9 @@ public class CountryController {
 	 * @return
 	 */
 	@RequestMapping("/editcountry/{id}")
-	public String findById(@PathVariable("id") int id, Model model) {
-		Country country = countryService.findById(id).get();
-		model.addAttribute("item", country);
+	public String findById(@PathVariable("id") Long id, Model model,Country country) {
+		Country countryy = countryService.findById(id).get();
+		model.addAttribute("item", countryy);
 		return "country/edit";
 	}
 
@@ -88,6 +94,10 @@ public class CountryController {
 	@PostMapping("/updatecountry/{id}")
 	public String updateCountry(@PathVariable("id") long id, @Validated Country country, BindingResult result, Model model) {
 
+		if (result.hasErrors()) {
+			return this.findById(id, model,country);
+		  }
+		
 		countryService.save(country);
 		return "redirect:/countries";
 	}

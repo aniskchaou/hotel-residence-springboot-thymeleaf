@@ -67,10 +67,10 @@ public class GuestTypeController {
 	 * @return
 	 */
 	@RequestMapping("/editguesttype/{id}")
-	public String findById(@PathVariable("id") int id, Model model) {
+	public String findById(@PathVariable("id") long id, Model model) {
 		GuestType guesType = guesTypeService.findById(id).get();
 		model.addAttribute("item", guesType);
-		return "gesttype/edit";
+		return "guesttype/edit";
 	}
 
 	/**
@@ -82,7 +82,7 @@ public class GuestTypeController {
 	 * @param model
 	 * @return
 	 */
-	@PostMapping("/updateguestype/{id}")
+	@PostMapping("/updateguesttype/{id}")
 	public String updateGuestType(@PathVariable("id") long id, @Validated GuestType guesType, BindingResult result, Model model) {
 
 		guesTypeService.save(guesType);
@@ -95,7 +95,7 @@ public class GuestTypeController {
 	 * @param id
 	 * @return
 	 */
-	@GetMapping("/deleteguestype/{id}")
+	@GetMapping("/deleteguesttype/{id}")
 	@Transactional
 	public String deleteGuestType(@PathVariable("id") Long id) {
 		guesTypeService.delete(id);

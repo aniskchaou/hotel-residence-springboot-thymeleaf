@@ -6,13 +6,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.dev.delta.entities.HouseKeepingRequestOrder;
-import com.dev.delta.repositories.HouseKeepingOrderRepository;
+import com.dev.delta.repositories.HouseKeepingRequestRepository;
 
 @Service
 public class HouseKeepingRequestOrderService {
 
 	@Autowired
-	private HouseKeepingOrderRepository houseKeepingRepository;
+	private HouseKeepingRequestRepository houseKeepingRepository;
 
 	/**
 	 * getFoodOrders

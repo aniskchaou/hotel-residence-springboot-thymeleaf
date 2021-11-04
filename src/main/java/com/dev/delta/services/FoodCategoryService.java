@@ -52,7 +52,7 @@ public class FoodCategoryService {
 	 * @param id
 	 * @return
 	 */
-	public Optional<FoodCategory> findById(int id) {
+	public Optional<FoodCategory> findById(long id) {
 		return foodCategoryRepository.findById(id);
 	}
 

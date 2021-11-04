@@ -6,13 +6,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.dev.delta.entities.ExtraBedRequestOrder;
-import com.dev.delta.repositories.ExtraBedOrderRepository;
+import com.dev.delta.repositories.ExtraBedRequestRepository;
 
 @Service
 public class ExtraBedRequestService {
 
 	@Autowired
-	ExtraBedOrderRepository  extraBedRequestService;
+	ExtraBedRequestRepository  extraBedRequestService;
 	
 	public List<ExtraBedRequestOrder> getExtraBedRequest() {
 		return extraBedRequestService.findAll();

@@ -16,8 +16,11 @@ public class HouseKeepingRequestOrder {
 	@ManyToOne
 	@JoinColumn(name = "room_id")
 	Room Room;
-	String client;
 	String status;
+	String date;
+	@ManyToOne
+	@JoinColumn(name = "customer_id")
+	Customer customer;
 	
 	public HouseKeepingRequestOrder() {
 		// TODO Auto-generated constructor stub
@@ -27,17 +30,39 @@ public class HouseKeepingRequestOrder {
 	
 	
 	
-	public String getClient() {
-		return client;
+	public Customer getCustomer() {
+		return customer;
 	}
 
 
 
 
 
-	public void setClient(String client) {
-		this.client = client;
+	public void setCustomer(Customer customer) {
+		this.customer = customer;
 	}
+
+
+
+
+
+	public String getDate() {
+		return date;
+	}
+
+
+
+
+
+	public void setDate(String date) {
+		this.date = date;
+	}
+
+
+
+
+
+
 
 
 

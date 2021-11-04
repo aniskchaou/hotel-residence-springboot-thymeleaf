@@ -201,6 +201,23 @@
 													th:href="@{/checkout/{id}(id=${item.id}) }"> 
 													<i class="fa fa-sign-out" aria-hidden="true"></i> CheckOut
 												</a>
+												
+												<a type="button" 
+												th:if="${#authentication.getPrincipal().getUser().getRole().getName()=='ADMIN'}"
+												data-toggle="tooltip" data-placement="top" title="checkout"
+													class="btn btn-flat btn-primary btn-xs mb-3"
+													th:href="@{/checkout/{id}(id=${item.id}) }"> 
+													<i class="fa fa-sign-out" aria-hidden="true"></i> Payment
+												</a>
+												
+												
+												<a type="button" 
+												th:if="${#authentication.getPrincipal().getUser().getRole().getName()=='ADMIN'}"
+												data-toggle="tooltip" data-placement="top" title="checkout"
+													class="btn btn-flat btn-primary btn-xs mb-3"
+													th:href="@{/checkout/{id}(id=${item.id}) }"> 
+													<i class="fa fa-sign-out" aria-hidden="true"></i> Cancel Booking
+												</a>
 												</td>
 												
 												

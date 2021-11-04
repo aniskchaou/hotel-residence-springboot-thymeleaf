@@ -65,7 +65,7 @@ public class PaymentMethodController {
 	 * @return
 	 */
 	@RequestMapping("/editpaymentmethod/{id}")
-	public String findById(@PathVariable("id") int id, Model model) {
+	public String findById(@PathVariable("id") long id, Model model) {
 		PaymentMethod paymentMethod = paymentMethodService.findById(id).get();
 		model.addAttribute("item", paymentMethod);
 		return "paymentmethod/edit";
@@ -93,7 +93,7 @@ public class PaymentMethodController {
 	 * @param id
 	 * @return
 	 */
-	@GetMapping("/deletepaymentMethod/{id}")
+	@GetMapping("/deletepaymentmethod/{id}")
 	@Transactional
 	public String deletePaymentMethod(@PathVariable("id") Long id) {
 		paymentMethodService.delete(id);

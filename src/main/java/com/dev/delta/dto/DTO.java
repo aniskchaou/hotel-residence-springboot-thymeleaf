@@ -28,6 +28,8 @@ import com.dev.delta.entities.RoomType;
 import com.dev.delta.entities.Shift;
 import com.dev.delta.entities.User;
 import com.dev.delta.i18n.entities.AmenityI18n;
+import com.dev.delta.i18n.entities.BedI18n;
+import com.dev.delta.i18n.entities.BlogCategoryI18n;
 import com.dev.delta.i18n.entities.WebsiteAboutI18n;
 import com.dev.delta.i18n.entities.WebsiteBlogI18n;
 import com.dev.delta.i18n.entities.WebsiteContactI18n;
@@ -91,6 +93,7 @@ public interface DTO {
     Role role2=new Role();
     Role role3=new Role();
     User user3=new User();
+    Customer customer2=new Customer();
     
     
     
@@ -128,6 +131,8 @@ public interface DTO {
     WebsiteSignInI18n websiteSignInI18n=new WebsiteSignInI18n();
     WebsiteSignInI18n websiteSignInI18n2=new WebsiteSignInI18n();
     
+    BedI18n bedI18n=new BedI18n();
+    BlogCategoryI18n  blogCategoryI18n=new BlogCategoryI18n();
     
     
     

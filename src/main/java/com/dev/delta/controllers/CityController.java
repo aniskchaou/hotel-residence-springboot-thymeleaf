@@ -26,7 +26,7 @@ public class CityController {
 
 	
 	@GetMapping("/add-city")
-	public String getaddCity(Model model) {
+	public String getaddCity(Model model,City city) {
 		return "city/add";
 	}
 	
@@ -53,7 +53,10 @@ public class CityController {
 	 */
 	@PostMapping("/addcity")
 
-	public String addCity(City city) {
+	public String addCity(@Validated City city, BindingResult result, Model model) {
+		if (result.hasErrors()) {
+			 return "city/add";
+		  }
 		cityService.save(city);
 		return "redirect:/cities";
 	}
@@ -66,9 +69,9 @@ public class CityController {
 	 * @return
 	 */
 	@RequestMapping("/editcity/{id}")
-	public String findById(@PathVariable("id") int id, Model model) {
-		City city = cityService.findById(id).get();
-		model.addAttribute("item", city);
+	public String findById(@PathVariable("id") long id, Model model,City city) {
+		City cityy = cityService.findById(id).get();
+		model.addAttribute("item", cityy);
 		return "city/edit";
 	}
 
@@ -83,7 +86,11 @@ public class CityController {
 	 */
 	@PostMapping("/updatecity/{id}")
 	public String updateCity(@PathVariable("id") long id, @Validated City city, BindingResult result, Model model) {
-
+        
+		if (result.hasErrors()) {
+			return this.findById(id, model,city);
+		  }
+		
 		cityService.save(city);
 		return "redirect:/cities";
 	}

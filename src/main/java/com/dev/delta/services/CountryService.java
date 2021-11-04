@@ -51,7 +51,7 @@ public class CountryService {
 	 * @param id
 	 * @return
 	 */
-	public Optional<Country> findById(int id) {
+	public Optional<Country> findById(Long id) {
 		return countryRepository.findById(id);
 	}
 

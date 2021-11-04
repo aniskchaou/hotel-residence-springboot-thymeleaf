@@ -5,10 +5,14 @@ import java.text.ParseException;
 import java.util.Date;
 import java.util.List;
 
+import javax.transaction.Transactional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.util.StringUtils;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -72,6 +76,27 @@ public class OfferController {
 		Offer offer = offerService.findById(id);
 		model.addAttribute("item", offer);
 		return "offer/edit";
+	}
+	
+	
+	@PostMapping("/updateoffer/{id}")
+	public String updateOffer(@PathVariable("id") long id, @Validated Offer offer, BindingResult result, Model model) {
+
+		offerService.save(offer);
+		return "redirect:/offersadmin";
+	}
+
+	/**
+	 * deleteAmenity
+	 * 
+	 * @param id
+	 * @return
+	 */
+	@GetMapping("/deleteoffer/{id}")
+	@Transactional
+	public String deleteOffer(@PathVariable("id") Long id) {
+		offerService.delete(id);
+		return "redirect:/offersadmin";
 	}
 
 }

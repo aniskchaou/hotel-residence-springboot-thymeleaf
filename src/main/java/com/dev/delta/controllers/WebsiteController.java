@@ -1,12 +1,20 @@
 package com.dev.delta.controllers;
 
 import java.util.List;
+import java.util.Locale;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.servlet.LocaleResolver;
+import org.springframework.web.servlet.i18n.SessionLocaleResolver;
 
 import com.dev.delta.entities.Blog;
 import com.dev.delta.entities.BlogCategory;
@@ -24,13 +32,19 @@ import com.dev.delta.i18n.repositories.WebsiteHomeI18nRepository;
 import com.dev.delta.i18n.repositories.WebsiteMenuI18nRepository;
 import com.dev.delta.i18n.repositories.WebsiteRoomI18nRepository;
 import com.dev.delta.i18n.repositories.WebsiteSignInI18nRepository;
+
+import com.dev.delta.repositories.ExtraBedRequestRepository;
+import com.dev.delta.repositories.FoodOrderRequestRepository;
 import com.dev.delta.repositories.FoodOrderRespository;
 import com.dev.delta.repositories.HouseKeepingItemRespository;
+import com.dev.delta.repositories.HouseKeepingRequestRepository;
 import com.dev.delta.repositories.InformationRepository;
 import com.dev.delta.repositories.LaundryOrderRepository;
+import com.dev.delta.repositories.LaundryRequestOrderRepository;
 import com.dev.delta.repositories.MessageRepository;
 import com.dev.delta.repositories.NotificationRepository;
 import com.dev.delta.repositories.OfferRepository;
+import com.dev.delta.security.UserPrincipal;
 import com.dev.delta.services.BedService;
 import com.dev.delta.services.BlogCategoryService;
 import com.dev.delta.services.BlogService;
@@ -41,6 +55,7 @@ import com.dev.delta.services.CustomerService;
 import com.dev.delta.services.EmployeeService;
 import com.dev.delta.services.GalleryService;
 import com.dev.delta.services.GuestTypeService;
+import com.dev.delta.services.InformationService;
 import com.dev.delta.services.OfferService;
 import com.dev.delta.services.RoomService;
 import com.dev.delta.services.RoomTypeService;
@@ -136,12 +151,41 @@ public class WebsiteController {
 	@Autowired
 	WebsiteHomeI18nRepository  websiteHomeI18nRepository  ;
 	
+	@Autowired
+	FoodOrderRequestRepository  foodOrderRequestRepository;
+	
+	@Autowired
+	ExtraBedRequestRepository  extraBedOrderRepository;
+	
+	@Autowired
+	HouseKeepingRequestRepository  houseKeepingRequestRepository;
+	
+	@Autowired
+	LaundryRequestOrderRepository  laundryRequestOrderRepository ;
+	
+	@Autowired
+	HttpServletRequest  httpServletRequest;
+	
+	@Autowired
+	HttpServletResponse httpServletResponse;
+	
+	@Autowired
+	LocaleResolver localeResolver  ;
+	
+	
+	
 	@GetMapping("/dashboard")
 	public String homeAdmin(Model model) {
 		List<Message> messages=messageRepository.findAll();
 		List<Notification> notifications=notificationRepository.findAll();
 		model.addAttribute("notifications",notifications);
 		model.addAttribute("messages",messages);
+		
+		model.addAttribute("foods",foodOrderRequestRepository.findAll());
+		model.addAttribute("extrabeds",extraBedOrderRepository.findAll());
+		model.addAttribute("housekeepings",houseKeepingRequestRepository.findAll());
+		model.addAttribute("laundries",laundryRequestOrderRepository.findAll());
+		
 		Long id=1L;
 		InformationHotel hotel=informationService.getById(id);
 		int messageNb=(int) messageRepository.count();
@@ -170,7 +214,16 @@ public class WebsiteController {
 		model.addAttribute("customerNB",Integer.toString(customerNB) );
 		model.addAttribute("blogNB",Integer.toString(blogNB) );
 		model.addAttribute("subscriberNB",Integer.toString(subscriberNB) );
+		
+		model.addAttribute("foodorderNB",foodOrderRequestRepository.count() );
+		model.addAttribute("extrabedorderNB",extraBedOrderRepository.count() );
+		model.addAttribute("housekeepingorderNB",houseKeepingRequestRepository.count() );
+		model.addAttribute("laundryorderNB",laundryRequestOrderRepository.count() );
+		
 		model.addAttribute("hotel",hotel );
+		
+		
+		
 		
 		return "home/index";
 	}
@@ -257,8 +310,27 @@ public class WebsiteController {
 		Long id = 1L;
 		InformationHotel informationHotel = informationService.findById(id).get();
 		informationHotel.setLang(lang);
-		System.out.println(informationHotel.toString());
+		
 		informationService.save(informationHotel);
+		
+		
+		/*  informationHotel = informationService.findById(id).get();
+			String langg=informationHotel.getLang();
+			System.err.println(langg);
+			SessionLocaleResolver slr = new SessionLocaleResolver();
+			if(langg.equals("AR"))
+			{
+				Locale arabicLocale = new Locale.Builder().setLanguageTag("ar-SA-u-nu-arab").build();
+		        
+		       // slr.setDefaultLocale(arabicLocale);
+				localeResolver.setLocale(httpServletRequest, httpServletResponse, Locale.UK);
+			}else
+			{
+				Locale en = new Locale.Builder().setLanguageTag("en-US").build();
+				//slr.setDefaultLocale(Locale.ENGLISH);
+				localeResolver.setLocale(httpServletRequest, httpServletResponse, en);
+			}
+		*/	
 
 		return "redirect:/";
 	}
