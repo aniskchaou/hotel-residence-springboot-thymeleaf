@@ -20,10 +20,25 @@ public class AmenityDTO implements DTO {
 	public void populate() {
 		
 		amenityI18n.setLanguageI18n("DE");
-		amenityI18n.setDescriptionI18n("Deschreibung");
+		amenityI18n.setDescriptionI18n("Beschreibung");
 		amenityI18n.setNameI18n("Namen");
 		amenityI18n.setStatusI18n("Stellung");
+		amenityI18n.setGetTitleI18n("City");
+		amenityI18n.setCreateTitleI18n("Create new City");
+		amenityI18n.setEditTitleI18n("Edit City");
+		amenityI18n.setGetAllTitleI18n("Cities");
+		
+		amenityI18n2.setLanguageI18n("EN");
+		amenityI18n2.setDescriptionI18n("Description");
+		amenityI18n2.setNameI18n("Name");
+		amenityI18n2.setStatusI18n("Status");
+		amenityI18n2.setGetTitleI18n("City");
+		amenityI18n2.setCreateTitleI18n("Create new City");
+		amenityI18n2.setEditTitleI18n("Edit City");
+		amenityI18n2.setGetAllTitleI18n("Cities");
+		
 		amenityI18nRepository.save(amenityI18n);
+		amenityI18nRepository.save(amenityI18n2);
 		
 		
 		amenity.setDescription("Suspendisse sem ex, mattis ut luctus ac, bibendum in metus");

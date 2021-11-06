@@ -16,7 +16,12 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.dev.delta.entities.Country;
+import com.dev.delta.i18n.entities.CityI18n;
+import com.dev.delta.i18n.entities.CountryI18n;
+import com.dev.delta.i18n.repositories.CountryI18nRepository;
 import com.dev.delta.services.CountryService;
+import com.dev.delta.services.InformationService;
+import com.dev.delta.util.UIMenuHeaderUtil;
 
 
 @Controller
@@ -26,10 +31,23 @@ public class CountryController {
 	 */
 	@Autowired
 	private CountryService countryService;
+	
+	@Autowired
+	InformationService  informationService;
+	
+	@Autowired
+	UIMenuHeaderUtil  menuHeaderUtil;
+	
+	@Autowired
+	CountryI18nRepository  countryI18nRepository;
 
 	
 	@GetMapping("/add-country")
-	public String getaddAmenity(Country country) {
+	public String getaddCountry(Country country,Model model) {
+		String lang = informationService.getSeletedLang();
+		CountryI18n countryI18n = countryI18nRepository.findByLangI18n(lang);
+		model.addAttribute("itemI18n", countryI18n);
+		menuHeaderUtil.getMenuHeader(model);
 		
 		return "country/add";
 	}
@@ -44,8 +62,11 @@ public class CountryController {
 	@GetMapping("/countries")
 	public String getCountrys(Model model) {
 		List<Country> countrys = countryService.getCountrys();
-		
 		model.addAttribute("items", countrys);
+		String lang = informationService.getSeletedLang();
+		CountryI18n countryI18n = countryI18nRepository.findByLangI18n(lang);
+		model.addAttribute("itemI18n", countryI18n);
+		menuHeaderUtil.getMenuHeader(model);
 		
 		return "country/countries";
 	}
@@ -79,6 +100,10 @@ public class CountryController {
 	public String findById(@PathVariable("id") Long id, Model model,Country country) {
 		Country countryy = countryService.findById(id).get();
 		model.addAttribute("item", countryy);
+		String lang = informationService.getSeletedLang();
+		CountryI18n countryI18n = countryI18nRepository.findByLangI18n(lang);
+		model.addAttribute("itemI18n", countryI18n);
+		menuHeaderUtil.getMenuHeader(model);
 		return "country/edit";
 	}
 

@@ -30,6 +30,35 @@ import com.dev.delta.entities.User;
 import com.dev.delta.i18n.entities.AmenityI18n;
 import com.dev.delta.i18n.entities.BedI18n;
 import com.dev.delta.i18n.entities.BlogCategoryI18n;
+import com.dev.delta.i18n.entities.BlogI18n;
+import com.dev.delta.i18n.entities.CheckInI18n;
+import com.dev.delta.i18n.entities.CityI18n;
+import com.dev.delta.i18n.entities.CountryI18n;
+import com.dev.delta.i18n.entities.CurrencyI18n;
+import com.dev.delta.i18n.entities.CustomerI18n;
+import com.dev.delta.i18n.entities.DesignationI18n;
+import com.dev.delta.i18n.entities.EmailI18n;
+import com.dev.delta.i18n.entities.EmployeeI18n;
+import com.dev.delta.i18n.entities.ExpenseCategoryI18n;
+import com.dev.delta.i18n.entities.ExpenseI18n;
+import com.dev.delta.i18n.entities.ExtraBedI18n;
+import com.dev.delta.i18n.entities.FoodCategoryI18n;
+import com.dev.delta.i18n.entities.FoodI18n;
+import com.dev.delta.i18n.entities.GalleryI18n;
+import com.dev.delta.i18n.entities.GuestTypeI18n;
+import com.dev.delta.i18n.entities.HouseKeepingItemI18n;
+import com.dev.delta.i18n.entities.InformationHotelI18n;
+import com.dev.delta.i18n.entities.MessageI18n;
+import com.dev.delta.i18n.entities.OfferI18n;
+import com.dev.delta.i18n.entities.PaymentI18n;
+import com.dev.delta.i18n.entities.PaymentMethodI18n;
+import com.dev.delta.i18n.entities.RoomI18n;
+import com.dev.delta.i18n.entities.RoomTypeI18n;
+import com.dev.delta.i18n.entities.ShiftI18n;
+import com.dev.delta.i18n.entities.SubscriberI18n;
+import com.dev.delta.i18n.entities.UIHeaderI18n;
+import com.dev.delta.i18n.entities.UIMenuI18n;
+import com.dev.delta.i18n.entities.UserI18n;
 import com.dev.delta.i18n.entities.WebsiteAboutI18n;
 import com.dev.delta.i18n.entities.WebsiteBlogI18n;
 import com.dev.delta.i18n.entities.WebsiteContactI18n;
@@ -102,9 +131,11 @@ public interface DTO {
     
     
     
-    
+    //translation
     
     AmenityI18n amenityI18n=new AmenityI18n();
+    AmenityI18n amenityI18n2=new AmenityI18n();
+    
     WebsiteMenuI18n websiteMenuI18n=new WebsiteMenuI18n();
     WebsiteMenuI18n websiteMenu2I18n=new WebsiteMenuI18n();
     WebsiteMenuI18n websiteMenu3I18n=new WebsiteMenuI18n();
@@ -132,7 +163,97 @@ public interface DTO {
     WebsiteSignInI18n websiteSignInI18n2=new WebsiteSignInI18n();
     
     BedI18n bedI18n=new BedI18n();
+    BedI18n bedI18n2=new BedI18n();
+    
     BlogCategoryI18n  blogCategoryI18n=new BlogCategoryI18n();
+    BlogCategoryI18n  blogCategoryI18n2=new BlogCategoryI18n();
+    
+    BlogI18n blogI18n=new BlogI18n();
+    BlogI18n blogI18n2=new BlogI18n();
+    
+    CheckInI18n checkInI18n=new CheckInI18n();
+    CheckInI18n checkInI18n2=new CheckInI18n();
+    
+    CountryI18n  countryI18n=new CountryI18n();
+    CountryI18n  countryI18n2=new CountryI18n();
+    
+    CurrencyI18n currencyI18n=new CurrencyI18n();
+    CurrencyI18n currencyI18n2=new CurrencyI18n();
+    
+    CustomerI18n customerI18n=new CustomerI18n();
+    CustomerI18n customerI18n2=new CustomerI18n();
+    
+    DesignationI18n  designationI18n=new DesignationI18n();
+    DesignationI18n  designationI18n2=new DesignationI18n();
+    
+    EmployeeI18n employeeI18n=new EmployeeI18n();
+    EmployeeI18n employeeI18n2=new EmployeeI18n();
+    
+    ExpenseI18n expenseI18n=new ExpenseI18n();
+    ExpenseI18n expenseI18n2=new ExpenseI18n();
+    
+    ExpenseCategoryI18n expenseCategoryI18n=new ExpenseCategoryI18n();
+    ExpenseCategoryI18n expenseCategoryI18n2=new ExpenseCategoryI18n();
+    
+    ExtraBedI18n extraBedI18n=new ExtraBedI18n();
+    ExtraBedI18n extraBedI18n2=new ExtraBedI18n();
+    
+    FoodI18n foodI18n=new FoodI18n();
+    FoodI18n foodI18n2=new FoodI18n();
+    
+    GalleryI18n galleryI18n=new GalleryI18n();
+    GalleryI18n galleryI18n2=new GalleryI18n();
+    
+    GuestTypeI18n guestTypeI18n=new GuestTypeI18n();
+    GuestTypeI18n guestTypeI18n2=new GuestTypeI18n();
+    
+    InformationHotelI18n informationHotelI18n=new InformationHotelI18n();
+    InformationHotelI18n informationHotelI18n2=new InformationHotelI18n();
+    
+    MessageI18n messageI18n=new MessageI18n();
+    MessageI18n messageI18n2=new MessageI18n();
+    
+    OfferI18n offerI18n=new OfferI18n();
+    OfferI18n offerI18n2=new OfferI18n();
+    
+    RoomI18n  roomI18n=new RoomI18n();
+    RoomI18n  roomI18n2=new RoomI18n();
+    
+    RoomTypeI18n roomTypeI18n=new RoomTypeI18n();
+    RoomTypeI18n roomTypeI18n2=new RoomTypeI18n();
+    
+    ShiftI18n shiftI18n=new ShiftI18n();
+    ShiftI18n shiftI18n2=new ShiftI18n();
+    
+    UserI18n userI18n=new UserI18n();
+    UserI18n userI18n2=new UserI18n();
+    
+    CityI18n cityI18n=new CityI18n();
+    CityI18n cityI18n2=new CityI18n();
+    
+    UIMenuI18n menuI18n=new UIMenuI18n();
+    UIMenuI18n menuI18n2=new UIMenuI18n();
+    
+    UIHeaderI18n headerI18n=new UIHeaderI18n();
+    UIHeaderI18n headerI18n2=new UIHeaderI18n();
+    
+    SubscriberI18n subscriberI18n=new SubscriberI18n();
+    SubscriberI18n subscriberI18n2=new SubscriberI18n();
+    
+    EmailI18n  emailI18n=new EmailI18n();
+    EmailI18n  emailI18n2=new EmailI18n();
+    
+    FoodCategoryI18n foodCategoryI18n=new FoodCategoryI18n();
+    FoodCategoryI18n foodCategoryI18n2=new FoodCategoryI18n();
+    
+    PaymentI18n  paymentI18n=new PaymentI18n();
+    PaymentI18n  paymentI18n2=new PaymentI18n();
+    
+    PaymentMethodI18n paymentMethodI18n=new PaymentMethodI18n();
+    PaymentMethodI18n paymentMethodI18n2=new PaymentMethodI18n();
+    
+    HouseKeepingItemI18n houseKeepingItemI18n=new HouseKeepingItemI18n();
+    HouseKeepingItemI18n houseKeepingItemI18n2=new HouseKeepingItemI18n();
     
     
     

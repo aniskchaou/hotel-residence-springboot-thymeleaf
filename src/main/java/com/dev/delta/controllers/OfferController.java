@@ -25,26 +25,44 @@ import com.dev.delta.entities.Amenity;
 import com.dev.delta.entities.Blog;
 import com.dev.delta.entities.Customer;
 import com.dev.delta.entities.Offer;
+import com.dev.delta.i18n.entities.CityI18n;
+import com.dev.delta.i18n.entities.OfferI18n;
+import com.dev.delta.i18n.repositories.OfferI18nRepository;
+import com.dev.delta.services.InformationService;
 import com.dev.delta.services.OfferService;
 import com.dev.delta.util.DateBlogUtil;
 import com.dev.delta.util.FileUploadUtil;
+import com.dev.delta.util.UIMenuHeaderUtil;
 
 @Controller
 public class OfferController {
 
 	@Autowired
 	private OfferService offerService;
+	@Autowired
+	InformationService  informationService;
+	@Autowired
+	OfferI18nRepository    offerI18nRepository;
+	@Autowired
+	UIMenuHeaderUtil      menuHeaderUtil ;
 
 	@GetMapping("/offersadmin")
 	public String getOffersAdmin(Model model) {
 		List<Offer> offers = offerService.getOffers();
 		model.addAttribute("items", offers);
-
+		String lang = informationService.getSeletedLang();
+		OfferI18n offerI18n = offerI18nRepository.findByLangI18n(lang);
+		model.addAttribute("itemI18n", offerI18n);
+		menuHeaderUtil.getMenuHeader(model);
 		return "offer/offers";
 	}
 
 	@GetMapping("/add-offer")
 	public String getaddOffer(Model model) {
+		String lang = informationService.getSeletedLang();
+		OfferI18n offerI18n = offerI18nRepository.findByLangI18n(lang);
+		model.addAttribute("itemI18n", offerI18n);
+		menuHeaderUtil.getMenuHeader(model);
 		return "offer/add";
 	}
 
@@ -67,6 +85,10 @@ public class OfferController {
 	public String findById(@PathVariable("id") Long id, Model model) {
 		Offer offer = offerService.findById(id);
 		model.addAttribute("item", offer);
+		String lang = informationService.getSeletedLang();
+		OfferI18n offerI18n = offerI18nRepository.findByLangI18n(lang);
+		model.addAttribute("itemI18n", offerI18n);
+		menuHeaderUtil.getMenuHeader(model);
 		return "offer/view";
 	}
 	
@@ -75,6 +97,10 @@ public class OfferController {
 	public String findOfferById(@PathVariable("id") Long id, Model model) {
 		Offer offer = offerService.findById(id);
 		model.addAttribute("item", offer);
+		String lang = informationService.getSeletedLang();
+		OfferI18n offerI18n = offerI18nRepository.findByLangI18n(lang);
+		model.addAttribute("itemI18n", offerI18n);
+		menuHeaderUtil.getMenuHeader(model);
 		return "offer/edit";
 	}
 	

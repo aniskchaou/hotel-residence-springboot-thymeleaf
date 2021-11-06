@@ -30,6 +30,9 @@ import com.dev.delta.entities.Room;
 import com.dev.delta.entities.Service;
 import com.dev.delta.entities.User;
 import com.dev.delta.entities.VAT;
+import com.dev.delta.i18n.entities.CheckInI18n;
+import com.dev.delta.i18n.entities.CityI18n;
+import com.dev.delta.i18n.repositories.CheckInI18nRepository;
 import com.dev.delta.repositories.BedRepository;
 import com.dev.delta.repositories.CustomerRepository;
 import com.dev.delta.repositories.InvoiceRepository;
@@ -43,8 +46,10 @@ import com.dev.delta.services.CountryService;
 import com.dev.delta.services.CustomerService;
 import com.dev.delta.services.FoodService;
 import com.dev.delta.services.GuestTypeService;
+import com.dev.delta.services.InformationService;
 import com.dev.delta.services.RoomService;
 import com.dev.delta.services.RoomTypeService;
+import com.dev.delta.util.UIMenuHeaderUtil;
 
 @Controller
 public class CheckInController {
@@ -96,8 +101,12 @@ public class CheckInController {
 	
 	@Autowired
 	BedService  bedService;
-	
-	
+	@Autowired
+	InformationService  informationService;
+	@Autowired
+	CheckInI18nRepository  checkInI18nRepository;
+	@Autowired
+	UIMenuHeaderUtil  menuHeaderUtil;
 
 	@GetMapping("/add-checkin")
 	public String getaddCheckIn(Model model) {
@@ -107,6 +116,11 @@ public class CheckInController {
 		model.addAttribute("guestTypes", guestTypeService.getGuestTypes());
 		model.addAttribute("roomTypes", roomTypeService.getRoomTypes());
 		model.addAttribute("rooms", roomService.getRooms());
+		
+		String lang = informationService.getSeletedLang();
+		CheckInI18n checkI18n = checkInI18nRepository.findByLangI18n(lang);
+		model.addAttribute("itemI18n", checkI18n);
+		menuHeaderUtil.getMenuHeader(model);
 		return "checkin/add";
 	}
 
@@ -132,8 +146,12 @@ public class CheckInController {
 		User user = principal.getUser();
 		Customer customer = customerRepository.findByUser(user);
 		List<CheckIn> checkIns = checkInService.getCheckInByCustomer(customer);
-
 		model.addAttribute("items", checkIns);
+		
+		String lang = informationService.getSeletedLang();
+		CheckInI18n checkI18n = checkInI18nRepository.findByLangI18n(lang);
+		model.addAttribute("itemI18n", checkI18n);
+		menuHeaderUtil.getMenuHeader(model);
 
 		return "checkin/checkinsclient";
 	}
@@ -152,6 +170,7 @@ public class CheckInController {
 	public String addCheckIn(CheckIn checkIn) throws AddressException, MessagingException, IOException {
 		checkInService.save(checkIn);
 		sendEmail(checkIn);
+		
 		return "redirect:/checkins";
 	}
 
@@ -188,6 +207,10 @@ public class CheckInController {
 	public String findById(@PathVariable("id") Long id, Model model) {
 		CheckIn checkIn = checkInService.findById(id);
 		model.addAttribute("item", checkIn);
+		String lang = informationService.getSeletedLang();
+		CheckInI18n checkI18n = checkInI18nRepository.findByLangI18n(lang);
+		model.addAttribute("itemI18n", checkI18n);
+		menuHeaderUtil.getMenuHeader(model);
 		return "checkin/view";
 	}
 

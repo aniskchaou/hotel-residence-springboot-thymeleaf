@@ -9,6 +9,6 @@ import com.dev.delta.entities.InformationHotel;
 
 public interface InformationRepository extends JpaRepository<InformationHotel, Long> {
 	
-	
+	 InformationHotel findByLangbackoffice(String langbackoffice);
    
 }

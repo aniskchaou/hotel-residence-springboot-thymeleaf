@@ -98,7 +98,7 @@ public class RequestOrderController {
 		UserPrincipal principal = (UserPrincipal) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 		User user = principal.getUser();
 		Customer customer = customerRepository.findByUser(user);
-		System.err.println(user.getUsername());
+		System.err.println(customer);
 		return customer;
 	}
 	
@@ -145,14 +145,15 @@ public class RequestOrderController {
 	@PostMapping("/addextrabedorder")
 	public String saveExtraBedOrder(ExtraBedRequestOrder bedRequestOrder) {
 		bedOrderRepository.save(bedRequestOrder);
-		return "redirect:/extrabedrequest";
+		System.err.println(bedRequestOrder.toString());
+		return "redirect:/dashboard";
 	}
 	
 	
 	@PostMapping("/addhousekeepingorder")
 	public String saveHouseKeepingOrder(HouseKeepingRequestOrder houseKeepingRequestOrder) {
 		houseKeepingOrderRepository.save(houseKeepingRequestOrder);
-		return "redirect:/housekeepingrequest";
+		return "redirect:/dashboard";
 	}
 	
 }

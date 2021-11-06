@@ -15,8 +15,13 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.dev.delta.entities.Food;
+import com.dev.delta.i18n.entities.CityI18n;
+import com.dev.delta.i18n.entities.FoodI18n;
+import com.dev.delta.i18n.repositories.FoodI18nRepository;
 import com.dev.delta.services.FoodCategoryService;
 import com.dev.delta.services.FoodService;
+import com.dev.delta.services.InformationService;
+import com.dev.delta.util.UIMenuHeaderUtil;
 
 @Controller
 public class FoodController {
@@ -28,10 +33,23 @@ public class FoodController {
 
 	@Autowired
 	private FoodCategoryService foodCategoryService;
+	
+	@Autowired
+	InformationService  informationService;
+	
+	@Autowired
+	FoodI18nRepository   foodI18nRepository;
+	
+	@Autowired
+	UIMenuHeaderUtil   menuHeaderUtil;
 
 	@GetMapping("/add-food")
 	public String getaddFood(Model model) {
 		model.addAttribute("foodCategories",foodCategoryService.getFoodCategorys());
+		String lang = informationService.getSeletedLang();
+		FoodI18n cityI18n = foodI18nRepository.findByLangI18n(lang);
+		model.addAttribute("itemI18n", cityI18n);
+		menuHeaderUtil.getMenuHeader(model);
 		return "food/add";
 	}
 	
@@ -45,7 +63,10 @@ public class FoodController {
 	public String getFoods(Model model) {
 		List<Food> foods = foodService.getFoods();
 		model.addAttribute("items", foods);
-		
+		String lang = informationService.getSeletedLang();
+		FoodI18n cityI18n = foodI18nRepository.findByLangI18n(lang);
+		model.addAttribute("itemI18n", cityI18n);
+		menuHeaderUtil.getMenuHeader(model);
 		return "food/foods";
 	}
 
@@ -73,6 +94,10 @@ public class FoodController {
 		model.addAttribute("foodCategories",foodCategoryService.getFoodCategorys());
 		Food food = foodService.findById(id).get();
 		model.addAttribute("item", food);
+		String lang = informationService.getSeletedLang();
+		FoodI18n cityI18n = foodI18nRepository.findByLangI18n(lang);
+		model.addAttribute("itemI18n", cityI18n);
+		menuHeaderUtil.getMenuHeader(model);
 		return "food/edit";
 	}
 

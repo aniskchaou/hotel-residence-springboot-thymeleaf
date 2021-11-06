@@ -15,7 +15,12 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.dev.delta.entities.FoodCategory;
+import com.dev.delta.i18n.entities.CityI18n;
+import com.dev.delta.i18n.entities.FoodCategoryI18n;
+import com.dev.delta.i18n.repositories.FoodCategoryI18nRepository;
 import com.dev.delta.services.FoodCategoryService;
+import com.dev.delta.services.InformationService;
+import com.dev.delta.util.UIMenuHeaderUtil;
 
 @Controller
 public class FoodCategoryController {
@@ -24,9 +29,22 @@ public class FoodCategoryController {
 	 */
 	@Autowired
 	private FoodCategoryService foodCategoryService;
+	
+	@Autowired
+	FoodCategoryI18nRepository  foodCategoryI18nRepository;
+	
+	@Autowired
+	InformationService   informationService;
+	
+	@Autowired
+	UIMenuHeaderUtil  menuHeaderUtil;
 
 	@GetMapping("/add-foodcategory")
 	public String getaddAmenity(Model model) {
+		String lang = informationService.getSeletedLang();
+		FoodCategoryI18n cityI18n = foodCategoryI18nRepository.findByLangI18n(lang);
+		model.addAttribute("itemI18n", cityI18n);
+		menuHeaderUtil.getMenuHeader(model);
        return "foodcategory/add";
 	}
 
@@ -41,7 +59,10 @@ public class FoodCategoryController {
 		List<FoodCategory> foodCategorys = foodCategoryService.getFoodCategorys();
 	
 		model.addAttribute("items", foodCategorys);
-	
+		String lang = informationService.getSeletedLang();
+		FoodCategoryI18n cityI18n = foodCategoryI18nRepository.findByLangI18n(lang);
+		model.addAttribute("itemI18n", cityI18n);
+		menuHeaderUtil.getMenuHeader(model);
 		return "foodcategory/foodcategories";
 	}
 

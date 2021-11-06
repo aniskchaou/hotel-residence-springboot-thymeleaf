@@ -16,7 +16,12 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.dev.delta.entities.LaundryItem;
+import com.dev.delta.i18n.entities.CityI18n;
+import com.dev.delta.i18n.entities.LaundryItemI18n;
+import com.dev.delta.i18n.repositories.LaundryItemI18nRepository;
+import com.dev.delta.services.InformationService;
 import com.dev.delta.services.LaundryItemService;
+import com.dev.delta.util.UIMenuHeaderUtil;
 
 @Controller
 public class LaundryItemController {
@@ -24,10 +29,23 @@ public class LaundryItemController {
 	@Autowired
 	private LaundryItemService laundryItemService;
 
+	@Autowired
+	InformationService   informationService;
+	
+	@Autowired
+	LaundryItemI18nRepository   laundryItemI18nRepository;
+	
+	@Autowired
+	UIMenuHeaderUtil  menuHeaderUtil;
+	
 	
 	@GetMapping("/add-laundryitem")
 	public String getaddLaundryItem(Model model) {
 		List<LaundryItem> laundryItems = laundryItemService.getLaundryItems();
+		String lang = informationService.getSeletedLang();
+		LaundryItemI18n cityI18n = laundryItemI18nRepository.findByLangI18n(lang);
+		model.addAttribute("itemI18n", cityI18n);
+		menuHeaderUtil.getMenuHeader(model);
 		return "laundryitem/add";
 	}
 	
@@ -43,7 +61,10 @@ public class LaundryItemController {
 	public String getLaundryItems(Model model) {
 		List<LaundryItem> laundryItems = laundryItemService.getLaundryItems();
 		model.addAttribute("items", laundryItems);
-
+		String lang = informationService.getSeletedLang();
+		LaundryItemI18n cityI18n = laundryItemI18nRepository.findByLangI18n(lang);
+		model.addAttribute("itemI18n", cityI18n);
+		menuHeaderUtil.getMenuHeader(model);
 		return "laundryitem/laundryitems";
 	}
 
@@ -57,6 +78,7 @@ public class LaundryItemController {
 
 	public String addLaundryItem(LaundryItem laundryItem) {
 		laundryItemService.save(laundryItem);
+		
 		return "redirect:/laundryitems";
 	}
 
@@ -71,6 +93,10 @@ public class LaundryItemController {
 	public String findById(@PathVariable("id") Long id, Model model) {
 		LaundryItem laundryItem = laundryItemService.findById(id);
 		model.addAttribute("item", laundryItem);
+		String lang = informationService.getSeletedLang();
+		LaundryItemI18n cityI18n = laundryItemI18nRepository.findByLangI18n(lang);
+		model.addAttribute("itemI18n", cityI18n);
+		menuHeaderUtil.getMenuHeader(model);
 		return "laundryitem/edit";
 	}
 

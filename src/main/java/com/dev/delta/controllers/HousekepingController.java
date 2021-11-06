@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.dev.delta.entities.Housekeping;
+import com.dev.delta.i18n.entities.CityI18n;
 import com.dev.delta.services.HousekepingService;
 import com.dev.delta.services.RoomService;
 
@@ -29,9 +30,13 @@ public class HousekepingController {
 	@Autowired
 	private RoomService roomService;
 	
+	
+
+	
 	@GetMapping("/add-housekeeping")
 	public String getaddHouseKeeping(Model model) {
         model.addAttribute("rooms",roomService.getRooms());
+      
 		return "housekeeping/add";
 	}
 	

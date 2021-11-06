@@ -15,8 +15,13 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.dev.delta.entities.Payment;
+import com.dev.delta.i18n.entities.CityI18n;
+import com.dev.delta.i18n.entities.PaymentI18n;
+import com.dev.delta.i18n.repositories.PaymentI18nRepository;
+import com.dev.delta.services.InformationService;
 import com.dev.delta.services.PaymentMethodService;
 import com.dev.delta.services.PaymentService;
+import com.dev.delta.util.UIMenuHeaderUtil;
 
 @Controller
 public class PaymentController {
@@ -28,10 +33,23 @@ public class PaymentController {
 
 	@Autowired
 	private PaymentMethodService paymentMethodService;
-
+    
+	@Autowired
+	InformationService  informationService;
+	
+	@Autowired
+	PaymentI18nRepository  paymentI18nRepository;
+	
+	@Autowired
+	UIMenuHeaderUtil   menuHeaderUtil;
+	
 	@GetMapping("/add-payment")
 	public String getaddPayment(Model model) {
 		model.addAttribute("paymentMethods", paymentMethodService.getPaymentMethods());
+		String lang = informationService.getSeletedLang();
+		PaymentI18n cityI18n = paymentI18nRepository.findByLangI18n(lang);
+		model.addAttribute("itemI18n", cityI18n);
+		menuHeaderUtil.getMenuHeader(model);
 		return "payment/add";
 	}
 
@@ -45,6 +63,10 @@ public class PaymentController {
 	public String getPayments(Model model) {
 		List<Payment> payments = paymentService.getPayments();
 		model.addAttribute("items", payments);
+		String lang = informationService.getSeletedLang();
+		PaymentI18n cityI18n = paymentI18nRepository.findByLangI18n(lang);
+		model.addAttribute("itemI18n", cityI18n);
+		menuHeaderUtil.getMenuHeader(model);
 
 		return "payment/payments";
 	}
@@ -73,6 +95,10 @@ public class PaymentController {
 	public String findById(@PathVariable("id") Long id, Model model) {
 		Payment payment = paymentService.findById(id).get();
 		model.addAttribute("item", payment);
+		String lang = informationService.getSeletedLang();
+		PaymentI18n cityI18n = paymentI18nRepository.findByLangI18n(lang);
+		model.addAttribute("itemI18n", cityI18n);
+		menuHeaderUtil.getMenuHeader(model);
 		return "payment/view";
 	}
 	
@@ -82,6 +108,10 @@ public class PaymentController {
 		model.addAttribute("paymentMethods", paymentMethodService.getPaymentMethods());
 		Payment payment = paymentService.findById(id).get();
 		model.addAttribute("item", payment);
+		String lang = informationService.getSeletedLang();
+		PaymentI18n cityI18n = paymentI18nRepository.findByLangI18n(lang);
+		model.addAttribute("itemI18n", cityI18n);
+		menuHeaderUtil.getMenuHeader(model);
 		return "payment/edit";
 	}
 

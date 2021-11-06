@@ -15,7 +15,12 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.dev.delta.entities.Designation;
+import com.dev.delta.i18n.entities.CityI18n;
+import com.dev.delta.i18n.entities.DesignationI18n;
+import com.dev.delta.i18n.repositories.DesignationI18nRepository;
 import com.dev.delta.services.DesignationService;
+import com.dev.delta.services.InformationService;
+import com.dev.delta.util.UIMenuHeaderUtil;
 
 @Controller
 public class DesignationController {
@@ -24,9 +29,20 @@ public class DesignationController {
 	 */
 	@Autowired
 	private DesignationService designationService;
+	
+	@Autowired
+	DesignationI18nRepository  designationI18nRepository;
+	@Autowired
+	InformationService  informationService;
+	@Autowired
+	UIMenuHeaderUtil  menuHeaderUtil;
 
 	@GetMapping("/add-designation")
 	public String getaddDesignation(Model model) {
+		String lang = informationService.getSeletedLang();
+		DesignationI18n cityI18n = designationI18nRepository.findByLangI18n(lang);
+		model.addAttribute("itemI18n", cityI18n);
+		menuHeaderUtil.getMenuHeader(model);
 		return "designation/add";
 	}
 	
@@ -39,8 +55,11 @@ public class DesignationController {
 	@GetMapping("/designations")
 	public String getDesignations(Model model) {
 		List<Designation> designations = designationService.getDesignations();
-
 		model.addAttribute("items", designations);
+		String lang = informationService.getSeletedLang();
+		DesignationI18n cityI18n = designationI18nRepository.findByLangI18n(lang);
+		model.addAttribute("itemI18n", cityI18n);
+		menuHeaderUtil.getMenuHeader(model);
 
 		return "designation/designations";
 	}
@@ -69,6 +88,10 @@ public class DesignationController {
 	public String findById(@PathVariable("id") long id, Model model) {
 		Designation designation = designationService.findById(id).get();
 		model.addAttribute("item", designation);
+		String lang = informationService.getSeletedLang();
+		DesignationI18n cityI18n = designationI18nRepository.findByLangI18n(lang);
+		model.addAttribute("itemI18n", cityI18n);
+		menuHeaderUtil.getMenuHeader(model);
 		return "designation/edit";
 	}
 	

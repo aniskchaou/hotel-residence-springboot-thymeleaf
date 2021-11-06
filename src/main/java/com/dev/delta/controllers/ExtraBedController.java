@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.dev.delta.entities.ExtraBed;
+import com.dev.delta.i18n.entities.CityI18n;
 import com.dev.delta.services.BedService;
 import com.dev.delta.services.CustomerService;
 import com.dev.delta.services.ExtraBedService;
@@ -48,6 +49,7 @@ public class ExtraBedController {
 		model.addAttribute("customers", customerService.getCustomers());
 		model.addAttribute("rooms", roomService.getRooms());
 		model.addAttribute("beds", bedService.getBeds());
+
 		return "extrabed/add";
 	}
 	

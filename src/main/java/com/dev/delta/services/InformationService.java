@@ -30,4 +30,10 @@ public class InformationService {
 	{
 		return informationRepository.findById(id).get();
 	}
+	
+	public String getSeletedLang()
+	{
+		Long id=1L;
+		return informationRepository.findById(id).get().getLangbackoffice();
+	}
 }

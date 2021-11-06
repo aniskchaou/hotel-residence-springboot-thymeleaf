@@ -4,7 +4,7 @@
 <head>
 <meta charset="utf-8">
 <meta http-equiv="x-ua-compatible" content="ie=edge">
-<title>Amenities</title>
+<title th:text="${itemI18n?.getAllTitleI18n}"></title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="shortcut icon" type="image/png"
 	href="assets/images/icon/favicon.ico">
@@ -56,25 +56,42 @@
 				</div>
 			</div>
 			<div class="main-menu">
-				<div th:insert="includes/menu :: menu"></div>
+				<div
+					th:if="${#authentication.getPrincipal().getUser().getRole().getName()=='ADMIN'}"
+					th:insert="includes/menu :: menu"></div>
 			</div>
 		</div>
 		<!-- sidebar menu area end -->
 		<!-- main content area start -->
 		<div class="main-content">
 			<!-- header area start -->
-			<div th:insert="includes/headarea:: headarea"></div>
+			<div class="header-area">
+				<div class="row align-items-center">
+					<!-- nav and search button -->
+					<div class="col-md-6 col-sm-8 clearfix">
+						<div class="nav-btn pull-left">
+							<span></span> <span></span> <span></span>
+						</div>
+						<div class="search-box pull-left">
+							<form action="#">
+								<input type="text" name="search" placeholder="Search..."
+									required> <i class="ti-search"></i>
+							</form>
+						</div>
+					</div>
+					<!-- profile info & task notification -->
+					<span class="col-md-6 col-sm-4 clearfix"
+						th:insert="includes/notification_bar :: notification_bar"></span>
+				</div>
+			</div>
 			<!-- header area end -->
 			<!-- page title area start -->
 			<div class="page-title-area">
 				<div class="row align-items-center">
 					<div class="col-sm-6">
 						<div class="breadcrumbs-area clearfix">
-							<h4 class="page-title pull-left">Cities</h4>
-							<ul class="breadcrumbs pull-left">
-								<li><a th:href="@{/}">Home</a></li>
-								<li><span>Cities</span></li>
-							</ul>
+							<h4 class="page-title pull-left"
+								th:text="${itemI18n?.getAllTitleI18n}">Cities</h4>
 						</div>
 					</div>
 					<div class="col-sm-6 clearfix">
@@ -103,7 +120,8 @@
 							<div class="card-body">
 								<h4 class="header-title">
 									<a th:href="@{/add-city}" type="button"
-										class="btn btn-rounded btn-success mb-3"> <i
+										class="btn btn-rounded btn-success mb-3"
+										th:text="${itemI18n?.createTitleI18n}"> <i
 										class="fa fa-plus" aria-hidden="true"></i> Create
 									</a>
 								</h4>
@@ -111,7 +129,7 @@
 									<table id="dataTable" class="text-center">
 										<thead class="bg-light text-capitalize">
 											<tr>
-												<th>Name</th>
+												<th th:text="${itemI18n.nameI18n}">Name</th>
 												<th></th>
 											</tr>
 										</thead>

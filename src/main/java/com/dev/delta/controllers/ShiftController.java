@@ -15,7 +15,12 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.dev.delta.entities.Shift;
+import com.dev.delta.i18n.entities.CityI18n;
+import com.dev.delta.i18n.entities.ShiftI18n;
+import com.dev.delta.i18n.repositories.ShiftI18nRepository;
+import com.dev.delta.services.InformationService;
 import com.dev.delta.services.ShiftService;
+import com.dev.delta.util.UIMenuHeaderUtil;
 
 @Controller
 public class ShiftController {
@@ -24,9 +29,22 @@ public class ShiftController {
 	 */
 	@Autowired
 	private ShiftService shiftService;
+	
+	@Autowired
+	InformationService informationService;
+	
+	@Autowired
+	UIMenuHeaderUtil  menuHeaderUtil;
+	
+	@Autowired
+	ShiftI18nRepository   shiftI18nRepository;
 
 	@GetMapping("/add-shift")
 	public String getaddShift(Model model) {
+		String lang = informationService.getSeletedLang();
+		ShiftI18n cityI18n = shiftI18nRepository.findByLangI18n(lang);
+		model.addAttribute("itemI18n", cityI18n);
+		menuHeaderUtil.getMenuHeader(model);
 		return "shift/add";
 	}
 
@@ -41,6 +59,10 @@ public class ShiftController {
 		List<Shift> shifts = shiftService.getShifts();
 
 		model.addAttribute("items", shifts);
+		String lang = informationService.getSeletedLang();
+		ShiftI18n cityI18n = shiftI18nRepository.findByLangI18n(lang);
+		model.addAttribute("itemI18n", cityI18n);
+		menuHeaderUtil.getMenuHeader(model);
 	
 		return "shift/shifts";
 	}
@@ -68,6 +90,10 @@ public class ShiftController {
 	public String findById(@PathVariable("id") long id, Model model) {
 		Shift shift = shiftService.findById(id).get();
 		model.addAttribute("item", shift);
+		String lang = informationService.getSeletedLang();
+		ShiftI18n cityI18n = shiftI18nRepository.findByLangI18n(lang);
+		model.addAttribute("itemI18n", cityI18n);
+		menuHeaderUtil.getMenuHeader(model);
 		return "shift/edit";
 	}
 

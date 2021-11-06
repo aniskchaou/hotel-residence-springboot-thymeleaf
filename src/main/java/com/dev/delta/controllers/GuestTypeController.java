@@ -15,7 +15,12 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.dev.delta.entities.GuestType;
+import com.dev.delta.i18n.entities.CityI18n;
+import com.dev.delta.i18n.entities.GuestTypeI18n;
+import com.dev.delta.i18n.repositories.GuestTypeI18nRepository;
 import com.dev.delta.services.GuestTypeService;
+import com.dev.delta.services.InformationService;
+import com.dev.delta.util.UIMenuHeaderUtil;
 
 @Controller
 public class GuestTypeController {
@@ -24,10 +29,22 @@ public class GuestTypeController {
 	 */
 	@Autowired
 	private GuestTypeService guesTypeService;
+	
+	@Autowired
+	GuestTypeI18nRepository  guestTypeI18nRepository;
+	
+	@Autowired
+	UIMenuHeaderUtil  menuHeaderUtil;
+	
+	@Autowired
+	InformationService  informationService;
 
 	@GetMapping("/add-guesttype")
 	public String getaddGuestType(Model model) {
-
+		String lang = informationService.getSeletedLang();
+		GuestTypeI18n cityI18n = guestTypeI18nRepository.findByLangI18n(lang);
+		model.addAttribute("itemI18n", cityI18n);
+		menuHeaderUtil.getMenuHeader(model);
 		return "guesttype/add";
 	}
 	
@@ -40,8 +57,11 @@ public class GuestTypeController {
 	@GetMapping("/guesttypes")
 	public String getGuestTypes(Model model) {
 		List<GuestType> guesTypes = guesTypeService.getGuestTypes();
-
 		model.addAttribute("items", guesTypes);
+		String lang = informationService.getSeletedLang();
+		GuestTypeI18n cityI18n = guestTypeI18nRepository.findByLangI18n(lang);
+		model.addAttribute("itemI18n", cityI18n);
+		menuHeaderUtil.getMenuHeader(model);
 	
 		return "guesttype/guesttypes";
 	}
@@ -70,6 +90,10 @@ public class GuestTypeController {
 	public String findById(@PathVariable("id") long id, Model model) {
 		GuestType guesType = guesTypeService.findById(id).get();
 		model.addAttribute("item", guesType);
+		String lang = informationService.getSeletedLang();
+		GuestTypeI18n cityI18n = guestTypeI18nRepository.findByLangI18n(lang);
+		model.addAttribute("itemI18n", cityI18n);
+		menuHeaderUtil.getMenuHeader(model);
 		return "guesttype/edit";
 	}
 

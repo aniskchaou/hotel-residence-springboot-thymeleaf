@@ -113,8 +113,8 @@
 										</thead>
 										<tbody>
 											<tr th:each="item:${items}">
-												<td th:text="${item.Room.RoomNo}"></td>
-												<td th:text="${item.ExtraBed}"></td>
+												<td th:text="${item?.room?.RoomNo}"></td>
+												<td th:text="${item?.ExtraBed}"></td>
 											</tr>
 
 										</tbody>

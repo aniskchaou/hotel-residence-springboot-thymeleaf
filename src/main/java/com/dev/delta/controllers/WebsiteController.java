@@ -60,6 +60,7 @@ import com.dev.delta.services.OfferService;
 import com.dev.delta.services.RoomService;
 import com.dev.delta.services.RoomTypeService;
 import com.dev.delta.services.SubscriberService;
+import com.dev.delta.util.UIMenuHeaderUtil;
 
 @Controller
 public class WebsiteController {
@@ -172,6 +173,9 @@ public class WebsiteController {
 	@Autowired
 	LocaleResolver localeResolver  ;
 	
+	@Autowired
+	UIMenuHeaderUtil  menuHeaderUtil;
+	
 	
 	
 	@GetMapping("/dashboard")
@@ -181,10 +185,7 @@ public class WebsiteController {
 		model.addAttribute("notifications",notifications);
 		model.addAttribute("messages",messages);
 		
-		model.addAttribute("foods",foodOrderRequestRepository.findAll());
-		model.addAttribute("extrabeds",extraBedOrderRepository.findAll());
-		model.addAttribute("housekeepings",houseKeepingRequestRepository.findAll());
-		model.addAttribute("laundries",laundryRequestOrderRepository.findAll());
+	
 		
 		Long id=1L;
 		InformationHotel hotel=informationService.getById(id);
@@ -201,8 +202,7 @@ public class WebsiteController {
 		int customerNB=(int) customerService.getCount();
 		int blogNB=blogService.getCount();
 		int subscriberNB=(int) subscriberService.getCount();
-		model.addAttribute("messageNB",Integer.toString(messageNb));
-		model.addAttribute("notificationNB",Integer.toString(notificationNb) );
+		
 		model.addAttribute("roomNB",Integer.toString(roomNB));
 		model.addAttribute("checkinNB",Integer.toString(checkInNB) );
 		model.addAttribute("bedNB",Integer.toString(bedNB));
@@ -215,13 +215,19 @@ public class WebsiteController {
 		model.addAttribute("blogNB",Integer.toString(blogNB) );
 		model.addAttribute("subscriberNB",Integer.toString(subscriberNB) );
 		
+		model.addAttribute("messageNB",Integer.toString(messageNb));
+		model.addAttribute("notificationNB",Integer.toString(notificationNb) );
 		model.addAttribute("foodorderNB",foodOrderRequestRepository.count() );
 		model.addAttribute("extrabedorderNB",extraBedOrderRepository.count() );
 		model.addAttribute("housekeepingorderNB",houseKeepingRequestRepository.count() );
 		model.addAttribute("laundryorderNB",laundryRequestOrderRepository.count() );
+		model.addAttribute("foods",foodOrderRequestRepository.findAll());
+		model.addAttribute("extrabeds",extraBedOrderRepository.findAll());
+		model.addAttribute("housekeepings",houseKeepingRequestRepository.findAll());
+		model.addAttribute("laundries",laundryRequestOrderRepository.findAll());
 		
 		model.addAttribute("hotel",hotel );
-		
+		menuHeaderUtil.getMenuHeader(model);
 		
 		
 		

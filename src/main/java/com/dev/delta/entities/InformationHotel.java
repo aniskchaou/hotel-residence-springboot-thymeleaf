@@ -20,6 +20,7 @@ public class InformationHotel {
 	String instagram;
 	String twitter;
 	String lang;
+	String langbackoffice;
 	
 	public InformationHotel() {
 		// TODO Auto-generated constructor stub
@@ -116,6 +117,16 @@ public class InformationHotel {
 
 	public void setTwitter(String twitter) {
 		this.twitter = twitter;
+	}
+	
+	
+
+	public String getLangbackoffice() {
+		return langbackoffice;
+	}
+
+	public void setLangbackoffice(String langbackoffice) {
+		this.langbackoffice = langbackoffice;
 	}
 
 	@Override

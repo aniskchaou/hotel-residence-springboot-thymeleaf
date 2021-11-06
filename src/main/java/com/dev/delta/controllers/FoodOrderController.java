@@ -18,6 +18,7 @@ import com.dev.delta.entities.CheckIn;
 import com.dev.delta.entities.FoodOrder;
 import com.dev.delta.entities.FoodRequestOrder;
 import com.dev.delta.entities.Service;
+import com.dev.delta.i18n.entities.CityI18n;
 import com.dev.delta.repositories.ServiceRepository;
 import com.dev.delta.services.CheckInService;
 import com.dev.delta.services.CustomerService;
@@ -49,6 +50,7 @@ public class FoodOrderController {
 	public String getaddAmenity(Model model) {
 		model.addAttribute("customers",customerService.getCustomers());
 		model.addAttribute("foods",foodService.getFoods());
+	
 		
 		return "foodorder/add";
 	}

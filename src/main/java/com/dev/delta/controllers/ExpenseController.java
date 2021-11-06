@@ -15,8 +15,13 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.dev.delta.entities.Expense;
+import com.dev.delta.i18n.entities.CityI18n;
+import com.dev.delta.i18n.entities.ExpenseI18n;
+import com.dev.delta.i18n.repositories.ExpenseI18nRepository;
 import com.dev.delta.services.ExpenseCategoryService;
 import com.dev.delta.services.ExpenseService;
+import com.dev.delta.services.InformationService;
+import com.dev.delta.util.UIMenuHeaderUtil;
 
 @Controller
 public class ExpenseController {
@@ -25,12 +30,26 @@ public class ExpenseController {
 	 */
 	@Autowired
 	private ExpenseService expenseService;
-
+    
+	@Autowired
+	UIMenuHeaderUtil   menuHeaderUtil;
+	
+	@Autowired
+	InformationService  informationService;
+	
 	@Autowired
 	private ExpenseCategoryService expenseCategoryService;
+	
+	@Autowired
+	ExpenseI18nRepository  expenseI18nRepository;
+	
 	@GetMapping("/add-expense")
 	public String getaddExpense(Model model) {
 		model.addAttribute("categories",expenseCategoryService.getExpenseCategorys());
+		String lang = informationService.getSeletedLang();
+		ExpenseI18n cityI18n = expenseI18nRepository.findByLangI18n(lang);
+		model.addAttribute("itemI18n", cityI18n);
+		menuHeaderUtil.getMenuHeader(model);
 		return "expense/add";
 	}
 
@@ -43,8 +62,11 @@ public class ExpenseController {
 	@GetMapping("/expenses")
 	public String getExpenses(Model model) {
 		List<Expense> expenses = expenseService.getExpenses();
-		
 		model.addAttribute("items", expenses);
+		String lang = informationService.getSeletedLang();
+		ExpenseI18n cityI18n = expenseI18nRepository.findByLangI18n(lang);
+		model.addAttribute("itemI18n", cityI18n);
+		menuHeaderUtil.getMenuHeader(model);
 		
 		return "expense/expenses";
 	}
@@ -74,6 +96,10 @@ public class ExpenseController {
 		model.addAttribute("categories",expenseCategoryService.getExpenseCategorys());
 		Expense expense = expenseService.findById(id).get();
 		model.addAttribute("item", expense);
+		String lang = informationService.getSeletedLang();
+		ExpenseI18n cityI18n = expenseI18nRepository.findByLangI18n(lang);
+		model.addAttribute("itemI18n", cityI18n);
+		menuHeaderUtil.getMenuHeader(model);
 		return "expense/edit";
 	}
 

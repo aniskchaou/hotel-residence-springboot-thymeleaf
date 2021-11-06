@@ -15,7 +15,12 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.dev.delta.entities.HouseKeepingItem;
+import com.dev.delta.i18n.entities.CityI18n;
+import com.dev.delta.i18n.entities.HouseKeepingItemI18n;
+import com.dev.delta.i18n.repositories.HouseKeepingItemI18nRepository;
 import com.dev.delta.services.HouseKeepingItemService;
+import com.dev.delta.services.InformationService;
+import com.dev.delta.util.UIMenuHeaderUtil;
 @Controller
 public class HouseKeepingItemController {
 	/**
@@ -23,10 +28,22 @@ public class HouseKeepingItemController {
 	 */
 	@Autowired
 	private HouseKeepingItemService houseKeepingItemService;
+	
+	@Autowired
+	HouseKeepingItemI18nRepository   houseKeepingItemI18nRepository;
+	
+	@Autowired
+	UIMenuHeaderUtil   menuHeaderUtil;
+	
+	@Autowired
+	InformationService   informationService;
 
 	@GetMapping("/add-housekeepingitem")
 	public String getaddAmenity(Model model) {
-
+		String lang = informationService.getSeletedLang();
+		HouseKeepingItemI18n cityI18n = houseKeepingItemI18nRepository.findByLangI18n(lang);
+		model.addAttribute("itemI18n", cityI18n);
+		menuHeaderUtil.getMenuHeader(model);
 		return "housekeepingitem/add";
 	}
 
@@ -41,7 +58,10 @@ public class HouseKeepingItemController {
 		List<HouseKeepingItem> houseKeepingItems = houseKeepingItemService.getHouseKeepingItems();
 
 		model.addAttribute("items", houseKeepingItems);
-
+		String lang = informationService.getSeletedLang();
+		HouseKeepingItemI18n cityI18n = houseKeepingItemI18nRepository.findByLangI18n(lang);
+		model.addAttribute("itemI18n", cityI18n);
+		menuHeaderUtil.getMenuHeader(model);
 		return "housekeepingitem/housekeepingitems";
 	}
 
@@ -69,6 +89,10 @@ public class HouseKeepingItemController {
 	public String findById(@PathVariable("id") long id, Model model) {
 		HouseKeepingItem houseKeepingItem = houseKeepingItemService.findById(id).get();
 		model.addAttribute("item", houseKeepingItem);
+		String lang = informationService.getSeletedLang();
+		HouseKeepingItemI18n cityI18n = houseKeepingItemI18nRepository.findByLangI18n(lang);
+		model.addAttribute("itemI18n", cityI18n);
+		menuHeaderUtil.getMenuHeader(model);
 		return "housekeepingitem/edit";
 	}
 

@@ -23,10 +23,16 @@ import com.dev.delta.entities.Amenity;
 import com.dev.delta.entities.Blog;
 import com.dev.delta.entities.BlogCategory;
 import com.dev.delta.entities.CheckIn;
+import com.dev.delta.i18n.entities.BlogI18n;
+import com.dev.delta.i18n.entities.CityI18n;
+import com.dev.delta.i18n.repositories.BlogCategoryI18nRepository;
+import com.dev.delta.i18n.repositories.BlogI18nRepository;
 import com.dev.delta.services.BlogCategoryService;
 import com.dev.delta.services.BlogService;
+import com.dev.delta.services.InformationService;
 import com.dev.delta.util.DateBlogUtil;
 import com.dev.delta.util.FileUploadUtil;
+import com.dev.delta.util.UIMenuHeaderUtil;
 
 @Controller
 public class BlogController {
@@ -36,11 +42,24 @@ public class BlogController {
 	
 	@Autowired
 	BlogCategoryService blogCategoryService;
+	
+	@Autowired
+	UIMenuHeaderUtil   menuHeaderUtil;
+	
+	@Autowired
+	BlogI18nRepository  blogI18nRepository;
+	
+	@Autowired
+	InformationService  informationService;
 
 	@GetMapping("/blogsadmin")
 	public String getBlogs(Model model) {
 		List<Blog> blogs = blogService.getBlogs();
 		model.addAttribute("items", blogs);
+		String lang = informationService.getSeletedLang();
+		BlogI18n cityI18n = blogI18nRepository.findByLangI18n(lang);
+		model.addAttribute("itemI18n", cityI18n);
+		menuHeaderUtil.getMenuHeader(model);
 
 		return "blog/blogs";
 	}
@@ -49,6 +68,10 @@ public class BlogController {
 	public String getBlog(Model model) {
 		List<BlogCategory> categories=blogCategoryService.getBlogCategories();
 		model.addAttribute("categories",categories);
+		String lang = informationService.getSeletedLang();
+		BlogI18n cityI18n = blogI18nRepository.findByLangI18n(lang);
+		model.addAttribute("itemI18n", cityI18n);
+		menuHeaderUtil.getMenuHeader(model);
 		return "blog/add";
 	}
 
@@ -76,6 +99,10 @@ public class BlogController {
 	public String findById(@PathVariable("id") Long id, Model model) {
 		Blog blog = blogService.findById(id);
 		model.addAttribute("item", blog);
+		String lang = informationService.getSeletedLang();
+		BlogI18n cityI18n = blogI18nRepository.findByLangI18n(lang);
+		model.addAttribute("itemI18n", cityI18n);
+		menuHeaderUtil.getMenuHeader(model);
 		return "blog/view";
 	}
 	
@@ -83,6 +110,10 @@ public class BlogController {
 	public String findBlogById(@PathVariable("id") Long id, Model model) {
 		Blog blog = blogService.findById(id);
 		model.addAttribute("item", blog);
+		String lang = informationService.getSeletedLang();
+		BlogI18n cityI18n = blogI18nRepository.findByLangI18n(lang);
+		model.addAttribute("itemI18n", cityI18n);
+		menuHeaderUtil.getMenuHeader(model);
 		return "blog/edit";
 	}
 	

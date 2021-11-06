@@ -6,6 +6,7 @@ import java.util.Date;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.dev.delta.i18n.repositories.BlogI18nRepository;
 import com.dev.delta.repositories.BlogRepository;
 import com.dev.delta.repositories.NotificationRepository;
 import com.dev.delta.util.DateBlogUtil;
@@ -18,6 +19,9 @@ public class BlogDTO implements DTO {
 	
 	@Autowired
 	NotificationRepository  notificationRepository;
+	
+	@Autowired
+	BlogI18nRepository blogI18nRepository;
 
 	@Override
 	public void populate() {
@@ -73,6 +77,37 @@ public class BlogDTO implements DTO {
 		notificationRepository.save(notification);
 		
 		
+		
+		blogI18n.setTitleI18n("Title");
+		blogI18n.setDateI18n("Date");
+		blogI18n.setBodyI18n("Body");
+		blogI18n.setUserI18n("User");
+		blogI18n.setPhotosI18n("Photo");
+		blogI18n.setDayI18n("Day");
+		blogI18n.setMonthI18n("Month");
+		blogI18n.setBlogCategoryI18n("Blog Category");
+		blogI18n.setLangI18n("EN");
+		blogI18n.setGetTitleI18n("City");
+		blogI18n.setCreateTitleI18n("Create new City");
+		blogI18n.setEditTitleI18n("Edit City");
+		blogI18n.setGetAllTitleI18n("Cities");
+		blogI18nRepository.save(blogI18n);
+		
+		
+		blogI18n2.setTitleI18n("Titel");
+		blogI18n2.setDateI18n("Datum");
+		blogI18n2.setBodyI18n("Body");
+		blogI18n2.setUserI18n("Benutzer");
+		blogI18n2.setPhotosI18n("Bild");
+		blogI18n2.setDayI18n("Tag");
+		blogI18n2.setMonthI18n("Monate");
+		blogI18n2.setBlogCategoryI18n("BlogKategorie");
+		blogI18n2.setLangI18n("DE");
+		blogI18n2.setGetTitleI18n("City");
+		blogI18n2.setCreateTitleI18n("Create new City");
+		blogI18n2.setEditTitleI18n("Edit City");
+		blogI18n2.setGetAllTitleI18n("Cities");
+		blogI18nRepository.save(blogI18n2);
 
 	}
 

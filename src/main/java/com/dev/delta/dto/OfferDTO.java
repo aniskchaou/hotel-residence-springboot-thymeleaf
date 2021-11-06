@@ -3,6 +3,7 @@ package com.dev.delta.dto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.dev.delta.i18n.repositories.OfferI18nRepository;
 import com.dev.delta.services.OfferService;
 
 @Service
@@ -10,6 +11,10 @@ public class OfferDTO implements DTO {
 
 	@Autowired
 	 OfferService offerService;
+	
+	@Autowired
+	OfferI18nRepository  offerI18nRepository;
+	
 	@Override
 	public void populate() {
 		offer.setDescription("Luxaries condition\r\n"
@@ -40,6 +45,30 @@ public class OfferDTO implements DTO {
 		offerService.save(offer);
 		offerService.save(offer2);
 		offerService.save(offer3);
+		
+		offerI18n.setDescriptionI18n("Description");
+		offerI18n.setImageI18n("Image");
+		offerI18n.setNameI18n("Name");
+		offerI18n.setTitleI18n("Title");
+		offerI18n.setGetTitleI18n("City");
+		offerI18n.setCreateTitleI18n("Create new City");
+		offerI18n.setEditTitleI18n("Edit City");
+		offerI18n.setGetAllTitleI18n("Cities");
+		offerI18n.setLangI18n("EN");
+		offerI18nRepository.save(offerI18n);
+		
+		
+		offerI18n2.setDescriptionI18n("Description");
+		offerI18n2.setImageI18n("Image");
+		offerI18n2.setNameI18n("Name");
+		offerI18n2.setTitleI18n("Title");
+		offerI18n2.setGetTitleI18n("City");
+		offerI18n2.setCreateTitleI18n("Create new City");
+		offerI18n2.setEditTitleI18n("Edit City");
+		offerI18n2.setGetAllTitleI18n("Cities");
+		offerI18n2.setLangI18n("DE");
+		offerI18nRepository.save(offerI18n2);
+		
 
 	}
 

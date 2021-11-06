@@ -4,7 +4,7 @@
 <head>
 <meta charset="utf-8">
 <meta http-equiv="x-ua-compatible" content="ie=edge">
-<title>Amenities</title>
+<title th:text="${menu?.settings}"></title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="shortcut icon" type="image/png"
 	href="assets/images/icon/favicon.ico">
@@ -63,33 +63,38 @@
 		<!-- main content area start -->
 		<div class="main-content">
 			<!-- header area start -->
-			<div th:insert="includes/headarea:: headarea"></div>
+			<div class="header-area">
+				<div class="row align-items-center">
+					<!-- nav and search button -->
+					<div class="col-md-6 col-sm-8 clearfix">
+						<div class="nav-btn pull-left">
+							<span></span> <span></span> <span></span>
+						</div>
+						<div class="search-box pull-left">
+							<form action="#">
+								<input type="text" name="search" placeholder="Search..."
+									required> <i class="ti-search"></i>
+							</form>
+						</div>
+					</div>
+					<!-- profile info & task notification -->
+					<span class="col-md-6 col-sm-4 clearfix"
+						th:insert="includes/notification_bar :: notification_bar"></span>
+				</div>
+			</div>
 			<!-- header area end -->
 			<!-- page title area start -->
 			<div class="page-title-area">
 				<div class="row align-items-center">
 					<div class="col-sm-6">
 						<div class="breadcrumbs-area clearfix">
-							<h4 class="page-title pull-left">Room Types</h4>
-							<ul class="breadcrumbs pull-left">
-								<li><a href="index.html">Home</a></li>
-								<li><span>Room Types</span></li>
-							</ul>
+							<h4 class="page-title pull-left"
+								th:text="${menu?.settings}"></h4>
+
 						</div>
 					</div>
 					<div class="col-sm-6 clearfix">
-						<div class="user-profile pull-right">
-							<img class="avatar user-thumb"
-								src="assets/images/author/avatar.png" alt="avatar">
-							<h4 class="user-name dropdown-toggle" data-toggle="dropdown">
-								Admin <i class="fa fa-angle-down"></i>
-							</h4>
-							<div class="dropdown-menu">
-								<a class="dropdown-item" th:href="@{/profile}">Profile</a> <a
-									class="dropdown-item" th:href="@{/settings}">Settings</a> <a
-									class="dropdown-item" th:href="@{/logout}">Log Out</a>
-							</div>
-						</div>
+						<div th:insert="includes/usermenu :: usermenu"></div>
 					</div>
 				</div>
 			</div>
@@ -100,56 +105,52 @@
 					<div class="col-12 mt-5">
 						<div class="card">
 							<div class="card-body">
-								<h4 class="header-title">
-									<a th:href="@{/add-roomtype}" type="button"
-										class="btn btn-rounded btn-success mb-3"> <i
-										class="fa fa-plus" aria-hidden="true"></i> Create
-									</a>
-								</h4>
+								
 								<div class="data-tables">
 
 									<ul class="nav nav-tabs" id="myTab" role="tablist">
 										<li class="nav-item"><a class="nav-link active"
 											id="home-tab" data-toggle="tab" href="#home" role="tab"
-											aria-controls="home" aria-selected="true">Hotel</a></li>
+											aria-controls="home" aria-selected="true" th:text="${itemhotelI18n?.getAllTitleI18n}">Hotel</a></li>
 										<li class="nav-item"><a class="nav-link" id="profile-tab"
 											data-toggle="tab" href="#profile" role="tab"
-											aria-controls="profile" aria-selected="false">Email</a></li>
+											aria-controls="profile" aria-selected="false" th:text="${itememailI18n?.getAllTitleI18n}">Email</a></li>
 										<li class="nav-item"><a class="nav-link" id="contact-tab"
 											data-toggle="tab" href="#contact" role="tab"
-											aria-controls="contact" aria-selected="false">Profile</a></li>
-										
-											<li class="nav-item"><a class="nav-link" id="currency-tab"
-											data-toggle="tab" href="#currency" role="tab"
-											aria-controls="currency" aria-selected="false">Currency</a></li>
-											
-										
+											aria-controls="contact" aria-selected="false" th:text="${itemuserI18n?.getAllTitleI18n}">Profile</a></li>
+
+										<li class="nav-item"><a class="nav-link"
+											id="currency-tab" data-toggle="tab" href="#currency"
+											role="tab" aria-controls="currency" aria-selected="false" th:text="${itemcurrencyI18n?.getAllTitleI18n}">Currency</a></li>
+
+
 									</ul>
 									<div class="tab-content" id="myTabContent">
 										<div class="tab-pane fade show active" id="home"
 											role="tabpanel" aria-labelledby="home-tab">
-											  <br/><br/>
-												<form class="needs-validation" novalidate=""
+											<br />
+											<br />
+											<form class="needs-validation" novalidate=""
 												th:action="@{/updatehotelsetting/{id}(id=${hotel.id})}"
 												th:object="${email}" method="post">
 
 												<div class="form-row">
 													<div class="col-md-4 mb-3">
-														<label for="validationCustom01">Name</label> <input
-															th:value="${hotel.name}" name="name"
-															type="text" class="form-control" id="validationCustom01"
+														<label for="validationCustom01" th:text="${itemhotelI18n.nameI18n}">Name</label> <input
+															th:value="${hotel.name}" name="name" type="text"
+															class="form-control" id="validationCustom01"
 															placeholder="Offer Name" required="required">
 
 													</div>
 													<div class="col-md-4 mb-3">
-														<label for="validationCustom01">description</label> <input
-															th:value="${hotel.description}" name="description" type="text"
-															class="form-control" id="validationCustom01"
+														<label for="validationCustom01" th:text="${itemhotelI18n.descriptionI18n}">description</label> <input
+															th:value="${hotel.description}" name="description"
+															type="text" class="form-control" id="validationCustom01"
 															placeholder="Name" required="required">
 
 													</div>
 													<div class="col-md-4 mb-3">
-														<label for="validationCustom01">Address</label> <input
+														<label for="validationCustom01" th:text="${itemhotelI18n.adressI18n}">Address</label> <input
 															th:value="${hotel.adress}" name="adress" type="text"
 															class="form-control" id="validationCustom01"
 															placeholder="Name" required="required">
@@ -158,21 +159,21 @@
 												</div>
 												<div class="form-row">
 													<div class="col-md-4 mb-3">
-														<label for="validationCustom01">Email</label> <input
+														<label for="validationCustom01" th:text="${itemhotelI18n.emailI18n}">Email</label> <input
 															th:value="${hotel.email}" name="email" type="text"
 															class="form-control" id="validationCustom01"
 															placeholder="Offer Name" required="required">
 
 													</div>
 													<div class="col-md-4 mb-3">
-														<label for="validationCustom01">Téléphone</label> <input
-															th:value="${hotel.telephone}" name="telephone" type="text"
-															class="form-control" id="validationCustom01"
+														<label for="validationCustom01" th:text="${itemhotelI18n.telephoneI18n}">Téléphone</label> <input
+															th:value="${hotel.telephone}" name="telephone"
+															type="text" class="form-control" id="validationCustom01"
 															placeholder="Name" required="required">
 
 													</div>
 													<div class="col-md-4 mb-3">
-														<label for="validationCustom01">facebook</label> <input
+														<label for="validationCustom01" th:text="${itemhotelI18n.facebookI18n}">facebook</label> <input
 															th:value="${hotel.facebook}" name="facebook" type="text"
 															class="form-control" id="validationCustom01"
 															placeholder="Name" required="required">
@@ -182,64 +183,77 @@
 												</div>
 												<div class="form-row">
 													<div class="col-md-4 mb-3">
-														<label for="validationCustom01">Instagram</label> <input
-															th:value="${hotel.instagram}" name="instagram" type="text"
-															class="form-control" id="validationCustom01"
+														<label for="validationCustom01" th:text="${itemhotelI18n.instagramI18n}">Instagram</label> <input
+															th:value="${hotel.instagram}" name="instagram"
+															type="text" class="form-control" id="validationCustom01"
 															placeholder="Offer Name" required="required">
 
 													</div>
 													<div class="col-md-4 mb-3">
-														<label for="validationCustom01">Twitter</label> <input
+														<label for="validationCustom01" th:text="${itemhotelI18n.twitterI18n}">Twitter</label> <input
 															th:value="${hotel.instagram}" name="twitter" type="text"
 															class="form-control" id="validationCustom01"
 															placeholder="Offer Name" required="required">
 
 													</div>
-													
+
 													<div class="col-md-4 mb-3">
-														<label for="validationCustom01">Language</label> 
-                                                           <select class="form-control" name="lang" required="required">
-                                                           <option value="EN">English</option>
-                                                           <option value="FR">Francais</option>
-                                                           <option value="DE">Deutsch</option>
-                                                           <option value="ES">Espanol</option>
-                                                           <option value="AR">عربي</option>
-                                                           </select>
+														<label for="validationCustom01" th:text="${itemhotelI18n.langI18n}">User Language</label> <select
+															class="form-control" name="lang" required="required">
+															<option value="EN">English</option>
+															<option value="FR">Francais</option>
+															<option value="DE">Deutsch</option>
+															<option value="ES">Espanol</option>
+															<option value="AR">عربي</option>
+														</select>
+													</div>
+
+													<div class="col-md-4 mb-3">
+														<label for="validationCustom01" th:text="${itemhotelI18n.langbackoficeI18n}">BackOffice
+															Language</label> <select class="form-control"
+															name="langbackoffice" required="required">
+															<option value="EN">English</option>
+															<option value="FR">Francais</option>
+															<option value="DE">Deutsch</option>
+															<option value="ES">Espanol</option>
+															<option value="AR">عربي</option>
+														</select>
 													</div>
 
 												</div>
-												<button class="btn btn-primary" type="submit">
+												<button class="btn btn-primary" type="submit" th:text="${itemhotelI18n.editTitleI18n}">
 													<i class="fa fa-plus" aria-hidden="true"></i> Update
 												</button>
 											</form>
-											
-											
-											
-											</div>
+
+
+
+										</div>
 										<div class="tab-pane fade" id="profile" role="tabpanel"
 											aria-labelledby="profile-tab">
-											<br/><br/>
+											<br />
+											<br />
 											<form class="needs-validation" novalidate=""
 												th:action="@{/updateemailsetting/{id}(id=${email.id})}"
 												th:object="${email}" method="post">
 
 												<div class="form-row">
 													<div class="col-md-4 mb-3">
-														<label for="validationCustom01">Enable TLS</label> <input
+														<label for="validationCustom01" th:text="${itememailI18n.enableTLS}">Enable TLS</label> <input
 															th:value="${email.enableTLS}" name="enableTLS"
 															type="text" class="form-control" id="validationCustom01"
 															placeholder="Offer Name" required="required">
 
 													</div>
 													<div class="col-md-4 mb-3">
-														<label for="validationCustom01">Host</label> <input
+														<label for="validationCustom01" th:text="${itememailI18n.host}">Host</label> <input
 															th:value="${email.host}" name="host" type="text"
 															class="form-control" id="validationCustom01"
 															placeholder="Name" required="required">
 
 													</div>
 													<div class="col-md-4 mb-3">
-														<label for="validationCustom01">Port</label> <input
+														<label for="validationCustom01" th:text="${itememailI18n.port}">Port</label> <input
 															th:value="${email.port}" name="port" type="text"
 															class="form-control" id="validationCustom01"
 															placeholder="Name" required="required">
@@ -248,21 +262,21 @@
 												</div>
 												<div class="form-row">
 													<div class="col-md-4 mb-3">
-														<label for="validationCustom01">Auth</label> <input
+														<label for="validationCustom01" th:text="${itememailI18n.authI18n}">Auth</label> <input
 															th:value="${email.auth}" name="auth" type="text"
 															class="form-control" id="validationCustom01"
 															placeholder="Offer Name" required="required">
 
 													</div>
 													<div class="col-md-4 mb-3">
-														<label for="validationCustom01">Email</label> <input
+														<label for="validationCustom01" th:text="${itememailI18n.emailI18n}">Email</label> <input
 															th:value="${email.email}" name="email" type="text"
 															class="form-control" id="validationCustom01"
 															placeholder="Name" required="required">
 
 													</div>
 													<div class="col-md-4 mb-3">
-														<label for="validationCustom01">Password</label> <input
+														<label for="validationCustom01" th:text="${itememailI18n.passwordI18n}">Password</label> <input
 															th:value="${email.password}" name="password" type="text"
 															class="form-control" id="validationCustom01"
 															placeholder="Name" required="required">
@@ -270,7 +284,7 @@
 													</div>
 
 												</div>
-												<button class="btn btn-primary" type="submit">
+												<button class="btn btn-primary" type="submit" th:text="${itememailI18n.editTitleI18n}">
 													<i class="fa fa-plus" aria-hidden="true"></i> Update
 												</button>
 											</form>
@@ -278,102 +292,68 @@
 										</div>
 										<div class="tab-pane fade" id="contact" role="tabpanel"
 											aria-labelledby="contact-tab">
-											<br/><br/>
+											<br />
+											<br />
 											<form class="needs-validation" novalidate=""
 												th:action="@{/updateusersetting/{id}(id=${user.id})}"
 												th:object="${email}" method="post">
 
 												<div class="form-row">
 													<div class="col-md-4 mb-3">
-														<label for="validationCustom01">Username</label> <input
-															th:value="${user.username}" name="username"
-															type="text" class="form-control" id="validationCustom01"
+														<label for="validationCustom01" th:text="${itemuserI18n.usernameI18n}">Username</label> <input
+															th:value="${user.username}" name="username" type="text"
+															class="form-control" id="validationCustom01"
 															placeholder="Offer Name" required="required">
 
 													</div>
 													<div class="col-md-4 mb-3">
-														<label for="validationCustom01">Password</label> <input
+														<label for="validationCustom01" th:text="${itemuserI18n.passwordI18n}">Password</label> <input
 															th:value="${user.password}" name="password" type="text"
 															class="form-control" id="validationCustom01"
 															placeholder="Name" required="required">
 
 													</div>
-													
+
 												</div>
-												<button class="btn btn-primary" type="submit">
+												<button class="btn btn-primary" type="submit" th:text="${itemuserI18n.editTitleI18n}">
 													<i class="fa fa-plus" aria-hidden="true"></i> Update
 												</button>
-										   </form>		
-											
-											
-											</div>
-											
-											<div class="tab-pane fade" id="currency" role="tabpanel"
+											</form>
+
+
+										</div>
+
+										<div class="tab-pane fade" id="currency" role="tabpanel"
 											aria-labelledby="currency-tab">
-											<br/><br/>
+											<br />
+											<br />
 											<form class="needs-validation" novalidate=""
 												th:action="@{/updatecurrency/{id}(id=${currency.id})}"
 												th:object="${email}" method="post">
 
 												<div class="form-row">
 													<div class="col-md-4 mb-3">
-														<label for="validationCustom01">Name</label> <input
-															th:value="${currency.name}" name="name"
-															type="text" class="form-control" id="validationCustom01"
+														<label for="validationCustom01" th:text="${itemcurrencyI18n.nameI18n}">Name</label> <input
+															th:value="${currency.name}" name="name" type="text"
+															class="form-control" id="validationCustom01"
 															placeholder="Offer Name" required="required">
 
 													</div>
 													<div class="col-md-4 mb-3">
-														<label for="validationCustom01">Symbol</label> <input
+														<label for="validationCustom01" th:text="${itemcurrencyI18n.symbolI18n}">Symbol</label> <input
 															th:value="${currency.symbol}" name="symbol" type="text"
 															class="form-control" id="validationCustom01"
 															placeholder="Name" required="required">
 
 													</div>
-													
+
 												</div>
-												<button class="btn btn-primary" type="submit">
+												<button class="btn btn-primary" type="submit" th:text="${itemcurrencyI18n.editTitleI18n}">
 													<i class="fa fa-plus" aria-hidden="true"></i> Update
 												</button>
-										   </form>	
-											</div>
-											
-											
-											
-											
-											
-											
-											
-											
-											
-											
-											
-											
+											</form>
+										</div>
 									</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 								</div>
 							</div>
 						</div>

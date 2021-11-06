@@ -12,7 +12,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.dev.delta.entities.Customer;
 import com.dev.delta.entities.Message;
+import com.dev.delta.i18n.entities.CityI18n;
+import com.dev.delta.i18n.entities.MessageI18n;
+import com.dev.delta.i18n.repositories.MessageI18nRepository;
+import com.dev.delta.services.InformationService;
 import com.dev.delta.services.MessageService;
+import com.dev.delta.util.UIMenuHeaderUtil;
 
 @Controller
 public class MessageController {
@@ -20,12 +25,20 @@ public class MessageController {
 	@Autowired
 	MessageService messageService;
 	
+	InformationService  informationService;
+	
+	UIMenuHeaderUtil  menuHeaderUtil;
+	
+	MessageI18nRepository   messageI18nRepository;
 	
 	@GetMapping("/messagesadmin")
 	public String getMessages(Model model) {
 		List<Message> msgs = messageService.getMessages();
 		model.addAttribute("items", msgs);
-		
+		String lang = informationService.getSeletedLang();
+		MessageI18n cityI18n = messageI18nRepository.findByLangI18n(lang);
+		model.addAttribute("itemI18n", cityI18n);
+		menuHeaderUtil.getMenuHeader(model);
 		return "message/messages";
 	}
 	

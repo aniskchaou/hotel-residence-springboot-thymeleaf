@@ -15,7 +15,12 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.dev.delta.entities.Departement;
+import com.dev.delta.i18n.entities.CityI18n;
+import com.dev.delta.i18n.entities.DepartementI18n;
+import com.dev.delta.i18n.repositories.DepartementI18nRepository;
 import com.dev.delta.services.DepartementService;
+import com.dev.delta.services.InformationService;
+import com.dev.delta.util.UIMenuHeaderUtil;
 
 @Controller
 public class DepartementController {
@@ -24,9 +29,22 @@ public class DepartementController {
 	 */
 	@Autowired
 	private DepartementService departementService;
+	
+	@Autowired
+	InformationService  informationService;
+	
+	@Autowired
+	UIMenuHeaderUtil  menuHeaderUtil;
+	
+	@Autowired
+	DepartementI18nRepository  departementI18nRepository;
 
 	@GetMapping("/add-departement")
 	public String getaddDepartement(Model model) {
+		String lang = informationService.getSeletedLang();
+		DepartementI18n depI18n = departementI18nRepository.findByLangI18n(lang);
+		model.addAttribute("itemI18n", depI18n);
+		menuHeaderUtil.getMenuHeader(model);
 		return "departement/add";
 	}
 	
@@ -40,6 +58,10 @@ public class DepartementController {
 	public String getDepartements(Model model) {
 		List<Departement> departements = departementService.getDepartements();
 		model.addAttribute("items", departements);
+		String lang = informationService.getSeletedLang();
+		DepartementI18n depI18n = departementI18nRepository.findByLangI18n(lang);
+		model.addAttribute("itemI18n", depI18n);
+		menuHeaderUtil.getMenuHeader(model);
 
 		return "departement/departements";
 	}
@@ -68,6 +90,10 @@ public class DepartementController {
 	public String findById(@PathVariable("id") long id, Model model) {
 		Departement departement = departementService.findById(id).get();
 		model.addAttribute("item", departement);
+		String lang = informationService.getSeletedLang();
+		DepartementI18n depI18n = departementI18nRepository.findByLangI18n(lang);
+		model.addAttribute("itemI18n", depI18n);
+		menuHeaderUtil.getMenuHeader(model);
 		return "departement/edit";
 	}
 

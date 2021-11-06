@@ -19,7 +19,13 @@ import org.springframework.web.servlet.view.RedirectView;
 
 import com.dev.delta.entities.Amenity;
 import com.dev.delta.entities.BlogCategory;
+import com.dev.delta.i18n.entities.BlogCategoryI18n;
+import com.dev.delta.i18n.entities.CityI18n;
+import com.dev.delta.i18n.repositories.BedI18nRepository;
+import com.dev.delta.i18n.repositories.BlogCategoryI18nRepository;
 import com.dev.delta.services.BlogCategoryService;
+import com.dev.delta.services.InformationService;
+import com.dev.delta.util.UIMenuHeaderUtil;
 
 @Controller
 public class BlogCategoryController {
@@ -27,16 +33,36 @@ public class BlogCategoryController {
 
 	@Autowired
 	BlogCategoryService blogCategoryService;
+	
+	@Autowired
+	BedI18nRepository  bedI18nRepository;
+	
+	@Autowired
+	BlogCategoryI18nRepository  blogCategoryI18nRepository;
+	
+	@Autowired
+	UIMenuHeaderUtil  menuHeaderUtil;
+	
+	@Autowired
+	InformationService  informationService;
 
 	@GetMapping("/blogcategoriesadmin")
 	public String getBlogcategorys(Model model) {
 		List<BlogCategory> blogcategorys = blogCategoryService.getBlogCategories();
 		model.addAttribute("items", blogcategorys);
+		String lang = informationService.getSeletedLang();
+		BlogCategoryI18n cityI18n = blogCategoryI18nRepository.findByLangI18n(lang);
+		model.addAttribute("itemI18n", cityI18n);
+		menuHeaderUtil.getMenuHeader(model);
 		return "blogcategory/blogcategories";
 	}
 
 	@GetMapping("/add-blogcategory")
 	public String getBlogcategory(Model model) {
+		String lang = informationService.getSeletedLang();
+		BlogCategoryI18n cityI18n = blogCategoryI18nRepository.findByLangI18n(lang);
+		model.addAttribute("itemI18n", cityI18n);
+		menuHeaderUtil.getMenuHeader(model);
 		return "blogcategory/add";
 	}
 
@@ -58,6 +84,10 @@ public class BlogCategoryController {
 	public String findById(@PathVariable("id") Long id, Model model) {
 		BlogCategory blog = blogCategoryService.findById(id);
 		model.addAttribute("item", blog);
+		String lang = informationService.getSeletedLang();
+		BlogCategoryI18n cityI18n = blogCategoryI18nRepository.findByLangI18n(lang);
+		model.addAttribute("itemI18n", cityI18n);
+		menuHeaderUtil.getMenuHeader(model);
 		return "blogcategory/edit";
 	}
 	

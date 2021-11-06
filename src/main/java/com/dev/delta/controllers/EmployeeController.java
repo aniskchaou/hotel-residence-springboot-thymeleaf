@@ -15,11 +15,16 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.dev.delta.entities.Employee;
+import com.dev.delta.i18n.entities.CityI18n;
+import com.dev.delta.i18n.entities.EmployeeI18n;
+import com.dev.delta.i18n.repositories.EmployeeI18nRepository;
 import com.dev.delta.services.CityService;
 import com.dev.delta.services.CountryService;
 import com.dev.delta.services.DesignationService;
 import com.dev.delta.services.EmployeeService;
+import com.dev.delta.services.InformationService;
 import com.dev.delta.services.ShiftService;
+import com.dev.delta.util.UIMenuHeaderUtil;
 
 @Controller
 public class EmployeeController {
@@ -42,12 +47,28 @@ public class EmployeeController {
 	@Autowired
 	private ShiftService  shiftService;
 	
+	@Autowired
+	EmployeeI18nRepository    employeeI18nRepository;
+	
+	@Autowired
+	InformationService   informationService;
+	@Autowired
+	UIMenuHeaderUtil    menuHeaderUtil;
+	
+	
+	
+	
 	@GetMapping("/add-employee")
 	public String getadEmployee(Model model) {
 		model.addAttribute("cities",cityService.getCitys());
 		model.addAttribute("designations",designationService.getDesignations());
 		model.addAttribute("countries",countryService.getCountrys());
 		model.addAttribute("shifts",shiftService.getShifts());
+		
+		String lang = informationService.getSeletedLang();
+		EmployeeI18n cityI18n = employeeI18nRepository.findByLangI18n(lang);
+		model.addAttribute("itemI18n", cityI18n);
+		menuHeaderUtil.getMenuHeader(model);
 		return "employee/add";
 	}
 
@@ -62,7 +83,10 @@ public class EmployeeController {
 		List<Employee> employees = employeeService.getEmployees();
 		
 		model.addAttribute("items", employees);
-	
+		String lang = informationService.getSeletedLang();
+		EmployeeI18n cityI18n = employeeI18nRepository.findByLangI18n(lang);
+		model.addAttribute("itemI18n", cityI18n);
+		menuHeaderUtil.getMenuHeader(model);
 		return "employee/employees";
 	}
 
@@ -76,6 +100,7 @@ public class EmployeeController {
 
 	public String addEmployee(Employee employee) {
 		employeeService.save(employee);
+		
 		return "redirect:/employees";
 	}
 
@@ -90,6 +115,10 @@ public class EmployeeController {
 	public String findById(@PathVariable("id") Long id, Model model) {
 		Employee employee = employeeService.findById(id);
 		model.addAttribute("item", employee);
+		String lang = informationService.getSeletedLang();
+		EmployeeI18n cityI18n = employeeI18nRepository.findByLangI18n(lang);
+		model.addAttribute("itemI18n", cityI18n);
+		menuHeaderUtil.getMenuHeader(model);
 		return "employee/view";
 	}
 	
@@ -102,6 +131,10 @@ public class EmployeeController {
 		model.addAttribute("designations",designationService.getDesignations());
 		model.addAttribute("countries",countryService.getCountrys());
 		model.addAttribute("shifts",shiftService.getShifts());
+		String lang = informationService.getSeletedLang();
+		EmployeeI18n cityI18n = employeeI18nRepository.findByLangI18n(lang);
+		model.addAttribute("itemI18n", cityI18n);
+		menuHeaderUtil.getMenuHeader(model);
 		return "employee/edit";
 	}
 

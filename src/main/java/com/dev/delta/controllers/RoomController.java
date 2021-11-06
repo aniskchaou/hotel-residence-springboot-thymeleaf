@@ -15,8 +15,15 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.dev.delta.entities.Room;
+import com.dev.delta.i18n.entities.CityI18n;
+import com.dev.delta.i18n.entities.RoomI18n;
+import com.dev.delta.i18n.entities.RoomTypeI18n;
+import com.dev.delta.i18n.repositories.RoomI18nRepository;
+import com.dev.delta.i18n.repositories.RoomTypeI18nRepository;
+import com.dev.delta.services.InformationService;
 import com.dev.delta.services.RoomService;
 import com.dev.delta.services.RoomTypeService;
+import com.dev.delta.util.UIMenuHeaderUtil;
 
 @Controller
 public class RoomController {
@@ -29,9 +36,22 @@ public class RoomController {
 	@Autowired
 	private RoomTypeService roomTypeService;
 	
+	@Autowired
+	InformationService  informationService;
+	
+	@Autowired
+	RoomI18nRepository   roomI18nRepository;
+	
+	@Autowired
+	UIMenuHeaderUtil  menuHeaderUtil;
+	
 	@GetMapping("/add-room")
 	public String getaddRoom(Model model) {
 		model.addAttribute("roomTypes", roomTypeService.getRoomTypes());
+		String lang = informationService.getSeletedLang();
+		RoomI18n roomI18n = roomI18nRepository.findByLangI18n(lang);
+		model.addAttribute("itemI18n", roomI18n);
+		menuHeaderUtil.getMenuHeader(model);
 		return "room/add";
 	}
 
@@ -44,7 +64,10 @@ public class RoomController {
 	@GetMapping("/rooms")
 	public String getRooms(Model model) {
 		List<Room> rooms = roomService.getRooms();
-	
+		String lang = informationService.getSeletedLang();
+		RoomI18n roomI18n = roomI18nRepository.findByLangI18n(lang);
+		model.addAttribute("itemI18n", roomI18n);
+		menuHeaderUtil.getMenuHeader(model);
 		model.addAttribute("items", rooms);
 	
 
@@ -75,6 +98,10 @@ public class RoomController {
 	public String findById(@PathVariable("id") Long id, Model model) {
 		Room room = roomService.findById(id).get();
 		model.addAttribute("item", room);
+		String lang = informationService.getSeletedLang();
+		RoomI18n roomI18n = roomI18nRepository.findByLangI18n(lang);
+		model.addAttribute("itemI18n", roomI18n);
+		menuHeaderUtil.getMenuHeader(model);
 		return "room/view";
 	}
 	
@@ -84,6 +111,10 @@ public class RoomController {
 		Room room = roomService.findById(id).get();
 		model.addAttribute("roomTypes", roomTypeService.getRoomTypes());
 		model.addAttribute("item", room);
+		String lang = informationService.getSeletedLang();
+		RoomI18n roomI18n = roomI18nRepository.findByLangI18n(lang);
+		model.addAttribute("itemI18n", roomI18n);
+		menuHeaderUtil.getMenuHeader(model);
 		return "room/edit";
 	}
 

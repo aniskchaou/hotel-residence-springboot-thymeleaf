@@ -15,9 +15,14 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.dev.delta.entities.Customer;
+import com.dev.delta.i18n.entities.CityI18n;
+import com.dev.delta.i18n.entities.CustomerI18n;
+import com.dev.delta.i18n.repositories.CustomerI18nRepository;
 import com.dev.delta.services.CityService;
 import com.dev.delta.services.CountryService;
 import com.dev.delta.services.CustomerService;
+import com.dev.delta.services.InformationService;
+import com.dev.delta.util.UIMenuHeaderUtil;
 
 @Controller
 public class CustomerController {
@@ -32,12 +37,22 @@ public class CustomerController {
 	
 	@Autowired
 	private CountryService countryService;
+	@Autowired
+	InformationService    informationService;
+	@Autowired
+	CustomerI18nRepository    customerI18nRepository;
+	@Autowired
+	UIMenuHeaderUtil   menuHeaderUtil;
 	
 	@GetMapping("/add-customer")
 	public String getaddCustomer(Model model) {
 
 		model.addAttribute("cities", cityService.getCitys());
 		model.addAttribute("countries", countryService.getCountrys());
+		String lang = informationService.getSeletedLang();
+		CustomerI18n cityI18n = customerI18nRepository.findByLangI18n(lang);
+		model.addAttribute("itemI18n", cityI18n);
+		menuHeaderUtil.getMenuHeader(model);
 
 		return "customer/add";
 	}
@@ -53,7 +68,10 @@ public class CustomerController {
 		List<Customer> customers = customerService.getCustomers();
 
 		model.addAttribute("items", customers);
-	
+		String lang = informationService.getSeletedLang();
+		CustomerI18n cityI18n = customerI18nRepository.findByLangI18n(lang);
+		model.addAttribute("itemI18n", cityI18n);
+		menuHeaderUtil.getMenuHeader(model);
 		return "customer/customers";
 	}
 
@@ -81,6 +99,10 @@ public class CustomerController {
 	public String findById(@PathVariable("id") Long id, Model model) {
 		Customer customer = customerService.findById(id).get();
 		model.addAttribute("item", customer);
+		String lang = informationService.getSeletedLang();
+		CustomerI18n cityI18n = customerI18nRepository.findByLangI18n(lang);
+		model.addAttribute("itemI18n", cityI18n);
+		menuHeaderUtil.getMenuHeader(model);
 		return "customer/view";
 	}
 	
@@ -91,6 +113,10 @@ public class CustomerController {
 		model.addAttribute("cities", cityService.getCitys());
 		model.addAttribute("countries", countryService.getCountrys());
 		model.addAttribute("item", customer);
+		String lang = informationService.getSeletedLang();
+		CustomerI18n cityI18n = customerI18nRepository.findByLangI18n(lang);
+		model.addAttribute("itemI18n", cityI18n);
+		menuHeaderUtil.getMenuHeader(model);
 		return "customer/edit";
 	}
 

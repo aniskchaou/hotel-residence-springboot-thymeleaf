@@ -2,7 +2,6 @@ package com.dev.delta;
 
 import java.util.Locale;
 
-import org.hibernate.validator.spi.messageinterpolation.LocaleResolver;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.CommandLineRunner;
@@ -29,15 +28,20 @@ import com.dev.delta.dto.FoodCategoryDTO;
 import com.dev.delta.dto.FoodDTO;
 import com.dev.delta.dto.GalleryDTO;
 import com.dev.delta.dto.GuestTypeDTO;
+import com.dev.delta.dto.HeaderDTO;
+import com.dev.delta.dto.HousekeepingItemDTO;
 import com.dev.delta.dto.InformationHotelDTO;
+import com.dev.delta.dto.MenuDTO;
 import com.dev.delta.dto.OfferDTO;
+import com.dev.delta.dto.PaymentDTO;
+import com.dev.delta.dto.PaymentMethodDTO;
 import com.dev.delta.dto.RoleDTO;
 import com.dev.delta.dto.RoomDTO;
 import com.dev.delta.dto.RoomTypeDTO;
 import com.dev.delta.dto.ShiftDTO;
+import com.dev.delta.dto.SubscriberDTO;
 import com.dev.delta.dto.UserDTO;
 import com.dev.delta.dto.WebsiteDTO;
-import com.dev.delta.entities.InformationHotel;
 import com.dev.delta.services.InformationService;
 
 @SpringBootApplication
@@ -128,8 +132,24 @@ public class SpringbootHotelResidenceCodecanyonApplication implements CommandLin
 	@Value("${system.lang}")
 	 String lang;
 
+	@Autowired
+	MenuDTO menuDTO;
 	// Read server.port from app.prop
 	
+	@Autowired
+	HeaderDTO  headerDTO;
+	
+	@Autowired
+	SubscriberDTO  subscriberDTO;
+	
+	@Autowired
+	PaymentDTO paymentDTO;
+	
+	@Autowired
+	PaymentMethodDTO  paymentMethodDTO;
+	
+	@Autowired
+	HousekeepingItemDTO   housekeepingItemDTO;
 	
 	public static void main(String[] args) {
 		SpringApplication.run(SpringbootHotelResidenceCodecanyonApplication.class, args);
@@ -164,6 +184,12 @@ public class SpringbootHotelResidenceCodecanyonApplication implements CommandLin
 	    currencyDTO.populate();
 	    websiteDTO.populate();
 	    checkInDTO.populate();
+	    menuDTO.populate();
+	    headerDTO.populate();
+	    subscriberDTO.populate();
+	    paymentDTO.populate();
+	    paymentMethodDTO.populate();
+	    housekeepingItemDTO.populate();
 	    
 	   
 
