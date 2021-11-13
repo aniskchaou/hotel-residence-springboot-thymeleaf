@@ -72,11 +72,12 @@ public class AmenityController {
 	public String getAmenitys(Model model) {
 		List<Amenity> amenitys = amenityService.getAmenitys();
 		model.addAttribute("items", amenitys);
-		List<AmenityI18n> amenitiesI18n=amenityI18nRepository.findAll();
-		model.addAttribute("itemsI18n", amenitiesI18n);
+		//List<AmenityI18n> amenitiesI18n=amenityI18nRepository.findAll();
+		//model.addAttribute("itemsI18n", amenitiesI18n);
 		String lang = informationService.getSeletedLang();
-		UIMenuI18n menu=uiMenuI18nRepository.findByLang(lang);
-		model.addAttribute("menu", menu);
+		AmenityI18n amenityI18n = amenityI18nRepository2.findByLanguageI18n(lang);
+		model.addAttribute("itemI18n", amenityI18n);
+		menuHeaderUtil.getMenuHeader(model);
 		return "amenity/amenities";
 	}
 

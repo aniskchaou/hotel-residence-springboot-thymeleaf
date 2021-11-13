@@ -10,15 +10,23 @@ import com.dev.delta.entities.City;
 import com.dev.delta.entities.Country;
 import com.dev.delta.entities.Currency;
 import com.dev.delta.entities.Customer;
+import com.dev.delta.entities.Departement;
 import com.dev.delta.entities.Designation;
 import com.dev.delta.entities.Expense;
 import com.dev.delta.entities.ExpenseCategory;
 import com.dev.delta.entities.ExtraBed;
+import com.dev.delta.entities.ExtraBedRequestOrder;
 import com.dev.delta.entities.Food;
 import com.dev.delta.entities.FoodCategory;
+import com.dev.delta.entities.FoodOrder;
+import com.dev.delta.entities.FoodRequestOrder;
 import com.dev.delta.entities.Gallery;
 import com.dev.delta.entities.GuestType;
+import com.dev.delta.entities.HouseKeepingRequestOrder;
 import com.dev.delta.entities.InformationHotel;
+import com.dev.delta.entities.LaundryItem;
+import com.dev.delta.entities.LaundryOrder;
+import com.dev.delta.entities.LaundryRequestOrder;
 import com.dev.delta.entities.Message;
 import com.dev.delta.entities.Notification;
 import com.dev.delta.entities.Offer;
@@ -36,18 +44,27 @@ import com.dev.delta.i18n.entities.CityI18n;
 import com.dev.delta.i18n.entities.CountryI18n;
 import com.dev.delta.i18n.entities.CurrencyI18n;
 import com.dev.delta.i18n.entities.CustomerI18n;
+import com.dev.delta.i18n.entities.DepartementI18n;
 import com.dev.delta.i18n.entities.DesignationI18n;
 import com.dev.delta.i18n.entities.EmailI18n;
 import com.dev.delta.i18n.entities.EmployeeI18n;
 import com.dev.delta.i18n.entities.ExpenseCategoryI18n;
 import com.dev.delta.i18n.entities.ExpenseI18n;
 import com.dev.delta.i18n.entities.ExtraBedI18n;
+import com.dev.delta.i18n.entities.ExtraBedRequestI18n;
 import com.dev.delta.i18n.entities.FoodCategoryI18n;
 import com.dev.delta.i18n.entities.FoodI18n;
+import com.dev.delta.i18n.entities.FoodOrderI18n;
+import com.dev.delta.i18n.entities.FoodRequestI18n;
 import com.dev.delta.i18n.entities.GalleryI18n;
 import com.dev.delta.i18n.entities.GuestTypeI18n;
 import com.dev.delta.i18n.entities.HouseKeepingItemI18n;
+import com.dev.delta.i18n.entities.HouseKeepingOrderI18n;
+import com.dev.delta.i18n.entities.HouseKeepingRequestI18n;
 import com.dev.delta.i18n.entities.InformationHotelI18n;
+import com.dev.delta.i18n.entities.LaundryItemI18n;
+import com.dev.delta.i18n.entities.LaundryOrderI18n;
+import com.dev.delta.i18n.entities.LaundryRequestI18n;
 import com.dev.delta.i18n.entities.MessageI18n;
 import com.dev.delta.i18n.entities.OfferI18n;
 import com.dev.delta.i18n.entities.PaymentI18n;
@@ -123,6 +140,17 @@ public interface DTO {
     Role role3=new Role();
     User user3=new User();
     Customer customer2=new Customer();
+    FoodOrder  foodOrder=new FoodOrder();
+    LaundryItemI18n laundryItemI18n=new LaundryItemI18n();
+    LaundryItemI18n laundryItemI18n2=new LaundryItemI18n();
+    Departement  departement=new Departement();
+    DepartementI18n  departementI18n=new DepartementI18n();
+    DepartementI18n  departementI18n2=new DepartementI18n();
+    
+    ExtraBedRequestI18n extraBedRequestI18n=new ExtraBedRequestI18n();
+    ExtraBedRequestI18n extraBedRequestI18n2=new ExtraBedRequestI18n();
+    
+    ExtraBedRequestOrder extraBedRequestOrder=new ExtraBedRequestOrder();
     
     
     
@@ -254,6 +282,35 @@ public interface DTO {
     
     HouseKeepingItemI18n houseKeepingItemI18n=new HouseKeepingItemI18n();
     HouseKeepingItemI18n houseKeepingItemI18n2=new HouseKeepingItemI18n();
+    
+    FoodOrderI18n foodOrderI18n=new FoodOrderI18n();
+    FoodOrderI18n foodOrderI18n2=new FoodOrderI18n();
+    
+    HouseKeepingOrderI18n  houseKeepingOrderI18n=new HouseKeepingOrderI18n();
+    HouseKeepingOrderI18n  houseKeepingOrderI18n2=new HouseKeepingOrderI18n();
+
+    LaundryOrder  laundryOrder=new LaundryOrder();
+    LaundryOrder  laundryOrder2=new LaundryOrder();
+    
+    LaundryOrderI18n laundryOrderI18n=new LaundryOrderI18n();
+    LaundryOrderI18n laundryOrderI18n2=new LaundryOrderI18n();
+    
+    LaundryItem laundryItem=new LaundryItem();
+    
+    FoodRequestI18n foodRequestI18n=new FoodRequestI18n();
+    FoodRequestI18n foodRequestI18n2=new FoodRequestI18n();
+    
+    FoodRequestOrder foodRequestOrder=new FoodRequestOrder();
+    
+    HouseKeepingRequestI18n houseKeepingRequestI18n=new HouseKeepingRequestI18n();
+    HouseKeepingRequestI18n houseKeepingRequestI18n2=new HouseKeepingRequestI18n();
+    
+    HouseKeepingRequestOrder houseKeepingRequestOrder=new HouseKeepingRequestOrder();
+    
+    LaundryRequestI18n  laundryRequestI18n=new LaundryRequestI18n();
+    LaundryRequestI18n  laundryRequestI18n2=new LaundryRequestI18n();
+    
+    LaundryRequestOrder laundryRequestOrder=new LaundryRequestOrder();
     
     
     

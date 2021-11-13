@@ -25,11 +25,15 @@ public class CheckInDTO implements DTO {
 		checkIn.setCheckOut(dt.toString());
 		checkIn.setCity(city);
 		checkIn.setCountry(country);
-		checkIn.setFullname("John Doe");
-		checkIn.setEmail("contact@gmail.com");
+		checkIn.setFullname(faker.name().fullName());
+		checkIn.setEmail(faker.internet().emailAddress());
 		checkIn.setRoom(room);
 		checkIn.setGuestType(guestType1);
 		checkIn.setCutomer(customer);
+		checkIn.setStatus("CheckIn");
+		checkIn.setPaymentStatus("Paid");
+		checkIn.setMobile(faker.phoneNumber().cellPhone().toString());
+		checkIn.setAddress(faker.address().streetName());
 		checkInService.save(checkIn);
 		
 		
@@ -48,6 +52,15 @@ public class CheckInDTO implements DTO {
 		checkInI18n.setCreateTitleI18n("Create new City");
 		checkInI18n.setEditTitleI18n("Edit City");
 		checkInI18n.setGetAllTitleI18n("Cities");
+		checkInI18n.setStatusI18n("Check In");
+		checkInI18n.setPaymentStatusI18n("Paid");
+		checkInI18n.setViewcheckinI18n("view");
+		checkInI18n.setCheckoutbuttonI18n("Checkout");
+		checkInI18n.setViewinvoiceI18n("Invoice");
+		checkInI18n.setOrderfoodI18n("Order food");
+		checkInI18n.setOrderlaundryI18n("Order Laundry");
+		checkInI18n.setHousekeepingI18n("Order House keeping");
+		checkInI18n.setExtrabedI18n("Order Extra Bed");
 		checkInI18nRepository.save(checkInI18n);
 		
 		checkInI18n2.setCheckInI18n("Einchecken");
@@ -60,10 +73,23 @@ public class CheckInDTO implements DTO {
 		checkInI18n2.setGuestTypeI18n("Kundentyp");
 		checkInI18n2.setCutomerI18n("Kunde");
 		checkInI18n2.setLangI18n("DE");
-		checkInI18n2.setGetTitleI18n("City");
-		checkInI18n2.setCreateTitleI18n("Create new City");
-		checkInI18n2.setEditTitleI18n("Edit City");
-		checkInI18n2.setGetAllTitleI18n("Cities");
+		checkInI18n2.setGetTitleI18n("Buchungen");
+		checkInI18n2.setCreateTitleI18n("Erstellen");
+		checkInI18n2.setEditTitleI18n("Bearbeiten");
+		checkInI18n2.setGetAllTitleI18n("Buchungen");
+		checkInI18n2.setStatusI18n("Check Out");
+		checkInI18n2.setPaymentStatusI18n("Zahlungsstatus");
+		checkInI18n2.setMobileI18n("Telefon");
+		checkInI18n2.setAddressI18n("Anschrift");
+		
+		checkInI18n2.setViewcheckinI18n("Ansehen");
+		checkInI18n2.setCheckoutbuttonI18n("Auschecken");
+		checkInI18n2.setViewinvoiceI18n("Rechnung");
+		checkInI18n2.setOrderfoodI18n("Essen bestellen");
+		checkInI18n2.setOrderlaundryI18n("Wäsche bestellen");
+		checkInI18n2.setHousekeepingI18n("Hauswirtschaft bestellen");
+		checkInI18n2.setExtrabedI18n("Extrabett bestellen");
+		
 		checkInI18nRepository.save(checkInI18n2);
 	}
 

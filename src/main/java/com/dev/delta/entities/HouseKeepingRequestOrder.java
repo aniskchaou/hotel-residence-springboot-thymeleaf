@@ -21,6 +21,7 @@ public class HouseKeepingRequestOrder {
 	@ManyToOne
 	@JoinColumn(name = "customer_id")
 	Customer customer;
+	String HousekeepingItem;
 	
 	public HouseKeepingRequestOrder() {
 		// TODO Auto-generated constructor stub
@@ -30,6 +31,22 @@ public class HouseKeepingRequestOrder {
 	
 	
 	
+	public String getHousekeepingItem() {
+		return HousekeepingItem;
+	}
+
+
+
+
+
+	public void setHousekeepingItem(String housekeepingItem) {
+		HousekeepingItem = housekeepingItem;
+	}
+
+
+
+
+
 	public Customer getCustomer() {
 		return customer;
 	}

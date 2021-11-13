@@ -22,20 +22,20 @@ public class ExpenseCategoryDTO implements DTO{
 		expenseCategoryRepository.save(expenseCategory);
 		expenseCategoryRepository.save(expenseCategory2);
 		
-		  expenseCategoryI18n.setCategoryNameI18n("");
+		  expenseCategoryI18n.setCategoryNameI18n("Category");
 		  expenseCategoryI18n.setLangI18n("EN");
-		  expenseCategoryI18n.setGetTitleI18n("City");
-		  expenseCategoryI18n.setCreateTitleI18n("Create new City");
-		  expenseCategoryI18n.setEditTitleI18n("Edit City");
-		  expenseCategoryI18n.setGetAllTitleI18n("Cities");
+		  expenseCategoryI18n.setGetTitleI18n("Expense Category");
+		  expenseCategoryI18n.setCreateTitleI18n("Create");
+		  expenseCategoryI18n.setEditTitleI18n("Edit");
+		  expenseCategoryI18n.setGetAllTitleI18n("Expense Categories");
 	      expenseCategoryI18nRepository.save(expenseCategoryI18n);
 	      
-	      expenseCategoryI18n2.setCategoryNameI18n("");
+	      expenseCategoryI18n2.setCategoryNameI18n("Kategorie");
 		  expenseCategoryI18n2.setLangI18n("DE");
-		  expenseCategoryI18n2.setGetTitleI18n("City");
-		  expenseCategoryI18n2.setCreateTitleI18n("Create new City");
-		  expenseCategoryI18n2.setEditTitleI18n("Edit City");
-		  expenseCategoryI18n2.setGetAllTitleI18n("Cities");
+		  expenseCategoryI18n2.setGetTitleI18n("Ausgabenkategorie");
+		  expenseCategoryI18n2.setCreateTitleI18n("Erstellen");
+		  expenseCategoryI18n2.setEditTitleI18n("Bearbeiten");
+		  expenseCategoryI18n2.setGetAllTitleI18n("Ausgabenkategorie");
 	      expenseCategoryI18nRepository.save(expenseCategoryI18n2);
 	}
 

@@ -103,10 +103,10 @@ public class BlogDTO implements DTO {
 		blogI18n2.setMonthI18n("Monate");
 		blogI18n2.setBlogCategoryI18n("BlogKategorie");
 		blogI18n2.setLangI18n("DE");
-		blogI18n2.setGetTitleI18n("City");
-		blogI18n2.setCreateTitleI18n("Create new City");
-		blogI18n2.setEditTitleI18n("Edit City");
-		blogI18n2.setGetAllTitleI18n("Cities");
+		blogI18n2.setGetTitleI18n("Stadt");
+		blogI18n2.setCreateTitleI18n("Erstellen");
+		blogI18n2.setEditTitleI18n("Bearbeiten");
+		blogI18n2.setGetAllTitleI18n("Städte");
 		blogI18nRepository.save(blogI18n2);
 
 	}

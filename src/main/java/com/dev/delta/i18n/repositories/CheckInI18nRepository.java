@@ -8,4 +8,6 @@ public interface CheckInI18nRepository extends JpaRepository<CheckInI18n, Long> 
 
 	CheckInI18n findByLangI18n(String lang);
 
+	
+
 }

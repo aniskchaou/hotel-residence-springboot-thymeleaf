@@ -4,7 +4,7 @@
 <head>
 <meta charset="utf-8">
 <meta http-equiv="x-ua-compatible" content="ie=edge">
-<title  th:text="${itemI18n.getallTitle}">Amenities</title>
+<title  >Amenities</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="shortcut icon" type="image/png"
 	href="assets/images/icon/favicon.ico">
@@ -63,30 +63,38 @@
 		<!-- main content area start -->
 		<div class="main-content">
 			<!-- header area start -->
-			<div th:insert="includes/headarea:: headarea"></div>
+					<div class="header-area">
+				<div class="row align-items-center">
+					<!-- nav and search button -->
+					<div class="col-md-6 col-sm-8 clearfix">
+						<div class="nav-btn pull-left">
+							<span></span> <span></span> <span></span>
+						</div>
+						<div class="search-box pull-left">
+							<form action="#">
+								<input type="text" name="search" placeholder="Search..."
+									required> <i class="ti-search"></i>
+							</form>
+						</div>
+					</div>
+					<!-- profile info & task notification -->
+					<span class="col-md-6 col-sm-4 clearfix"
+						th:insert="includes/notification_bar :: notification_bar"></span>
+				</div>
+			</div>
 			<!-- header area end -->
 			<!-- page title area start -->
 			<div class="page-title-area">
 				<div class="row align-items-center">
 					<div class="col-sm-6">
 						<div class="breadcrumbs-area clearfix">
-							<h4 class="page-title pull-left">Amenity</h4>
-							
+							<h4 class="page-title pull-left"
+								th:text="${itemI18n?.getAllTitleI18n}">Subscribers</h4>
+
 						</div>
 					</div>
 					<div class="col-sm-6 clearfix">
-						<div class="user-profile pull-right">
-							<img class="avatar user-thumb"
-								src="assets/images/author/avatar.png" alt="avatar">
-							<h4 class="user-name dropdown-toggle" data-toggle="dropdown" th:text ="${#authentication.getPrincipal().getUsername()}">
-								 <i class="fa fa-angle-down"></i>
-							</h4>
-							<div class="dropdown-menu">
-								<a class="dropdown-item" th:href="@{/profile}">Profile</a> <a
-									class="dropdown-item" th:href="@{/settings}">Settings</a> <a
-									class="dropdown-item" th:href="@{/logout}">Log Out</a>
-							</div>
-						</div>
+						<div th:insert="includes/usermenu :: usermenu"></div>
 					</div>
 				</div>
 			</div>
@@ -106,9 +114,9 @@
 								<div class="data-tables">
 									<table id="dataTable" class="text-center">
 										<thead class="bg-light text-capitalize">
-											<tr th:each="item:${itemsI18n}">
-												<th th:text="${item.nameI18n}"></th>
-												<th th:text="${item.statusI18n}"></th>
+											<tr>
+												<th th:text="${itemI18n.nameI18n}"></th>
+												<th th:text="${itemI18n.statusI18n}"></th>
 												<th></th>
 											</tr>
 										</thead>

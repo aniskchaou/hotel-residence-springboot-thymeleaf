@@ -20,6 +20,7 @@ public class LaundryRequestOrder {
 	String date;
 	String laundryitem;
 	
+	
 	public LaundryRequestOrder() {
 		// TODO Auto-generated constructor stub
 	}
@@ -28,6 +29,16 @@ public class LaundryRequestOrder {
 
 	public String getLaundryitem() {
 		return laundryitem;
+	}
+
+
+
+	
+
+
+
+	public Customer getCustomer() {
+		return customer;
 	}
 
 

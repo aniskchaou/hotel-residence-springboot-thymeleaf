@@ -26,16 +26,33 @@ import com.dev.delta.entities.CheckIn;
 import com.dev.delta.entities.Customer;
 import com.dev.delta.entities.Food;
 import com.dev.delta.entities.Invoice;
+import com.dev.delta.entities.LaundryItem;
 import com.dev.delta.entities.Room;
 import com.dev.delta.entities.Service;
 import com.dev.delta.entities.User;
 import com.dev.delta.entities.VAT;
+import com.dev.delta.i18n.entities.AmenityI18n;
 import com.dev.delta.i18n.entities.CheckInI18n;
 import com.dev.delta.i18n.entities.CityI18n;
+import com.dev.delta.i18n.entities.ExtraBedI18n;
+import com.dev.delta.i18n.entities.FoodI18n;
+import com.dev.delta.i18n.entities.FoodOrderI18n;
+import com.dev.delta.i18n.entities.HouseKeepingItemI18n;
+import com.dev.delta.i18n.entities.HouseKeepingOrderI18n;
+import com.dev.delta.i18n.entities.LaundryItemI18n;
+import com.dev.delta.i18n.entities.LaundryOrderI18n;
 import com.dev.delta.i18n.repositories.CheckInI18nRepository;
+import com.dev.delta.i18n.repositories.ExtraBedI18nRepository;
+import com.dev.delta.i18n.repositories.FoodI18nRepository;
+import com.dev.delta.i18n.repositories.FoodOrderI18nRepository;
+import com.dev.delta.i18n.repositories.HouseKeepingItemI18nRepository;
+import com.dev.delta.i18n.repositories.HouseKeepingOrderI18nRepository;
+import com.dev.delta.i18n.repositories.LaundryItemI18nRepository;
+import com.dev.delta.i18n.repositories.LaundryOrderI18nRepository;
 import com.dev.delta.repositories.BedRepository;
 import com.dev.delta.repositories.CustomerRepository;
 import com.dev.delta.repositories.InvoiceRepository;
+import com.dev.delta.repositories.LaundryItemRepository;
 import com.dev.delta.repositories.ServiceRepository;
 import com.dev.delta.repositories.VATRepository;
 import com.dev.delta.security.UserPrincipal;
@@ -107,6 +124,26 @@ public class CheckInController {
 	CheckInI18nRepository  checkInI18nRepository;
 	@Autowired
 	UIMenuHeaderUtil  menuHeaderUtil;
+	
+	@Autowired
+	ExtraBedI18nRepository extraBedI18nRepository;
+	
+	@Autowired
+	FoodOrderI18nRepository   foodOrderI18nRepository;
+	
+	@Autowired
+	HouseKeepingOrderI18nRepository  houseKeepingOrderI18nRepository;
+	
+	@Autowired
+	LaundryItemI18nRepository   laundryItemI18nRepository;
+	
+	@Autowired
+	LaundryItemRepository  laundryItemRepository;
+	
+	@Autowired
+	LaundryOrderI18nRepository  laundryOrderI18nRepository;
+	
+	
 
 	@GetMapping("/add-checkin")
 	public String getaddCheckIn(Model model) {
@@ -135,7 +172,11 @@ public class CheckInController {
 		List<CheckIn> checkIns = checkInService.getCheckIns();
 
 		model.addAttribute("items", checkIns);
-
+		String lang = informationService.getSeletedLang();
+		CheckInI18n checkI18n = checkInI18nRepository.findByLangI18n(lang);
+		model.addAttribute("itemI18n", checkI18n);
+		menuHeaderUtil.getMenuHeader(model);
+		
 		return "checkin/checkins";
 	}
 
@@ -266,18 +307,30 @@ public class CheckInController {
 		model.addAttribute("foods", foods);
 		model.addAttribute("checkin", checkInService.findById(checkId));
 		model.addAttribute("customer", checkInService.findById(checkId).getCutomer());
+		
+		String lang = informationService.getSeletedLang();
+		FoodOrderI18n foodI18n = foodOrderI18nRepository.findByLangI18n(lang);
+		model.addAttribute("itemI18n", foodI18n);
+		menuHeaderUtil.getMenuHeader(model);
 		return "checkin/orderfood";
 	}
 
 	@GetMapping("/orderlaundry/{id}/{check}")
 	public String OrderLaundry(@PathVariable("id") Long id, @PathVariable("check") Long checkId, Model model) {
 		Room room = roomService.findById(id).get();
-
-	
+		List<LaundryItem> laundries=laundryItemRepository.findAll();
 		model.addAttribute("room", room);
-	
+		model.addAttribute("laundriess", laundries);
+		laundries.forEach( e->{
+			System.err.println(e.getName());
+		});
 		model.addAttribute("checkin", checkInService.findById(checkId));
 		model.addAttribute("customer", checkInService.findById(checkId).getCutomer());
+		
+		String lang = informationService.getSeletedLang();
+		LaundryOrderI18n laundryI18n = laundryOrderI18nRepository.findByLangI18n(lang);
+		model.addAttribute("itemI18n", laundryI18n);
+		menuHeaderUtil.getMenuHeader(model);
 		return "checkin/orderlaundry";
 	}
 
@@ -288,6 +341,11 @@ public class CheckInController {
 		model.addAttribute("room", room);
 		model.addAttribute("checkin", checkInService.findById(checkId));
 		model.addAttribute("customer", checkInService.findById(checkId).getCutomer());
+		
+		String lang = informationService.getSeletedLang();
+		ExtraBedI18n extrabed = extraBedI18nRepository.findByLangI18n(lang);
+		model.addAttribute("itemI18n", extrabed);
+		menuHeaderUtil.getMenuHeader(model);
 		return "checkin/orderextrabed";
 	}
 
@@ -297,6 +355,11 @@ public class CheckInController {
 		model.addAttribute("room", room);
 		model.addAttribute("checkin", checkInService.findById(checkId));
 		model.addAttribute("customer", checkInService.findById(checkId).getCutomer());
+		
+		String lang = informationService.getSeletedLang();
+		HouseKeepingOrderI18n housekeepingI18n = houseKeepingOrderI18nRepository.findByLangI18n(lang);
+		model.addAttribute("itemI18n", housekeepingI18n);
+		menuHeaderUtil.getMenuHeader(model);
 		return "checkin/orderhousekeeping";
 	}
 

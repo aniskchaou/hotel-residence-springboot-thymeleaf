@@ -56,33 +56,41 @@
         <!-- main content area start -->
         <div class="main-content">
             <!-- header area start -->
-            <div th:insert="includes/headarea:: headarea"></div>
-            <!-- header area end -->
-            <!-- page title area start -->
-            <div class="page-title-area">
-                <div class="row align-items-center">
-                    <div class="col-sm-6">
-                        <div class="breadcrumbs-area clearfix">
-                            <h4 class="page-title pull-left">Create Room Type</h4>
-                            <ul class="breadcrumbs pull-left">
-                                <li><a href="index.html">Room Type</a></li>
-                                <li><span>Create</span></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-sm-6 clearfix">
-                        <div class="user-profile pull-right">
-                            <img class="avatar user-thumb" src="../assets/images/author/avatar.png" alt="avatar">
-                            <h4 class="user-name dropdown-toggle" data-toggle="dropdown">Kumkum Rai <i class="fa fa-angle-down"></i></h4>
-                            <div class="dropdown-menu">
-                              <a class="dropdown-item" th:href="@{/profile}">Profile</a> <a
-									class="dropdown-item" th:href="@{/settings}">Settings</a> <a
-									class="dropdown-item" th:href="@{/logout}">Log Out</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            	<div class="header-area">
+				<div class="row align-items-center">
+					<!-- nav and search button -->
+					<div class="col-md-6 col-sm-8 clearfix">
+						<div class="nav-btn pull-left">
+							<span></span> <span></span> <span></span>
+						</div>
+						<div class="search-box pull-left">
+							<form action="#">
+								<input type="text" name="search" placeholder="Search..."
+									required> <i class="ti-search"></i>
+							</form>
+						</div>
+					</div>
+					<!-- profile info & task notification -->
+					<span class="col-md-6 col-sm-4 clearfix"
+						th:insert="includes/notification_bar :: notification_bar"></span>
+				</div>
+			</div>
+			<!-- header area end -->
+			<!-- page title area start -->
+			<div class="page-title-area">
+				<div class="row align-items-center">
+					<div class="col-sm-6">
+						<div class="breadcrumbs-area clearfix">
+							<h4 class="page-title pull-left"
+								th:text="${itemI18n?.getAllTitleI18n}">Subscribers</h4>
+
+						</div>
+					</div>
+					<div class="col-sm-6 clearfix">
+						<div th:insert="includes/usermenu :: usermenu"></div>
+					</div>
+				</div>
+			</div>
             <!-- page title area end -->
             <div class="main-content-inner">
                 <div class="row">
@@ -97,17 +105,17 @@
  
                                                  <div class="form-row">
                                                 <div class="col-md-4 mb-3">
-                                                    <label for="validationCustom01">Name</label>
+                                                    <label for="validationCustom01" th:text="${itemI18n.nameI18n}">Name</label>
                                                     <input th:value="${item.Title}" name="Title" type="text" class="form-control" id="validationCustom01" placeholder="Name"  required="required">
                                                    
                                                 </div>
                                                 <div class="col-md-4 mb-3">
-                                                    <label for="validationCustom02">Short Code</label>
+                                                    <label for="validationCustom02" th:text="${itemI18n.ShortCutI18n}">Short Code</label>
                                                     <input th:value="${item.ShortCode}" name="ShortCode" type="text" class="form-control" id="validationCustom02" placeholder="Short Code"  required="required">
                                                    
                                                 </div>
                                                   <div class="col-md-4 mb-3">
-                                                    <label for="validationCustom02">Adult Capacity</label>
+                                                    <label for="validationCustom02" th:text="${itemI18n.AdultCapacityI18n}">Adult Capacity</label>
                                                     <input th:value="${item.AdultCapacity}" name="AdultCapacity" type="number" class="form-control" id="validationCustom02" placeholder="Adult Capacity"  required="required">
                                                    
                                                 </div>
@@ -115,17 +123,17 @@
                                             
                                               <div class="form-row">
                                                 <div class="col-md-4 mb-3">
-                                                    <label for="validationCustom01">Kids Capacity</label>
+                                                    <label for="validationCustom01" th:text="${itemI18n.KidsCapacityI18n}">Kids Capacity</label>
                                                     <input th:value="${item.KidsCapacity}" name="KidsCapacity" type="number" class="form-control" id="validationCustom01" placeholder="Kids Capacity"  required="required">
                                                    
                                                 </div>
                                                 <div class="col-md-4 mb-3">
-                                                    <label for="validationCustom02">Base Price</label>
+                                                    <label for="validationCustom02" th:text="${itemI18n.BasePriceI18n}">Base Price</label>
                                                     <input name="BasePrice" th:value="${item.BasePrice}" type="number" class="form-control" id="validationCustom02" placeholder="Base Price" required="required">
                                                    
                                                 </div>
                                                   <div class="col-md-4 mb-3">
-                                                    <label for="validationCustom02">Amenity</label>
+                                                    <label for="validationCustom02" th:text="${itemI18n.amenityI18n}">Amenity</label>
                                                    <select name="amenity" data-live-search="true"
 														type="text" class="form-control selectpicker" required="required">
 														<option th:value="${u.id}" th:each="u:${amenities}"
@@ -138,17 +146,17 @@
                                             
                                               <div class="form-row">
                                                 <div class="col-md-4 mb-3">
-                                                    <label for="validationCustom01">Air Conditioner</label>
+                                                    <label for="validationCustom01" th:text="${itemI18n.AirConditionerI18n}">Air Conditioner</label>
                                                     <input th:value="${item.AirConditioner}" name="AirConditioner" type="checkbox" class="form-control" id="validationCustom01" placeholder="Air Conditioner"  >
                                                    
                                                 </div>
                                                 <div class="col-md-4 mb-3">
-                                                    <label for="validationCustom02">Bath Tub</label>
+                                                    <label for="validationCustom02" th:text="${itemI18n.BathTubI18n}">Bath Tub</label>
                                                     <input th:value="${item.BathTub}" name="BathTub" type="checkbox" class="form-control" id="validationCustom02" placeholder="Bath Tub"  >
                                                    
                                                 </div>
                                                   <div class="col-md-4 mb-3">
-                                                    <label for="validationCustom02">Coffee Maker</label>
+                                                    <label for="validationCustom02" th:text="${itemI18n.CoffeeMakerI18n}">Coffee Maker</label>
                                                     <input th:value="${item.CoffeeMaker}" name="CoffeeMaker" type="checkbox" class="form-control" id="validationCustom02" placeholder="Coffee Maker"  >
                                                    
                                                 </div>
@@ -157,17 +165,17 @@
                                             
                                               <div class="form-row">
                                                 <div class="col-md-4 mb-3">
-                                                    <label for="validationCustom01">Double Bed</label>
+                                                    <label for="validationCustom01" th:text="${itemI18n.DoubleBedI18n}">Double Bed</label>
                                                     <input th:value="${item.DoubleBed}" name="DoubleBed" type="checkbox" class="form-control" id="validationCustom01" placeholder="Double Bed"  >
                                                    
                                                 </div>
                                                 <div class="col-md-4 mb-3">
-                                                    <label for="validationCustom02">Free Newspaper</label>
+                                                    <label for="validationCustom02" th:text="${itemI18n.FreeNewspaperI18n}">Free Newspaper</label>
                                                     <input th:value="${item.FreeNewspaper}" name="FreeNewspaper" type="checkbox" class="form-control" id="validationCustom02" placeholder="Free Newspaper"  >
                                                    
                                                 </div>
                                                   <div class="col-md-4 mb-3">
-                                                    <label for="validationCustom02">Mini Fridge</label>
+                                                    <label for="validationCustom02" th:text="${itemI18n.MiniFridgeI18n}">Mini Fridge</label>
                                                     <input th:value="${item.MiniFridge}" name="MiniFridge" type="checkbox" class="form-control" id="validationCustom02" placeholder="Mini Fridge"  >
                                                    
                                                 </div>
@@ -175,12 +183,12 @@
                                             
                                                 <div class="form-row">
                                                 <div class="col-md-4 mb-3">
-                                                    <label for="validationCustom01">Wifi</label>
+                                                    <label for="validationCustom01" th:text="${itemI18n.wifiI18n}">Wifi</label>
                                                     <input th:value="${item.wifi}" name="wifi" type="checkbox" class="form-control" id="validationCustom01" placeholder="Wifi"  >
                                                    
                                                 </div>
                                                 <div class="col-md-4 mb-3">
-                                                    <label for="validationCustom02">Status</label>
+                                                    <label for="validationCustom02" th:text="${itemI18n.StatusI18n}">Status</label>
                                                     <select class="form-control" name="Status">
                                                      <option value="Active">Active</option>
                                                      <option value="Inactive">Inactive</option>

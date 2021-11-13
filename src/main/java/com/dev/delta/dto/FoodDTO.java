@@ -25,25 +25,25 @@ public class FoodDTO implements DTO {
 		foodService.save(food);
 		
 		foodI18n.setCategoryI18n("Category");
-		foodI18n.setPriceI18n("18");
-		foodI18n.setItemNameI18n("qdfsd");
-		foodI18n.setStatusI18n("Active");
+		foodI18n.setPriceI18n("Price");
+		foodI18n.setItemNameI18n("Item name");
+		foodI18n.setStatusI18n("Status");
 		foodI18n.setLangI18n("EN");
-		foodI18n.setGetTitleI18n("City");
-		foodI18n.setCreateTitleI18n("Create new City");
-		foodI18n.setEditTitleI18n("Edit City");
-		foodI18n.setGetAllTitleI18n("Cities");
+		foodI18n.setGetTitleI18n("Food");
+		foodI18n.setCreateTitleI18n("Create");
+		foodI18n.setEditTitleI18n("Edit");
+		foodI18n.setGetAllTitleI18n("Foods");
 		
 		
-		foodI18n2.setCategoryI18n("Category");
-		foodI18n2.setPriceI18n("18");
-		foodI18n2.setItemNameI18n("qdfsd");
-		foodI18n2.setStatusI18n("Active");
+		foodI18n2.setCategoryI18n("Kategorie");
+		foodI18n2.setPriceI18n("Preis");
+		foodI18n2.setItemNameI18n("Artikelname");
+		foodI18n2.setStatusI18n("Status");
 		foodI18n2.setLangI18n("DE");
-		foodI18n2.setGetTitleI18n("City");
-		foodI18n2.setCreateTitleI18n("Create new City");
-		foodI18n2.setEditTitleI18n("Edit City");
-		foodI18n2.setGetAllTitleI18n("Cities");
+		foodI18n2.setGetTitleI18n("Lebensmittel");
+		foodI18n2.setCreateTitleI18n("Erstellen");
+		foodI18n2.setEditTitleI18n("Bearbeiten");
+		foodI18n2.setGetAllTitleI18n("Lebensmittel");
 		
 		foodI18nRepository.save(foodI18n);
 		foodI18nRepository.save(foodI18n2);

@@ -12,24 +12,40 @@ import org.springframework.web.bind.annotation.PostMapping;
 import com.dev.delta.entities.CheckIn;
 import com.dev.delta.entities.Customer;
 import com.dev.delta.entities.ExtraBedRequestOrder;
+import com.dev.delta.entities.FoodOrder;
 import com.dev.delta.entities.FoodRequestOrder;
 import com.dev.delta.entities.HouseKeepingRequestOrder;
+import com.dev.delta.entities.LaundryOrder;
 import com.dev.delta.entities.LaundryRequestOrder;
 import com.dev.delta.entities.User;
+import com.dev.delta.i18n.entities.BedI18n;
+import com.dev.delta.i18n.entities.ExtraBedI18n;
+import com.dev.delta.i18n.entities.FoodOrderI18n;
+import com.dev.delta.i18n.entities.HouseKeepingOrderI18n;
+import com.dev.delta.i18n.entities.LaundryItemI18n;
+import com.dev.delta.i18n.entities.LaundryOrderI18n;
+import com.dev.delta.i18n.repositories.ExtraBedI18nRepository;
+import com.dev.delta.i18n.repositories.FoodOrderI18nRepository;
+import com.dev.delta.i18n.repositories.HouseKeepingOrderI18nRepository;
+import com.dev.delta.i18n.repositories.LaundryOrderI18nRepository;
 import com.dev.delta.repositories.CheckInRepository;
 import com.dev.delta.repositories.CustomerRepository;
 import com.dev.delta.repositories.ExtraBedRequestRepository;
 import com.dev.delta.repositories.FoodOrderRequestRepository;
 import com.dev.delta.repositories.HouseKeepingRequestRepository;
+import com.dev.delta.repositories.LaundryOrderRepository;
 import com.dev.delta.security.UserPrincipal;
 import com.dev.delta.services.CheckInService;
 import com.dev.delta.services.CustomerService;
 import com.dev.delta.services.ExtraBedRequestService;
+import com.dev.delta.services.FoodOrderService;
 import com.dev.delta.services.FoodRequestOrderService;
 import com.dev.delta.services.FoodService;
 import com.dev.delta.services.HouseKeepingRequestOrderService;
+import com.dev.delta.services.InformationService;
 import com.dev.delta.services.LaundryRequestOrderService;
 import com.dev.delta.services.RoomService;
+import com.dev.delta.util.UIMenuHeaderUtil;
 @Controller
 public class RequestOrderController {
 
@@ -61,21 +77,64 @@ public class RequestOrderController {
 	CheckInRepository  checkInRepository;
 	
 	@Autowired
+	LaundryOrderRepository laundryOrderRepository;
+	
+	
+	@Autowired
+	InformationService  informationService;
+	
+	@Autowired
+	UIMenuHeaderUtil  menuHeaderUtil;
+	
+	@Autowired
+	HouseKeepingOrderI18nRepository  houseKeepingOrderI18nRepository;
+	
+	 @Autowired
+	 LaundryOrderI18nRepository laundryOrderI18nRepository;
+	 
+	 @Autowired
+	 FoodOrderI18nRepository   foodOrderI18nRepository;
+	 
+	 @Autowired
+	 ExtraBedI18nRepository   extraBedI18nRepository;
+	 
+	 @Autowired
+	 FoodOrderService  foodOrderService ;
+	
+	@Autowired
 	FoodService  foodService ;
 	@GetMapping("/extrabedrequest")
 	public String getextrabedsRequest(Model model) {
 		List<ExtraBedRequestOrder> items = extraBedRequestService.getExtraBedRequest();
 		model.addAttribute("items", items);
+		String lang = informationService.getSeletedLang();
+		ExtraBedI18n houseI18n = extraBedI18nRepository.findByLangI18n(lang);
+		model.addAttribute("itemI18n", houseI18n);
+		menuHeaderUtil.getMenuHeader(model);
 		return "request/extrabedrequest";
 	}
 	
 	
-	
+	@GetMapping("/foodrequest")
+	public String getFoodRequest(Model model) {
+		List<FoodOrder> items = foodOrderService.getFoodOrders();
+		model.addAttribute("items", items);
+		String lang = informationService.getSeletedLang();
+		FoodOrderI18n houseI18n = foodOrderI18nRepository.findByLangI18n(lang);
+		model.addAttribute("itemI18n", houseI18n);
+		menuHeaderUtil.getMenuHeader(model);
+		
+		return "request/foodrequestorder";
+	}
 	
 	@GetMapping("/housekeepingrequest")
 	public String getHouseKeepingRequest(Model model) {
 		List<HouseKeepingRequestOrder> items = houseKeepingRequestOrderService.gethousekeepingRequest();
 		model.addAttribute("items", items);
+		String lang = informationService.getSeletedLang();
+		HouseKeepingOrderI18n houseI18n = houseKeepingOrderI18nRepository.findByLangI18n(lang);
+		model.addAttribute("itemI18n", houseI18n);
+		menuHeaderUtil.getMenuHeader(model);
 		return "request/housekeepingrequestorder";
 	}
 	
@@ -83,6 +142,10 @@ public class RequestOrderController {
 	public String getLaundryOrderRequest(Model model) {
 		List<LaundryRequestOrder> items = laundryRequestOrderService.getLaundriesRequest();
 		model.addAttribute("items", items);
+		String lang = informationService.getSeletedLang();
+		LaundryOrderI18n houseI18n = laundryOrderI18nRepository.findByLangI18n(lang);
+		model.addAttribute("itemI18n", houseI18n);
+		menuHeaderUtil.getMenuHeader(model);
 		return "request/laundryrequestorder";
 	}
 	
@@ -112,6 +175,8 @@ public class RequestOrderController {
 		model.addAttribute("rooms", roomService.getRooms());
 		model.addAttribute("customer", getCustomer());
 		
+		
+		
 		return "orderrequest/addhousekeepingorder";
 	}
 	
@@ -120,6 +185,8 @@ public class RequestOrderController {
 	
 		model.addAttribute("customer", getCustomer());
 		model.addAttribute("rooms", roomService.getRooms());
+		
+		
 		
 		return "orderrequest/addextrabedorder";
 	}
@@ -155,5 +222,12 @@ public class RequestOrderController {
 		houseKeepingOrderRepository.save(houseKeepingRequestOrder);
 		return "redirect:/dashboard";
 	}
+	
+	@PostMapping("/addlaundryorder")
+	public String saveLaundryOrder(LaundryOrder laundryOrder ) {
+		laundryOrderRepository.save(laundryOrder);
+		return "redirect:/dashboard";
+	}
+	
 	
 }

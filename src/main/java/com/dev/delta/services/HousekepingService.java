@@ -6,7 +6,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.dev.delta.entities.Housekeping;
+import com.dev.delta.entities.HousekepingOrder;
 import com.dev.delta.repositories.HousekepingRepository;
 
 @Service
@@ -23,7 +23,7 @@ public class HousekepingService {
 	 * 
 	 * @return
 	 */
-	public List<Housekeping> getHousekeepings() {
+	public List<HousekepingOrder> getHousekeepings() {
 		return housekeepingRepository.findAll();
 	}
 
@@ -41,7 +41,7 @@ public class HousekepingService {
 	 * 
 	 * @param housekeeping
 	 */
-	public void save(Housekeping housekeeping) {
+	public void save(HousekepingOrder housekeeping) {
 		housekeepingRepository.save(housekeeping);
 	}
 
@@ -51,7 +51,7 @@ public class HousekepingService {
 	 * @param id
 	 * @return
 	 */
-	public Optional<Housekeping> findById(int id) {
+	public Optional<HousekepingOrder> findById(int id) {
 		return housekeepingRepository.findById(id);
 	}
 

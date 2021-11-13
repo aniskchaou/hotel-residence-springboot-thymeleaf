@@ -17,7 +17,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.dev.delta.entities.PaymentMethod;
 import com.dev.delta.i18n.entities.CityI18n;
 import com.dev.delta.i18n.entities.PaymentI18n;
+import com.dev.delta.i18n.entities.PaymentMethodI18n;
 import com.dev.delta.i18n.repositories.PaymentI18nRepository;
+import com.dev.delta.i18n.repositories.PaymentMethodI18nRepository;
 import com.dev.delta.services.InformationService;
 import com.dev.delta.services.PaymentMethodService;
 import com.dev.delta.util.UIMenuHeaderUtil;
@@ -31,7 +33,7 @@ public class PaymentMethodController {
 	private PaymentMethodService paymentMethodService;
 	
 	@Autowired
-	PaymentI18nRepository   paymentI18nRepository;
+	PaymentMethodI18nRepository   paymentI18nRepository;
 	
 	@Autowired
 	UIMenuHeaderUtil   menuHeaderUtil;
@@ -43,7 +45,7 @@ public class PaymentMethodController {
 	public String getaddPaymenType(Model model) {
 		
 		String lang = informationService.getSeletedLang();
-		PaymentI18n cityI18n = paymentI18nRepository.findByLangI18n(lang);
+		PaymentMethodI18n cityI18n = paymentI18nRepository.findByLangI18n(lang);
 		model.addAttribute("itemI18n", cityI18n);
 		menuHeaderUtil.getMenuHeader(model);
 		return "paymentmethod/add";
@@ -60,7 +62,7 @@ public class PaymentMethodController {
 		List<PaymentMethod> paymentMethods = paymentMethodService.getPaymentMethods();
 		model.addAttribute("items", paymentMethods);
 		String lang = informationService.getSeletedLang();
-		PaymentI18n cityI18n = paymentI18nRepository.findByLangI18n(lang);
+		PaymentMethodI18n cityI18n = paymentI18nRepository.findByLangI18n(lang);
 		model.addAttribute("itemI18n", cityI18n);
 		menuHeaderUtil.getMenuHeader(model);
 		
@@ -92,7 +94,7 @@ public class PaymentMethodController {
 		PaymentMethod paymentMethod = paymentMethodService.findById(id).get();
 		model.addAttribute("item", paymentMethod);
 		String lang = informationService.getSeletedLang();
-		PaymentI18n cityI18n = paymentI18nRepository.findByLangI18n(lang);
+		PaymentMethodI18n cityI18n = paymentI18nRepository.findByLangI18n(lang);
 		model.addAttribute("itemI18n", cityI18n);
 		menuHeaderUtil.getMenuHeader(model);
 		return "paymentmethod/edit";

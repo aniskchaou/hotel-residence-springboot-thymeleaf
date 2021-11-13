@@ -63,33 +63,38 @@
 		<!-- main content area start -->
 		<div class="main-content">
 			<!-- header area start -->
-			<div th:insert="includes/headarea:: headarea"></div>
+					<div class="header-area">
+				<div class="row align-items-center">
+					<!-- nav and search button -->
+					<div class="col-md-6 col-sm-8 clearfix">
+						<div class="nav-btn pull-left">
+							<span></span> <span></span> <span></span>
+						</div>
+						<div class="search-box pull-left">
+							<form action="#">
+								<input type="text" name="search" placeholder="Search..."
+									required> <i class="ti-search"></i>
+							</form>
+						</div>
+					</div>
+					<!-- profile info & task notification -->
+					<span class="col-md-6 col-sm-4 clearfix"
+						th:insert="includes/notification_bar :: notification_bar"></span>
+				</div>
+			</div>
 			<!-- header area end -->
 			<!-- page title area start -->
 			<div class="page-title-area">
 				<div class="row align-items-center">
 					<div class="col-sm-6">
 						<div class="breadcrumbs-area clearfix">
-							<h4 class="page-title pull-left">Blogs</h4>
-							<ul class="breadcrumbs pull-left">
-								<li><a href="index.html">Home</a></li>
-								<li><span>Blogs</span></li>
-							</ul>
+							<h4 class="page-title pull-left"
+								th:text="${itemI18n?.getAllTitleI18n}">Subscribers</h4>
+
 						</div>
 					</div>
 					<div class="col-sm-6 clearfix">
-						<div class="user-profile pull-right">
-							<img class="avatar user-thumb"
-								src="../assets/images/author/avatar.png" alt="avatar">
-							<h4 class="user-name dropdown-toggle" data-toggle="dropdown">
-								Admin <i class="fa fa-angle-down"></i>
-							</h4>
-							<div class="dropdown-menu">
-								<a class="dropdown-item" th:href="@{/profile}">Profile</a> <a
-									class="dropdown-item" th:href="@{/settings}">Settings</a> <a
-									class="dropdown-item" th:href="@{/logout}">Log Out</a>
-							</div>
-						</div>
+						<div th:insert="includes/usermenu :: usermenu"></div>
 					</div>
 				</div>
 			</div>
@@ -101,10 +106,7 @@
 						<div class="card">
 							<div class="card-body">
 								<h4 class="header-title">
-									<a  th:href="@{/hotel/{id}(id=${item.id}) }"
-									type="button" class="btn btn-rounded btn-warning mb-3">
-										<i class="fa fa-edit" aria-hidden="true"></i> Edit
-									</a>
+									
 								</h4>
 								<div class="data-tables">
 								  <form class="needs-validation" novalidate=""
@@ -113,21 +115,21 @@
 
 												<div class="form-row">
 													<div class="col-md-4 mb-3">
-														<label for="validationCustom01">Name</label> <input
+														<label for="validationCustom01" th:text="${itemI18n?.nameI18n}">Name</label> <input
 															th:value="${item.name}" name="name"
 															type="text" class="form-control" id="validationCustom01"
 															placeholder="Offer Name" required="required">
 
 													</div>
 													<div class="col-md-4 mb-3">
-														<label for="validationCustom01">description</label> <input
+														<label for="validationCustom01" th:text="${itemI18n?.descriptionI18n}">description</label> <input
 															th:value="${item.description}" name="description" type="text"
 															class="form-control" id="validationCustom01"
 															placeholder="Name" required="required">
 
 													</div>
 													<div class="col-md-4 mb-3">
-														<label for="validationCustom01">Address</label> <input
+														<label for="validationCustom01" th:text="${itemI18n?.adressI18n}">Address</label> <input
 															th:value="${item.adress}" name="adress" type="text"
 															class="form-control" id="validationCustom01"
 															placeholder="Name" required="required">
@@ -136,21 +138,21 @@
 												</div>
 												<div class="form-row">
 													<div class="col-md-4 mb-3">
-														<label for="validationCustom01">Email</label> <input
+														<label for="validationCustom01" th:text="${itemI18n?.emailI18n}">Email</label> <input
 															th:value="${item.email}" name="email" type="text"
 															class="form-control" id="validationCustom01"
 															placeholder="Offer Name" required="required">
 
 													</div>
 													<div class="col-md-4 mb-3">
-														<label for="validationCustom01">Téléphone</label> <input
+														<label for="validationCustom01" th:text="${itemI18n?.telephoneI18n}">Téléphone</label> <input
 															th:value="${item.telephone}" name="telephone" type="text"
 															class="form-control" id="validationCustom01"
 															placeholder="Name" required="required">
 
 													</div>
 													<div class="col-md-4 mb-3">
-														<label for="validationCustom01">facebook</label> <input
+														<label for="validationCustom01" th:text="${itemI18n?.facebookI18n}">facebook</label> <input
 															th:value="${item.facebook}" name="facebook" type="text"
 															class="form-control" id="validationCustom01"
 															placeholder="Name" required="required">
@@ -160,14 +162,14 @@
 												</div>
 												<div class="form-row">
 													<div class="col-md-4 mb-3">
-														<label for="validationCustom01">Instagram</label> <input
+														<label for="validationCustom01" th:text="${itemI18n?.instagramI18n}">Instagram</label> <input
 															th:value="${item.instagram}" name="instagram" type="text"
 															class="form-control" id="validationCustom01"
 															placeholder="Offer Name" required="required">
 
 													</div>
 													<div class="col-md-4 mb-3">
-														<label for="validationCustom01">Twitter</label> <input
+														<label for="validationCustom01" th:text="${itemI18n?.twitterI18n}">Twitter</label> <input
 															th:value="${item.instagram}" name="twitter" type="text"
 															class="form-control" id="validationCustom01"
 															placeholder="Offer Name" required="required">
@@ -175,7 +177,7 @@
 													</div>
 													
 													<div class="col-md-4 mb-3">
-														<label for="validationCustom01">User Language</label> 
+														<label for="validationCustom01" th:text="${itemI18n?.langI18n}">User Language</label> 
                                                            <select class="form-control" name="lang" required="required">
                                                            <option value="EN">English</option>
                                                            <option value="FR">Francais</option>
@@ -186,7 +188,7 @@
 													</div>
 													
 													<div class="col-md-4 mb-3">
-														<label for="validationCustom01">BackOffice Language</label> 
+														<label for="validationCustom01" th:text="${itemI18n?.langbackoficeI18n}">BackOffice Language</label> 
                                                            <select class="form-control" name="langbackoffice" required="required">
                                                            <option value="EN">English</option>
                                                            <option value="FR">Francais</option>

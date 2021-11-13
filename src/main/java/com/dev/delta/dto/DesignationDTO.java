@@ -20,19 +20,19 @@ public class DesignationDTO implements DTO {
 		designation.setName("Receptionist");
 
 		designationI18n.setNameI18n("Name");
-		designationI18n.setGetTitleI18n("City");
-		designationI18n.setCreateTitleI18n("Create new City");
-		designationI18n.setEditTitleI18n("Edit City");
-		designationI18n.setGetAllTitleI18n("Cities");
+		designationI18n.setGetTitleI18n("Designation");
+		designationI18n.setCreateTitleI18n("Create");
+		designationI18n.setEditTitleI18n("Edit");
+		designationI18n.setGetAllTitleI18n("Designations");
 		designationI18n.setLangI18n("EN");
 		designationI18nRepository.save(designationI18n);
 
 		designationI18n2.setNameI18n("Name");
-		designationI18n2.setGetTitleI18n("City");
-		designationI18n2.setCreateTitleI18n("Create new City");
-		designationI18n2.setEditTitleI18n("Edit City");
-		designationI18n2.setGetAllTitleI18n("Cities");
-		designationI18n2.setLangI18n("EN");
+		designationI18n2.setGetTitleI18n("Bezeichnung");
+		designationI18n2.setCreateTitleI18n("Erstellen");
+		designationI18n2.setEditTitleI18n("Bearbeiten");
+		designationI18n2.setGetAllTitleI18n("Bezeichnungen");
+		designationI18n2.setLangI18n("DE");
 		designationI18nRepository.save(designationI18n2);
 
 		designationService.save(designation);

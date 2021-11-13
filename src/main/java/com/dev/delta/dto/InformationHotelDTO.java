@@ -31,7 +31,7 @@ public class InformationHotelDTO implements DTO {
 		informationHotel.setTwitter("https://www.twitter.com");
 		informationHotel.setInstagram("https://www.instagram.com");
 		informationHotel.setLang("EN");
-		informationHotel.setLangbackoffice("EN");
+		informationHotel.setLangbackoffice("DE");
 		informationService.save(informationHotel);
 		
 		
@@ -61,8 +61,8 @@ public class InformationHotelDTO implements DTO {
 		informationHotelI18n2.setFacebookI18n("Facebook");
 		informationHotelI18n2.setTwitterI18n("Twitter");
 		informationHotelI18n2.setInstagramI18n("Instagram");
-		informationHotelI18n2.setLangI18n("EN");
-		informationHotelI18n2.setLangbackoficeI18n("EN");
+		informationHotelI18n2.setLangI18n("DE");
+		informationHotelI18n2.setLangbackoficeI18n("DE");
 		informationHotelI18n2.setLang("DE");
 		informationHotelI18n2.setGetAllTitleI18n("Cities");
 		informationHotelI18n2.setCreateTitleI18n("Create new City");

@@ -19,18 +19,29 @@ import com.dev.delta.dto.CityDTO;
 import com.dev.delta.dto.CountryDTO;
 import com.dev.delta.dto.CurrencyDTO;
 import com.dev.delta.dto.CustomerDTO;
+import com.dev.delta.dto.DepartementDTO;
 import com.dev.delta.dto.DesignationDTO;
 import com.dev.delta.dto.EmailDTO;
+import com.dev.delta.dto.EmployeeDTO;
 import com.dev.delta.dto.ExpenseCategoryDTO;
 import com.dev.delta.dto.ExpenseDTO;
 import com.dev.delta.dto.ExtraBedDTO;
+import com.dev.delta.dto.ExtraBedOrderDTO;
+import com.dev.delta.dto.ExtraBedRequestDTO;
 import com.dev.delta.dto.FoodCategoryDTO;
 import com.dev.delta.dto.FoodDTO;
+import com.dev.delta.dto.FoodOrderDTO;
+import com.dev.delta.dto.FoodRequestDTO;
 import com.dev.delta.dto.GalleryDTO;
 import com.dev.delta.dto.GuestTypeDTO;
 import com.dev.delta.dto.HeaderDTO;
+import com.dev.delta.dto.HouseKeepingOrderDTO;
+import com.dev.delta.dto.HouseKeepingRequestDTO;
 import com.dev.delta.dto.HousekeepingItemDTO;
 import com.dev.delta.dto.InformationHotelDTO;
+import com.dev.delta.dto.LaundryItemDTO;
+import com.dev.delta.dto.LaundryOrderDTO;
+import com.dev.delta.dto.LaundryRequestDTO;
 import com.dev.delta.dto.MenuDTO;
 import com.dev.delta.dto.OfferDTO;
 import com.dev.delta.dto.PaymentDTO;
@@ -42,6 +53,7 @@ import com.dev.delta.dto.ShiftDTO;
 import com.dev.delta.dto.SubscriberDTO;
 import com.dev.delta.dto.UserDTO;
 import com.dev.delta.dto.WebsiteDTO;
+import com.dev.delta.entities.LaundryRequestOrder;
 import com.dev.delta.services.InformationService;
 
 @SpringBootApplication
@@ -151,6 +163,40 @@ public class SpringbootHotelResidenceCodecanyonApplication implements CommandLin
 	@Autowired
 	HousekeepingItemDTO   housekeepingItemDTO;
 	
+	@Autowired
+	ExtraBedOrderDTO extraBedOrderDTO  ;
+	
+	@Autowired
+	FoodOrderDTO    foodOrderDTO  ;
+	
+	@Autowired
+	HouseKeepingOrderDTO  houseKeepingOrderDTO;
+	
+	@Autowired
+	LaundryOrderDTO  laundryOrderDTO;
+	
+	@Autowired
+	LaundryItemDTO  laundryItemDTO;
+	
+	@Autowired
+	EmployeeDTO   employeeDTO;
+	
+	@Autowired
+	DepartementDTO   departementDTO;
+	
+	@Autowired
+	FoodRequestDTO  foodRequestDTO;
+	
+	@Autowired
+	ExtraBedRequestDTO  extraBedRequestDTO ;
+	
+	@Autowired
+	HouseKeepingRequestDTO  houseKeepingRequestDTO;
+	
+	@Autowired
+	LaundryRequestDTO   laundryRequestDTO   ;
+	
+	
 	public static void main(String[] args) {
 		SpringApplication.run(SpringbootHotelResidenceCodecanyonApplication.class, args);
 	}
@@ -190,7 +236,17 @@ public class SpringbootHotelResidenceCodecanyonApplication implements CommandLin
 	    paymentDTO.populate();
 	    paymentMethodDTO.populate();
 	    housekeepingItemDTO.populate();
-	    
+	    extraBedOrderDTO.populate();
+	    foodOrderDTO.populate();
+	    houseKeepingOrderDTO.populate();
+	    laundryOrderDTO.populate();
+	    laundryItemDTO.populate();
+	    employeeDTO.populate();
+	    departementDTO.populate();
+	    foodRequestDTO.populate();
+	    extraBedRequestDTO.populate();
+	    houseKeepingRequestDTO.populate();
+	    laundryRequestDTO.populate();
 	   
 
 	}

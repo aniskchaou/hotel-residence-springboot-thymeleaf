@@ -8,7 +8,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
 @Entity
-public class Housekeping {
+public class HousekepingOrder {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	Long id;
@@ -20,7 +20,7 @@ public class Housekeping {
 	String Remark;
 	String AssignedTo;
 	
-	public Housekeping() {
+	public HousekepingOrder() {
 		// TODO Auto-generated constructor stub
 	}
 

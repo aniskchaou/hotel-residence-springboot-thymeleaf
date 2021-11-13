@@ -65,33 +65,38 @@
 		<!-- main content area start -->
 		<div class="main-content">
 			<!-- header area start -->
-			<div th:insert="includes/headarea:: headarea"></div>
+			<div class="header-area">
+				<div class="row align-items-center">
+					<!-- nav and search button -->
+					<div class="col-md-6 col-sm-8 clearfix">
+						<div class="nav-btn pull-left">
+							<span></span> <span></span> <span></span>
+						</div>
+						<div class="search-box pull-left">
+							<form action="#">
+								<input type="text" name="search" placeholder="Search..."
+									required> <i class="ti-search"></i>
+							</form>
+						</div>
+					</div>
+					<!-- profile info & task notification -->
+					<span class="col-md-6 col-sm-4 clearfix"
+						th:insert="includes/notification_bar :: notification_bar"></span>
+				</div>
+			</div>
 			<!-- header area end -->
 			<!-- page title area start -->
 			<div class="page-title-area">
 				<div class="row align-items-center">
 					<div class="col-sm-6">
 						<div class="breadcrumbs-area clearfix">
-							<h4 class="page-title pull-left">Create Employee</h4>
-							<ul class="breadcrumbs pull-left">
-								<li><a href="index.html">Employee</a></li>
-								<li><span>Create</span></li>
-							</ul>
+							<h4 class="page-title pull-left"
+								th:text="${itemI18n?.getAllTitleI18n}">Subscribers</h4>
+
 						</div>
 					</div>
 					<div class="col-sm-6 clearfix">
-						<div class="user-profile pull-right">
-							<img class="avatar user-thumb"
-								src="../assets/images/author/avatar.png" alt="avatar">
-							<h4 class="user-name dropdown-toggle" data-toggle="dropdown">
-								Kumkum Rai <i class="fa fa-angle-down"></i>
-							</h4>
-							<div class="dropdown-menu">
-								<a class="dropdown-item" th:href="@{/profile}">Profile</a> <a
-									class="dropdown-item" th:href="@{/settings}">Settings</a> <a
-									class="dropdown-item" th:href="@{/logout}">Log Out</a>
-							</div>
-						</div>
+						<div th:insert="includes/usermenu :: usermenu"></div>
 					</div>
 				</div>
 			</div>
@@ -108,12 +113,12 @@
 
 									<div class="form-row">
 										<div class="col-md-4 mb-3">
-											<label for="validationCustom01">Firstname</label> <input
+											<label for="validationCustom01"  th:text="${itemI18n?.FirstnameI18n}">Firstname</label> <input
 											th:value="${item.Firstname}"	name="Firstname" type="text" class="form-control"
 												id="validationCustom01" placeholder="First name" required="">
 										</div>
 										<div class="col-md-4 mb-3">
-											<label for="validationCustom02">Gender</label> <select
+											<label for="validationCustom02"  th:text="${itemI18n?.GenderI18n}">Gender</label> <select
 												name="Gender" class="form-control" required>
 												<option value="Male">Male</option>
 												<option value="Female">Female</option>

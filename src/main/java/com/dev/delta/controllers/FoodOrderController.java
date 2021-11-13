@@ -56,12 +56,7 @@ public class FoodOrderController {
 	}
 	
 	
-	@GetMapping("/foodrequest")
-	public String getFoodRequest(Model model) {
-		List<FoodOrder> items = foodOrderService.getFoodOrders();
-		model.addAttribute("items", items);
-		return "request/foodrequestorder";
-	}
+
 	
 	
 	/**

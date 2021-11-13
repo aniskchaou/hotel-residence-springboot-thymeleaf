@@ -28,21 +28,21 @@ public class RoomTypeDTO implements DTO{
 		roomTypeRepository.save(roomType2);
 		roomTypeRepository.save(roomType3);
 		
-		  roomTypeI18n.setBasePriceI18n("");
-		  roomTypeI18n.setTitleI18n("");
-		  roomTypeI18n.setGetTitleI18n("City");
-		  roomTypeI18n.setCreateTitleI18n("Create new City");
-		  roomTypeI18n.setEditTitleI18n("Edit City");
-		  roomTypeI18n.setGetAllTitleI18n("Cities");
+		  roomTypeI18n.setBasePriceI18n("Base Pice");
+		  roomTypeI18n.setTitleI18n("Room Type");
+		  roomTypeI18n.setGetTitleI18n("Room Types");
+		  roomTypeI18n.setCreateTitleI18n("Create");
+		  roomTypeI18n.setEditTitleI18n("Edit");
+		  roomTypeI18n.setGetAllTitleI18n("Room Types");
 		  roomTypeI18n.setLangI18n("EN");
 		  roomTypeI18nRepository.save(roomTypeI18n);
 		  
-		  roomTypeI18n2.setBasePriceI18n("");
-		  roomTypeI18n2.setTitleI18n("");
-		  roomTypeI18n2.setGetTitleI18n("City");
-		  roomTypeI18n2.setCreateTitleI18n("Create new City");
-		  roomTypeI18n2.setEditTitleI18n("Edit City");
-		  roomTypeI18n2.setGetAllTitleI18n("Cities");
+		  roomTypeI18n2.setBasePriceI18n("Grundpreis");
+		  roomTypeI18n2.setTitleI18n("Zimmertyp");
+		  roomTypeI18n2.setGetTitleI18n("Zimmertype");
+		  roomTypeI18n2.setCreateTitleI18n("Erstellen");
+		  roomTypeI18n2.setEditTitleI18n("Bearbeiten");
+		  roomTypeI18n2.setGetAllTitleI18n("Zimmertypen");
 		  roomTypeI18n2.setLangI18n("DE");
 		  roomTypeI18nRepository.save(roomTypeI18n2);
 		

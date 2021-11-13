@@ -25,18 +25,20 @@ public class ShiftDTO implements DTO {
 		shiftI18n.setStartI18n("Start");
 		shiftI18n.setEndI18n("End");
 		shiftI18n.setTypeI18n("Type");
-		shiftI18n.setGetTitleI18n("City");
-		shiftI18n.setCreateTitleI18n("Create new City");
-		shiftI18n.setEditTitleI18n("Edit City");
-		shiftI18n.setGetAllTitleI18n("Cities");
+		shiftI18n.setGetTitleI18n("Shift");
+		shiftI18n.setCreateTitleI18n("Create");
+		shiftI18n.setEditTitleI18n("Edit");
+		shiftI18n.setGetAllTitleI18n("Shifts");
+		shiftI18n.setLangI18n("EN");
 		
-		shiftI18n2.setStartI18n("Start");
-		shiftI18n2.setEndI18n("End");
-		shiftI18n2.setTypeI18n("Type");
-		shiftI18n2.setGetTitleI18n("City");
-		shiftI18n2.setCreateTitleI18n("Create new City");
-		shiftI18n2.setEditTitleI18n("Edit City");
-		shiftI18n2.setGetAllTitleI18n("Cities");
+		shiftI18n2.setStartI18n("Anfang");
+		shiftI18n2.setEndI18n("Ende");
+		shiftI18n2.setTypeI18n("Typ");
+		shiftI18n2.setGetTitleI18n("Verschieben");
+		shiftI18n2.setCreateTitleI18n("Erstellen");
+		shiftI18n2.setEditTitleI18n("Bearbeiten");
+		shiftI18n2.setGetAllTitleI18n("Verschiebungen");
+		shiftI18n2.setLangI18n("DE");
 		
 		shiftI18nRepository.save(shiftI18n);
 		shiftI18nRepository.save(shiftI18n2);

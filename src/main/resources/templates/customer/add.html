@@ -56,33 +56,41 @@
         <!-- main content area start -->
         <div class="main-content">
             <!-- header area start -->
-            <div th:insert="includes/headarea:: headarea"></div>
-            <!-- header area end -->
-            <!-- page title area start -->
-            <div class="page-title-area">
-                <div class="row align-items-center">
-                    <div class="col-sm-6">
-                        <div class="breadcrumbs-area clearfix">
-                            <h4 class="page-title pull-left">Create Customer</h4>
-                            <ul class="breadcrumbs pull-left">
-                                <li><a href="index.html">Customer</a></li>
-                                <li><span>Create</span></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-sm-6 clearfix">
-                        <div class="user-profile pull-right">
-                            <img class="avatar user-thumb" src="assets/images/author/avatar.png" alt="avatar">
-                            <h4 class="user-name dropdown-toggle" data-toggle="dropdown">Kumkum Rai <i class="fa fa-angle-down"></i></h4>
-                            <div class="dropdown-menu">
-                              <a class="dropdown-item" th:href="@{/profile}">Profile</a> <a
-									class="dropdown-item" th:href="@{/settings}">Settings</a> <a
-									class="dropdown-item" th:href="@{/logout}">Log Out</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+           	<div class="header-area">
+				<div class="row align-items-center">
+					<!-- nav and search button -->
+					<div class="col-md-6 col-sm-8 clearfix">
+						<div class="nav-btn pull-left">
+							<span></span> <span></span> <span></span>
+						</div>
+						<div class="search-box pull-left">
+							<form action="#">
+								<input type="text" name="search" placeholder="Search..."
+									required> <i class="ti-search"></i>
+							</form>
+						</div>
+					</div>
+					<!-- profile info & task notification -->
+					<span class="col-md-6 col-sm-4 clearfix"
+						th:insert="includes/notification_bar :: notification_bar"></span>
+				</div>
+			</div>
+			<!-- header area end -->
+			<!-- page title area start -->
+			<div class="page-title-area">
+				<div class="row align-items-center">
+					<div class="col-sm-6">
+						<div class="breadcrumbs-area clearfix">
+							<h4 class="page-title pull-left"
+								th:text="${itemI18n?.getAllTitleI18n}">Subscribers</h4>
+
+						</div>
+					</div>
+					<div class="col-sm-6 clearfix">
+						<div th:insert="includes/usermenu :: usermenu"></div>
+					</div>
+				</div>
+			</div>
             <!-- page title area end -->
             <div class="main-content-inner">
                 <div class="row">
@@ -93,17 +101,17 @@
                                         <form class="needs-validation" novalidate="" th:action="@{/addcustomer}" method="post">
                                             <div class="form-row">
                                                 <div class="col-md-4 mb-3">
-                                                    <label for="validationCustom01">Fullname</label>
+                                                    <label for="validationCustom01" th:text="${itemI18n?.FullnameI18n}">Fullname</label>
                                                     <input name="Fullname" type="text" class="form-control" id="validationCustom01" placeholder="Fullname"  required="">
                                                    
                                                 </div>
                                                 <div class="col-md-4 mb-3">
-                                                    <label for="validationCustom02">Email</label>
+                                                    <label for="validationCustom02" th:text="${itemI18n?.EmailI18n}">Email</label>
                                                     <input name="Email" type="email" class="form-control" id="validationCustom02" placeholder="Email"  required="">
                                                    
                                                 </div>
                                                  <div class="col-md-4 mb-3">
-                                                    <label for="validationCustom01">Country</label>
+                                                    <label for="validationCustom01" th:text="${itemI18n?.CountryI18n}">Country</label>
                                                    
                                                      <select name="Country" data-live-search="true"
 														type="text" class="form-control selectpicker" required="required">
@@ -115,17 +123,17 @@
                                             
                                               <div class="form-row">
                                                 <div class="col-md-4 mb-3">
-                                                    <label for="validationCustom01">Mobile</label>
+                                                    <label for="validationCustom01" th:text="${itemI18n?.MobileI18n}">Mobile</label>
                                                     <input name="Mobile" type="number" class="form-control" id="validationCustom01" placeholder="Mobile"  required="">
                                                    
                                                 </div>
                                                 <div class="col-md-4 mb-3">
-                                                    <label for="validationCustom02">Address</label>
-                                                    <input name="status" type="text" class="form-control" id="validationCustom02" placeholder="Address"  required="">
+                                                    <label for="validationCustom02" th:text="${itemI18n?.addressI18n}">Address</label>
+                                                    <input name="address" type="text" class="form-control" id="validationCustom02" placeholder="Address"  required="">
                                                    
                                                 </div>
                                                  <div class="col-md-4 mb-3">
-                                                    <label for="validationCustom01">City</label>
+                                                    <label for="validationCustom01" th:text="${itemI18n?.CityI18n}">City</label>
                                                    
                                                    <select name="City" data-live-search="true"
 														class="form-control selectpicker" required="required">
@@ -137,7 +145,7 @@
                                             
                                               <div class="form-row">
                                                 <div class="col-md-4 mb-3">
-                                                    <label for="validationCustom01">Gender</label>
+                                                    <label for="validationCustom01" th:text="${itemI18n?.GenderI18n}">Gender</label>
                                                  
                                                    <select name="Gender" class="form-control" required>
                                                      <option value="Male">Male</option>
@@ -145,7 +153,7 @@
                                                    </select>
                                                 </div>
                                                 <div class="col-md-4 mb-3">
-                                                    <label for="validationCustom02">Age</label>
+                                                    <label for="validationCustom02" th:text="${itemI18n?.AgeI18n}">Age</label>
                                                     <input name="Age" type="number" class="form-control" id="validationCustom02" placeholder="Age"  >
                                                    
                                                 </div>

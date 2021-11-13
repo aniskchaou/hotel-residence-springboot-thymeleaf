@@ -20,12 +20,9 @@ public class BedDTO implements DTO{
 		bed.setName("102");
 		bed.setStatus("Active");
 		bedService.save(bed);
-		
 		bedI18n.setLangI18n("EN");
 		bedI18n.setNameI18n("Bed Number");
-		bedI18n.setStatusI18n("Status");
-		
-		
+		bedI18n.setStatusI18n("Status");	
 		bedI18n.setGetTitleI18n("City");
 		bedI18n.setCreateTitleI18n("Create new City");
 		bedI18n.setEditTitleI18n("Edit City");
@@ -36,10 +33,10 @@ public class BedDTO implements DTO{
 		bedI18n2.setLangI18n("DE");
 		bedI18n2.setNameI18n("Bettnummer");
 		bedI18n2.setStatusI18n("Stellung");
-		bedI18n2.setGetTitleI18n("City");
-		bedI18n2.setCreateTitleI18n("Create new City");
-		bedI18n2.setEditTitleI18n("Edit City");
-		bedI18n2.setGetAllTitleI18n("Cities");
+		bedI18n2.setGetTitleI18n("Stadt");
+		bedI18n2.setCreateTitleI18n("Erstellen");
+		bedI18n2.setEditTitleI18n("Bearbeiten");
+		bedI18n2.setGetAllTitleI18n("Betten");
 		bedI18nRepository.save(bedI18n2);
 		
 	}

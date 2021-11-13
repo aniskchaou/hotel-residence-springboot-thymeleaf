@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.dev.delta.entities.Housekeping;
+import com.dev.delta.entities.HousekepingOrder;
 import com.dev.delta.i18n.entities.CityI18n;
 import com.dev.delta.services.HousekepingService;
 import com.dev.delta.services.RoomService;
@@ -48,7 +48,7 @@ public class HousekepingController {
 	 */
 	@GetMapping("/housekeepings")
 	public String getHousekeepings(Model model) {
-		List<Housekeping> housekeepings = housekeepingService.getHousekeepings();
+		List<HousekepingOrder> housekeepings = housekeepingService.getHousekeepings();
 		
 		model.addAttribute("items", housekeepings);
 	
@@ -63,7 +63,7 @@ public class HousekepingController {
 	 */
 	@PostMapping("/addhousekeeping")
 
-	public String addHousekeeping(Housekeping housekeeping) {
+	public String addHousekeeping(HousekepingOrder housekeeping) {
 		housekeepingService.save(housekeeping);
 		return "redirect:/housekeepings";
 	}
@@ -77,7 +77,7 @@ public class HousekepingController {
 	 */
 	@RequestMapping("/edithousekeeping/{id}")
 	public String findById(@PathVariable("id") int id, Model model) {
-		Housekeping housekeeping = housekeepingService.findById(id).get();
+		HousekepingOrder housekeeping = housekeepingService.findById(id).get();
 		model.addAttribute("item", housekeeping);
 		return "housekeeping/edit";
 	}
@@ -95,7 +95,7 @@ public class HousekepingController {
 	 * @return
 	 */
 	@PostMapping("/updatehousekeeping/{id}")
-	public String updateHousekeeping(@PathVariable("id") long id, @Validated Housekeping housekeeping, BindingResult result, Model model) {
+	public String updateHousekeeping(@PathVariable("id") long id, @Validated HousekepingOrder housekeeping, BindingResult result, Model model) {
 
 		housekeepingService.save(housekeeping);
 		return "redirect:/housekeepings";

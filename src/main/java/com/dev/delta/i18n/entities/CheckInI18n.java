@@ -36,7 +36,7 @@ public class CheckInI18n {
 	String IDNoOtherPersonI18n="00000000000000000";
 	String AdvancePaymentI18n="0";
 	String paymentStatusI18n;
-	String StatusI18n="Unpaid";
+	String StatusI18n;
 	String roomI18n;
 	String cutomerI18n;
 	String langI18n;
@@ -44,8 +44,67 @@ public class CheckInI18n {
 	String getTitleI18n;
 	String editTitleI18n;
 	String createTitleI18n;
+	String languageI18;
+	String viewinvoiceI18n;
+	String viewcheckinI18n;
+	String orderlaundryI18n;
+	String orderfoodI18n;
+	String extrabedI18n;
+	String housekeepingI18n;
+	String checkoutbuttonI18n;
 	
 	
+	
+	
+	public String getCheckoutbuttonI18n() {
+		return checkoutbuttonI18n;
+	}
+	public void setCheckoutbuttonI18n(String checkoutbuttonI18n) {
+		this.checkoutbuttonI18n = checkoutbuttonI18n;
+	}
+	public String getViewinvoiceI18n() {
+		return viewinvoiceI18n;
+	}
+	public void setViewinvoiceI18n(String viewinvoiceI18n) {
+		this.viewinvoiceI18n = viewinvoiceI18n;
+	}
+	public String getViewcheckinI18n() {
+		return viewcheckinI18n;
+	}
+	public void setViewcheckinI18n(String viewcheckinI18n) {
+		this.viewcheckinI18n = viewcheckinI18n;
+	}
+	public String getOrderlaundryI18n() {
+		return orderlaundryI18n;
+	}
+	public void setOrderlaundryI18n(String orderlaundryI18n) {
+		this.orderlaundryI18n = orderlaundryI18n;
+	}
+	public String getOrderfoodI18n() {
+		return orderfoodI18n;
+	}
+	public void setOrderfoodI18n(String orderfoodI18n) {
+		this.orderfoodI18n = orderfoodI18n;
+	}
+	public String getExtrabedI18n() {
+		return extrabedI18n;
+	}
+	public void setExtrabedI18n(String extrabedI18n) {
+		this.extrabedI18n = extrabedI18n;
+	}
+	public String getHousekeepingI18n() {
+		return housekeepingI18n;
+	}
+	public void setHousekeepingI18n(String housekeepingI18n) {
+		this.housekeepingI18n = housekeepingI18n;
+	}
+	
+	public String getLanguageI18() {
+		return languageI18;
+	}
+	public void setLanguageI18(String languageI18) {
+		this.languageI18 = languageI18;
+	}
 	public String getGetAllTitleI18n() {
 		return getAllTitleI18n;
 	}
