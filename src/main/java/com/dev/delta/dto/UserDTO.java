@@ -50,13 +50,13 @@ public class UserDTO implements DTO {
 		userI18nRepository.save(userI18n);
 		
 		
-		userI18n2.setRoleI18n("Role");
-		userI18n2.setUsernameI18n("Username");
+		userI18n2.setRoleI18n("Rolle");
+		userI18n2.setUsernameI18n("Nutzername");
 		userI18n2.setLangI18n("DE");
-		userI18n2.setGetAllTitleI18n("Cities");
-		userI18n2.setCreateTitleI18n("Create new City");
-		userI18n2.setEditTitleI18n("Edit City");
-		userI18n2.setGetTitleI18n("City");
+		userI18n2.setGetAllTitleI18n("Benutzer");
+		userI18n2.setCreateTitleI18n("Erstellen");
+		userI18n2.setEditTitleI18n("Bearbeiten");
+		userI18n2.setGetTitleI18n("Benutzer");
 		
 		userI18nRepository.save(userI18n2);
 		

@@ -40,15 +40,15 @@ public class EmailDTO implements DTO {
 		emailI18nRepository.save(emailI18n);
 		
 		emailI18n2.setAuthI18n("Auth");
-		emailI18n2.setEnableTLS("Enable TLS");
-		emailI18n2.setHost("Host Name");
+		emailI18n2.setEnableTLS(" TLS");
+		emailI18n2.setHost("Gastgebername");
 		emailI18n2.setEmailI18n("Email");
-		emailI18n2.setPort("Port Number");
-		emailI18n2.setPasswordI18n("Password");
-		emailI18n2.setGetAllTitleI18n("Email Settings");
-		emailI18n2.setCreateTitleI18n("Create new City");
-		emailI18n2.setEditTitleI18n("Edit email Settings");
-		emailI18n2.setGetTitleI18n("Email Setting");
+		emailI18n2.setPort("Port-Nummer");
+		emailI18n2.setPasswordI18n("Passwort");
+		emailI18n2.setGetAllTitleI18n("Email Einstellungen");
+		emailI18n2.setCreateTitleI18n("Erstellen");
+		emailI18n2.setEditTitleI18n("Bearbeiten");
+		emailI18n2.setGetTitleI18n("Email Einstellungen");
 		emailI18n2.setLangI18n("DE");
 		emailI18nRepository.save(emailI18n2);
 		

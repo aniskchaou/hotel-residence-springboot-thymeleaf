@@ -90,6 +90,10 @@ public class FoodCategoryController {
 	public String findById(@PathVariable("id") long id, Model model) {
 		FoodCategory foodCategory = foodCategoryService.findById(id).get();
 		model.addAttribute("item", foodCategory);
+		String lang = informationService.getSeletedLang();
+		FoodCategoryI18n cityI18n = foodCategoryI18nRepository.findByLangI18n(lang);
+		model.addAttribute("itemI18n", cityI18n);
+		menuHeaderUtil.getMenuHeader(model);
 		return "foodcategory/edit";
 	}
 

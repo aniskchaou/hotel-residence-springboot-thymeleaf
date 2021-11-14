@@ -4,7 +4,7 @@
 <head>
 <meta charset="utf-8">
 <meta http-equiv="x-ua-compatible" content="ie=edge">
-<title>New</title>
+<title th:text="${itemI18n?.editTitleI18n}">New</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="shortcut icon" type="image/png"
 	href="../assets/images/icon/favicon.ico">
@@ -125,14 +125,14 @@
 
 										</div>
 										<div class="col-md-4 mb-3">
-											<label for="validationCustom02" th:text="${itemI18n.ItemNameI18n}">Description</label> <input
+											<label for="validationCustom02" th:text="${itemI18n.DescriptionI18n}">Description</label> <input
 											th:value="${item.Description}"	name="Description" type="text" class="form-control"
 												id="validationCustom02" placeholder="Description"
 												required="">
 
 										</div>
 									</div>
-									<button class="btn btn-primary" type="submit" th:text="${itemI18n.createTitleI18n}">
+									<button  class="btn btn-primary" type="submit" th:text="${itemI18n.editTitleI18n}">
 										<i class="fa fa-plus" aria-hidden="true"></i> Create
 									</button>
 								</form>

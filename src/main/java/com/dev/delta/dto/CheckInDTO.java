@@ -61,6 +61,23 @@ public class CheckInDTO implements DTO {
 		checkInI18n.setOrderlaundryI18n("Order Laundry");
 		checkInI18n.setHousekeepingI18n("Order House keeping");
 		checkInI18n.setExtrabedI18n("Order Extra Bed");
+		checkInI18n.setDurationofStayI18n("Duration");
+		checkInI18n.setRoomPlanI18n("Room plan");
+		checkInI18n.setGenderI18n("Gender");
+		checkInI18n.setAgeI18n("Age");
+		checkInI18n.setBookedByI18n("Booked by");
+		checkInI18n.setVehicleNumberI18n("Vehicule No");
+		checkInI18n.setRemarkI18n("Remark");
+		checkInI18n.setIDNoI18n("Id");
+		checkInI18n.setNameOtherPersonI18n("Partner name");
+		checkInI18n.setGenderOtherPersonI18n("Partner gender");
+		checkInI18n.setAgeOtherPersonI18n("Partner age");
+		checkInI18n.setAddressOtherPersonI18n("Partner address");
+		checkInI18n.setIDNoOtherPersonI18n("Partner id");
+		checkInI18n.setAdvancePaymentI18n("Advance payment");
+		checkInI18n.setBasicInformationI18n("Basic information");
+		checkInI18n.setBookingInformationI18n("Booking information");
+		checkInI18n.setAdditionalInformationI18n("Additional Information");
 		checkInI18nRepository.save(checkInI18n);
 		
 		checkInI18n2.setCheckInI18n("Einchecken");
@@ -81,7 +98,8 @@ public class CheckInDTO implements DTO {
 		checkInI18n2.setPaymentStatusI18n("Zahlungsstatus");
 		checkInI18n2.setMobileI18n("Telefon");
 		checkInI18n2.setAddressI18n("Anschrift");
-		
+		checkInI18n2.setAdultsI18n("Erwachsene");
+		checkInI18n2.setKidsI18n("Kinder");
 		checkInI18n2.setViewcheckinI18n("Ansehen");
 		checkInI18n2.setCheckoutbuttonI18n("Auschecken");
 		checkInI18n2.setViewinvoiceI18n("Rechnung");
@@ -89,6 +107,24 @@ public class CheckInDTO implements DTO {
 		checkInI18n2.setOrderlaundryI18n("Wäsche bestellen");
 		checkInI18n2.setHousekeepingI18n("Hauswirtschaft bestellen");
 		checkInI18n2.setExtrabedI18n("Extrabett bestellen");
+		
+		checkInI18n2.setDurationofStayI18n("Dauer");
+		checkInI18n2.setRoomPlanI18n("Raumplan");
+		checkInI18n2.setGenderI18n("Geschlecht");
+		checkInI18n2.setAgeI18n("Alter");
+		checkInI18n2.setBookedByI18n("gebucht von");
+		checkInI18n2.setVehicleNumberI18n("Fahrzeug Nummer");
+		checkInI18n2.setRemarkI18n("Hinweis");
+		checkInI18n2.setIDNoI18n("Ausweis");
+		checkInI18n2.setNameOtherPersonI18n("Partnername");
+		checkInI18n2.setGenderOtherPersonI18n("Partner Geschlecht");
+		checkInI18n2.setAgeOtherPersonI18n("Partner Alter");
+		checkInI18n2.setAddressOtherPersonI18n("Partner anschrift");
+		checkInI18n2.setIDNoOtherPersonI18n("Partner Ausweis");
+		checkInI18n2.setAdvancePaymentI18n("Vorauszahlung");
+		checkInI18n2.setBasicInformationI18n("Grundinformation");
+		checkInI18n2.setBookingInformationI18n("Buchungsinformation");
+		checkInI18n2.setAdditionalInformationI18n("Weitere Informationen");
 		
 		checkInI18nRepository.save(checkInI18n2);
 	}

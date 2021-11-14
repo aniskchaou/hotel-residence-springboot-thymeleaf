@@ -53,21 +53,21 @@ public class InformationHotelDTO implements DTO {
 		informationI18nRepository.save(informationHotelI18n);
 		
 		
-		informationHotelI18n2.setAdressI18n("Address");
-		informationHotelI18n2.setDescriptionI18n("Description");
+		informationHotelI18n2.setAdressI18n("Anschrift");
+		informationHotelI18n2.setDescriptionI18n("Beschreibung");
 		informationHotelI18n2.setEmailI18n("Email");
 		informationHotelI18n2.setNameI18n("Name");
-		informationHotelI18n2.setTelephoneI18n("Phone");
+		informationHotelI18n2.setTelephoneI18n("Handy");
 		informationHotelI18n2.setFacebookI18n("Facebook");
 		informationHotelI18n2.setTwitterI18n("Twitter");
 		informationHotelI18n2.setInstagramI18n("Instagram");
 		informationHotelI18n2.setLangI18n("DE");
 		informationHotelI18n2.setLangbackoficeI18n("DE");
-		informationHotelI18n2.setLang("DE");
-		informationHotelI18n2.setGetAllTitleI18n("Cities");
-		informationHotelI18n2.setCreateTitleI18n("Create new City");
-		informationHotelI18n2.setEditTitleI18n("Edit City");
-		informationHotelI18n2.setGetTitleI18n("City");
+		informationHotelI18n2.setLang("Sprache");
+		informationHotelI18n2.setGetAllTitleI18n("Informations");
+		informationHotelI18n2.setCreateTitleI18n("Erstellen");
+		informationHotelI18n2.setEditTitleI18n("Bearbeiten");
+		informationHotelI18n2.setGetTitleI18n("Information");
 		informationI18nRepository.save(informationHotelI18n2);
 		
 		

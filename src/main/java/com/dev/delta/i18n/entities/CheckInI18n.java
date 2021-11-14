@@ -18,23 +18,23 @@ public class CheckInI18n {
 	String CountryI18n;
 	String cityI18n;
 	String GenderI18n;
-	String AgeI18n="0";
+	String AgeI18n;
 	String CheckInI18n;
 	String CheckOutI18n;
-	String DurationofStayI18n="0";
-	String AdultsI18n="0" ;
-	String KidsI18n="0";
-	String RoomPlanI18n="";
-	String BookedByI18n=""; 
-	String VehicleNumberI18n="000-000-000";
-	String RemarkI18n="";
-	String IDNoI18n="00000000000000000";
+	String DurationofStayI18n;
+	String AdultsI18n ;
+	String KidsI18n;
+	String RoomPlanI18n;
+	String BookedByI18n; 
+	String VehicleNumberI18n;
+	String RemarkI18n;
+	String IDNoI18n;
 	String NameOtherPersonI18n;
 	String GenderOtherPersonI18n;
 	String AgeOtherPersonI18n;
 	String AddressOtherPersonI18n;
-	String IDNoOtherPersonI18n="00000000000000000";
-	String AdvancePaymentI18n="0";
+	String IDNoOtherPersonI18n;
+	String AdvancePaymentI18n;
 	String paymentStatusI18n;
 	String StatusI18n;
 	String roomI18n;
@@ -52,10 +52,31 @@ public class CheckInI18n {
 	String extrabedI18n;
 	String housekeepingI18n;
 	String checkoutbuttonI18n;
+	String bookingInformationI18n;
+	String basicInformationI18n;
+	String additionalInformationI18n;
 	
 	
 	
 	
+	public String getBookingInformationI18n() {
+		return bookingInformationI18n;
+	}
+	public void setBookingInformationI18n(String bookingInformationI18n) {
+		this.bookingInformationI18n = bookingInformationI18n;
+	}
+	public String getBasicInformationI18n() {
+		return basicInformationI18n;
+	}
+	public void setBasicInformationI18n(String basicInformationI18n) {
+		this.basicInformationI18n = basicInformationI18n;
+	}
+	public String getAdditionalInformationI18n() {
+		return additionalInformationI18n;
+	}
+	public void setAdditionalInformationI18n(String additionalInformationI18n) {
+		this.additionalInformationI18n = additionalInformationI18n;
+	}
 	public String getCheckoutbuttonI18n() {
 		return checkoutbuttonI18n;
 	}

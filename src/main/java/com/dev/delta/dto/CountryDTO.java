@@ -30,11 +30,11 @@ public class CountryDTO implements DTO{
 		countryI18nRepository.save(countryI18n);
 		
 		countryI18n2.setLangI18n("DE");
-		countryI18n2.setNameI18n("Name");
-		countryI18n2.setCreateTitleI18n("Create new Country");
-		countryI18n2.setEditTitleI18n("Edit Country");
-		countryI18n2.setGetAllTitleI18n("Countries");
-		countryI18n2.setCreateTitleI18n("Create new Country");
+		countryI18n2.setNameI18n("Land");
+		countryI18n2.setCreateTitleI18n("Erstellen");
+		countryI18n2.setEditTitleI18n("Bearbeiten");
+		countryI18n2.setGetAllTitleI18n("Länder");
+		countryI18n2.setCreateTitleI18n("Erstellen");
 		countryI18nRepository.save(countryI18n2);
 		
 	}

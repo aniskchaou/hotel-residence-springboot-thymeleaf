@@ -24,11 +24,11 @@ public class MessageController {
 
 	@Autowired
 	MessageService messageService;
-	
+	@Autowired
 	InformationService  informationService;
-	
+	@Autowired
 	UIMenuHeaderUtil  menuHeaderUtil;
-	
+	@Autowired
 	MessageI18nRepository   messageI18nRepository;
 	
 	@GetMapping("/messagesadmin")
@@ -54,6 +54,10 @@ public class MessageController {
 	public String findById(@PathVariable("id") Long id, Model model) {
 		Message message = messageService.findById(id);
 		model.addAttribute("item", message);
+		String lang = informationService.getSeletedLang();
+		MessageI18n cityI18n = messageI18nRepository.findByLangI18n(lang);
+		model.addAttribute("itemI18n", cityI18n);
+		menuHeaderUtil.getMenuHeader(model);
 		return "message/view";
 	}
 }

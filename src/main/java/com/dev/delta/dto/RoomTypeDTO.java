@@ -35,6 +35,18 @@ public class RoomTypeDTO implements DTO{
 		  roomTypeI18n.setEditTitleI18n("Edit");
 		  roomTypeI18n.setGetAllTitleI18n("Room Types");
 		  roomTypeI18n.setLangI18n("EN");
+		  roomTypeI18n.setAdultCapacityI18n("Adult Capacity");
+		  roomTypeI18n.setAirConditionerI18n("Air conditioner");
+		  roomTypeI18n.setAmenityI18n("Amenity");
+		  roomTypeI18n.setBathTubI18n("Bathtub");
+		  roomTypeI18n.setCoffeeMakerI18n("Cofee Maker");
+		  roomTypeI18n.setDoubleBedI18n("Double Bed");
+		  roomTypeI18n.setFreeNewspaperI18n("Free News Paper");
+		  roomTypeI18n.setKidsCapacityI18n("Kids Capacity");
+		  roomTypeI18n.setMiniFridgeI18n("Mini Fridge");
+		  roomTypeI18n.setShortCodeI18n("ShortCode");
+		  roomTypeI18n.setWifiI18n("Wifi");
+		  roomTypeI18n.setStatusI18n("Status");
 		  roomTypeI18nRepository.save(roomTypeI18n);
 		  
 		  roomTypeI18n2.setBasePriceI18n("Grundpreis");
@@ -44,6 +56,18 @@ public class RoomTypeDTO implements DTO{
 		  roomTypeI18n2.setEditTitleI18n("Bearbeiten");
 		  roomTypeI18n2.setGetAllTitleI18n("Zimmertypen");
 		  roomTypeI18n2.setLangI18n("DE");
+		  roomTypeI18n2.setAdultCapacityI18n("Erwachsene Kapazität");
+		  roomTypeI18n2.setAirConditionerI18n("Klimaanlage");
+		  roomTypeI18n2.setAmenityI18n("Ausstattung");
+		  roomTypeI18n2.setBathTubI18n("Badewanne");
+		  roomTypeI18n2.setCoffeeMakerI18n("Kaffeemaschine");
+		  roomTypeI18n2.setDoubleBedI18n("Doppelbett");
+		  roomTypeI18n2.setFreeNewspaperI18n("Kostenlose Zeitung");
+		  roomTypeI18n2.setKidsCapacityI18n("Kinderkapazität");
+		  roomTypeI18n2.setMiniFridgeI18n("Minikühlschrank");
+		  roomTypeI18n2.setShortCodeI18n("Kurzcode");
+		  roomTypeI18n2.setWifiI18n("Wifi");
+		  roomTypeI18n2.setStatusI18n("Status");
 		  roomTypeI18nRepository.save(roomTypeI18n2);
 		
 		

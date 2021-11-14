@@ -4,7 +4,7 @@
 <head>
 <meta charset="utf-8">
 <meta http-equiv="x-ua-compatible" content="ie=edge">
-<title>Amenities</title>
+<title th:text="${itemI18n?.getAllTitleI18n}">Amenities</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="shortcut icon" type="image/png"
 	href="assets/images/icon/favicon.ico">
@@ -107,8 +107,8 @@
 							<div class="card-body">
 								<h4 class="header-title">
 									<a  th:href="@{/add-room}"
-									type="button" class="btn btn-rounded btn-success mb-3">
-										<i class="fa fa-plus" aria-hidden="true"></i> Create
+									type="button" class="btn btn-rounded btn-success mb-3" th:text="${itemI18n?.createTitleI18n}">
+									 Create
 									</a>
 								</h4>
 								<div class="data-tables">
@@ -116,14 +116,14 @@
 										<thead class="bg-light text-capitalize">
 											<tr>
 												<th th:text="${itemI18n?.RoomNoI18n}">Room No</th>
-												<th th:text="${itemI18n?.StatusI18n}">Status</th>
+												<th th:text="${itemI18n?.StatusI18n}"> </th>
 												<th></th>
 											</tr>
 										</thead>
 										<tbody>										
 											<tr th:each="item:${items}">
 												<td th:text="${item?.RoomNo}"></td>
-												<td th:text="${item?.Status}"></td>
+												<td><span class="badge badge-info"  th:text="${item?.Status}"></span></td>
 												<td>
 												<a type="button" 
 													class="btn btn-flat btn-primary btn-xs mb-3"

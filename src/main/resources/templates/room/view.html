@@ -4,7 +4,7 @@
 <head>
 <meta charset="utf-8">
 <meta http-equiv="x-ua-compatible" content="ie=edge">
-<title>Amenities</title>
+<title th:text="${itemI18n?.getAllTitleI18n}">Amenities</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="shortcut icon" type="image/png"
 	href="../assets/images/icon/favicon.ico">
@@ -116,7 +116,7 @@
 										</tr>
 										<tr>
 											<td><b th:text="${itemI18n.RoomTypeI18n}">RoomType</b></b></td>
-											<td><p th:text="${item.RoomType}"></p></td>
+											<td><p th:text="${item.RoomType.Title}"></p></td>
 										</tr>
 										<tr>
 											<td><b th:text="${itemI18n.StatusI18n}">Status</b></b></td>

@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>New</title>
+    <title th:text="${itemI18n?.createTitleI18n}">New</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="shortcut icon" type="image/png" href="assets/images/icon/favicon.ico">
     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
@@ -98,6 +98,7 @@
                     <!-- data table start -->
                     <div class="col-12 mt-5">
                         <div class="card">
+                        
                                         <form class="needs-validation" novalidate="" th:action="@{/addpayment}" method="post">
                                             <div class="form-row">
                                                 <div class="col-md-4 mb-3">

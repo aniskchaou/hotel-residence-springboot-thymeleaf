@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Dashboard</title>
+    <title th:text="${menu?.dashboard}">Dashboard</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="shortcut icon" type="image/png" href="assets/images/icon/favicon.ico">
     <link rel="stylesheet" th:href="@{/assets/css/bootstrap.min.css}" >
@@ -39,7 +39,8 @@
         <div class="sidebar-menu">
             <div class="sidebar-header">
                 <div class="logo">
-                    <img src="img/logo.png" alt="">
+                   <a th:href="@{/}"><img src="assets/images/icon/logo.png"
+						alt="logo"></a>
                 </div>
             </div>
             <div class="main-menu">
@@ -52,52 +53,41 @@
         <!-- main content area start -->
         <div class="main-content">
             <!-- header area start -->
-            <div class="header-area">
-                <div class="row align-items-center">
-                    <!-- nav and search button -->
-                    <div class="col-md-6 col-sm-8 clearfix">
-                        <div class="nav-btn pull-left">
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                        </div>
-                        <div class="search-box pull-left">
-                            <form action="#">
-                                <input type="text" name="search" placeholder="Search..." required>
-                                <i class="ti-search"></i>
-                            </form>
-                        </div>
-                    </div>
-                    <!-- profile info & task notification -->
-                   <span class="col-md-6 col-sm-4 clearfix" th:insert="includes/notification_bar :: notification_bar"></span>
-                </div>
-            </div>
-            <!-- header area end -->
-            <!-- page title area start -->
-            <div class="page-title-area">
-                <div class="row align-items-center">
-                    <div class="col-sm-6">
-                        <div class="breadcrumbs-area clearfix">
-                            <h4 class="page-title pull-left">Dashboard</h4>
-                            <ul class="breadcrumbs pull-left">
-                                <li><a href="index.html">Home</a></li>
-                                <li><span>Dashboard</span></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-sm-6 clearfix">
-                        <div class="user-profile pull-right">
-                            <img class="avatar user-thumb" src="assets/images/author/avatar.png" alt="avatar">
-                            <h4 class="user-name dropdown-toggle" data-toggle="dropdown" th:text ="${#authentication.getPrincipal().getUser().getUsername()}">K <i class="fa fa-angle-down"></i></h4>
-                            <div class="dropdown-menu">
-                               <a class="dropdown-item" th:href="@{/profile}">Profile</a> <a
-									class="dropdown-item" th:href="@{/settings}">Settings</a> <a
-									class="dropdown-item" th:href="@{/logout}">Log Out</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+         <div class="header-area">
+				<div class="row align-items-center">
+					<!-- nav and search button -->
+					<div class="col-md-6 col-sm-8 clearfix">
+						<div class="nav-btn pull-left">
+							<span></span> <span></span> <span></span>
+						</div>
+						<div class="search-box pull-left">
+							<form action="#">
+								<input type="text" name="search" placeholder="Search..."
+									required> <i class="ti-search"></i>
+							</form>
+						</div>
+					</div>
+					<!-- profile info & task notification -->
+					<span class="col-md-6 col-sm-4 clearfix"
+						th:insert="includes/notification_bar :: notification_bar"></span>
+				</div>
+			</div>
+			<!-- header area end -->
+			<!-- page title area start -->
+			<div class="page-title-area">
+				<div class="row align-items-center">
+					<div class="col-sm-6">
+						<div class="breadcrumbs-area clearfix">
+							<h4 class="page-title pull-left"
+								th:text="${menu?.dashboard}">Subscribers</h4>
+
+						</div>
+					</div>
+					<div class="col-sm-6 clearfix">
+						<div th:insert="includes/usermenu :: usermenu"></div>
+					</div>
+				</div>
+			</div>
             <!-- page title area end -->
             <div class="main-content-inner">
                 <div class="row">
@@ -108,7 +98,7 @@
                                 <div class="card">
                                     <div class="seo-fact sbg1">
                                         <div class="p-4 d-flex justify-content-between align-items-center">
-                                            <div class="seofct-icon"><i class="ti-briefcase"></i> Rooms</div>
+                                            <div class="seofct-icon" th:text="${menu?.rooms}"><i class="ti-briefcase"></i> Rooms</div>
                                             <h2  th:text="${roomNB}"></h2>
                                         </div>
                                        
@@ -119,7 +109,7 @@
                                 <div class="card">
                                     <div class="seo-fact sbg2">
                                         <div class="p-4 d-flex justify-content-between align-items-center">
-                                            <div class="seofct-icon"><i class="ti-crown"></i> Customers</div>
+                                            <div class="seofct-icon" th:text="${menu?.customers}"><i class="ti-crown"></i> Customers</div>
                                             <h2  th:text="${customerNB}"></h2>
                                         </div>
                                        
@@ -131,7 +121,7 @@
                                 <div class="card">
                                     <div class="seo-fact sbg3">
                                         <div class="p-4 d-flex justify-content-between align-items-center">
-                                            <div class="seofct-icon"><i class="ti-flag-alt"></i> Checkins</div>
+                                            <div class="seofct-icon" th:text="${menu?.chekins}"><i class="ti-flag-alt"></i> Checkins</div>
                                             <h2  th:text="${checkinNB}"></h2>
                                         </div>
                                        
@@ -143,7 +133,7 @@
                                 <div class="card">
                                     <div class="seo-fact sbg4">
                                         <div class="p-4 d-flex justify-content-between align-items-center">
-                                            <div class="seofct-icon"><i class="ti-comment-alt"></i> Messages</div>
+                                            <div class="seofct-icon" th:text="${menu?.messages}"><i class="ti-comment-alt"></i> Messages</div>
                                             <h2 th:text="${messageNB}"></h2>
                                         </div>
                                        
@@ -155,7 +145,7 @@
                                 <div class="card">
                                     <div class="seo-fact sbg1">
                                         <div class="p-4 d-flex justify-content-between align-items-center">
-                                            <div class="seofct-icon"><i class="ti-map"></i> Beds</div>
+                                            <div class="seofct-icon" th:text="${menu?.beds}"><i class="ti-map"></i> Beds</div>
                                             <h2  th:text="${bedNB}"></h2>
                                         </div>
                                        
@@ -168,7 +158,7 @@
                                 <div class="card">
                                     <div class="seo-fact sbg2">
                                         <div class="p-4 d-flex justify-content-between align-items-center">
-                                            <div class="seofct-icon"><i class="ti-user"></i> Employees</div>
+                                            <div class="seofct-icon" th:text="${menu?.employees}"><i class="ti-user"></i> Employees</div>
                                             <h2  th:text="${employeeNB}"></h2>
                                         </div>
                                        
@@ -180,7 +170,7 @@
                                 <div class="card">
                                     <div class="seo-fact sbg3">
                                         <div class="p-4 d-flex justify-content-between align-items-center">
-                                            <div class="seofct-icon"><i class="ti-apple"></i> Laundry orders</div>
+                                            <div class="seofct-icon" th:text="${menu?.laundryorder}"><i class="ti-apple"></i> Laundry orders</div>
                                             <h2  th:text="${laundryNB}"></h2>
                                         </div>
                                        
@@ -192,7 +182,7 @@
                                 <div class="card">
                                     <div class="seo-fact sbg4">
                                         <div class="p-4 d-flex justify-content-between align-items-center">
-                                            <div class="seofct-icon"><i class="ti-share"></i> Food Orders</div>
+                                            <div class="seofct-icon" th:text="${menu?.foodorder}"><i class="ti-share"></i> Food Orders</div>
                                             <h2 th:text="${foodNB}"></h2>
                                         </div>
                                        
@@ -204,7 +194,7 @@
                                 <div class="card">
                                     <div class="seo-fact sbg1">
                                         <div class="p-4 d-flex justify-content-between align-items-center">
-                                            <div class="seofct-icon"><i class="ti-rocket"></i> Offers</div>
+                                            <div class="seofct-icon" th:text="${menu?.offers}"><i class="ti-rocket"></i> Offers</div>
                                             <h2 th:text="${offerNB}"></h2>
                                         </div>
                                        
@@ -216,7 +206,7 @@
                                 <div class="card">
                                     <div class="seo-fact sbg1">
                                         <div class="p-4 d-flex justify-content-between align-items-center">
-                                            <div class="seofct-icon"><i class="ti-wand"></i> House Keeping </div>
+                                            <div class="seofct-icon" th:text="${menu?.housekeeping}"><i class="ti-wand"></i> House Keeping </div>
                                             <h2 th:text="${housekeepingNB}"></h2>
                                         </div>
                                        
@@ -229,7 +219,7 @@
                                 <div class="card">
                                     <div class="seo-fact sbg2">
                                         <div class="p-4 d-flex justify-content-between align-items-center">
-                                            <div class="seofct-icon"><i class="ti-marker"></i> Blogs</div>
+                                            <div class="seofct-icon" th:text="${menu?.blogs}"><i class="ti-marker"></i> Blogs</div>
                                             <h2 th:text="${blogNB}"></h2>
                                         </div>
                                        
@@ -241,7 +231,7 @@
                                 <div class="card">
                                     <div class="seo-fact sbg3">
                                         <div class="p-4 d-flex justify-content-between align-items-center">
-                                            <div class="seofct-icon"><i class="ti-user"></i> Subsrcribers</div>
+                                            <div class="seofct-icon" th:text="${menu?.subrcribers}"><i class="ti-user"></i> Subsrcribers</div>
                                             <h2 th:text="${subscriberNB}"></h2>
                                         </div>
                                        

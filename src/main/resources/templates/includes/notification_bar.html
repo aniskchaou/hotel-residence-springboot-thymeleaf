@@ -30,7 +30,7 @@
 				<span class="notify-title"><b 
 				th:text="${header.messageone}+${messageNB}+${header.messagetwomessage}"
 				></b>
-					<a th:href="@{/messages}" th:value="${header?.viewallbutton}">view all</a></span>
+					<a th:href="@{/messagesadmin}" th:value="${header?.viewallbutton}">view all</a></span>
 				<div class="nofity-list">
 					<a href="#" class="notify-item" th:each="item:${messages}">
 						<div class="notify-thumb">
@@ -61,7 +61,7 @@
 							<p><b th:text="${item.customer?.Fullname}"></b></p>
 							<span class="msg"
 								th:text=" ${header?.bodymessage}+ ${item.room?.RoomNo}"></span>
-							<span>3:15 PM</span>
+							<span th:text=" ${item?.date} ">3:15 PM</span>
 						</div>
 					</a>
 
@@ -83,7 +83,7 @@
 							<p th:text="${item.customer?.Fullname}"></p>
 							<span class="msg"
 								th:text=" ${header?.bodymessage}+ ${item.room?.RoomNo} "></span>
-							<span>3:15 PM</span>
+							<span th:text=" ${item?.date} ">3:15 PM</span>
 						</div>
 					</a>
 
@@ -105,7 +105,7 @@
 							<p th:text="${item.customer?.Fullname}"></p>
 							<span class="msg"
 								th:text=" ${header?.bodymessage}+ ${item.room?.RoomNo} "></span>
-							<span>3:15 PM</span>
+							<span th:text=" ${item?.date} ">3:15 PM</span>
 						</div>
 					</a>
 
@@ -127,7 +127,7 @@
 							<p th:text="${item.customer?.Fullname}"></p>
 							<span class="msg"
 								th:text=" ${header?.bodymessage} "></span>
-							<span>3:15 PM</span>
+							<span th:text=" ${item?.date} ">3:15 PM</span>
 						</div>
 					</a>
 

@@ -4,7 +4,7 @@
 <head>
 <meta charset="utf-8">
 <meta http-equiv="x-ua-compatible" content="ie=edge">
-<title>Amenities</title>
+<title th:text="${itemI18n?.getAllTitleI18n}">Amenities</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="shortcut icon" type="image/png"
 	href="assets/images/icon/favicon.ico">
@@ -107,7 +107,7 @@
 							<div class="card-body">
 								<h4 class="header-title">
 									<a  th:href="@{/add-employee}"
-									type="button" class="btn btn-rounded btn-success mb-3">
+									type="button" class="btn btn-rounded btn-success mb-3" th:text="${itemI18n?.createTitleI18n}">
 										<i class="fa fa-plus" aria-hidden="true"></i> Create
 									</a>
 								</h4>

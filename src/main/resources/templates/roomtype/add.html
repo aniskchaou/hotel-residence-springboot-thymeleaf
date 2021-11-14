@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>New</title>
+    <title th:text="${itemI18n?.createTitleI18n}">New</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="shortcut icon" type="image/png" href="assets/images/icon/favicon.ico">
     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
@@ -194,7 +194,7 @@
                                                 </div>
                                               
                                             </div>
-                                            <button class="btn btn-primary" type="submit"><i class="fa fa-plus" aria-hidden="true"></i>
+                                            <button th:text="${itemI18n?.createTitleI18n}" class="btn btn-primary" type="submit"><i class="fa fa-plus" aria-hidden="true"></i>
                                               Create</button>
                                         </form>
                                     </div>

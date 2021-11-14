@@ -111,7 +111,7 @@
 											<td><p th:text="${item.Title}"></p></td>
 										</tr>
 										<tr>
-											<td><b th:text="${itemI18n.ShortCutI18n}">Short Code</b></b></td>
+											<td><b th:text="${itemI18n.ShortCodeI18n}">Short Code</b></b></td>
 											<td><p th:text="${item.ShortCode}"></p></td>
 										</tr>
 										<tr>
@@ -124,39 +124,39 @@
 										</tr>
 										<tr>
 											<td><b th:text="${itemI18n.BasePriceI18n}">Base Price</b></b></td>
-											<td><p th:text="${item.BasePrice}"></p></td>
+											<td><p ><span class="badge badge-primary" th:text="${item.BasePrice}"></span></p></td>
 										</tr>
 										<tr>
 											<td><b th:text="${itemI18n.amenityI18n}">amenity</b></b></td>
-											<td><p th:text="${item.amenity}"></p></td>
+											<td><p th:text="${item.amenity.name}"></p></td>
 										</tr>
 										<tr>
 											<td><b th:text="${itemI18n.AirConditionerI18n}">Air Conditioner</b></b></td>
-											<td><p th:text="${item.AirConditioner}"></p></td>
+											<td><p ><span class="badge badge-warning" th:text="${item.AirConditioner}"></span></p></td>
 										</tr>
 										<tr>
 											<td><b th:text="${itemI18n.BathTubI18n}">Bath Tub</b></b></td>
-											<td><p th:text="${item.BathTub}"></p></td>
+											<td><p ><span class="badge badge-warning" th:text="${item.BathTub}"></span></p></td>
 										</tr>
 										<tr>
 											<td><b th:text="${itemI18n.CoffeeMakerI18n}">Coffee Maker</b></b></td>
-											<td><p th:text="${item.CoffeeMaker}"></p></td>
+											<td><p ><span class="badge badge-warning" th:text="${item.CoffeeMaker}"></span></p></td>
 										</tr>
 										<tr>
 											<td><b th:text="${itemI18n.DoubleBedI18n}">Double Bed</b></b></td>
-											<td><p th:text="${item.DoubleBed}"></p></td>
+											<td><p ><span class="badge badge-warning" th:text="${item.DoubleBed}"></span></p></td>
 										</tr>
 										<tr>
 											<td><b th:text="${itemI18n.FreeNewspaperI18n}">Free Newspaper</b></b></td>
-											<td><p th:text="${item.FreeNewspaper}"></p></td>
+											<td><p><span class="badge badge-warning"  th:text="${item.FreeNewspaper}"></span></p></td>
 										</tr>
 										<tr>
 											<td><b th:text="${itemI18n.MiniFridgeI18n}">Mini Fridge</b></b></td>
-											<td><p th:text="${item.MiniFridge}"></p></td>
+											<td><p><span class="badge badge-warning"  th:text="${item.MiniFridge}"></span></p></td>
 										</tr>
 										<tr>
 											<td><b th:text="${itemI18n.wifiI18n}">wifi</b></b></td>
-											<td><p th:text="${item.wifi}"></p></td>
+											<td><p ><span class="badge badge-warning" th:text="${item.wifi}"></span></p></td>
 										</tr>
 										<tr>
 											<td><b th:text="${itemI18n.StatusI18n}">Status</b></b></td>

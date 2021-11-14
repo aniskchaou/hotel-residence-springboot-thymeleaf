@@ -73,7 +73,7 @@ public class SettingController {
 		menuHeaderUtil.getMenuHeader(model);
 		String lang = informationService.getSeletedLang();
 		model.addAttribute("itemuserI18n", userI18nRepository.findByLangI18n(lang));
-		model.addAttribute("itemhotelI18n", informationI18nRepository.findByLang(lang));
+		model.addAttribute("itemhotelI18n", informationI18nRepository.findByLangI18n(lang));
 		model.addAttribute("itememailI18n", emailI18nRepository.findByLangI18n(lang));
 		model.addAttribute("itemcurrencyI18n", currencyI18nRepository.findByLangI18n(lang));
 		
