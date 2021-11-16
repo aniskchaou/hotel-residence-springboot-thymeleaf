@@ -18,9 +18,8 @@ public class FoodOrder {
 	Room room;
 	String NoofPersons;
 	String WaiterName;
-	@ManyToOne
-	@JoinColumn(name = "food_id")
-	Food FoodItem;
+
+	String FoodItem;
 	
 	@ManyToOne
 	@JoinColumn(name = "checkin_id")
@@ -107,12 +106,18 @@ public class FoodOrder {
 		WaiterName = waiterName;
 	}
 
-	public Food getFoodItem() {
+
+
+	public String getFoodItem() {
 		return FoodItem;
 	}
 
-	public void setFoodItem(Food foodItem) {
+
+
+	public void setFoodItem(String foodItem) {
 		FoodItem = foodItem;
 	}
+
+	
 
 }

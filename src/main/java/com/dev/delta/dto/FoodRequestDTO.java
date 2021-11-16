@@ -41,7 +41,7 @@ public class FoodRequestDTO implements DTO {
 		
 		foodRequestOrder.setCustomer(customer);
 		foodRequestOrder.setDate(new Date().toString());
-		foodRequestOrder.setFoodItem(food);
+		foodRequestOrder.setFoodItem("Pizza");
 		foodRequestOrder.setNoofPersons("Persons");
 		foodRequestOrder.setRoom(room);
 		foodRequestOrder.setStatus("Status");

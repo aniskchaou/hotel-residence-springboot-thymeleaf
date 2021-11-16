@@ -47,6 +47,9 @@ public  class UIMenuHeaderUtil {
 	@Autowired
 	UIHeaderI18nRepository  headerI18nRepository;
 	
+	@Autowired
+	NotificationRepository  notificationRepository2;
+	
 	public void getMenuHeader(Model model)
 	{
 		String lang = informationService.getSeletedLang();

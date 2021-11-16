@@ -21,7 +21,7 @@ public class FoodOrderDTO implements DTO {
 	public void populate() {
 		
 		foodOrder.setCheckin(checkIn);
-		foodOrder.setFoodItem(food);
+		foodOrder.setFoodItem("Pizza");
 		foodOrder.setNoofPersons("1");
 		foodOrder.setPrice("33");
 		foodOrder.setRoom(room);

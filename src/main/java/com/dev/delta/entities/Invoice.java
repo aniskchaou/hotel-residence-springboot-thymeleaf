@@ -23,20 +23,16 @@ public class Invoice {
 	@Column(name = "create_at")
 	private String createAt;
 		
-	  @ManyToMany
-	    @JoinTable(name = "items_invoice",joinColumns =  @JoinColumn(name = "service_id"),
-	    	    inverseJoinColumns = @JoinColumn(name="items_id"))
-	private List<Service> items;
+	 
+	private String service;
 	
-	@ManyToOne
-	@JoinColumn(name = "vat_id")
-	VAT vat;
+	
 	
 	@ManyToOne
 	@JoinColumn(name = "checkin_id")
 	CheckIn  checkIn;
 	
-	String total;
+	String price;
 	
 	public Invoice() {
 		// TODO Auto-generated constructor stub
@@ -74,29 +70,39 @@ public class Invoice {
 
 	
 
-	public List<Service> getItems() {
-		return items;
+	
+
+	public String getService() {
+		return service;
 	}
 
-	public void setItems(List<Service> items) {
-		this.items = items;
+
+
+	public void setService(String service) {
+		this.service = service;
 	}
 
-	public VAT getVat() {
-		return vat;
+
+
+
+
+
+
+	public String getPrice() {
+		return price;
 	}
 
-	public void setVat(VAT vat) {
-		this.vat = vat;
+
+
+	public void setPrice(String price) {
+		this.price = price;
 	}
 
-	public String getTotal() {
-		return total;
-	}
+	
 
-	public void setTotal(String total) {
-		this.total = total;
-	}
+
+
+	
 	
 	
 	

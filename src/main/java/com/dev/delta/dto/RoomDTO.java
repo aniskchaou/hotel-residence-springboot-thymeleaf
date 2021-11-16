@@ -18,11 +18,38 @@ public class RoomDTO implements DTO {
 	@Override
 	public void populate() {
 	  
-		room.setFloor("12");
+		room.setFloor("1");
 		room.setRoomNo("1023");
 		room.setRoomType(roomType1);
 		room.setStatus("Active");
 		roomRepository.save(room);
+		
+		
+		room1.setFloor("2");
+		room1.setRoomNo("1023");
+		room1.setRoomType(roomType1);
+		room1.setStatus("Active");
+		roomRepository.save(room1);
+		
+		
+		room2.setFloor("1");
+		room2.setRoomNo("1024");
+		room2.setRoomType(roomType3);
+		room2.setStatus("Active");
+		roomRepository.save(room2);
+		
+		
+		room3.setFloor("1");
+		room3.setRoomNo("1022");
+		room3.setRoomType(roomType2);
+		room3.setStatus("Inactive");
+		roomRepository.save(room3);
+		
+		room4.setFloor("2");
+		room4.setRoomNo("1021");
+		room4.setRoomType(roomType3);
+		room4.setStatus("Active");
+		roomRepository.save(room4);
 		  
 		
 		roomI18n.setFloorI18n("Floor");

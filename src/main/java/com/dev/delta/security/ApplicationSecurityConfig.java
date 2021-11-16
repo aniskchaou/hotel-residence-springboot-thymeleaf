@@ -35,7 +35,7 @@ public class ApplicationSecurityConfig extends WebSecurityConfigurerAdapter {
 		http.csrf().disable().authorizeRequests()
 		        .antMatchers("/amenities/**").hasAnyAuthority("ADMIN")
 				.antMatchers("/changelang/**","/addcheckinuser","/photos/**","/login","/","/about","/contact","/blog","/addmessage","/scss/**","/resources/**", "/css/**", "/fonts/**", "/img/**","/assets/**").permitAll()
-				.antMatchers("/addcheckinregistration/**","/summarybooking/**","/paymentbooking/**","/detailbooking/**", "/bookingroom/**","/validationbooking/**","/room","/register", "/resources/**", "/css/**", "/fonts/**", "/img/**", "/js/**", "/dist/**",
+				.antMatchers("/pay/success","/pay/success",  "/pay/**","/addcheckinregistration/**","/summarybooking/**","/paymentbooking/**","/detailbooking/**", "/bookingroom/**","/validationbooking/**","/room","/register", "/resources/**", "/css/**", "/fonts/**", "/img/**", "/js/**", "/dist/**",
 						"/plugins/**")	
 				.permitAll().antMatchers("/adduser").permitAll().anyRequest().authenticated().and().formLogin()
 				.loginPage("/login").defaultSuccessUrl("/dashboard").permitAll().and().logout().invalidateHttpSession(true).clearAuthentication(true)

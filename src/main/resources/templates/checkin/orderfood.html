@@ -110,12 +110,11 @@
 									<div class="form-row">
 										<div class="col-md-4 mb-3">
 											
-											<label for="validationCustom01" th:text="${itemI18n?.FoodItemI18n}">Food Item</label> <select
-												name="FoodItem" data-live-search="true" type="text"
-												class="form-control selectpicker" required="required">
-												<option th:value="${u.id}" th:each="u:${foods}"
-													th:text="${u.ItemName}"></option>
-											</select>
+											<label for="validationCustom01" th:text="${itemI18n?.FoodItemI18n}">Food Item</label>
+											 <input
+												name="FoodItem"  type="text"
+												class="form-control" required="required"/>
+											
 											
 										</div>
 										<div class="col-md-4 mb-3">

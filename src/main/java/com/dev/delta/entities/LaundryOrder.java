@@ -19,12 +19,40 @@ public class LaundryOrder {
 	Room room;
 	String laundryitem;
 	String date;
+	@ManyToOne
+	@JoinColumn(name = "checkin_id")
+	CheckIn checkin;
+	String price;
 	
 	public LaundryOrder() {
 		// TODO Auto-generated constructor stub
 	}
 
 	
+
+	public CheckIn getCheckin() {
+		return checkin;
+	}
+
+
+
+	public void setCheckin(CheckIn checkin) {
+		this.checkin = checkin;
+	}
+
+
+
+	public String getPrice() {
+		return price;
+	}
+
+
+
+	public void setPrice(String price) {
+		this.price = price;
+	}
+
+
 
 	public Room getRoom() {
 		return room;

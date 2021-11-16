@@ -1,5 +1,6 @@
 package com.dev.delta.controllers;
 
+import java.util.Date;
 import java.util.List;
 
 import javax.transaction.Transactional;
@@ -17,8 +18,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.dev.delta.entities.CheckIn;
 import com.dev.delta.entities.FoodOrder;
 import com.dev.delta.entities.FoodRequestOrder;
+import com.dev.delta.entities.Invoice;
 import com.dev.delta.entities.Service;
 import com.dev.delta.i18n.entities.CityI18n;
+import com.dev.delta.repositories.InvoiceRepository;
 import com.dev.delta.repositories.ServiceRepository;
 import com.dev.delta.services.CheckInService;
 import com.dev.delta.services.CustomerService;
@@ -45,6 +48,11 @@ public class FoodOrderController {
 	
 	@Autowired
 	ServiceRepository  serviceRepository;
+	
+	Invoice invoice;
+	
+	@Autowired
+	InvoiceRepository    invoiceRepository;
 	
 	@GetMapping("/add-foodorder")
 	public String getaddAmenity(Model model) {
@@ -80,17 +88,16 @@ public class FoodOrderController {
 	 * @return
 	 */
 	@PostMapping("/addfoodorder")
-
 	public String addFoodOrder(FoodOrder foodOrder) {
 		foodOrderService.save(foodOrder);
-		Service service=new Service();
-		service.setName(foodOrder.getFoodItem().getItemName());
-		service.setCheckin(foodOrder.getCheckin());
-		service.setPrice(foodOrder.getPrice());
-		//System.err.println(foodOrder.toString());
-		serviceRepository.save(service);
+		invoice=new Invoice();
+        invoice.setCheckIn(foodOrder.getCheckin());
+        invoice.setCreateAt(new Date().toString());
+        invoice.setPrice(foodOrder.getPrice());
+        invoice.setService("Order food "+foodOrder.getFoodItem());
+        invoiceRepository.save(invoice);
 		//return "redirect:/checkins";
-		return "redirect:/foodrequest";
+		return "redirect:/checkins";
 	}
 
 	/**

@@ -1,5 +1,6 @@
 package com.dev.delta.controllers;
 
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,6 +16,7 @@ import com.dev.delta.entities.ExtraBedRequestOrder;
 import com.dev.delta.entities.FoodOrder;
 import com.dev.delta.entities.FoodRequestOrder;
 import com.dev.delta.entities.HouseKeepingRequestOrder;
+import com.dev.delta.entities.Invoice;
 import com.dev.delta.entities.LaundryOrder;
 import com.dev.delta.entities.LaundryRequestOrder;
 import com.dev.delta.entities.User;
@@ -33,6 +35,7 @@ import com.dev.delta.repositories.CustomerRepository;
 import com.dev.delta.repositories.ExtraBedRequestRepository;
 import com.dev.delta.repositories.FoodOrderRequestRepository;
 import com.dev.delta.repositories.HouseKeepingRequestRepository;
+import com.dev.delta.repositories.InvoiceRepository;
 import com.dev.delta.repositories.LaundryOrderRepository;
 import com.dev.delta.security.UserPrincipal;
 import com.dev.delta.services.CheckInService;
@@ -103,6 +106,16 @@ public class RequestOrderController {
 	
 	@Autowired
 	FoodService  foodService ;
+	
+	
+	Invoice invoice;
+	
+	
+	@Autowired
+	InvoiceRepository   invoiceRepository;
+	
+	
+	
 	@GetMapping("/extrabedrequest")
 	public String getextrabedsRequest(Model model) {
 		List<ExtraBedRequestOrder> items = extraBedRequestService.getExtraBedRequest();
@@ -206,12 +219,27 @@ public class RequestOrderController {
 	public String saveFoodOrder(FoodRequestOrder foodRequestOrder) {
 		System.err.println(foodRequestOrder.toString());
 		foodOrderRequestRepository.save(foodRequestOrder);
+		/*invoice.setCheckIn(foodRequestOrder.get);
+		invoice.setCreateAt(new Date().toString());
+		invoice.setService();
+		invoice.setVat(null);*/
+		
+		System.err.println(foodRequestOrder.toString());
 		return "redirect:/dashboard";
 	}
+	
+	
 	
 	@PostMapping("/addextrabedorder")
 	public String saveExtraBedOrder(ExtraBedRequestOrder bedRequestOrder) {
 		bedOrderRepository.save(bedRequestOrder);
+		//invoice.setCheckIn(bedRequestOrder.get);
+		   invoice=new Invoice();
+		  invoice.setCheckIn(bedRequestOrder.getCheckin());
+	        invoice.setCreateAt(new Date().toString());
+	        invoice.setPrice(bedRequestOrder.getPrice());
+	        invoice.setService("extra Bed "+bedRequestOrder.getExtraBed());
+	        invoiceRepository.save(invoice);
 		System.err.println(bedRequestOrder.toString());
 		return "redirect:/dashboard";
 	}
@@ -220,14 +248,31 @@ public class RequestOrderController {
 	@PostMapping("/addhousekeepingorder")
 	public String saveHouseKeepingOrder(HouseKeepingRequestOrder houseKeepingRequestOrder) {
 		houseKeepingOrderRepository.save(houseKeepingRequestOrder);
+		
+		invoice=new Invoice();
+		  invoice.setCheckIn(houseKeepingRequestOrder.getCheckin());
+	        invoice.setCreateAt(new Date().toString());
+	        invoice.setPrice(houseKeepingRequestOrder.getPrice());
+	        invoice.setService("House keeping "+houseKeepingRequestOrder.getHousekeepingItem());
+	        invoiceRepository.save(invoice);
+	        
 		return "redirect:/dashboard";
 	}
 	
 	@PostMapping("/addlaundryorder")
 	public String saveLaundryOrder(LaundryOrder laundryOrder ) {
 		laundryOrderRepository.save(laundryOrder);
+		
+		invoice=new Invoice();
+		  invoice.setCheckIn(laundryOrder.getCheckin());
+	        invoice.setCreateAt(new Date().toString());
+	        invoice.setPrice(laundryOrder.getPrice());
+	        invoice.setService("Laundry order "+laundryOrder.getLaundryitem());
+	        invoiceRepository.save(invoice);
 		return "redirect:/dashboard";
 	}
+	
+	
 	
 	
 }

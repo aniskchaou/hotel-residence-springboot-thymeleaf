@@ -3,6 +3,7 @@ package com.dev.delta.controllers;
 import java.io.IOException;
 import java.util.Date;
 import java.util.List;
+import java.util.Random;
 
 import javax.mail.MessagingException;
 import javax.mail.internet.AddressException;
@@ -25,35 +26,34 @@ import com.dev.delta.email.EmailSettingRepository;
 import com.dev.delta.entities.CheckIn;
 import com.dev.delta.entities.Customer;
 import com.dev.delta.entities.Food;
+import com.dev.delta.entities.InformationHotel;
 import com.dev.delta.entities.Invoice;
 import com.dev.delta.entities.LaundryItem;
+import com.dev.delta.entities.Notification;
+import com.dev.delta.entities.Role;
 import com.dev.delta.entities.Room;
 import com.dev.delta.entities.Service;
 import com.dev.delta.entities.User;
 import com.dev.delta.entities.VAT;
-import com.dev.delta.i18n.entities.AmenityI18n;
 import com.dev.delta.i18n.entities.CheckInI18n;
-import com.dev.delta.i18n.entities.CityI18n;
 import com.dev.delta.i18n.entities.ExtraBedI18n;
-import com.dev.delta.i18n.entities.FoodI18n;
 import com.dev.delta.i18n.entities.FoodOrderI18n;
-import com.dev.delta.i18n.entities.HouseKeepingItemI18n;
 import com.dev.delta.i18n.entities.HouseKeepingOrderI18n;
-import com.dev.delta.i18n.entities.LaundryItemI18n;
 import com.dev.delta.i18n.entities.LaundryOrderI18n;
 import com.dev.delta.i18n.repositories.CheckInI18nRepository;
 import com.dev.delta.i18n.repositories.ExtraBedI18nRepository;
-import com.dev.delta.i18n.repositories.FoodI18nRepository;
 import com.dev.delta.i18n.repositories.FoodOrderI18nRepository;
-import com.dev.delta.i18n.repositories.HouseKeepingItemI18nRepository;
 import com.dev.delta.i18n.repositories.HouseKeepingOrderI18nRepository;
 import com.dev.delta.i18n.repositories.LaundryItemI18nRepository;
 import com.dev.delta.i18n.repositories.LaundryOrderI18nRepository;
-import com.dev.delta.repositories.BedRepository;
 import com.dev.delta.repositories.CustomerRepository;
 import com.dev.delta.repositories.InvoiceRepository;
 import com.dev.delta.repositories.LaundryItemRepository;
+import com.dev.delta.repositories.NotificationRepository;
+import com.dev.delta.repositories.RoleRepository;
+import com.dev.delta.repositories.RoomRepository;
 import com.dev.delta.repositories.ServiceRepository;
+import com.dev.delta.repositories.UserRepository;
 import com.dev.delta.repositories.VATRepository;
 import com.dev.delta.security.UserPrincipal;
 import com.dev.delta.services.BedService;
@@ -64,6 +64,7 @@ import com.dev.delta.services.CustomerService;
 import com.dev.delta.services.FoodService;
 import com.dev.delta.services.GuestTypeService;
 import com.dev.delta.services.InformationService;
+import com.dev.delta.services.InvoiceService;
 import com.dev.delta.services.RoomService;
 import com.dev.delta.services.RoomTypeService;
 import com.dev.delta.util.UIMenuHeaderUtil;
@@ -115,33 +116,53 @@ public class CheckInController {
 
 	@Autowired
 	CustomerRepository customerRepository;
-	
+
 	@Autowired
-	BedService  bedService;
+	BedService bedService;
 	@Autowired
-	InformationService  informationService;
+	InformationService informationService;
 	@Autowired
-	CheckInI18nRepository  checkInI18nRepository;
+	CheckInI18nRepository checkInI18nRepository;
 	@Autowired
-	UIMenuHeaderUtil  menuHeaderUtil;
-	
+	UIMenuHeaderUtil menuHeaderUtil;
+
 	@Autowired
 	ExtraBedI18nRepository extraBedI18nRepository;
+
+	@Autowired
+	FoodOrderI18nRepository foodOrderI18nRepository;
+
+	@Autowired
+	HouseKeepingOrderI18nRepository houseKeepingOrderI18nRepository;
+
+	@Autowired
+	LaundryItemI18nRepository laundryItemI18nRepository;
+
+	@Autowired
+	LaundryItemRepository laundryItemRepository;
+
+	@Autowired
+	LaundryOrderI18nRepository laundryOrderI18nRepository;
+
+	@Autowired
+	NotificationRepository notificationRepository;
+
+	Notification notification;
+
+	Invoice invoice;
 	
 	@Autowired
-	FoodOrderI18nRepository   foodOrderI18nRepository;
+	RoleRepository  roleRepository;
 	
 	@Autowired
-	HouseKeepingOrderI18nRepository  houseKeepingOrderI18nRepository;
+	UserRepository   userRepository;
 	
 	@Autowired
-	LaundryItemI18nRepository   laundryItemI18nRepository;
+	InvoiceService  invoiceService;
 	
 	@Autowired
-	LaundryItemRepository  laundryItemRepository;
+	RoomRepository roomRepository  ;
 	
-	@Autowired
-	LaundryOrderI18nRepository  laundryOrderI18nRepository;
 	
 	
 
@@ -152,8 +173,8 @@ public class CheckInController {
 		model.addAttribute("countries", countryService.getCountrys());
 		model.addAttribute("guestTypes", guestTypeService.getGuestTypes());
 		model.addAttribute("roomTypes", roomTypeService.getRoomTypes());
-		model.addAttribute("rooms", roomService.getRooms());
-		
+		model.addAttribute("rooms",roomRepository.findFreeRooms() );
+
 		String lang = informationService.getSeletedLang();
 		CheckInI18n checkI18n = checkInI18nRepository.findByLangI18n(lang);
 		model.addAttribute("itemI18n", checkI18n);
@@ -176,7 +197,7 @@ public class CheckInController {
 		CheckInI18n checkI18n = checkInI18nRepository.findByLangI18n(lang);
 		model.addAttribute("itemI18n", checkI18n);
 		menuHeaderUtil.getMenuHeader(model);
-		
+
 		return "checkin/checkins";
 	}
 
@@ -188,7 +209,7 @@ public class CheckInController {
 		Customer customer = customerRepository.findByUser(user);
 		List<CheckIn> checkIns = checkInService.getCheckInByCustomer(customer);
 		model.addAttribute("items", checkIns);
-		
+
 		String lang = informationService.getSeletedLang();
 		CheckInI18n checkI18n = checkInI18nRepository.findByLangI18n(lang);
 		model.addAttribute("itemI18n", checkI18n);
@@ -209,9 +230,57 @@ public class CheckInController {
 	@PostMapping("/addcheckin")
 
 	public String addCheckIn(CheckIn checkIn) throws AddressException, MessagingException, IOException {
-		checkInService.save(checkIn);
+		
 		sendEmail(checkIn);
 		
+		
+		
+		
+		Role role=new Role();
+		role.setName("CLIENT");
+		roleRepository.save(role);
+		
+		User user=new User();
+		user.setPassword("user");
+		user.setUsername("user");
+		user.setRole(role);
+		userRepository.save(user);
+		
+		
+		Customer  customer=new Customer();
+		customer.setAddress(checkIn.getAddress());
+		customer.setAge(checkIn.getAge());
+		customer.setCity(checkIn.getCity());
+		customer.setCountry(checkIn.getCountry());
+		customer.setEmail(checkIn.getEmail());
+		customer.setFullname(checkIn.getFullname());
+		customer.setGender(checkIn.getGender());
+		customer.setMobile(checkIn.getMobile());
+		customer.setUser(user);
+		customerService.save(customer);
+		
+		checkIn.setCutomer(customer);
+		checkInService.save(checkIn);
+		
+		notification = new Notification();
+		notification.setDate(new Date().toString());
+		notification.setName("New checkin added by " + checkIn.getFullname());
+		notificationRepository.save(notification);
+
+		invoice = new Invoice();
+		invoice.setCheckIn(checkIn);
+		invoice.setCreateAt(new Date().toString());
+		invoice.setPrice(checkIn.getRoom().getRoomType().getBasePrice());
+		invoice.setService("Booking room no" + checkIn.getRoom().getRoomNo());
+		invoiceRepository.save(invoice);
+		
+		
+	     Room room=checkIn.getRoom();
+	     room.setStatus("Inactive"); 
+	     roomRepository.save(room);
+		
+		
+
 		return "redirect:/checkins";
 	}
 
@@ -219,7 +288,11 @@ public class CheckInController {
 	public String addCheckInUser(CheckIn checkIn) throws AddressException, MessagingException, IOException {
 
 		checkInService.save(checkIn);
-		// sendEmail(checkIn);
+		sendEmail(checkIn);
+		notification = new Notification();
+		notification.setDate(new Date().toString());
+		notification.setName("New checkin added by " + checkIn.getFullname());
+		notificationRepository.save(notification);
 		return "redirect:/";
 	}
 
@@ -232,9 +305,11 @@ public class CheckInController {
 		Long id = 1L;
 
 		EmailSetting emailSetting = emailSettingRepository.getById(id);
-		emailService.sendmail(emailSetting.getAuth(), emailSetting.getEnableTLS(), emailSetting.getHost(),
-				emailSetting.getPort(), emailSetting.getEmail(), checkIn.getEmail(), emailSetting.getPassword(), body,
-				subject);
+		if (!checkIn.getEmail().equals("") && !emailSetting.getPassword().equals("")) {
+			emailService.sendmail(emailSetting.getAuth(), emailSetting.getEnableTLS(), emailSetting.getHost(),
+					emailSetting.getPort(), emailSetting.getEmail(), checkIn.getEmail(), emailSetting.getPassword(),
+					body, subject);
+		}
 	}
 
 	/**
@@ -269,11 +344,12 @@ public class CheckInController {
 			Model model) {
 
 		CheckIn checkin = checkInService.save(checkIn);
-		Service service = new Service();
-		service.setCheckin(checkin);
-		service.setName(checkin.getRoom().getRoomType().getTitle());
-		service.setPrice(checkin.getRoom().getRoomType().getBasePrice());
-		serviceRepository.save(service);
+		Invoice invoice=new Invoice();
+		invoice.setCheckIn(checkin);
+		invoice.setService(checkin.getRoom().getRoomType().getTitle());
+		invoice.setPrice(checkin.getRoom().getRoomType().getBasePrice());
+		invoice.setCreateAt(new Date().toString());
+		invoiceRepository.save(invoice);
 		return "redirect:/checkins";
 	}
 
@@ -301,13 +377,13 @@ public class CheckInController {
 	public String OrderFood(@PathVariable("id") Long id, @PathVariable("check") Long checkId, Model model) {
 		// Customer customer=customerService.findById(id).get();
 		Room room = roomService.findById(id).get();
-		
+
 		List<Food> foods = foodService.getFoods();
 		model.addAttribute("room", room);
 		model.addAttribute("foods", foods);
 		model.addAttribute("checkin", checkInService.findById(checkId));
 		model.addAttribute("customer", checkInService.findById(checkId).getCutomer());
-		
+
 		String lang = informationService.getSeletedLang();
 		FoodOrderI18n foodI18n = foodOrderI18nRepository.findByLangI18n(lang);
 		model.addAttribute("itemI18n", foodI18n);
@@ -318,15 +394,15 @@ public class CheckInController {
 	@GetMapping("/orderlaundry/{id}/{check}")
 	public String OrderLaundry(@PathVariable("id") Long id, @PathVariable("check") Long checkId, Model model) {
 		Room room = roomService.findById(id).get();
-		List<LaundryItem> laundries=laundryItemRepository.findAll();
+		List<LaundryItem> laundries = laundryItemRepository.findAll();
 		model.addAttribute("room", room);
 		model.addAttribute("laundriess", laundries);
-		laundries.forEach( e->{
+		laundries.forEach(e -> {
 			System.err.println(e.getName());
 		});
 		model.addAttribute("checkin", checkInService.findById(checkId));
 		model.addAttribute("customer", checkInService.findById(checkId).getCutomer());
-		
+
 		String lang = informationService.getSeletedLang();
 		LaundryOrderI18n laundryI18n = laundryOrderI18nRepository.findByLangI18n(lang);
 		model.addAttribute("itemI18n", laundryI18n);
@@ -341,7 +417,7 @@ public class CheckInController {
 		model.addAttribute("room", room);
 		model.addAttribute("checkin", checkInService.findById(checkId));
 		model.addAttribute("customer", checkInService.findById(checkId).getCutomer());
-		
+
 		String lang = informationService.getSeletedLang();
 		ExtraBedI18n extrabed = extraBedI18nRepository.findByLangI18n(lang);
 		model.addAttribute("itemI18n", extrabed);
@@ -355,7 +431,7 @@ public class CheckInController {
 		model.addAttribute("room", room);
 		model.addAttribute("checkin", checkInService.findById(checkId));
 		model.addAttribute("customer", checkInService.findById(checkId).getCutomer());
-		
+
 		String lang = informationService.getSeletedLang();
 		HouseKeepingOrderI18n housekeepingI18n = houseKeepingOrderI18nRepository.findByLangI18n(lang);
 		model.addAttribute("itemI18n", housekeepingI18n);
@@ -366,11 +442,33 @@ public class CheckInController {
 	@GetMapping("/viewinvoice/{id}")
 	public String viewInvoice(@PathVariable("id") Long id, Model model) {
 		CheckIn checkIn = checkInService.findById(id);
+		InformationHotel informationHotel = informationService.findById(1L);
+		List<Invoice> invoices = invoiceRepository.findByCheckIn(checkIn);
+		double subtotal=invoiceService.calculateSubTotalPrice(invoiceRepository);
+		double total=invoiceService.calculatetotalPrice(invoiceRepository);
+		double vatrate=invoiceService.calculatevatrate(invoiceRepository);
+		model.addAttribute("invoices", invoices);
+		model.addAttribute("hotel", informationHotel);
+		model.addAttribute("checkin", checkIn);
+		model.addAttribute("subtotal", subtotal);
+		model.addAttribute("total", total);
+		model.addAttribute("vatrate", vatrate);
+		model.addAttribute("ref", generateRefInvoice());
+		model.addAttribute("date", new Date().toString());
 
-		Invoice invoice = invoiceRepository.findByCheckIn(checkIn);
-		model.addAttribute("invoice", invoice);
-
+		
+		
 		return "invoice/view";
+	}
+	
+	private String generateRefInvoice()
+	{
+		 String zeros = "000000";
+		    Random rnd = new Random();
+		    String s = Integer.toString(rnd.nextInt(0X1000000), 16);
+		    s = zeros.substring(s.length()) + s;
+		    
+		    return s;
 	}
 
 	@GetMapping("/checkout/{id}")
@@ -383,13 +481,12 @@ public class CheckInController {
 		VAT vat = new VAT();
 		vatRepository.save(vat);
 		// create invoice
-		invoice.setCreateAt(new Date().toString());
-		System.err.println(serviceRepository.findByCheckin(checkIn).size());
-		invoice.setItems(serviceRepository.findByCheckin(checkIn));
-		invoice.setVat(vat);
-		invoice.setTotal("199779");
-		invoice.setCheckIn(checkIn);
-
+		/*
+		 * invoice.setCreateAt(new Date().toString());
+		 * System.err.println(serviceRepository.findByCheckin(checkIn).size());
+		 * invoice.setItems(serviceRepository.findByCheckin(checkIn));
+		 * invoice.setVat(vat); invoice.setTotal("199779"); invoice.setCheckIn(checkIn);
+		 */
 		invoiceRepository.save(invoice);
 
 		return "redirect:/checkins";

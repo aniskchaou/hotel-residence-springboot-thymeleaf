@@ -1,11 +1,13 @@
 package com.dev.delta.controllers;
 
 import java.io.IOException;
+import java.util.Date;
 
 import javax.mail.MessagingException;
 import javax.mail.internet.AddressException;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,12 +18,18 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.dev.delta.entities.CheckIn;
 import com.dev.delta.entities.Customer;
 import com.dev.delta.entities.InformationHotel;
+import com.dev.delta.entities.Invoice;
+import com.dev.delta.entities.Notification;
 import com.dev.delta.entities.Role;
 import com.dev.delta.entities.Room;
 import com.dev.delta.entities.User;
+import com.dev.delta.i18n.entities.WebsiteFooterI18n;
 import com.dev.delta.i18n.repositories.WebsiteFooterI18nRepository;
 import com.dev.delta.i18n.repositories.WebsiteMenuI18nRepository;
+import com.dev.delta.repositories.InvoiceRepository;
+import com.dev.delta.repositories.NotificationRepository;
 import com.dev.delta.repositories.RoleRepository;
+import com.dev.delta.repositories.RoomRepository;
 import com.dev.delta.repositories.UserRepository;
 import com.dev.delta.services.CheckInService;
 import com.dev.delta.services.CityService;
@@ -70,6 +78,17 @@ public class BookingController {
 	
 	@Autowired
 	RoleRepository  roleRepository;
+	
+	@Autowired
+	NotificationRepository   notificationRepository;
+	
+	Notification   notification;
+
+	@Autowired
+	InvoiceRepository invoiceRepository;
+	
+	@Autowired
+	RoomRepository  roomRepository;
 	
 	/*@GetMapping("/validationbooking/{id}")
 	public String getBlogs(@PathVariable("id") Long id,Model model) {
@@ -171,6 +190,22 @@ public class BookingController {
 		
 		checkIn.setCutomer(customer);
 		CheckIn checkin=checkInService.save(checkIn);
+		
+		notification=new Notification();
+		notification.setDate(new Date().toString());
+		notification.setName("New checkin added by "+checkIn.getFullname());
+		notificationRepository.save(notification);
+		
+		Invoice invoice=new Invoice();
+		invoice.setCheckIn(checkin);
+		invoice.setService(checkin.getRoom().getRoomType().getTitle());
+		invoice.setPrice(checkin.getRoom().getRoomType().getBasePrice());
+		invoice.setCreateAt(new Date().toString());
+		invoiceRepository.save(invoice);
+		
+		 Room room=checkIn.getRoom();
+	     room.setStatus("Inactive"); 
+	     roomRepository.save(room);
 
 		return "redirect:/summarybooking/"+checkin.getId();
 		

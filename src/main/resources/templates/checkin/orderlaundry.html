@@ -124,6 +124,12 @@
 												id="validationCustom02" placeholder="Persons" required="">
 
 										</div>
+										<div class="col-md-4 mb-3">
+											<label for="validationCustom01" >Price</label> <input
+												name="price" type="text" class="form-control"
+												id="validationCustom01" placeholder="Remark">
+
+										</div>
 										
 										
 									</div>
@@ -131,6 +137,7 @@
 										
 										
 										<input name="room" type="hidden" th:value="${room.id}" />
+										<input type="hidden" name="checkin" th:value="${check}"/>
 									
 										
 									</div>

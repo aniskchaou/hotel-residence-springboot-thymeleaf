@@ -121,6 +121,7 @@
 												<th th:text="${itemI18n?.EmailI18n}"></th>
 												<th th:text="${itemI18n?.CheckInI18n}"></th>
 												<th th:text="${itemI18n?.CheckOutI18n}"></th>
+												<th th:text="${itemI18n?.roomI18n}"></th>
 												<th th:text="${itemI18n?.statusI18n}"></th>
 												<th th:text="${itemI18n?.paymentStatusI18n}"></th>
 												<th></th>
@@ -132,6 +133,7 @@
 												<td th:text="${item.Email}"></td>
 												<td th:text="${item.CheckIn}"></td>
 												<td th:text="${item.CheckOut}"></td>
+												<td ><span class="badge badge-danger" th:text="${item.room.RoomNo}"></span></td>
 												<td><span class="badge badge-primary" th:text="${item.status}" ></span></td>
 												<td><span th:text="${item.paymentStatus}" class="badge badge-info"></span></td>
 												<td>

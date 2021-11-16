@@ -109,7 +109,7 @@
 									th:action="@{/addextrabedorder}" method="post">
 								
 									<div class="form-row">
-									<input type="hidden" name="check" th:value="${check}"/>
+									<input type="hidden" name="checkin" th:value="${check}"/>
 										<div class="col-md-4 mb-3">
 											<label for="validationCustom01" th:text="${itemI18n?.ExtraBedI18n}">Extra Bed</label> <input
 												name="ExtraBed" type="numer" class="form-control"
@@ -130,6 +130,15 @@
 												id="validationCustom02" placeholder="Comment" required="">
 
 										</div>
+										
+										<div class="col-md-4 mb-3">
+											<label for="validationCustom02" th:text="${itemI18n?.priceI18n}"></label> <input
+												name="price" type="text" class="form-control"
+												id="validationCustom02" placeholder="Comment" required="">
+
+										</div>
+										
+										
 											<input name="customer" type="hidden" th:value="${customer.id}" />
 										<input name="room" type="hidden" th:value="${room.id}" />
 										<input name="checkin" type="hidden" th:value="${checkin.id}" />

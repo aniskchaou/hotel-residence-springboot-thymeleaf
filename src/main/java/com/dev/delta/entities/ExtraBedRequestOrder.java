@@ -21,11 +21,40 @@ public class ExtraBedRequestOrder {
 	String Comment;
 	String status;
 	String date;
+	String price;
 	
 	@ManyToOne
 	@JoinColumn(name = "customer_id")
 	Customer customer;
 	
+	@ManyToOne
+	@JoinColumn(name = "checkin_id")
+	CheckIn  checkin;
+	
+	
+	
+	
+	
+	public String getPrice() {
+		return price;
+	}
+
+
+	public void setPrice(String price) {
+		this.price = price;
+	}
+
+
+	public CheckIn getCheckin() {
+		return checkin;
+	}
+
+
+	public void setCheckin(CheckIn checkin) {
+		this.checkin = checkin;
+	}
+
+
 	public ExtraBedRequestOrder() {
 		// TODO Auto-generated constructor stub
 	}

@@ -35,6 +35,7 @@ import com.dev.delta.entities.Room;
 import com.dev.delta.entities.RoomType;
 import com.dev.delta.entities.Shift;
 import com.dev.delta.entities.User;
+import com.dev.delta.entities.VAT;
 import com.dev.delta.i18n.entities.AmenityI18n;
 import com.dev.delta.i18n.entities.BedI18n;
 import com.dev.delta.i18n.entities.BlogCategoryI18n;
@@ -108,6 +109,10 @@ public interface DTO {
 	Customer customer=new Customer();
 	Blog blog=new Blog();
 	Room room=new Room();
+	Room room1=new Room();
+	Room room2=new Room();
+	Room room3=new Room();
+	Room room4=new Room();
 	ExtraBed extraBed=new ExtraBed();
 	Bed bed=new Bed();
 	Expense expense=new Expense();
@@ -152,6 +157,7 @@ public interface DTO {
     
     ExtraBedRequestOrder extraBedRequestOrder=new ExtraBedRequestOrder();
     
+    VAT vat=new VAT();
     
     
     

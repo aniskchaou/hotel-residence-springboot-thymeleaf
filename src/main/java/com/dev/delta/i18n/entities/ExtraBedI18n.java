@@ -24,8 +24,15 @@ public class ExtraBedI18n {
 	String getTitleI18n;
 	String editTitleI18n;
 	String createTitleI18n;
+	String priceI18n;
 	
 	
+	public String getPriceI18n() {
+		return priceI18n;
+	}
+	public void setPriceI18n(String priceI18n) {
+		this.priceI18n = priceI18n;
+	}
 	public String getGetAllTitleI18n() {
 		return getAllTitleI18n;
 	}

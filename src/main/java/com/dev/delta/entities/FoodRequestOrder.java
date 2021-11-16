@@ -14,9 +14,8 @@ public class FoodRequestOrder {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	Long id;
 	String NoofPersons;
-	@ManyToOne
-	@JoinColumn(name = "food_id")
-	Food FoodItem;
+
+	String FoodItem;
 	String status;
 	String date;
 	@ManyToOne
@@ -25,8 +24,19 @@ public class FoodRequestOrder {
 	@ManyToOne
 	@JoinColumn(name = "room_id")
 	Room room;
+	@ManyToOne
+	@JoinColumn(name = "checkin_id")
+	CheckIn  checkin;
 	
 	
+public CheckIn getCheckin() {
+		return checkin;
+	}
+
+	public void setCheckin(CheckIn checkin) {
+		this.checkin = checkin;
+	}
+
 public Room getRoom() {
 		return room;
 	}
@@ -36,10 +46,10 @@ public Room getRoom() {
 	}
 
 @Override
-	public String toString() {
-		return "FoodRequestOrder [id=" + id + ", NoofPersons=" + NoofPersons + ", FoodItem=" + FoodItem + ", status="
-				+ status + ", date=" + date + ", customer=" + customer + "]";
-	}
+public String toString() {
+	return "FoodRequestOrder [id=" + id + ", NoofPersons=" + NoofPersons + ", FoodItem=" + FoodItem + ", status="
+			+ status + ", date=" + date + ", customer=" + customer + ", room=" + room + ", checkin=" + checkin + "]";
+}
 
 public FoodRequestOrder() {
 	// TODO Auto-generated constructor stub
@@ -77,11 +87,13 @@ public void setNoofPersons(String noofPersons) {
 	NoofPersons = noofPersons;
 }
 
-public Food getFoodItem() {
+
+
+public String getFoodItem() {
 	return FoodItem;
 }
 
-public void setFoodItem(Food foodItem) {
+public void setFoodItem(String foodItem) {
 	FoodItem = foodItem;
 }
 

@@ -53,6 +53,7 @@ import com.dev.delta.dto.RoomTypeDTO;
 import com.dev.delta.dto.ShiftDTO;
 import com.dev.delta.dto.SubscriberDTO;
 import com.dev.delta.dto.UserDTO;
+import com.dev.delta.dto.VatDTO;
 import com.dev.delta.dto.WebsiteDTO;
 import com.dev.delta.entities.LaundryRequestOrder;
 import com.dev.delta.services.InformationService;
@@ -200,6 +201,9 @@ public class SpringbootHotelResidenceCodecanyonApplication implements CommandLin
 	@Autowired
 	MessageDTO   messageDTO;
 	
+	@Autowired
+	VatDTO  vatDTO;
+	
 	
 	public static void main(String[] args) {
 		SpringApplication.run(SpringbootHotelResidenceCodecanyonApplication.class, args);
@@ -252,6 +256,7 @@ public class SpringbootHotelResidenceCodecanyonApplication implements CommandLin
 	    houseKeepingRequestDTO.populate();
 	    laundryRequestDTO.populate();
 	    messageDTO.populate();
+	    vatDTO.populate();
 	   
 
 	}

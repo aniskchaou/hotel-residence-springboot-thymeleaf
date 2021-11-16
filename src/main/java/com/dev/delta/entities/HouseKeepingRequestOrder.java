@@ -23,6 +23,11 @@ public class HouseKeepingRequestOrder {
 	Customer customer;
 	String HousekeepingItem;
 	
+	@ManyToOne
+	@JoinColumn(name = "checkin_id")
+	CheckIn checkin;
+	String price;
+	
 	public HouseKeepingRequestOrder() {
 		// TODO Auto-generated constructor stub
 	}
@@ -31,6 +36,38 @@ public class HouseKeepingRequestOrder {
 	
 	
 	
+	public CheckIn getCheckin() {
+		return checkin;
+	}
+
+
+
+
+
+	public void setCheckin(CheckIn checkin) {
+		this.checkin = checkin;
+	}
+
+
+
+
+
+	public String getPrice() {
+		return price;
+	}
+
+
+
+
+
+	public void setPrice(String price) {
+		this.price = price;
+	}
+
+
+
+
+
 	public String getHousekeepingItem() {
 		return HousekeepingItem;
 	}
