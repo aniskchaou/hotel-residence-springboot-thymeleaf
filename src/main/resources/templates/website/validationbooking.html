@@ -56,21 +56,37 @@
 						<div class="col-xl-5 col-lg-4 d-none d-lg-block">
 							<div class="book_room">
 								<div class="socail_links">
-									<ul>
-										<li><a th:href="${hotel.facebook}"> <i
-												class="fa fa-facebook-square"></i>
-										</a></li>
-										<li><a th:href="${hotel.twitter}"> <i
-												class="fa fa-twitter"></i>
-										</a></li>
-										<li><a th:href="${hotel.instagram}"> <i
-												class="fa fa-instagram"></i>
-										</a></li>
-									</ul>
+									 <ul>
+                                        <li>
+                                            <a th:href="@{/changelang/EN}">
+                                               <img src="/img/flags/uk.png"/>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a th:href="@{/changelang/ES}">
+                                               <img src="/img/flags/es.png"/>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a th:href="@{/changelang/FR}">
+                                               <img src="/img/flags/fr.png"/>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a th:href="@{/changelang/AR}">
+                                                <img src="/img/flags/sa.png"/>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a th:href="@{/changelang/DE}">
+                                                <img src="/img/flags/de.png"/>
+                                            </a>
+                                        </li>
+                                    </ul>
 								</div>
-								<div class="book_btn d-none d-lg-block">
+								<!--  <div class="book_btn d-none d-lg-block">
 									<a class="popup-with-form" href="#test-form">Check In</a>
-								</div>
+								</div>-->
 							</div>
 						</div>
 						<div class="col-12">
@@ -85,7 +101,7 @@
 
 	<!-- bradcam_area_start -->
 	<div class="bradcam_area breadcam_bg_2">
-		<h3>Get in Touch</h3>
+		<h3 th:text="${booking.bookTitleI18n}">Get in Touch</h3>
 	</div>
 	<!-- bradcam_area_end -->
 
@@ -99,7 +115,7 @@
 					<div class="md-step-circle">
 						<span>1</span>
 					</div>
-					<div class="md-step-title">Booking</div>
+					<div class="md-step-title" th:text="${booking.bookingI18n}">Booking</div>
 					<div class="md-step-bar-left"></div>
 					<div class="md-step-bar-right"></div>
 				</div>
@@ -107,7 +123,7 @@
 					<div class="md-step-circle">
 						<span>2</span>
 					</div>
-					<div class="md-step-title">Details</div>
+					<div class="md-step-title" th:text="${booking.detailsI18n}">Details</div>
 					<div class="md-step-bar-left"></div>
 					<div class="md-step-bar-right"></div>
 				</div>
@@ -115,7 +131,7 @@
 					<div class="md-step-circle">
 						<span>3</span>
 					</div>
-					<div class="md-step-title">Summary</div>
+					<div class="md-step-title" th:text="${booking.summaryI18n}">Summary</div>
 					<div class="md-step-bar-left"></div>
 					<div class="md-step-bar-right"></div>
 				</div>
@@ -123,7 +139,7 @@
 					<div class="md-step-circle">
 						<span>4</span>
 					</div>
-					<div class="md-step-title">Payment</div>
+					<div class="md-step-title" th:text="${booking.paymentI18n}">Payment</div>
 					<div class="md-step-bar-left"></div>
 					<div class="md-step-bar-right"></div>
 				</div>
@@ -146,7 +162,7 @@
 
 
 						<div class="col-6">
-							<h2 class="contact-title">Booking details</h2>
+							<h2 class="contact-title" th:text="${booking.bookingdetailsI18n}">Booking details</h2>
 						</div>
 
 						<div class="row">
@@ -182,7 +198,7 @@
 
 					<div class="col-lg-12">
 						<div class="col-6">
-							<h2 class="contact-title">Contact details</h2>
+							<h2 class="contact-title" th:text="${booking.contactdetailsI18n}">Contact details</h2>
 						</div>
 
 
@@ -389,7 +405,7 @@
 
 							<div class="col-sm-12">
 								<input type="submit" class="button button-contactForm boxed-btn"
-									value="Send" />
+									 th:value="${booking.bookingI18n}" />
 							</div>
 						</div>
 

@@ -10,6 +10,7 @@ import org.springframework.data.repository.query.Param;
 import com.dev.delta.entities.CheckIn;
 import com.dev.delta.entities.Invoice;
 import com.dev.delta.entities.Room;
+import com.dev.delta.entities.RoomType;
 
 public interface RoomRepository extends JpaRepository<Room, Long>  {
 	Optional<Room> findById(Long id);
@@ -19,4 +20,6 @@ public interface RoomRepository extends JpaRepository<Room, Long>  {
 	 
 	 @Query(nativeQuery = true, value="select * from room i where i.status = 'Active' ")
 		List<Room> findFreeRooms();
+	 @Query(nativeQuery = true, value="select * from room i where i.status = 'Active' and i.room_type_id=:roomtype ")
+	 List<Room> findByRoomType(@Param("roomtype")RoomType roomType);
 }

@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 
 import com.dev.delta.i18n.repositories.WebsiteAboutI18nRepository;
 import com.dev.delta.i18n.repositories.WebsiteBlogI18nRepository;
+import com.dev.delta.i18n.repositories.WebsiteBookingRoomI18nRepository;
 import com.dev.delta.i18n.repositories.WebsiteContactI18nRepository;
 import com.dev.delta.i18n.repositories.WebsiteFooterI18nRepository;
 import com.dev.delta.i18n.repositories.WebsiteHomeI18nRepository;
@@ -39,6 +40,9 @@ public class WebsiteDTO implements DTO {
 	@Autowired
 	WebsiteBlogI18nRepository   websiteBlogI18nRepository;
 	
+	@Autowired
+	WebsiteBookingRoomI18nRepository     websiteBookingRoomI18nRepository   ;
+	
 	
 	
 	
@@ -53,7 +57,50 @@ public class WebsiteDTO implements DTO {
          insertFooterPage();
          insertRoomPage();
          insertSignInPage();
+         insertBookingRoomPage();
      		
+	}
+
+	private void insertBookingRoomPage() {
+		
+		
+		websitebookingRoomI18n.setBookI18n("book");
+		websitebookingRoomI18n.setBookingI18n("Booking");
+		websitebookingRoomI18n.setBookTitleI18n("Booking Room");
+		websitebookingRoomI18n.setChoosepaymentI18n("Choose payment method");
+		websitebookingRoomI18n.setConfirmBookingI18n("Confirm booking");
+		websitebookingRoomI18n.setDetailsI18n("Details");
+		websitebookingRoomI18n.setPaymentI18n("Payment");
+		websitebookingRoomI18n.setPaynowI18n("Pay NOW");
+		websitebookingRoomI18n.setPrintI18n("Print");
+		websitebookingRoomI18n.setSaveI18n("Save");
+		websitebookingRoomI18n.setSummaryI18n("Summary");
+		websitebookingRoomI18n.setLangI18n("EN");
+		websitebookingRoomI18n.setContactdetailsI18n("Contact Details");
+		websitebookingRoomI18n.setBookingdetailsI18n("Booking Details");
+		websitebookingRoomI18n.setInvoiceI18n("Sale Invoice");
+		websiteBookingRoomI18nRepository.save(websitebookingRoomI18n);
+		
+		websitebookingRoomI18n2.setBookI18n("حجز");
+		websitebookingRoomI18n2.setBookingI18n("حجز");
+		websitebookingRoomI18n2.setBookTitleI18n("غرفة الحجز");
+		websitebookingRoomI18n2.setChoosepaymentI18n("اختر وسيلة الدفع");
+		websitebookingRoomI18n2.setConfirmBookingI18n("تأكيد الحجز");
+		websitebookingRoomI18n2.setDetailsI18n("تفاصيل");
+		websitebookingRoomI18n2.setPaymentI18n("دفع");
+		websitebookingRoomI18n2.setPaynowI18n("ادفع الآن");
+		websitebookingRoomI18n2.setPrintI18n("طباعة");
+		websitebookingRoomI18n2.setSaveI18n("حفظ");
+		websitebookingRoomI18n2.setSummaryI18n("ملخص");
+		websitebookingRoomI18n2.setContactdetailsI18n("بيانات المتصل");
+		websitebookingRoomI18n2.setBookingdetailsI18n("تفاصيل الحجز");
+		websitebookingRoomI18n2.setInvoiceI18n("فاتورة");
+		websitebookingRoomI18n2.setLangI18n("AR");
+		websiteBookingRoomI18nRepository.save(websitebookingRoomI18n2);
+		
+		
+		
+		
 	}
 
 	private void insertSignInPage() {

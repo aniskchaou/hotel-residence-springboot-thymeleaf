@@ -2,6 +2,8 @@ package com.dev.delta.controllers;
 
 import java.io.IOException;
 import java.util.Date;
+import java.util.List;
+import java.util.Random;
 
 import javax.mail.MessagingException;
 import javax.mail.internet.AddressException;
@@ -22,8 +24,10 @@ import com.dev.delta.entities.Invoice;
 import com.dev.delta.entities.Notification;
 import com.dev.delta.entities.Role;
 import com.dev.delta.entities.Room;
+import com.dev.delta.entities.RoomType;
 import com.dev.delta.entities.User;
 import com.dev.delta.i18n.entities.WebsiteFooterI18n;
+import com.dev.delta.i18n.repositories.WebsiteBookingRoomI18nRepository;
 import com.dev.delta.i18n.repositories.WebsiteFooterI18nRepository;
 import com.dev.delta.i18n.repositories.WebsiteMenuI18nRepository;
 import com.dev.delta.repositories.InvoiceRepository;
@@ -37,6 +41,7 @@ import com.dev.delta.services.CountryService;
 import com.dev.delta.services.CustomerService;
 import com.dev.delta.services.GuestTypeService;
 import com.dev.delta.services.InformationService;
+import com.dev.delta.services.InvoiceService;
 import com.dev.delta.services.RoomService;
 import com.dev.delta.services.RoomTypeService;
 
@@ -90,6 +95,12 @@ public class BookingController {
 	@Autowired
 	RoomRepository  roomRepository;
 	
+	@Autowired
+	InvoiceService  invoiceService;
+	
+	@Autowired
+	WebsiteBookingRoomI18nRepository bookingRoomI18nRepository;
+	
 	/*@GetMapping("/validationbooking/{id}")
 	public String getBlogs(@PathVariable("id") Long id,Model model) {
 		//List<Blog> blogs = blogService.getBlogs();
@@ -102,7 +113,10 @@ public class BookingController {
 	
 	@GetMapping("/bookingroom/{id}")
 	public String getBookingRoom(@PathVariable("id") Long id,Model model) {
-		model.addAttribute("roomid", id);
+		//model.addAttribute("roomid", id);
+		RoomType  roomType=roomTypeService.findById(id);
+		List<Room> items=roomRepository.findByRoomType(roomType);
+		model.addAttribute("items", items);
 		Long idd = 1L;
 		InformationHotel informationHotel = informationService.findById(idd);
 		model.addAttribute("hotel", informationHotel);
@@ -110,9 +124,12 @@ public class BookingController {
 		model.addAttribute("hotel", informationHotel);
 		model.addAttribute("menu", websiteMenuI18nRepository.findByLang(lang));
 		model.addAttribute("footer", websiteFooterI18nRepository.findByLang(lang));
+		model.addAttribute("booking", bookingRoomI18nRepository.findByLangI18n(lang));
 		return "website/showroom";
 	}
 	
+	
+
 	@GetMapping("/detailbooking/{id}")
 	public String getDetailBooking(@PathVariable("id") Long id,Model model) {
 		model.addAttribute("roomid", id);
@@ -130,21 +147,51 @@ public class BookingController {
 		model.addAttribute("hotel", informationHotel);
 		model.addAttribute("menu", websiteMenuI18nRepository.findByLang(lang));
 		model.addAttribute("footer", websiteFooterI18nRepository.findByLang(lang));
+		model.addAttribute("booking", bookingRoomI18nRepository.findByLangI18n(lang));
 		return "website/validationbooking";
 	}
 	
 	
 	@GetMapping("/summarybooking/{id}")
 	public String getSummaryBooking(@PathVariable("id") Long id,Model model) {
-		model.addAttribute("roomid", id);
+		/*model.addAttribute("roomid", id);
 		Long idd = 1L;
 		InformationHotel informationHotel = informationService.findById(idd);
 		model.addAttribute("hotel", informationHotel);
 		String lang=informationHotel.getLang();
 		model.addAttribute("hotel", informationHotel);
 		model.addAttribute("menu", websiteMenuI18nRepository.findByLang(lang));
+		model.addAttribute("footer", websiteFooterI18nRepository.findByLang(lang));*/
+		CheckIn checkIn = checkInService.findById(id);
+		InformationHotel informationHotel = informationService.findById(1L);
+		List<Invoice> invoices = invoiceRepository.findByCheckIn(checkIn);
+		double subtotal=invoiceService.calculateSubTotalPrice(invoiceRepository);
+		double total=invoiceService.calculatetotalPrice(invoiceRepository);
+		double vatrate=invoiceService.calculatevatrate(invoiceRepository);
+		model.addAttribute("invoices", invoices);
+		model.addAttribute("hotel", informationHotel);
+		model.addAttribute("checkin", checkIn);
+		model.addAttribute("subtotal", subtotal);
+		model.addAttribute("total", total);
+		model.addAttribute("vatrate", vatrate);
+		model.addAttribute("ref", generateRefInvoice());
+		model.addAttribute("date", new Date().toString());
+		model.addAttribute("roomid", checkIn.getRoom().getId());
+		String lang=informationHotel.getLang();
+		model.addAttribute("menu", websiteMenuI18nRepository.findByLang(lang));
 		model.addAttribute("footer", websiteFooterI18nRepository.findByLang(lang));
+		model.addAttribute("booking", bookingRoomI18nRepository.findByLangI18n(lang));
 		return "website/detailbooking";
+	}
+	
+	private String generateRefInvoice()
+	{
+		 String zeros = "000000";
+		    Random rnd = new Random();
+		    String s = Integer.toString(rnd.nextInt(0X1000000), 16);
+		    s = zeros.substring(s.length()) + s;
+		    
+		    return s;
 	}
 	
 	@GetMapping("/paymentbooking/{id}")
@@ -157,6 +204,7 @@ public class BookingController {
 		model.addAttribute("menu", websiteMenuI18nRepository.findByLang(lang));
 		model.addAttribute("footer", websiteFooterI18nRepository.findByLang(lang));
 		model.addAttribute("hotel", informationHotel);
+		model.addAttribute("booking", bookingRoomI18nRepository.findByLangI18n(lang));
 		return "website/paymentbooking";
 	}
 	

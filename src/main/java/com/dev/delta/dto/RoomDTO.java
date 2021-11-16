@@ -19,9 +19,10 @@ public class RoomDTO implements DTO {
 	public void populate() {
 	  
 		room.setFloor("1");
-		room.setRoomNo("1023");
+		room.setRoomNo("1020");
 		room.setRoomType(roomType1);
 		room.setStatus("Active");
+		room.setDescription("Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.   ");
 		roomRepository.save(room);
 		
 		
@@ -29,6 +30,7 @@ public class RoomDTO implements DTO {
 		room1.setRoomNo("1023");
 		room1.setRoomType(roomType1);
 		room1.setStatus("Active");
+		room1.setDescription("Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.   ");
 		roomRepository.save(room1);
 		
 		
@@ -36,20 +38,30 @@ public class RoomDTO implements DTO {
 		room2.setRoomNo("1024");
 		room2.setRoomType(roomType3);
 		room2.setStatus("Active");
+		room2.setDescription("Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.   ");
 		roomRepository.save(room2);
 		
 		
 		room3.setFloor("1");
 		room3.setRoomNo("1022");
 		room3.setRoomType(roomType2);
-		room3.setStatus("Inactive");
+		room3.setStatus("Active");
+		room3.setDescription("Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.   ");
 		roomRepository.save(room3);
 		
 		room4.setFloor("2");
-		room4.setRoomNo("1021");
+		room4.setRoomNo("1028");
 		room4.setRoomType(roomType3);
 		room4.setStatus("Active");
+		room4.setDescription("Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.   ");
 		roomRepository.save(room4);
+		
+		room5.setFloor("1");
+		room5.setRoomNo("1030");
+		room5.setRoomType(roomType2);
+		room5.setStatus("Inactive");
+		room5.setDescription("Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.   ");
+		roomRepository.save(room5);
 		  
 		
 		roomI18n.setFloorI18n("Floor");

@@ -15,14 +15,36 @@ public class Room {
 	String RoomNo;
 	String Floor;
 	@ManyToOne
-	@JoinColumn(name = "unit_id")
+	@JoinColumn(name = "room_type_id")
 	RoomType RoomType;
 	String Status;
 	String bookedStatus="Available";
+	String description;
 	
 	public Room() {
 		// TODO Auto-generated constructor stub
 	}
+
+	
+	public String getBookedStatus() {
+		return bookedStatus;
+	}
+
+
+	public void setBookedStatus(String bookedStatus) {
+		this.bookedStatus = bookedStatus;
+	}
+
+
+	public String getDescription() {
+		return description;
+	}
+
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
 
 	public Room(String roomNo, String floor, RoomType roomType, String status) {
 		super();

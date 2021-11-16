@@ -79,6 +79,7 @@ import com.dev.delta.i18n.entities.UIMenuI18n;
 import com.dev.delta.i18n.entities.UserI18n;
 import com.dev.delta.i18n.entities.WebsiteAboutI18n;
 import com.dev.delta.i18n.entities.WebsiteBlogI18n;
+import com.dev.delta.i18n.entities.WebsiteBookingRoomI18n;
 import com.dev.delta.i18n.entities.WebsiteContactI18n;
 import com.dev.delta.i18n.entities.WebsiteFooterI18n;
 import com.dev.delta.i18n.entities.WebsiteHomeI18n;
@@ -113,6 +114,7 @@ public interface DTO {
 	Room room2=new Room();
 	Room room3=new Room();
 	Room room4=new Room();
+	Room room5=new Room();
 	ExtraBed extraBed=new ExtraBed();
 	Bed bed=new Bed();
 	Expense expense=new Expense();
@@ -195,6 +197,9 @@ public interface DTO {
     
     WebsiteSignInI18n websiteSignInI18n=new WebsiteSignInI18n();
     WebsiteSignInI18n websiteSignInI18n2=new WebsiteSignInI18n();
+    
+    WebsiteBookingRoomI18n websitebookingRoomI18n=new WebsiteBookingRoomI18n();
+    WebsiteBookingRoomI18n websitebookingRoomI18n2=new WebsiteBookingRoomI18n();
     
     BedI18n bedI18n=new BedI18n();
     BedI18n bedI18n2=new BedI18n();

@@ -24,6 +24,7 @@ import com.dev.delta.entities.Message;
 import com.dev.delta.entities.Notification;
 import com.dev.delta.entities.Offer;
 import com.dev.delta.entities.Room;
+import com.dev.delta.entities.RoomType;
 import com.dev.delta.i18n.repositories.WebsiteAboutI18nRepository;
 import com.dev.delta.i18n.repositories.WebsiteBlogI18nRepository;
 import com.dev.delta.i18n.repositories.WebsiteContactI18nRepository;
@@ -283,8 +284,8 @@ public class WebsiteController {
 	
 	@GetMapping("/room")
 	public String room(Model model) {
-		List<Room> rooms=roomService.getRooms();
-		model.addAttribute("items", rooms);
+		List<RoomType> roomtypes=roomTypeService.getRoomTypes();
+		model.addAttribute("items", roomtypes);
 		Long id = 1L;
 		InformationHotel informationHotel = informationService.findById(id).get();
 		String lang=informationHotel.getLang();

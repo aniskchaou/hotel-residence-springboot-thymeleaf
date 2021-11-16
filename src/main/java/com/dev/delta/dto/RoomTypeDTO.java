@@ -19,8 +19,41 @@ public class RoomTypeDTO implements DTO{
 	public void populate() {
 		
 		roomType1.setTitle("Suite	Active");
+		roomType1.setAdultCapacity("4");
+		roomType1.setAirConditioner("");
+		roomType1.setBathTub("");
+		roomType1.setCoffeeMaker("on");
+		roomType1.setDoubleBed("on");
+		roomType1.setFreeNewspaper("");
+		roomType1.setKidsCapacity("3");
+		roomType1.setShortCode("on");
+		roomType1.setWifi("on");
+		
 		roomType2.setTitle("Deluxe Room");
+		roomType2.setAdultCapacity("4");
+		roomType2.setAirConditioner("");
+		roomType2.setBathTub("");
+		roomType2.setCoffeeMaker("on");
+		roomType2.setDoubleBed("on");
+		roomType2.setFreeNewspaper("");
+		roomType2.setKidsCapacity("3");
+		roomType2.setShortCode("on");
+		roomType2.setWifi("on");
+		
+		
 		roomType3.setTitle("Regular Room");
+		
+		roomType3.setTitle("Deluxe Room");
+		roomType3.setAdultCapacity("4");
+		roomType3.setAirConditioner("");
+		roomType3.setBathTub("on");
+		roomType3.setCoffeeMaker("on");
+		roomType3.setDoubleBed("on");
+		roomType3.setFreeNewspaper("on");
+		roomType3.setKidsCapacity("3");
+		roomType3.setShortCode("on");
+		roomType3.setWifi("on");
+		
 		roomType1.setBasePrice("199");
 		roomType2.setBasePrice("399");
 		roomType3.setBasePrice("299");

@@ -55,21 +55,37 @@
 						<div class="col-xl-5 col-lg-4 d-none d-lg-block">
 							<div class="book_room">
 								<div class="socail_links">
-									<ul>
-										<li><a th:href="${hotel.facebook}"> <i
-												class="fa fa-facebook-square"></i>
-										</a></li>
-										<li><a th:href="${hotel.twitter}"> <i
-												class="fa fa-twitter"></i>
-										</a></li>
-										<li><a th:href="${hotel.instagram}"> <i
-												class="fa fa-instagram"></i>
-										</a></li>
-									</ul>
+									 <ul>
+                                        <li>
+                                            <a th:href="@{/changelang/EN}">
+                                               <img src="/img/flags/uk.png"/>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a th:href="@{/changelang/ES}">
+                                               <img src="/img/flags/es.png"/>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a th:href="@{/changelang/FR}">
+                                               <img src="/img/flags/fr.png"/>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a th:href="@{/changelang/AR}">
+                                                <img src="/img/flags/sa.png"/>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a th:href="@{/changelang/DE}">
+                                                <img src="/img/flags/de.png"/>
+                                            </a>
+                                        </li>
+                                    </ul>
 								</div>
-								<div class="book_btn d-none d-lg-block">
+								<!--  <div class="book_btn d-none d-lg-block">
 									<a class="popup-with-form" href="#test-form">Check In</a>
-								</div>
+								</div>-->
 							</div>
 						</div>
 						<div class="col-12">
@@ -84,20 +100,20 @@
 
 	<!-- bradcam_area_start -->
 	<div class="bradcam_area breadcam_bg">
-		<h3>About Us</h3>
+		<h3 th:text="${booking.bookTitleI18n}">About Us</h3>
 	</div>
 	<!-- bradcam_area_end -->
 
 	<!-- about_area_start -->
 	<div class="about_area">
-		<div class="container" >
+		<div class="container">
 
 			<div class="md-stepper-horizontal orange" id="validation">
 				<div class="md-step">
 					<div class="md-step-circle">
 						<span>1</span>
 					</div>
-					<div class="md-step-title">Booking</div>
+					<div class="md-step-title" th:text="${booking.bookingI18n}">Booking</div>
 					<div class="md-step-bar-left"></div>
 					<div class="md-step-bar-right"></div>
 				</div>
@@ -105,7 +121,7 @@
 					<div class="md-step-circle">
 						<span>2</span>
 					</div>
-					<div class="md-step-title">Details</div>
+					<div class="md-step-title" th:text="${booking.detailsI18n}">Details</div>
 					<div class="md-step-bar-left"></div>
 					<div class="md-step-bar-right"></div>
 				</div>
@@ -113,7 +129,7 @@
 					<div class="md-step-circle">
 						<span>3</span>
 					</div>
-					<div class="md-step-title">Summary</div>
+					<div class="md-step-title" th:text="${booking.summaryI18n}">Summary</div>
 					<div class="md-step-bar-left"></div>
 					<div class="md-step-bar-right"></div>
 				</div>
@@ -121,7 +137,7 @@
 					<div class="md-step-circle">
 						<span>4</span>
 					</div>
-					<div class="md-step-title">Payment</div>
+					<div class="md-step-title" th:text="${booking.paymentI18n}">Payment</div>
 					<div class="md-step-bar-left"></div>
 					<div class="md-step-bar-right"></div>
 				</div>
@@ -135,15 +151,36 @@
             -->
 
 			<br />
+		
+			
+				
+				
+    
 
-			<div class="container parent" >
+
+			<form method="post" action="/pay">
+				
+                  
+                  <input type="hidden" id="price" name="price" value="10.00"> <input
+						type="hidden" id="currency" name="currency" value="USD"
+						placeholder="Enter Currency">  <input type="hidden"
+						id="intent" name="intent" value="sale"> <input type="hidden"
+						id="description" value="test" name="description"
+						placeholder="Payment Description"> 
+					<div class="col-12">
+						<div class="form-group">
+						
+						
+						
+						
+						<div class="container parent" >
 				<div class="col-6">
-					<h2 class="contact-title">Choose the payment method</h2>
+					<h2 class="contact-title" th:text="${booking.choosepaymentI18n}">Choose the payment method</h2>
 				</div>
 				<div class="row">
 					<div class='col text-center'>
-						<input type="radio" name="imgbackground" id="img1"
-							class="d-none imgbgchk" value=""> <label for="img1">
+						<input type="radio" name="method" id="img1"
+							class="d-none imgbgchk" value="paycash"> <label for="img1">
 							<img src="/img/payment/paycash.jpg" alt="Image 1">
 							<div class="tick_container">
 								<div class="tick">
@@ -153,8 +190,8 @@
 						</label>
 					</div>
 					<div class='col text-center'>
-						<input type="radio" name="imgbackground" id="img2"
-							class="d-none imgbgchk" value=""> <label for="img2">
+						<input type="radio" name="method" id="img2"
+							class="d-none imgbgchk" value="paycheck"> <label for="img2">
 							<img src="/img/payment/checkpay.png" alt="Image 2">
 							<div class="tick_container">
 								<div class="tick">
@@ -164,8 +201,8 @@
 						</label>
 					</div>
 					<div class='col text-center'>
-						<input type="radio" name="imgbackground" id="img3"
-							class="d-none imgbgchk" value=""> <label for="img3">
+						<input type="radio" name="method" id="img3"
+							class="d-none imgbgchk" value="paypal"> <label for="img3">
 							<img src="/img/payment/paypal.png" alt="Image 3">
 							<div class="tick_container">
 								<div class="tick">
@@ -175,8 +212,8 @@
 						</label>
 					</div>
 					<div class='col text-center'>
-						<input type="radio" name="imgbackground" id="img4"
-							class="d-none imgbgchk" value=""> <label for="img4">
+						<input type="radio" name="method" id="img4"
+							class="d-none imgbgchk" value="razorpay" disabled> <label for="img4">
 							<img src="/img/payment/razorpay.png" alt="Image 4">
 							<div class="tick_container">
 								<div class="tick">
@@ -189,72 +226,41 @@
 
 				<div class="col-md-12">
 					<div class="d-flex justify-content-center">
-						<a style="margin: 3px;" type="button"
-							class="genric-btn primary e-large move-left"   th:href="@{/}" >
-							<i class="fa fa-dollar mr-2"></i> Pay Now
-						</a>
+						<input style="margin: 3px;" type="submit"
+							class="genric-btn primary e-large move-left"  
+						 th:value="${booking.paynowI18n}" />
+						
 					</div>
 				</div>
-				
-				
-				
-				
-				    <form method="post"  action="/pay">
-                <div class="col-50">
-                    <h3>Payment</h3>
-                    <label>Accepted Cards</label>
-                    <div class="icon-container">
-                        <i class="fa fa-cc-visa" style="color:navy;"></i>
-                        <i class="fa fa-cc-amex" style="color:blue;"></i>
-                        <i class="fa fa-cc-mastercard" style="color:red;"></i>
-                        <i class="fa fa-cc-discover" style="color:orange;"></i>
-                    </div>
-                    <label for="price">Total</label>
-                    <input type="text" id="price" name="price" value="10.00">
-                    <label for="currency">Currency</label>
-                    <input type="text" id="currency" name="currency" value="USD"  placeholder="Enter Currency">
-                    <label for="method">Payment Method</label>
-                    <input type="text" id="method" name="method" value="paypal" placeholder="Payment Method">
-                    <label for="intent">Intent</label>
-                    <input type="text" id="intent" name="intent"   value="sale">
-                    <label for="description">Payment Description</label>
-                    <input type="text" id="description" value="test" name="description" placeholder="Payment Description">
-
-                </div>
-
-                <input type="submit" value="Continue to checkout" class="btn">
-            </form>
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-			</div>
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						</div>
+					</div>
+					
+				</div>
+			</form>
 
 		</div>
+
 	</div>
+
 
 
 	<!-- instragram_area_start -->

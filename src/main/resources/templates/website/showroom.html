@@ -54,25 +54,43 @@
 						<div class="col-xl-5 col-lg-4 d-none d-lg-block">
 							<div class="book_room">
 								<div class="socail_links">
-									<ul>
-										<li><a th:href="${hotel.facebook}"> <i
-												class="fa fa-facebook-square"></i>
-										</a></li>
-										<li><a th:href="${hotel.twitter}"> <i
-												class="fa fa-twitter"></i>
-										</a></li>
-										<li><a th:href="${hotel.instagram}"> <i
-												class="fa fa-instagram"></i>
-										</a></li>
-									</ul>
+									 <ul>
+                                        <li>
+                                            <a th:href="@{/changelang/EN}">
+                                               <img src="/img/flags/uk.png"/>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a th:href="@{/changelang/ES}">
+                                               <img src="/img/flags/es.png"/>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a th:href="@{/changelang/FR}">
+                                               <img src="/img/flags/fr.png"/>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a th:href="@{/changelang/AR}">
+                                                <img src="/img/flags/sa.png"/>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a th:href="@{/changelang/DE}">
+                                                <img src="/img/flags/de.png"/>
+                                            </a>
+                                        </li>
+                                    </ul>
 								</div>
-								<div class="book_btn d-none d-lg-block">
+								<!--  <div class="book_btn d-none d-lg-block">
 									<a class="popup-with-form" href="#test-form">Check In</a>
-								</div>
+								</div>-->
 							</div>
 						</div>
 						<div class="col-12">
-							<div class="mobile_menu d-block d-lg-none"></div>
+							<div class="mobile_menu d-block d-lg-none">
+							
+							</div>
 						</div>
 					</div>
 				</div>
@@ -83,7 +101,7 @@
 
 	<!-- bradcam_area_start -->
 	<div class="bradcam_area breadcam_bg">
-		<h3>About Us</h3>
+		<h3 th:text="${booking.bookTitleI18n}">About Us</h3>
 	</div>
 	<!-- bradcam_area_end -->
 
@@ -98,7 +116,7 @@
 							<div class="md-step-circle">
 								<span>1</span>
 							</div>
-							<div class="md-step-title">Booking</div>
+							<div class="md-step-title" th:text="${booking.bookingI18n}">Booking</div>
 							<div class="md-step-bar-left"></div>
 							<div class="md-step-bar-right"></div>
 						</div>
@@ -106,7 +124,7 @@
 							<div class="md-step-circle">
 								<span>2</span>
 							</div>
-							<div class="md-step-title">Details</div>
+							<div class="md-step-title" th:text="${booking.detailsI18n}">Details</div>
 							<div class="md-step-bar-left"></div>
 							<div class="md-step-bar-right"></div>
 						</div>
@@ -114,7 +132,7 @@
 							<div class="md-step-circle">
 								<span>3</span>
 							</div>
-							<div class="md-step-title">Summary</div>
+							<div class="md-step-title" th:text="${booking.summaryI18n}">Summary</div>
 							<div class="md-step-bar-left"></div>
 							<div class="md-step-bar-right"></div>
 						</div>
@@ -122,7 +140,7 @@
 							<div class="md-step-circle">
 								<span>4</span>
 							</div>
-							<div class="md-step-title">Payment</div>
+							<div class="md-step-title" th:text="${booking.paymentI18n}">Payment</div>
 							<div class="md-step-bar-left"></div>
 							<div class="md-step-bar-right"></div>
 						</div>
@@ -135,26 +153,26 @@
                     
 					<div class="row" >
 						<div class="col-xl-5 col-lg-5">
-							<div class="about_info">
+							<div class="about_info"  th:each="item:${items}">
 								<div class="section_title mb-20px" id="validation">
 
 
-									<h3 th:text="${hotel?.name}"></h3>
-									<a th:href="@{/detailbooking/{id}(id=${roomid}) }" class="genric-btn primary circle arrow">Book
+									<h3 th:text="'Room No '+${item.RoomNo}"></h3>
+									<a th:href="@{/detailbooking/{id}(id=${item.id}) }" class="genric-btn primary circle arrow" th:text="${booking.bookI18n}">Book
 										Now</a>
 								</div>
-								<h3>From US$450.00 / night</h3>
-								<h4>Capacity : x5</h4>
-								<h3 class="badge badge-success">Available</h3>
-								<p th:text="${hotel?.description}"></p>
+								<h3 th:text="'From '+${item.RoomType.BasePrice}+'$ / night'">From US$450.00 / night</h3>
+								<h4 th:text="'Floor '+${item.Floor}">Capacity : x5</h4>
+								<p th:text="${item.description}"></p>
 								<p>
-									<img src="/img/icons/bath.png" alt="Bath" /> 
-									<img src="/img/icons/bed.png"   alt="Bed"/> 
-									<img src="/img/icons/coffee.png" alt="Coffee Maker"/>
-									<img src="/img/icons/fan.png"   alt="Air Conditioner"/> <img
-										src="/img/icons/freezer.png"  alt="Frigirator"/> <img
-										src="/img/icons/newspaper.png"  alt="Free NewsPaper"/> <img
-										src="/img/icons/wifi.png"  alt="WIFI"/>
+
+									<img th:if="${item.RoomType.BathTub=='on'}" src="/img/icons/bath.png" alt="Bath" /> 
+									<img th:if="${item.RoomType.DoubleBed=='on'}"src="/img/icons/bed.png"   alt="Bed"/> 
+									<img th:if="${item.RoomType.CoffeeMaker=='on'}" src="/img/icons/coffee.png" alt="Coffee Maker"/>
+									<img th:if="${item.RoomType.AirConditioner=='on'}" src="/img/icons/fan.png"   alt="Air Conditioner"/> 
+									<img th:if="${item.RoomType.MiniFridge=='on'}" src="/img/icons/freezer.png"  alt="Frigirator"/> 
+									<img th:if="${item.RoomType.FreeNewspaper=='on'}"  src="/img/icons/newspaper.png"  alt="Free NewsPaper"/> 
+									<img th:if="${item.RoomType.wifi=='on'}"  src="/img/icons/wifi.png"  alt="WIFI"/>
 								</p>
 
 							</div>
@@ -220,7 +238,7 @@
 			<!-- about_main_info_end -->
 
 			<!-- forQuery_start -->
-			<div class="forQuery">
+			<!--  <div class="forQuery">
 				<div class="container">
 					<div class="row">
 						<div class="col-xl-10 offset-xl-1 col-md-12">
@@ -241,7 +259,7 @@
 						</div>
 					</div>
 				</div>
-			</div>
+			</div>-->
 			<!-- forQuery_end-->
 
 			<!-- instragram_area_start -->
