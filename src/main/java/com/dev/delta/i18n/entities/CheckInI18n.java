@@ -1,5 +1,6 @@
 package com.dev.delta.i18n.entities;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -55,10 +56,35 @@ public class CheckInI18n {
 	String bookingInformationI18n;
 	String basicInformationI18n;
 	String additionalInformationI18n;
+	String UsernameI18n;
+	String PasswordI18n;
+	@Column(name="messsage", length=512)
+	String messageI18n;
 	
 	
 	
 	
+	
+	
+	
+	public String getMessageI18n() {
+		return messageI18n;
+	}
+	public void setMessageI18n(String messageI18n) {
+		this.messageI18n = messageI18n;
+	}
+	public String getUsernameI18n() {
+		return UsernameI18n;
+	}
+	public void setUsernameI18n(String usernameI18n) {
+		UsernameI18n = usernameI18n;
+	}
+	public String getPasswordI18n() {
+		return PasswordI18n;
+	}
+	public void setPasswordI18n(String passwordI18n) {
+		PasswordI18n = passwordI18n;
+	}
 	public String getBookingInformationI18n() {
 		return bookingInformationI18n;
 	}

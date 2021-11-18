@@ -33,6 +33,27 @@ public class LaundryRequestDTO implements DTO {
 		laundryRequestI18n2.setStatus("Accepted");
 		laundryRequestI18nRepository.save(laundryRequestI18n2);
 		
+		laundryRequestI18n3.setCustomer ("Cliente");
+		laundryRequestI18n3.setDate ("Fecha");
+		laundryRequestI18n3.setLangI18n ("ES");
+		laundryRequestI18n3.setLaundryitem ("Artículos de lavandería");
+		laundryRequestI18n3.setStatus ("Aceptado");
+		laundryRequestI18nRepository.save (laundryRequestI18n3);
+		
+		laundryRequestI18n4.setCustomer("Client");
+		laundryRequestI18n4.setDate("Date");
+		laundryRequestI18n4.setLangI18n("FR");
+		laundryRequestI18n4.setLaundryitem("Articles de blanchisserie");
+		laundryRequestI18n4.setStatus("Accepté");
+		laundryRequestI18nRepository.save(laundryRequestI18n4);
+		
+		laundryRequestI18n5.setCustomer ("العميل") ;
+		laundryRequestI18n5.setDate ("التاريخ") ;
+		laundryRequestI18n5.setLangI18n ("AR") ;
+		laundryRequestI18n5.setLaundryitem ("مواد غسيل") ;
+		laundryRequestI18n5.setStatus ("مقبول") ;
+		laundryRequestI18nRepository.save (laundryRequestI18n5) ;
+		
 		laundryRequestOrder.setCustomer(customer);
 		laundryRequestOrder.setDate(new Date().toString());
 		laundryRequestOrder.setLaundryitem("T-shirt");

@@ -30,6 +30,30 @@ public class PaymentMethodDTO implements DTO {
 		paymentMethodI18n2.setLangI18n("EN");
 		paymentMethodI18n2.setNameI18n("Name");
 		paymentMethodI18nRepository.save(paymentMethodI18n2);
+		
+		paymentMethodI18n3.setCreateTitleI18n ("Crear");
+		paymentMethodI18n3.setEditTitleI18n ("Editar");
+		paymentMethodI18n3.setGetAllTitleI18n ("Métodos de pago");
+		paymentMethodI18n3.setGetTitleI18n ("Método de pago");
+		paymentMethodI18n3.setLangI18n ("ES");
+		paymentMethodI18n3.setNameI18n ("Nombre");
+		paymentMethodI18nRepository.save (paymentMethodI18n3);
+		
+		paymentMethodI18n4.setCreateTitleI18n("Créer");
+		paymentMethodI18n4.setEditTitleI18n("Modifier");
+		paymentMethodI18n4.setGetAllTitleI18n("Méthodes de paiement");
+		paymentMethodI18n4.setGetTitleI18n("Mode de paiement");
+		paymentMethodI18n4.setLangI18n("FR");
+		paymentMethodI18n4.setNameI18n("Nom");
+		paymentMethodI18nRepository.save(paymentMethodI18n4);
+		
+		paymentMethodI18n5.setCreateTitleI18n ("إنشاء") ;
+		paymentMethodI18n5.setEditTitleI18n ("تحرير") ;
+		paymentMethodI18n5.setGetAllTitleI18n ("طرق الدفع") ;
+		paymentMethodI18n5.setGetTitleI18n ("طريقة الدفع") ;
+		paymentMethodI18n5.setLangI18n ("AR") ;
+		paymentMethodI18n5.setNameI18n ("الاسم") ;
+		paymentMethodI18nRepository.save (paymentMethodI18n5) ;
 	}
 
 }

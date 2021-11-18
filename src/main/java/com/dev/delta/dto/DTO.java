@@ -148,18 +148,12 @@ public interface DTO {
     User user3=new User();
     Customer customer2=new Customer();
     FoodOrder  foodOrder=new FoodOrder();
-    LaundryItemI18n laundryItemI18n=new LaundryItemI18n();
-    LaundryItemI18n laundryItemI18n2=new LaundryItemI18n();
-    Departement  departement=new Departement();
-    DepartementI18n  departementI18n=new DepartementI18n();
-    DepartementI18n  departementI18n2=new DepartementI18n();
-    
-    ExtraBedRequestI18n extraBedRequestI18n=new ExtraBedRequestI18n();
-    ExtraBedRequestI18n extraBedRequestI18n2=new ExtraBedRequestI18n();
+   
     
     ExtraBedRequestOrder extraBedRequestOrder=new ExtraBedRequestOrder();
     
     VAT vat=new VAT();
+    Departement  departement=new Departement();
     
     
     
@@ -171,159 +165,324 @@ public interface DTO {
     
     AmenityI18n amenityI18n=new AmenityI18n();
     AmenityI18n amenityI18n2=new AmenityI18n();
+    AmenityI18n amenityI18n3=new AmenityI18n();
+    AmenityI18n amenityI18n4=new AmenityI18n();
+    AmenityI18n amenityI18n5=new AmenityI18n();
     
     WebsiteMenuI18n websiteMenuI18n=new WebsiteMenuI18n();
     WebsiteMenuI18n websiteMenu2I18n=new WebsiteMenuI18n();
     WebsiteMenuI18n websiteMenu3I18n=new WebsiteMenuI18n();
     WebsiteMenuI18n websiteMenu4I18n=new WebsiteMenuI18n();
+    WebsiteMenuI18n websiteMenu5I18n=new WebsiteMenuI18n();
     
     WebsiteHomeI18n websiteHomeI18n=new WebsiteHomeI18n();
     WebsiteHomeI18n websiteHomeI18n2=new WebsiteHomeI18n();
+    WebsiteHomeI18n websiteHomeI18n3=new WebsiteHomeI18n();
+    WebsiteHomeI18n websiteHomeI18n4=new WebsiteHomeI18n();
+    WebsiteHomeI18n websiteHomeI18n5=new WebsiteHomeI18n();
     
     WebsiteAboutI18n  websiteAboutI18n=new WebsiteAboutI18n();
     WebsiteAboutI18n  websiteAboutI18n2=new WebsiteAboutI18n();
+    WebsiteAboutI18n  websiteAboutI18n3=new WebsiteAboutI18n();
+    WebsiteAboutI18n  websiteAboutI18n4=new WebsiteAboutI18n();
+    WebsiteAboutI18n  websiteAboutI18n5=new WebsiteAboutI18n();
     
     WebsiteBlogI18n websiteBlogI18n=new WebsiteBlogI18n();
     WebsiteBlogI18n websiteBlogI18n2=new WebsiteBlogI18n();
+    WebsiteBlogI18n websiteBlogI18n3=new WebsiteBlogI18n();
+    WebsiteBlogI18n websiteBlogI18n4=new WebsiteBlogI18n();
+    WebsiteBlogI18n websiteBlogI18n5=new WebsiteBlogI18n();
     
     WebsiteContactI18n websiteContactI18n=new WebsiteContactI18n();
     WebsiteContactI18n websiteContactI18n2=new WebsiteContactI18n();
+    WebsiteContactI18n websiteContactI18n3=new WebsiteContactI18n();
+    WebsiteContactI18n websiteContactI18n4=new WebsiteContactI18n();
+    WebsiteContactI18n websiteContactI18n5=new WebsiteContactI18n();
     
     WebsiteFooterI18n websiteFooterI18n=new WebsiteFooterI18n();
     WebsiteFooterI18n websiteFooterI18n2=new WebsiteFooterI18n();
+    WebsiteFooterI18n websiteFooterI18n3=new WebsiteFooterI18n();
+    WebsiteFooterI18n websiteFooterI18n4=new WebsiteFooterI18n();
+    WebsiteFooterI18n websiteFooterI18n5=new WebsiteFooterI18n();
     
     WebsiteRoomI18n  websiteRoomI18n=new WebsiteRoomI18n();
     WebsiteRoomI18n  websiteRoomI18n2=new WebsiteRoomI18n();
+    WebsiteRoomI18n  websiteRoomI18n3=new WebsiteRoomI18n();
+    WebsiteRoomI18n  websiteRoomI18n4=new WebsiteRoomI18n();
+    WebsiteRoomI18n  websiteRoomI18n5=new WebsiteRoomI18n();
     
     WebsiteSignInI18n websiteSignInI18n=new WebsiteSignInI18n();
     WebsiteSignInI18n websiteSignInI18n2=new WebsiteSignInI18n();
+    WebsiteSignInI18n websiteSignInI18n3=new WebsiteSignInI18n();
+    WebsiteSignInI18n websiteSignInI18n4=new WebsiteSignInI18n();
+    WebsiteSignInI18n websiteSignInI18n5=new WebsiteSignInI18n();
     
     WebsiteBookingRoomI18n websitebookingRoomI18n=new WebsiteBookingRoomI18n();
     WebsiteBookingRoomI18n websitebookingRoomI18n2=new WebsiteBookingRoomI18n();
+    WebsiteBookingRoomI18n websitebookingRoomI18n3=new WebsiteBookingRoomI18n();
+    WebsiteBookingRoomI18n websitebookingRoomI18n4=new WebsiteBookingRoomI18n();
+    WebsiteBookingRoomI18n websitebookingRoomI18n5=new WebsiteBookingRoomI18n();
     
     BedI18n bedI18n=new BedI18n();
     BedI18n bedI18n2=new BedI18n();
+    BedI18n bedI18n3=new BedI18n();
+    BedI18n bedI18n4=new BedI18n();
+    BedI18n bedI18n5=new BedI18n();
     
     BlogCategoryI18n  blogCategoryI18n=new BlogCategoryI18n();
     BlogCategoryI18n  blogCategoryI18n2=new BlogCategoryI18n();
+    BlogCategoryI18n  blogCategoryI18n3=new BlogCategoryI18n();
+    BlogCategoryI18n  blogCategoryI18n4=new BlogCategoryI18n();
+    BlogCategoryI18n  blogCategoryI18n5=new BlogCategoryI18n();
     
     BlogI18n blogI18n=new BlogI18n();
     BlogI18n blogI18n2=new BlogI18n();
+    BlogI18n blogI18n3=new BlogI18n();
+    BlogI18n blogI18n4=new BlogI18n();
+    BlogI18n blogI18n5=new BlogI18n();
     
     CheckInI18n checkInI18n=new CheckInI18n();
     CheckInI18n checkInI18n2=new CheckInI18n();
+    CheckInI18n checkInI18n3=new CheckInI18n();
+    CheckInI18n checkInI18n4=new CheckInI18n();
+    CheckInI18n checkInI18n5=new CheckInI18n();
+    
     
     CountryI18n  countryI18n=new CountryI18n();
     CountryI18n  countryI18n2=new CountryI18n();
+    CountryI18n  countryI18n3=new CountryI18n();
+    CountryI18n  countryI18n4=new CountryI18n();
+    CountryI18n  countryI18n5=new CountryI18n();
     
     CurrencyI18n currencyI18n=new CurrencyI18n();
     CurrencyI18n currencyI18n2=new CurrencyI18n();
+    CurrencyI18n currencyI18n3=new CurrencyI18n();
+    CurrencyI18n currencyI18n4=new CurrencyI18n();
+    CurrencyI18n currencyI18n5=new CurrencyI18n();
     
     CustomerI18n customerI18n=new CustomerI18n();
     CustomerI18n customerI18n2=new CustomerI18n();
+    CustomerI18n customerI18n3=new CustomerI18n();
+    CustomerI18n customerI18n4=new CustomerI18n();
+    CustomerI18n customerI18n5=new CustomerI18n();
     
     DesignationI18n  designationI18n=new DesignationI18n();
     DesignationI18n  designationI18n2=new DesignationI18n();
+    DesignationI18n  designationI18n3=new DesignationI18n();
+    DesignationI18n  designationI18n4=new DesignationI18n();
+    DesignationI18n  designationI18n5=new DesignationI18n();
     
     EmployeeI18n employeeI18n=new EmployeeI18n();
     EmployeeI18n employeeI18n2=new EmployeeI18n();
+    EmployeeI18n employeeI18n3=new EmployeeI18n();
+    EmployeeI18n employeeI18n4=new EmployeeI18n();
+    EmployeeI18n employeeI18n5=new EmployeeI18n();
     
     ExpenseI18n expenseI18n=new ExpenseI18n();
     ExpenseI18n expenseI18n2=new ExpenseI18n();
+    ExpenseI18n expenseI18n3=new ExpenseI18n();
+    ExpenseI18n expenseI18n4=new ExpenseI18n();
+    ExpenseI18n expenseI18n5=new ExpenseI18n();
     
     ExpenseCategoryI18n expenseCategoryI18n=new ExpenseCategoryI18n();
     ExpenseCategoryI18n expenseCategoryI18n2=new ExpenseCategoryI18n();
+    ExpenseCategoryI18n expenseCategoryI18n3=new ExpenseCategoryI18n();
+    ExpenseCategoryI18n expenseCategoryI18n4=new ExpenseCategoryI18n();
+    ExpenseCategoryI18n expenseCategoryI18n5=new ExpenseCategoryI18n();
     
     ExtraBedI18n extraBedI18n=new ExtraBedI18n();
     ExtraBedI18n extraBedI18n2=new ExtraBedI18n();
+    ExtraBedI18n extraBedI18n3=new ExtraBedI18n();
+    ExtraBedI18n extraBedI18n4=new ExtraBedI18n();
+    ExtraBedI18n extraBedI18n5=new ExtraBedI18n();
     
     FoodI18n foodI18n=new FoodI18n();
     FoodI18n foodI18n2=new FoodI18n();
+    FoodI18n foodI18n3=new FoodI18n();
+    FoodI18n foodI18n4=new FoodI18n();
+    FoodI18n foodI18n5=new FoodI18n();
     
     GalleryI18n galleryI18n=new GalleryI18n();
     GalleryI18n galleryI18n2=new GalleryI18n();
+    GalleryI18n galleryI18n3=new GalleryI18n();
+    GalleryI18n galleryI18n4=new GalleryI18n();
+    GalleryI18n galleryI18n5=new GalleryI18n();
     
     GuestTypeI18n guestTypeI18n=new GuestTypeI18n();
     GuestTypeI18n guestTypeI18n2=new GuestTypeI18n();
+    GuestTypeI18n guestTypeI18n3=new GuestTypeI18n();
+    GuestTypeI18n guestTypeI18n4=new GuestTypeI18n();
+    GuestTypeI18n guestTypeI18n5=new GuestTypeI18n();
     
     InformationHotelI18n informationHotelI18n=new InformationHotelI18n();
     InformationHotelI18n informationHotelI18n2=new InformationHotelI18n();
+    InformationHotelI18n informationHotelI18n3=new InformationHotelI18n();
+    InformationHotelI18n informationHotelI18n4=new InformationHotelI18n();
+    InformationHotelI18n informationHotelI18n5=new InformationHotelI18n();
     
     MessageI18n messageI18n=new MessageI18n();
     MessageI18n messageI18n2=new MessageI18n();
+    MessageI18n messageI18n3=new MessageI18n();
+    MessageI18n messageI18n4=new MessageI18n();
+    MessageI18n messageI18n5=new MessageI18n();
     
     OfferI18n offerI18n=new OfferI18n();
     OfferI18n offerI18n2=new OfferI18n();
+    OfferI18n offerI18n3=new OfferI18n();
+    OfferI18n offerI18n4=new OfferI18n();
+    OfferI18n offerI18n5=new OfferI18n();
     
     RoomI18n  roomI18n=new RoomI18n();
     RoomI18n  roomI18n2=new RoomI18n();
+    RoomI18n  roomI18n3=new RoomI18n();
+    RoomI18n  roomI18n4=new RoomI18n();
+    RoomI18n  roomI18n5=new RoomI18n();
     
     RoomTypeI18n roomTypeI18n=new RoomTypeI18n();
     RoomTypeI18n roomTypeI18n2=new RoomTypeI18n();
+    RoomTypeI18n roomTypeI18n3=new RoomTypeI18n();
+    RoomTypeI18n roomTypeI18n4=new RoomTypeI18n();
+    RoomTypeI18n roomTypeI18n5=new RoomTypeI18n();
     
     ShiftI18n shiftI18n=new ShiftI18n();
     ShiftI18n shiftI18n2=new ShiftI18n();
+    ShiftI18n shiftI18n3=new ShiftI18n();
+    ShiftI18n shiftI18n4=new ShiftI18n();
+    ShiftI18n shiftI18n5=new ShiftI18n();
     
     UserI18n userI18n=new UserI18n();
     UserI18n userI18n2=new UserI18n();
+    UserI18n userI18n3=new UserI18n();
+    UserI18n userI18n4=new UserI18n();
+    UserI18n userI18n5=new UserI18n();
     
     CityI18n cityI18n=new CityI18n();
     CityI18n cityI18n2=new CityI18n();
+    CityI18n cityI18n3=new CityI18n();
+    CityI18n cityI18n4=new CityI18n();
+    CityI18n cityI18n5=new CityI18n();
     
     UIMenuI18n menuI18n=new UIMenuI18n();
     UIMenuI18n menuI18n2=new UIMenuI18n();
+    UIMenuI18n menuI18n3=new UIMenuI18n();
+    UIMenuI18n menuI18n4=new UIMenuI18n();
+    UIMenuI18n menuI18n5=new UIMenuI18n();
+    
     
     UIHeaderI18n headerI18n=new UIHeaderI18n();
     UIHeaderI18n headerI18n2=new UIHeaderI18n();
+    UIHeaderI18n headerI18n3=new UIHeaderI18n();
+    UIHeaderI18n headerI18n4=new UIHeaderI18n();
+    UIHeaderI18n headerI18n5=new UIHeaderI18n();
     
     SubscriberI18n subscriberI18n=new SubscriberI18n();
     SubscriberI18n subscriberI18n2=new SubscriberI18n();
+    SubscriberI18n subscriberI18n3=new SubscriberI18n();
+    SubscriberI18n subscriberI18n4=new SubscriberI18n();
+    SubscriberI18n subscriberI18n5=new SubscriberI18n();
     
     EmailI18n  emailI18n=new EmailI18n();
     EmailI18n  emailI18n2=new EmailI18n();
+    EmailI18n  emailI18n3=new EmailI18n();
+    EmailI18n  emailI18n4=new EmailI18n();
+    EmailI18n  emailI18n5=new EmailI18n();
     
     FoodCategoryI18n foodCategoryI18n=new FoodCategoryI18n();
     FoodCategoryI18n foodCategoryI18n2=new FoodCategoryI18n();
+    FoodCategoryI18n foodCategoryI18n3=new FoodCategoryI18n();
+    FoodCategoryI18n foodCategoryI18n4=new FoodCategoryI18n();
+    FoodCategoryI18n foodCategoryI18n5=new FoodCategoryI18n();
     
     PaymentI18n  paymentI18n=new PaymentI18n();
     PaymentI18n  paymentI18n2=new PaymentI18n();
+    PaymentI18n  paymentI18n3=new PaymentI18n();
+    PaymentI18n  paymentI18n4=new PaymentI18n();
+    PaymentI18n  paymentI18n5=new PaymentI18n();
     
     PaymentMethodI18n paymentMethodI18n=new PaymentMethodI18n();
     PaymentMethodI18n paymentMethodI18n2=new PaymentMethodI18n();
+    PaymentMethodI18n paymentMethodI18n3=new PaymentMethodI18n();
+    PaymentMethodI18n paymentMethodI18n4=new PaymentMethodI18n();
+    PaymentMethodI18n paymentMethodI18n5=new PaymentMethodI18n();
     
     HouseKeepingItemI18n houseKeepingItemI18n=new HouseKeepingItemI18n();
     HouseKeepingItemI18n houseKeepingItemI18n2=new HouseKeepingItemI18n();
+    HouseKeepingItemI18n houseKeepingItemI18n3=new HouseKeepingItemI18n();
+    HouseKeepingItemI18n houseKeepingItemI18n4=new HouseKeepingItemI18n();
+    HouseKeepingItemI18n houseKeepingItemI18n5=new HouseKeepingItemI18n();
     
     FoodOrderI18n foodOrderI18n=new FoodOrderI18n();
     FoodOrderI18n foodOrderI18n2=new FoodOrderI18n();
+    FoodOrderI18n foodOrderI18n3=new FoodOrderI18n();
+    FoodOrderI18n foodOrderI18n4=new FoodOrderI18n();
+    FoodOrderI18n foodOrderI18n5=new FoodOrderI18n();
     
     HouseKeepingOrderI18n  houseKeepingOrderI18n=new HouseKeepingOrderI18n();
     HouseKeepingOrderI18n  houseKeepingOrderI18n2=new HouseKeepingOrderI18n();
+    HouseKeepingOrderI18n  houseKeepingOrderI18n3=new HouseKeepingOrderI18n();
+    HouseKeepingOrderI18n  houseKeepingOrderI18n4=new HouseKeepingOrderI18n();
+    HouseKeepingOrderI18n  houseKeepingOrderI18n5=new HouseKeepingOrderI18n();
 
     LaundryOrder  laundryOrder=new LaundryOrder();
     LaundryOrder  laundryOrder2=new LaundryOrder();
+    LaundryOrder  laundryOrder3=new LaundryOrder();
+    LaundryOrder  laundryOrder4=new LaundryOrder();
+    LaundryOrder  laundryOrder5=new LaundryOrder();
     
     LaundryOrderI18n laundryOrderI18n=new LaundryOrderI18n();
     LaundryOrderI18n laundryOrderI18n2=new LaundryOrderI18n();
+    LaundryOrderI18n laundryOrderI18n3=new LaundryOrderI18n();
+    LaundryOrderI18n laundryOrderI18n4=new LaundryOrderI18n();
+    LaundryOrderI18n laundryOrderI18n5=new LaundryOrderI18n();
     
     LaundryItem laundryItem=new LaundryItem();
     
     FoodRequestI18n foodRequestI18n=new FoodRequestI18n();
     FoodRequestI18n foodRequestI18n2=new FoodRequestI18n();
+    FoodRequestI18n foodRequestI18n3=new FoodRequestI18n();
+    FoodRequestI18n foodRequestI18n4=new FoodRequestI18n();
+    FoodRequestI18n foodRequestI18n5=new FoodRequestI18n();
     
     FoodRequestOrder foodRequestOrder=new FoodRequestOrder();
     
     HouseKeepingRequestI18n houseKeepingRequestI18n=new HouseKeepingRequestI18n();
     HouseKeepingRequestI18n houseKeepingRequestI18n2=new HouseKeepingRequestI18n();
+    HouseKeepingRequestI18n houseKeepingRequestI18n3=new HouseKeepingRequestI18n();
+    HouseKeepingRequestI18n houseKeepingRequestI18n4=new HouseKeepingRequestI18n();
+    HouseKeepingRequestI18n houseKeepingRequestI18n5=new HouseKeepingRequestI18n();
     
     HouseKeepingRequestOrder houseKeepingRequestOrder=new HouseKeepingRequestOrder();
     
     LaundryRequestI18n  laundryRequestI18n=new LaundryRequestI18n();
     LaundryRequestI18n  laundryRequestI18n2=new LaundryRequestI18n();
+    LaundryRequestI18n  laundryRequestI18n3=new LaundryRequestI18n();
+    LaundryRequestI18n  laundryRequestI18n4=new LaundryRequestI18n();
+    LaundryRequestI18n  laundryRequestI18n5=new LaundryRequestI18n();
     
     LaundryRequestOrder laundryRequestOrder=new LaundryRequestOrder();
+    LaundryRequestOrder laundryRequestOrder1=new LaundryRequestOrder();
+    LaundryRequestOrder laundryRequestOrder3=new LaundryRequestOrder();
+    LaundryRequestOrder laundryRequestOrder2=new LaundryRequestOrder();
+    LaundryRequestOrder laundryRequestOrder5=new LaundryRequestOrder();
     
     
+    LaundryItemI18n laundryItemI18n=new LaundryItemI18n();
+    LaundryItemI18n laundryItemI18n2=new LaundryItemI18n();
+    LaundryItemI18n laundryItemI18n3=new LaundryItemI18n();
+    LaundryItemI18n laundryItemI18n4=new LaundryItemI18n();
+    LaundryItemI18n laundryItemI18n5=new LaundryItemI18n();
+    
+    DepartementI18n  departementI18n=new DepartementI18n();
+    DepartementI18n  departementI18n2=new DepartementI18n();
+    DepartementI18n  departementI18n3=new DepartementI18n();
+    DepartementI18n  departementI18n4=new DepartementI18n();
+    DepartementI18n  departementI18n5=new DepartementI18n();
+    
+    ExtraBedRequestI18n extraBedRequestI18n=new ExtraBedRequestI18n();
+    ExtraBedRequestI18n extraBedRequestI18n2=new ExtraBedRequestI18n();
+    ExtraBedRequestI18n extraBedRequestI18n3=new ExtraBedRequestI18n();
+    ExtraBedRequestI18n extraBedRequestI18n4=new ExtraBedRequestI18n();
+    ExtraBedRequestI18n extraBedRequestI18n5=new ExtraBedRequestI18n();
     
     
     

@@ -69,6 +69,40 @@ public class OfferDTO implements DTO {
 		offerI18n2.setLangI18n("DE");
 		offerI18nRepository.save(offerI18n2);
 		
+		offerI18n3.setDescriptionI18n ("Descripción");
+		offerI18n3.setImageI18n ("Imagen");
+		offerI18n3.setNameI18n ("Nombre");
+		offerI18n3.setTitleI18n ("Título");
+		offerI18n3.setGetTitleI18n ("Ciudad");
+		offerI18n3.setCreateTitleI18n ("Crear nueva ciudad");
+		offerI18n3.setEditTitleI18n ("Editar ciudad");
+		offerI18n3.setGetAllTitleI18n ("Ciudades");
+		offerI18n3.setLangI18n ("ES");
+		offerI18nRepository.save (offerI18n3);
+		
+		offerI18n4.setDescriptionI18n("Description");
+		offerI18n4.setImageI18n("Image");
+		offerI18n4.setNameI18n("Nom");
+		offerI18n4.setTitleI18n("Titre");
+		offerI18n4.setGetTitleI18n("Ville");
+		offerI18n4.setCreateTitleI18n("Créer une nouvelle ville");
+		offerI18n4.setEditTitleI18n("Modifier la ville");
+		offerI18n4.setGetAllTitleI18n("Villes");
+		offerI18n4.setLangI18n("FR");
+		offerI18nRepository.save(offerI18n4);
+		
+		offerI18n5.setDescriptionI18n ("الوصف") ;
+		offerI18n5.setImageI18n ("صورة") ;
+		offerI18n5.setNameI18n ("الاسم") ;
+		offerI18n5.setTitleI18n ("العنوان") ;
+		offerI18n5.setGetTitleI18n ("المدينة") ;
+		offerI18n5.setCreateTitleI18n ("إنشاء مدينة جديدة") ;
+		offerI18n5.setEditTitleI18n ("تحرير المدينة") ;
+		offerI18n5.setGetAllTitleI18n ("المدن") ;
+		offerI18n5.setLangI18n ("AR") ;
+		offerI18nRepository.save (offerI18n5) ;
+		
+		
 
 	}
 

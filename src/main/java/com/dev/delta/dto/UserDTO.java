@@ -61,6 +61,38 @@ public class UserDTO implements DTO {
 		userI18nRepository.save(userI18n2);
 		
 		
+		userI18n3.setRoleI18n ("الدور") ;
+		userI18n3.setUsernameI18n ("اسم المستخدم") ;
+		userI18n3.setLangI18n ("AR") ;
+		userI18n3.setGetAllTitleI18n ("المدن") ;
+		userI18n3.setCreateTitleI18n ("إنشاء مدينة جديدة");
+		userI18n3.setEditTitleI18n ("تحرير المدينة") ;
+		userI18n3.setGetTitleI18n ("المدينة") ;
+		userI18nRepository.save (userI18n3) ;
+		
+		userI18n4.setRoleI18n ("Rol");
+		userI18n4.setUsernameI18n ("Nombre de usuario");
+		userI18n4.setLangI18n ("ES");
+		userI18n4.setGetAllTitleI18n ("Ciudades");
+		userI18n4.setCreateTitleI18n ("Crear nueva ciudad");
+		userI18n4.setEditTitleI18n ("Editar ciudad");
+		userI18n4.setGetTitleI18n ("Ciudad");
+		userI18nRepository.save (userI18n4);
+		
+		
+		
+		
+		
+		userI18n5.setRoleI18n("Rôle");
+		userI18n5.setUsernameI18n("Username");
+		userI18n5.setLangI18n("FR");
+		userI18n5.setGetAllTitleI18n("Villes");
+		userI18n5.setCreateTitleI18n("Créer une nouvelle ville");
+		userI18n5.setEditTitleI18n("Modifier la ville");
+		userI18n5.setGetTitleI18n("Ville");
+		userI18nRepository.save(userI18n5);
+		
+		
 	}
 
 }

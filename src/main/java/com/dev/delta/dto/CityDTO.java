@@ -41,6 +41,43 @@ public class CityDTO implements DTO{
       cityI18n2.setNameI18n("Name");
 
       cityI18nRepository.save(cityI18n2);
+      
+      
+      cityI18n3.setLangI18n ("EN");
+      cityI18n3.setNameI18n ("الاسم") ;
+      cityI18n3.setGetAllTitleI18n ("المدن");
+      cityI18n3.setCreateTitleI18n ("إنشاء مدينة جديدة");
+      cityI18n3.setEditTitleI18n ("تعديل المدينة");
+      cityI18n3.setGetTitleI18n ("المدينة");
+      cityI18n3.setCreateTitleI18n ("إنشاء مدينة جديدة");
+      cityI18n3.setEditTitleI18n("تعديل المدينة");
+      cityI18n3.setGetAllTitleI18n("المدن");
+      cityI18nRepository.save(cityI18n3);
+      
+      
+      
+      cityI18n4.setLangI18n("FR");
+      cityI18n4.setNameI18n("Nom");
+      cityI18n4.setGetAllTitleI18n("Villes");
+      cityI18n4.setCreateTitleI18n("Créer une nouvelle ville");
+      cityI18n4.setEditTitleI18n("Modifier la ville");
+      cityI18n4.setGetTitleI18n("Ville");
+      cityI18n4.setCreateTitleI18n("Créer une nouvelle ville");
+      cityI18n4.setEditTitleI18n("Modifier la ville");
+      cityI18n4.setGetAllTitleI18n("Villes");
+      cityI18nRepository.save(cityI18n4);
+      
+      
+      cityI18n5.setLangI18n ("ES");
+      cityI18n5.setNameI18n ("Nombre");
+      cityI18n5.setGetAllTitleI18n ("Ciudades");
+      cityI18n5.setCreateTitleI18n ("Crear nueva ciudad");
+      cityI18n5.setEditTitleI18n ("Editar ciudad");
+      cityI18n5.setGetTitleI18n ("Ciudad");
+      cityI18n5.setCreateTitleI18n ("Crear nueva ciudad");
+      cityI18n5.setEditTitleI18n ("Editar ciudad");
+      cityI18n5.setGetAllTitleI18n ("Ciudades");
+      cityI18nRepository.save (cityI18n5);
 		
 	}
 

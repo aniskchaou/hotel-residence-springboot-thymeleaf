@@ -23,5 +23,20 @@ public class SubscriberDTO implements DTO {
 		subscriberI18n2.setGetAllTitleI18n("Abonnenten");
 		subscriberI18nRepository.save(subscriberI18n2);
 		
+		subscriberI18n3.setEmailI18n ("Correo electrónico");
+		subscriberI18n3.setLangI18n ("ES");
+		subscriberI18n3.setGetAllTitleI18n ("Suscriptores");
+		subscriberI18nRepository.save (subscriberI18n3);
+		
+		subscriberI18n4.setEmailI18n("E-mail");
+		subscriberI18n4.setLangI18n("FR");
+		subscriberI18n4.setGetAllTitleI18n("Abonnés");
+		subscriberI18nRepository.save(subscriberI18n4);
+		
+		subscriberI18n5.setEmailI18n ("البريد الإلكتروني") ;
+		subscriberI18n5.setLangI18n ("AR") ;
+		subscriberI18n5.setGetAllTitleI18n ("المشتركون") ;
+		subscriberI18nRepository.save (subscriberI18n5) ;
+		
 	}
 }

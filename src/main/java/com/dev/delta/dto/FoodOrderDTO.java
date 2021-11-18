@@ -55,6 +55,46 @@ public class FoodOrderDTO implements DTO {
 		foodOrderI18n2.setEditTitleI18n("Bearbeiten");
 		foodOrderI18n2.setCreateTitleI18n("Erstellen");
 		foodI18nRepository.save(foodOrderI18n2);
+		
+		
+		foodOrderI18n3.setCheckinI18n ("تسجيل الوصول") ;
+		foodOrderI18n.setFoodItemI18n ("Food Item") ;
+		foodOrderI18n3.setLangI18n ("AR") ;
+		foodOrderI18n3.setNoofPersonsI18n ("الأشخاص") ;
+		foodOrderI18n3.setPriceI18n ("السعر") ;
+		foodOrderI18n3.setRoomI18n ("الغرفة") ;
+		foodOrderI18n3.setWaiterNameI18n ("النادل") ;
+		foodOrderI18n3.setGetAllTitleI18n ("طلبات الطعام") ;
+		foodOrderI18n3.setGetTitleI18n ("طلب الطعام") ;
+		foodOrderI18n3.setEditTitleI18n ("تحرير") ;
+		foodOrderI18n3.setCreateTitleI18n ("إنشاء") ;
+		foodI18nRepository.save (foodOrderI18n3) ;
+		
+		foodOrderI18n4.setCheckinI18n("Enregistrement");
+		foodOrderI18n4.setFoodItemI18n("Article alimentaire");
+		foodOrderI18n4.setLangI18n("FR");
+		foodOrderI18n4.setNoofPersonsI18n("Personnes");
+		foodOrderI18n4.setPriceI18n("Prix");
+		foodOrderI18n4.setRoomI18n("Chambre");
+		foodOrderI18n4.setWaiterNameI18n("Serveur");
+		foodOrderI18n4.setGetAllTitleI18n("Commandes de nourriture");
+		foodOrderI18n4.setGetTitleI18n("Commande de nourriture");
+		foodOrderI18n4.setEditTitleI18n("Modifier");
+		foodOrderI18n4.setCreateTitleI18n("Créer");
+		foodI18nRepository.save(foodOrderI18n4);
+		
+		foodOrderI18n5.setCheckinI18n ("Registrar");
+		foodOrderI18n5.setFoodItemI18n ("Elemento de comida");
+		foodOrderI18n5.setLangI18n ("ES");
+		foodOrderI18n5.setNoofPersonsI18n ("Personas");
+		foodOrderI18n5.setPriceI18n ("Precio");
+		foodOrderI18n5.setRoomI18n ("Habitación");
+		foodOrderI18n5.setWaiterNameI18n ("Camarero");
+		foodOrderI18n5.setGetAllTitleI18n ("Pedidos de comida");
+		foodOrderI18n5.setGetTitleI18n ("Pedido de comida");
+		foodOrderI18n5.setEditTitleI18n ("Editar");
+		foodOrderI18n5.setCreateTitleI18n ("Crear");
+		foodI18nRepository.save (foodOrderI18n5);
 
 	}
 

@@ -47,6 +47,36 @@ public class FoodRequestDTO implements DTO {
 		foodRequestOrder.setStatus("Status");
 		foodOrderRequestRepository.save(foodRequestOrder);
 		
+		foodRequestI18n3.setCustomer ("Cliente");
+		foodRequestI18n3.setDate ("Fecha");
+		foodRequestI18n3.setFoodItem ("Elemento alimenticio");
+		foodRequestI18n3.setNoofPersons ("Personas");
+		foodRequestI18n3.setRoom ("Habitación");
+		foodRequestI18n3.setStatus ("Estado");
+		foodRequestI18n3.setLangI18n ("ES");
+		foodRequestI18nRepository.save (foodRequestI18n3);
+		
+		
+		
+		
+		
+		foodRequestI18n4.setCustomer("Client");
+		foodRequestI18n4.setDate("Date");
+		foodRequestI18n4.setFoodItem("Article alimentaire");
+		foodRequestI18n4.setNoofPersons("Personnes");
+		foodRequestI18n4.setRoom("Chambre");
+		foodRequestI18n4.setStatus("Statut");
+		foodRequestI18n4.setLangI18n("FR");
+		foodRequestI18nRepository.save(foodRequestI18n4);
+		
+		foodRequestI18n5.setCustomer ("العميل") ;
+		foodRequestI18n5.setDate ("التاريخ") ;
+		foodRequestI18n5.setFoodItem ("مادة غذائية") ;
+		foodRequestI18n5.setNoofPersons ("الأشخاص") ;
+		foodRequestI18n5.setRoom ("الغرفة") ;
+		foodRequestI18n5.setStatus ("الحالة") ;
+		foodRequestI18n5.setLangI18n ("AR") ;
+		foodRequestI18nRepository.save (foodRequestI18n5) ;
 		
 
 	}

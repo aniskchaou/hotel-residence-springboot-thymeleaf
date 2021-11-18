@@ -40,11 +40,41 @@ public class LaundryOrderDTO implements DTO {
 		laundryOrderI18n2.setLangI18n("DE");
 		laundryOrderI18n2.setLaundryitemI18n("Wäscheartikel");
 		laundryOrderI18n2.setRoomI18n("Zimmer");
-		laundryOrderI18n.setCreateTitleI18n("Erstellen");
-		laundryOrderI18n.setEditTitleI18n("Bearbeiten");
-		laundryOrderI18n.setGetAllTitleI18n("Wäschebestellungen");
-		laundryOrderI18n.setGetTitleI18n("Wäschebestellung");
+		laundryOrderI18n2.setCreateTitleI18n("Erstellen");
+		laundryOrderI18n2.setEditTitleI18n("Bearbeiten");
+		laundryOrderI18n2.setGetAllTitleI18n("Wäschebestellungen");
+		laundryOrderI18n2.setGetTitleI18n("Wäschebestellung");
 		laundryOrderI18nRepository.save(laundryOrderI18n2);
+		
+		laundryOrderI18n4.setDateI18n ("Fecha");
+		laundryOrderI18n4.setLangI18n ("ES");
+		laundryOrderI18n4.setLaundryitemI18n ("Artículo de lavandería");
+		laundryOrderI18n4.setRoomI18n ("Habitación");
+		laundryOrderI18n4.setCreateTitleI18n ("Crear");
+		laundryOrderI18n4.setEditTitleI18n ("Editar");
+		laundryOrderI18n4.setGetAllTitleI18n ("Pedidos de lavandería");
+		laundryOrderI18n4.setGetTitleI18n ("Pedido de lavandería");
+		laundryOrderI18nRepository.save (laundryOrderI18n4);
+		
+		laundryOrderI18n3.setDateI18n("Date");
+		laundryOrderI18n3.setLangI18n("FR");
+		laundryOrderI18n3.setLaundryitemI18n("Article de blanchisserie");
+		laundryOrderI18n3.setRoomI18n("Chambre");
+		laundryOrderI18n3.setCreateTitleI18n("Créer");
+		laundryOrderI18n3.setEditTitleI18n("Modifier");
+		laundryOrderI18n3.setGetAllTitleI18n("Commandes de blanchisserie");
+		laundryOrderI18n3.setGetTitleI18n("Commande de blanchisserie");
+		laundryOrderI18nRepository.save(laundryOrderI18n3);
+		
+		laundryOrderI18n5.setDateI18n ("التاريخ") ;
+		laundryOrderI18n5.setLangI18n ("AR") ;
+		laundryOrderI18n5.setLaundryitemI18n ("عنصر الغسيل") ;
+		laundryOrderI18n5.setRoomI18n ("الغرفة") ;
+		laundryOrderI18n5.setCreateTitleI18n ("إنشاء") ;
+		laundryOrderI18n5.setEditTitleI18n ("تحرير") ;
+		laundryOrderI18n5.setGetAllTitleI18n ("أوامر الغسيل") ;
+		laundryOrderI18n5.setGetTitleI18n ("طلب الغسيل") ;
+		laundryOrderI18nRepository.save (laundryOrderI18n5) ;
 		
 		
 		

@@ -40,6 +40,44 @@ public class HouseKeepingOrderDTO implements DTO {
 		houseKeepingOrderI18n2.setGetAllTitleI18n("HouseKeeping Bestellungen");
 		houseKeepingOrderI18n2.setGetTitleI18n("HouseKeeping Ordnung");
     houseKeepingOrderI18nRepository.save(houseKeepingOrderI18n2);
+    
+    houseKeepingOrderI18n3.setAssignedToI18n ("Assigned") ;
+    houseKeepingOrderI18n3.setHousekeepingItemI18n ("العنصر") ;
+    houseKeepingOrderI18n3.setHousekeepingStatusI18n ("الحالة") ;
+    houseKeepingOrderI18n3.setRemarkI18n ("ملاحظة") ;
+    houseKeepingOrderI18n3.setRoomI18n ("الغرفة") ;
+    houseKeepingOrderI18n3.setLangI18n ("AR") ;
+    houseKeepingOrderI18n3.setCreateTitleI18n ("إنشاء") ;
+    houseKeepingOrderI18n3.setEditTitleI18n ("تحرير") ;
+    houseKeepingOrderI18n3.setGetAllTitleI18n ("أوامر حفظ المنزل");
+    houseKeepingOrderI18n3.setGetTitleI18n ("ترتيب حفظ المنزل") ;
+	houseKeepingOrderI18nRepository.save(houseKeepingOrderI18n3);
+           
+           
+           houseKeepingOrderI18n4.setAssignedToI18n("Attribué");
+    houseKeepingOrderI18n4.setHousekeepingItemI18n("Item");
+    houseKeepingOrderI18n4.setHousekeepingStatusI18n("Statut");
+    houseKeepingOrderI18n4.setRemarkI18n("Remarque");
+    houseKeepingOrderI18n4.setRoomI18n("Chambre");
+    houseKeepingOrderI18n4.setLangI18n("FR");
+    houseKeepingOrderI18n4.setCreateTitleI18n("Créer");
+    houseKeepingOrderI18n4.setEditTitleI18n("Modifier");
+    houseKeepingOrderI18n4.setGetAllTitleI18n("HouseKeeping Orders");
+    houseKeepingOrderI18n4.setGetTitleI18n("HouseKeeping Order");
+           houseKeepingOrderI18nRepository.save(houseKeepingOrderI18n4);
+           
+           
+           houseKeepingOrderI18n5.setAssignedToI18n ("Asignado");
+           houseKeepingOrderI18n5.setHousekeepingItemI18n ("Elemento");
+           houseKeepingOrderI18n5.setHousekeepingStatusI18n ("Estado");
+           houseKeepingOrderI18n5.setRemarkI18n ("Observación");
+           houseKeepingOrderI18n5.setRoomI18n ("Habitación");
+           houseKeepingOrderI18n5.setLangI18n ("ES");
+           houseKeepingOrderI18n5.setCreateTitleI18n ("Crear");
+           houseKeepingOrderI18n5.setEditTitleI18n ("Editar");
+           houseKeepingOrderI18n5.setGetAllTitleI18n ("Órdenes de mantenimiento de la casa");
+           houseKeepingOrderI18n5.setGetTitleI18n ("Orden de mantenimiento de la casa");
+                  houseKeepingOrderI18nRepository.save (houseKeepingOrderI18n5);
 		
 	}
 

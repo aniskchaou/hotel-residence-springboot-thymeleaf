@@ -40,8 +40,42 @@ public class ShiftDTO implements DTO {
 		shiftI18n2.setGetAllTitleI18n("Verschiebungen");
 		shiftI18n2.setLangI18n("DE");
 		
+		
+		
+		shiftI18n3.setStartI18n ("Start") ;
+		shiftI18n3.setEndI18n ("End") ;
+		shiftI18n3.setTypeI18n ("النوع") ;
+		shiftI18n3.setGetTitleI18n ("Shift") ;
+		shiftI18n3.setCreateTitleI18n ("إنشاء") ;
+		shiftI18n3.setEditTitleI18n ("تحرير") ;
+		shiftI18n3.setGetAllTitleI18n ("Shifts");
+		shiftI18n3.setLangI18n ("AR") ;
+		
+		
+		shiftI18n4.setStartI18n("Démarrer");
+		shiftI18n4.setEndI18n("Fin");
+		shiftI18n4.setTypeI18n("Type");
+		shiftI18n4.setGetTitleI18n("Shift");
+		shiftI18n4.setCreateTitleI18n("Créer");
+		shiftI18n4.setEditTitleI18n("Modifier");
+		shiftI18n4.setGetAllTitleI18n("Shifts");
+		shiftI18n4.setLangI18n("FR");
+		
+		shiftI18n5.setStartI18n ("Inicio");
+		shiftI18n5.setEndI18n ("Fin");
+		shiftI18n5.setTypeI18n ("Tipo");
+		shiftI18n5.setGetTitleI18n ("Shift");
+		shiftI18n5.setCreateTitleI18n ("Crear");
+		shiftI18n5.setEditTitleI18n ("Editar");
+		shiftI18n5.setGetAllTitleI18n ("Turnos");
+		shiftI18n5.setLangI18n ("ES");
+		
+		
 		shiftI18nRepository.save(shiftI18n);
 		shiftI18nRepository.save(shiftI18n2);
+		shiftI18nRepository.save(shiftI18n3);
+		shiftI18nRepository.save(shiftI18n4);
+		shiftI18nRepository.save(shiftI18n5);
 	}
 
 }

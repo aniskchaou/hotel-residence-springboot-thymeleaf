@@ -93,21 +93,66 @@ public class BlogDTO implements DTO {
 		blogI18n.setGetAllTitleI18n("Cities");
 		blogI18nRepository.save(blogI18n);
 		
-		
 		blogI18n2.setTitleI18n("Titel");
 		blogI18n2.setDateI18n("Datum");
-		blogI18n2.setBodyI18n("Body");
+		blogI18n2.setBodyI18n("Körper");
 		blogI18n2.setUserI18n("Benutzer");
-		blogI18n2.setPhotosI18n("Bild");
+		blogI18n2.setPhotosI18n("Foto");
 		blogI18n2.setDayI18n("Tag");
-		blogI18n2.setMonthI18n("Monate");
-		blogI18n2.setBlogCategoryI18n("BlogKategorie");
+		blogI18n2.setMonthI18n("Monat");
+		blogI18n2.setBlogCategoryI18n("Blog-Kategorie");
 		blogI18n2.setLangI18n("DE");
 		blogI18n2.setGetTitleI18n("Stadt");
-		blogI18n2.setCreateTitleI18n("Erstellen");
-		blogI18n2.setEditTitleI18n("Bearbeiten");
+		blogI18n2.setCreateTitleI18n("Neue Stadt erstellen");
+		blogI18n2.setEditTitleI18n("Stadt bearbeiten");
 		blogI18n2.setGetAllTitleI18n("Städte");
 		blogI18nRepository.save(blogI18n2);
+		
+		blogI18n3.setTitleI18n("Titre");
+		blogI18n3.setDateI18n("Date");
+		blogI18n3.setBodyI18n("Corps");
+		blogI18n3.setUserI18n("Utilisateur");
+		blogI18n3.setPhotosI18n("Photo");
+		blogI18n3.setDayI18n("Jour");
+		blogI18n3.setMonthI18n("Mois");
+		blogI18n3.setBlogCategoryI18n("Catégorie de blog");
+		blogI18n3.setLangI18n("FR");
+		blogI18n3.setGetTitleI18n("Ville");
+		blogI18n3.setCreateTitleI18n("Créer une nouvelle ville");
+		blogI18n3.setEditTitleI18n("Modifier la ville");
+		blogI18n3.setGetAllTitleI18n("Villes");
+		blogI18nRepository.save(blogI18n3);
+		
+		blogI18n4.setTitleI18n ("Título");
+		blogI18n4.setDateI18n ("Fecha");
+		blogI18n4.setBodyI18n ("Cuerpo");
+		blogI18n4.setUserI18n ("Usuario");
+		blogI18n4.setPhotosI18n ("Foto");
+		blogI18n4.setDayI18n ("Día");
+		blogI18n4.setMonthI18n ("Mes");
+		blogI18n4.setBlogCategoryI18n ("Categoría de blog");
+		blogI18n4.setLangI18n ("EN");
+		blogI18n4.setGetTitleI18n ("Ciudad");
+		blogI18n4.setCreateTitleI18n ("Crear nueva ciudad");
+		blogI18n4.setEditTitleI18n ("Editar ciudad");
+		blogI18n4.setGetAllTitleI18n ("Ciudades");
+		blogI18nRepository.save (blogI18n4);
+		
+		
+		blogI18n5.setTitleI18n("Titel");
+		blogI18n5.setDateI18n("Datum");
+		blogI18n5.setBodyI18n("Body");
+		blogI18n5.setUserI18n("Benutzer");
+		blogI18n5.setPhotosI18n("Bild");
+		blogI18n5.setDayI18n("Tag");
+		blogI18n5.setMonthI18n("Monate");
+		blogI18n5.setBlogCategoryI18n("BlogKategorie");
+		blogI18n5.setLangI18n("DE");
+		blogI18n5.setGetTitleI18n("Stadt");
+		blogI18n5.setCreateTitleI18n("Erstellen");
+		blogI18n5.setEditTitleI18n("Bearbeiten");
+		blogI18n5.setGetAllTitleI18n("Städte");
+		blogI18nRepository.save(blogI18n5);
 
 	}
 

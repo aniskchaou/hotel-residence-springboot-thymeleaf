@@ -39,6 +39,32 @@ public class HouseKeepingRequestDTO implements DTO {
 		houseKeepingRequestI18nRepository.save(houseKeepingRequestI18n2);
 		
 		
+		houseKeepingRequestI18n3.setCustomer ("Cliente");
+		houseKeepingRequestI18n3.setDate ("Fecha");
+		houseKeepingRequestI18n3.setLangI18n ("ES");
+		houseKeepingRequestI18n3.setRoom ("Habitación");
+		houseKeepingRequestI18n3.setStatus ("Estado");
+		houseKeepingRequestI18nRepository.save (houseKeepingRequestI18n3);
+		
+		
+		houseKeepingRequestI18n4.setCustomer("Client");
+		houseKeepingRequestI18n4.setDate("Date");
+		houseKeepingRequestI18n4.setLangI18n("FR");
+		houseKeepingRequestI18n4.setRoom("Chambre");
+		houseKeepingRequestI18n4.setStatus("Statut");
+		houseKeepingRequestI18nRepository.save(houseKeepingRequestI18n4);
+		
+		
+		houseKeepingRequestI18n5.setCustomer ("العميل") ;
+		houseKeepingRequestI18n5.setDate ("التاريخ") ;
+		houseKeepingRequestI18n5.setLangI18n ("AR") ;
+		houseKeepingRequestI18n5.setRoom ("الغرفة") ;
+		houseKeepingRequestI18n5.setStatus ("الحالة") ;
+		houseKeepingRequestI18nRepository.save (houseKeepingRequestI18n5) ;
+		
+		
+		
+		
 		houseKeepingRequestOrder.setCustomer(customer);
 		houseKeepingRequestOrder.setDate(new Date().toString());
 		houseKeepingRequestOrder.setRoom(room);

@@ -27,6 +27,7 @@ import com.dev.delta.entities.Room;
 import com.dev.delta.entities.RoomType;
 import com.dev.delta.entities.User;
 import com.dev.delta.i18n.entities.WebsiteFooterI18n;
+import com.dev.delta.i18n.repositories.CheckInI18nRepository;
 import com.dev.delta.i18n.repositories.WebsiteBookingRoomI18nRepository;
 import com.dev.delta.i18n.repositories.WebsiteFooterI18nRepository;
 import com.dev.delta.i18n.repositories.WebsiteMenuI18nRepository;
@@ -101,6 +102,9 @@ public class BookingController {
 	@Autowired
 	WebsiteBookingRoomI18nRepository bookingRoomI18nRepository;
 	
+	
+	@Autowired
+	CheckInI18nRepository    checkInI18nRepository   ;
 	/*@GetMapping("/validationbooking/{id}")
 	public String getBlogs(@PathVariable("id") Long id,Model model) {
 		//List<Blog> blogs = blogService.getBlogs();
@@ -148,6 +152,9 @@ public class BookingController {
 		model.addAttribute("menu", websiteMenuI18nRepository.findByLang(lang));
 		model.addAttribute("footer", websiteFooterI18nRepository.findByLang(lang));
 		model.addAttribute("booking", bookingRoomI18nRepository.findByLangI18n(lang));
+		model.addAttribute("checkin", checkInI18nRepository.findByLangI18n(lang));
+		
+		
 		return "website/validationbooking";
 	}
 	

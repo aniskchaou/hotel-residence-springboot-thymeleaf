@@ -85,6 +85,41 @@ public class RoomDTO implements DTO {
 		roomI18n2.setGetAllTitleI18n("Räume");
 		roomI18n2.setLangI18n("DE");
 		roomI18nRepository.save(roomI18n2);
+		
+		
+		roomI18n3.setFloorI18n ("Floor") ;
+		roomI18n3.setRoomNoI18n ("رقم الغرفة") ;
+		roomI18n3.setRoomTypeI18n ("نوع الغرفة") ;
+		roomI18n3.setStatusI18n ("الحالة") ;
+		roomI18n3.setGetTitleI18n ("الغرفة") ;
+		roomI18n3.setCreateTitleI18n ("إنشاء") ;
+		roomI18n3.setEditTitleI18n ("تحرير") ;
+		roomI18n3.setGetAllTitleI18n ("الغرف") ;
+		roomI18n3.setLangI18n ("AR") ;
+		roomI18nRepository.save (roomI18n3) ;
+		
+		roomI18n4.setFloorI18n("Sol");
+		roomI18n4.setRoomNoI18n("Room No");
+		roomI18n4.setRoomTypeI18n("Type de pièce");
+		roomI18n4.setStatusI18n("Statut");
+		roomI18n4.setGetTitleI18n("Chambre");
+		roomI18n4.setCreateTitleI18n("Créer");
+		roomI18n4.setEditTitleI18n("Modifier");
+		roomI18n4.setGetAllTitleI18n("Chambres");
+		roomI18n4.setLangI18n("FR");
+		roomI18nRepository.save(roomI18n4);
+		
+		
+		roomI18n5.setFloorI18n ("Piso");
+		roomI18n5.setRoomNoI18n ("Habitación No");
+		roomI18n5.setRoomTypeI18n ("Tipo de habitación");
+		roomI18n5.setStatusI18n ("Estado");
+		roomI18n5.setGetTitleI18n ("Habitación");
+		roomI18n5.setCreateTitleI18n ("Crear");
+		roomI18n5.setEditTitleI18n ("Editar");
+		roomI18n5.setGetAllTitleI18n ("Habitaciones");
+		roomI18n5.setLangI18n ("ES");
+		roomI18nRepository.save (roomI18n5);
 
 	}
 

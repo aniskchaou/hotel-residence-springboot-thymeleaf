@@ -329,6 +329,18 @@ public class CheckInController {
 		menuHeaderUtil.getMenuHeader(model);
 		return "checkin/view";
 	}
+	
+	
+	@RequestMapping("/checkinclient/{id}")
+	public String findByIdClient(@PathVariable("id") Long id, Model model) {
+		CheckIn checkIn = checkInService.findById(id);
+		model.addAttribute("item", checkIn);
+		String lang = informationService.getSeletedLang();
+		CheckInI18n checkI18n = checkInI18nRepository.findByLangI18n(lang);
+		model.addAttribute("itemI18n", checkI18n);
+		menuHeaderUtil.getMenuHeader(model);
+		return "checkin/viewclient";
+	}
 
 	/**
 	 * updateCheckIn

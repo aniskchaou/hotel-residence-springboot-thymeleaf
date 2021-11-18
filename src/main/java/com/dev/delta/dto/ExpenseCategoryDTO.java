@@ -37,6 +37,30 @@ public class ExpenseCategoryDTO implements DTO{
 		  expenseCategoryI18n2.setEditTitleI18n("Bearbeiten");
 		  expenseCategoryI18n2.setGetAllTitleI18n("Ausgabenkategorie");
 	      expenseCategoryI18nRepository.save(expenseCategoryI18n2);
+	      
+	      expenseCategoryI18n3.setCategoryNameI18n ("Categoría");
+	      expenseCategoryI18n3.setLangI18n ("ES");
+	      expenseCategoryI18n3.setGetTitleI18n ("Categoría de gastos");
+	      expenseCategoryI18n3.setCreateTitleI18n ("Crear");
+	      expenseCategoryI18n3.setEditTitleI18n ("Editar");
+	      expenseCategoryI18n3.setGetAllTitleI18n ("Categorías de gastos");
+	      expenseCategoryI18nRepository.save (expenseCategoryI18n3);
+	      
+	      expenseCategoryI18n4.setCategoryNameI18n("Catégorie");
+	      expenseCategoryI18n4.setLangI18n("FR");
+	      expenseCategoryI18n4.setGetTitleI18n("Catégorie de dépenses");
+	      expenseCategoryI18n4.setCreateTitleI18n("Créer");
+	      expenseCategoryI18n4.setEditTitleI18n("Modifier");
+	      expenseCategoryI18n4.setGetAllTitleI18n("Catégories de dépenses");
+	      expenseCategoryI18nRepository.save(expenseCategoryI18n4);
+	      
+	      expenseCategoryI18n5.setCategoryNameI18n ("الفئة") ;
+	      expenseCategoryI18n5.setLangI18n ("AR") ;
+	      expenseCategoryI18n5.setGetTitleI18n ("فئة المصاريف") ;
+	      expenseCategoryI18n5.setCreateTitleI18n ("إنشاء") ;
+	      expenseCategoryI18n5.setEditTitleI18n ("تحرير") ;
+	      expenseCategoryI18n5.setGetAllTitleI18n ("فئات المصاريف") ;
+	      expenseCategoryI18nRepository.save (expenseCategoryI18n5) ;
 	}
 
 }

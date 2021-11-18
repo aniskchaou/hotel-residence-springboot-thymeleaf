@@ -73,6 +73,59 @@ public class InformationHotelDTO implements DTO {
 		
 		
 		
+		informationHotelI18n3.setAdressI18n ("العنوان") ;
+		informationHotelI18n3.setDescriptionI18n ("الوصف") ;
+		informationHotelI18n3.setEmailI18n ("البريد الإلكتروني") ;
+		informationHotelI18n3.setNameI18n ("الاسم") ;
+		informationHotelI18n3.setTelephoneI18n ("الهاتف") ;
+		informationHotelI18n3.setFacebookI18n ("Facebook") ;
+		informationHotelI18n3.setTwitterI18n ("Twitter") ;
+		informationHotelI18n3.setInstagramI18n ("Instagram") ;
+		informationHotelI18n3.setLangI18n ("AR") ;
+		informationHotelI18n3.setLangbackoficeI18n ("EN") ;
+		informationHotelI18n3.setLang ("EN") ;
+		informationHotelI18n3.setGetAllTitleI18n ("المدن") ;
+		informationHotelI18n3.setCreateTitleI18n ("إنشاء مدينة جديدة") ;
+		informationHotelI18n3.setEditTitleI18n ("تحرير المدينة") ;
+		informationHotelI18n3.setGetTitleI18n ("المدينة") ;
+		informationI18nRepository.save (informationHotelI18n3) ;
+		
+		informationHotelI18n4.setAdressI18n("Adresse");
+		informationHotelI18n4.setDescriptionI18n("Description");
+		informationHotelI18n4.setEmailI18n("Email");
+		informationHotelI18n4.setNameI18n("Nom");
+		informationHotelI18n4.setTelephoneI18n("Téléphone");
+		informationHotelI18n4.setFacebookI18n("Facebook");
+		informationHotelI18n4.setTwitterI18n("Twitter");
+		informationHotelI18n4.setInstagramI18n("Instagram");
+		informationHotelI18n4.setLangI18n("FR");
+		informationHotelI18n4.setLangbackoficeI18n("EN");
+		informationHotelI18n4.setLang("EN");
+		informationHotelI18n4.setGetAllTitleI18n("Villes");
+		informationHotelI18n4.setCreateTitleI18n("Créer une nouvelle ville");
+		informationHotelI18n4.setEditTitleI18n("Modifier la ville");
+		informationHotelI18n4.setGetTitleI18n("Ville");
+		informationI18nRepository.save(informationHotelI18n4);
+		
+		informationHotelI18n5.setAdressI18n ("Dirección");
+		informationHotelI18n5.setDescriptionI18n ("Descripción");
+		informationHotelI18n5.setEmailI18n ("Correo electrónico");
+		informationHotelI18n5.setNameI18n ("Nombre");
+		informationHotelI18n5.setTelephoneI18n ("Teléfono");
+		informationHotelI18n5.setFacebookI18n ("Facebook");
+		informationHotelI18n5.setTwitterI18n ("Twitter");
+		informationHotelI18n5.setInstagramI18n ("Instagram");
+		informationHotelI18n5.setLangI18n ("ES");
+		informationHotelI18n5.setLangbackoficeI18n ("EN");
+		informationHotelI18n5.setLang ("EN");
+		informationHotelI18n5.setGetAllTitleI18n ("Ciudades");
+		informationHotelI18n5.setCreateTitleI18n ("Crear nueva ciudad");
+		informationHotelI18n5.setEditTitleI18n ("Editar ciudad");
+		informationHotelI18n5.setGetTitleI18n ("Ciudad");
+		informationI18nRepository.save (informationHotelI18n5);
+		
+		
+		
 		
 		
 	}

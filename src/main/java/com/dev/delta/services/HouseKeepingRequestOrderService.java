@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.dev.delta.entities.HouseKeepingRequestOrder;
+import com.dev.delta.i18n.entities.HouseKeepingRequestI18n;
 import com.dev.delta.repositories.HouseKeepingRequestRepository;
 
 @Service
@@ -31,4 +32,6 @@ public class HouseKeepingRequestOrderService {
 	public long getCount() {
 		return houseKeepingRepository.count();
 	}
+
+	
 }

@@ -40,9 +40,44 @@ public class LaundryItemDTO implements DTO {
        laundryItemI18n2.setName("Name");
        laundryItemI18n2.setQuantity("2");
        
+     
+       
+       
+       laundryItemI18n3.setComment ("Comentario");
+       laundryItemI18n3.setCreateTitleI18n ("Crear");
+       laundryItemI18n3.setEditTitleI18n ("Editar");
+       laundryItemI18n3.setGetAllTitleI18n ("Artículos de lavandería");
+       laundryItemI18n3.setGetTitleI18n ("Artículo de lavandería");
+       laundryItemI18n3.setLangI18n ("ES");
+       laundryItemI18n3.setName ("Nombre");
+       laundryItemI18n3.setQuantity ("2");
+       
+       
+       laundryItemI18n4.setComment("Commentaire");
+       laundryItemI18n4.setCreateTitleI18n("Créer");
+       laundryItemI18n4.setEditTitleI18n("Modifier");
+       laundryItemI18n4.setGetAllTitleI18n("Articles de blanchisserie");
+       laundryItemI18n4.setGetTitleI18n("Article de blanchisserie");
+       laundryItemI18n4.setLangI18n("FR");
+       laundryItemI18n4.setName("Nom");
+       laundryItemI18n4.setQuantity("2");
+       
+       
+       laundryItemI18n5.setComment ("تعليق") ;
+       laundryItemI18n5.setCreateTitleI18n ("إنشاء") ;
+       laundryItemI18n5.setEditTitleI18n ("تحرير") ;
+       laundryItemI18n5.setGetAllTitleI18n ("أدوات الغسيل") ;
+       laundryItemI18n5.setGetTitleI18n ("عنصر الغسيل") ;
+       laundryItemI18n5.setLangI18n ("AR") ;
+       laundryItemI18n5.setName ("الاسم") ;
+       laundryItemI18n5.setQuantity ("2") ;
+       
        laundryItemRepository.save(laundryItem);
        laundryItemI18nRepository.save(laundryItemI18n);
        laundryItemI18nRepository.save(laundryItemI18n2);
+       laundryItemI18nRepository.save(laundryItemI18n3);
+       laundryItemI18nRepository.save(laundryItemI18n4);
+       laundryItemI18nRepository.save(laundryItemI18n5);
        
        
 	}

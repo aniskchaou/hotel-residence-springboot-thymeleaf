@@ -52,6 +52,34 @@ public class GalleryDTO implements DTO {
 		  galleryI18n2.setGetAllTitleI18n("Cities");
 		  galleryI18n2.setLangI18n("DE");
 		  galleryI18nRepository.save(galleryI18n2);
+		  
+		  
+		  galleryI18n3.setTitleI18n ("") ;
+		  galleryI18n3.setSubTitleI18n ("") ;
+		  galleryI18n3.setGetTitleI18n ("المدينة") ;
+		  galleryI18n3.setCreateTitleI18n ("إنشاء مدينة جديدة") ;
+		  galleryI18n3.setEditTitleI18n ("تعديل المدينة") ;
+		  galleryI18n3.setGetAllTitleI18n ("المدن") ;
+		  galleryI18n3.setLangI18n ("AR") ;
+		  galleryI18nRepository.save (galleryI18n3) ;
+		  
+		  galleryI18n4.setTitleI18n("");
+		  galleryI18n4.setSubTitleI18n("");
+		  galleryI18n4.setGetTitleI18n("Ville");
+		  galleryI18n4.setCreateTitleI18n("Créer une nouvelle ville");
+		  galleryI18n4.setEditTitleI18n("Modifier la ville");
+		  galleryI18n4.setGetAllTitleI18n("Villes");
+		  galleryI18n4.setLangI18n("FR");
+		  galleryI18nRepository.save(galleryI18n4);
+		  
+		  galleryI18n5.setTitleI18n ("");
+		  galleryI18n5.setSubTitleI18n ("");
+		  galleryI18n5.setGetTitleI18n ("Ciudad");
+		  galleryI18n5.setCreateTitleI18n ("Crear nueva ciudad");
+		  galleryI18n5.setEditTitleI18n ("Editar ciudad");
+		  galleryI18n5.setGetAllTitleI18n ("Ciudades");
+		  galleryI18n5.setLangI18n ("EN");
+		  galleryI18nRepository.save (galleryI18n5);
 
 	}
 

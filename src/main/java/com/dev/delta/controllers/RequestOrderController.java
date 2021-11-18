@@ -22,18 +22,25 @@ import com.dev.delta.entities.LaundryRequestOrder;
 import com.dev.delta.entities.User;
 import com.dev.delta.i18n.entities.BedI18n;
 import com.dev.delta.i18n.entities.ExtraBedI18n;
+import com.dev.delta.i18n.entities.ExtraBedRequestI18n;
 import com.dev.delta.i18n.entities.FoodOrderI18n;
+import com.dev.delta.i18n.entities.FoodRequestI18n;
 import com.dev.delta.i18n.entities.HouseKeepingOrderI18n;
+import com.dev.delta.i18n.entities.HouseKeepingRequestI18n;
 import com.dev.delta.i18n.entities.LaundryItemI18n;
 import com.dev.delta.i18n.entities.LaundryOrderI18n;
 import com.dev.delta.i18n.repositories.ExtraBedI18nRepository;
+import com.dev.delta.i18n.repositories.ExtraBedRequestI18nRepository;
 import com.dev.delta.i18n.repositories.FoodOrderI18nRepository;
+import com.dev.delta.i18n.repositories.FoodRequestI18nRepository;
 import com.dev.delta.i18n.repositories.HouseKeepingOrderI18nRepository;
+import com.dev.delta.i18n.repositories.HouseKeepingRequestI18nRepository;
 import com.dev.delta.i18n.repositories.LaundryOrderI18nRepository;
 import com.dev.delta.repositories.CheckInRepository;
 import com.dev.delta.repositories.CustomerRepository;
 import com.dev.delta.repositories.ExtraBedRequestRepository;
 import com.dev.delta.repositories.FoodOrderRequestRepository;
+import com.dev.delta.repositories.FoodRepository;
 import com.dev.delta.repositories.HouseKeepingRequestRepository;
 import com.dev.delta.repositories.InvoiceRepository;
 import com.dev.delta.repositories.LaundryOrderRepository;
@@ -114,6 +121,18 @@ public class RequestOrderController {
 	@Autowired
 	InvoiceRepository   invoiceRepository;
 	
+	@Autowired
+	FoodRepository  foodRepository;
+	
+	@Autowired
+	HouseKeepingRequestI18nRepository  houseKeepingRequestI18nRepository;
+	
+	@Autowired
+	ExtraBedRequestI18nRepository   extraBedRequestI18nRepository;
+	
+	@Autowired
+	FoodRequestI18nRepository    foodRequestI18nRepository;
+	
 	
 	
 	@GetMapping("/extrabedrequest")
@@ -165,6 +184,7 @@ public class RequestOrderController {
 	
 	@GetMapping("/addlaundryorder")
 	public String addLaundryOrder(Model model) {
+		menuHeaderUtil.getMenuHeader(model);
 		
 		return "orderrequest/addlaundryorder";
 	}
@@ -187,17 +207,26 @@ public class RequestOrderController {
 	public String addHouseKeepingOrder(Model model) {
 		model.addAttribute("rooms", roomService.getRooms());
 		model.addAttribute("customer", getCustomer());
+		menuHeaderUtil.getMenuHeader(model);
 		
-		
+		String lang = informationService.getSeletedLang();
+		HouseKeepingRequestI18n houseI18n = houseKeepingRequestI18nRepository.findByLangI18n(lang);
+		model.addAttribute("itemI18n", houseI18n);
 		
 		return "orderrequest/addhousekeepingorder";
 	}
 	
 	@GetMapping("/addextrabedorder")
 	public String addExtraBedOrder(Model model) {
-	
+	   
+		String lang = informationService.getSeletedLang();
+		ExtraBedRequestI18n houseI18n = extraBedRequestI18nRepository.findByLangI18n(lang);
+		model.addAttribute("itemI18n", houseI18n);
+		
+		
 		model.addAttribute("customer", getCustomer());
 		model.addAttribute("rooms", roomService.getRooms());
+		menuHeaderUtil.getMenuHeader(model);
 		
 		
 		
@@ -206,9 +235,15 @@ public class RequestOrderController {
 	
 	@GetMapping("/addfoodorder")
 	public String addFoodOrder(Model model) {
-		model.addAttribute("foods", foodService.getFoods());
+		model.addAttribute("foodss", foodRepository.findAll());
 		model.addAttribute("customer", getCustomer());
 		model.addAttribute("rooms", roomService.getRooms());
+		menuHeaderUtil.getMenuHeader(model);
+		
+		
+		String lang = informationService.getSeletedLang();
+		FoodRequestI18n foodI18n = foodRequestI18nRepository.findByLangI18n(lang);
+		model.addAttribute("itemI18n", foodI18n);
 		
 		
 		return "orderrequest/addfoodorder";

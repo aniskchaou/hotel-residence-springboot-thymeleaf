@@ -59,7 +59,7 @@
 				</div>
 			</div>
 			<div class="main-menu">
-				<div th:insert="includes/menu_client :: menu"></div>
+				<div th:insert="includes/menu_client :: menu_client"></div>
 			</div>
 		</div>
 		<!-- sidebar menu area end -->
@@ -121,7 +121,7 @@
 												name="FoodItem" data-live-search="true" type="text"
 												class="form-control selectpicker" required="required">
 												<option th:value="${u.id}" th:each="u:${foods}"
-													th:text="${u.ItemName}"></option>
+													th:text="${u?.ItemName}"></option>
 											</select>
 										</div>
 

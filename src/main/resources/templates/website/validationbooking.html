@@ -169,28 +169,28 @@
 							<div class="col-sm-6">
 								<div class="form-group">
 									<input class="form-control valid" name="CheckIn"
-										id="datepicker" type="text" placeholder="CheckIn">
+										id="datepicker" type="text" th:placeholder="${checkin.CheckInI18n}"  >
 								</div>
 							</div>
 
 							<div class="col-sm-6">
 								<div class="form-group">
 									<input class="form-control valid" name="CheckOut"
-										id="datepicker2" type="text" placeholder="CheckOut">
+										id="datepicker2" type="text"  th:placeholder="${checkin.CheckOutI18n}">
 								</div>
 							</div>
 
 							<div class="col-sm-6">
 								<div class="form-group">
 									<input class="form-control valid" name="Adults" id="email"
-										type="text" placeholder="Adults">
+										type="text"  th:placeholder="${checkin.AdultsI18n}">
 								</div>
 							</div>
 
 							<div class="col-sm-6">
 								<div class="form-group">
 									<input class="form-control valid" name="Kids" id="email"
-										type="text" placeholder="Kids">
+										type="text"  th:placeholder="${checkin.KidsI18n}">
 								</div>
 							</div>
 						</div>
@@ -206,15 +206,15 @@
 
 
 							<div class="col-sm-6">
-								<label for="validationCustom01">Full Name <span
+								<label for="validationCustom01" th:text="${checkin.FullnameI18n}">Full Name <span
 									class="required_field">*</span></label> <input name="Fullname"
 									type="text" class="form-control" id="validationCustom01"
-									placeholder="Full Name" required="required">
+									placeholder="Full Name" required="required" th:placeholder="${checkin.FullnameI18n}">
 
 							</div>
 							<div class="col-sm-6">
 								<div class="form-group">
-									<label for="validationCustom01" style="display: block;">Guest
+									<label for="validationCustom01" style="display: block;" th:text="${checkin.GuestTypeI18n}">Guest
 										Type <span class="required_field">*</span>
 									</label> <select name="GuestType" data-live-search="true"
 										style="width: 100%;" class="form-control w-auto"
@@ -225,32 +225,32 @@
 								</div>
 							</div>
 							<div class="col-sm-6">
-								<label for="validationCustom01">Email <span
+								<label for="validationCustom01" th:placeholder="${checkin.EmailI18n}">Email <span
 									class="required_field">*</span></label> <input name="Email" type="text"
 									class="form-control" id="validationCustom04"
-									placeholder="Email" required="required">
+									 required="required" th:placeholder="${checkin.EmailI18n}">
 
 							</div>
 
 
 
 							<div class="col-sm-6">
-								<label for="validationCustom01">Mobile<span
+								<label for="validationCustom01" th:placeholder="${checkin.MobileI18n}">Mobile<span
 									class="required_field">*</span></label> <input name="Mobile"
 									type="number" class="form-control" id="validationCustom01"
-									placeholder="Mobile" required="required">
+									 required="required" th:placeholder="${checkin.MobileI18n}">
 
 							</div>
 							<div class="col-sm-6">
-								<label for="validationCustom01">Address<span
+								<label for="validationCustom01" th:text="${checkin.AddressI18n}">Address<span
 									class="required_field">*</span></label> <input name="Address"
 									type="text" class="form-control" id="validationCustom02"
-									placeholder="Address" required="required">
+									 required="required" th:placeholder="${checkin.AddressI18n}">
 
 							</div>
 							<div class="col-sm-6">
 
-								<label for="validationCustom01" style="display: block;">Country<span
+								<label for="validationCustom01" style="display: block;" th:text="${checkin.CountryI18n}">Country<span
 									class="required_field">*</span></label> <select name="Country"
 									data-live-search="true" type="text"
 									class="form-control selectpicker" required="required">
@@ -265,7 +265,7 @@
 
 
 							<div class="col-sm-6">
-								<label for="validationCustom01" style="display: block;">City
+								<label for="validationCustom01" style="display: block;" th:text="${checkin.cityI18n}">City
 									<span class="required_field">*</span>
 								</label><select name="city" data-live-search="true" type="text"
 									class="form-control selectpicker" required="required">
@@ -275,7 +275,7 @@
 
 							</div>
 							<div class="col-sm-6">
-								<label for="validationCustom01" style="display: block;">Gender<span
+								<label for="validationCustom01" style="display: block;" th:text="${checkin.GenderI18n}">Gender<span
 									class="required_field">*</span></label> <select name="Gender"
 									data-live-search="true" type="text"
 									class="form-control selectpicker" required="required">
@@ -285,9 +285,9 @@
 
 							</div>
 							<div class="col-sm-6">
-								<label for="validationCustom01">Age</label> <input name="Age"
+								<label for="validationCustom01" th:text="${checkin.AgeI18n}">Age</label> <input name="Age"
 									type="number" class="form-control" id="validationCustom02"
-									placeholder="Age">
+									 th:placeholder="${checkin.AgeI18n}">
 
 							</div>
 
@@ -299,22 +299,22 @@
 
 
 
-							<div class="col-sm-6">
-								<label for="validationCustom01">BookedBy</label> <input
+							<div class="col-sm-6" >
+								<label for="validationCustom01"  th:text="${checkin.BookedByI18n}">BookedBy</label> <input
 									name="BookedBy" type="text" class="form-control"
-									id="validationCustom01" placeholder="BookedBy">
+									id="validationCustom01"  th:placeholder="${checkin.BookedByI18n}">
 
 							</div>
 							<div class="col-sm-6">
-								<label for="validationCustom02">Vehicle Number</label> <input
+								<label for="validationCustom02" th:text="${checkin.VehicleNumberI18n}">Vehicle Number</label> <input
 									name="VehicleNumber" type="number" class="form-control"
-									id="validationCustom02" placeholder="Vehicle Number">
+									id="validationCustom02"  th:placeholder="${checkin.VehicleNumberI18n}">
 
 							</div>
 							<div class="col-sm-6">
-								<label for="validationCustom01">Note</label> <input
+								<label for="validationCustom01" th:text="${checkin.GenderI18n}">Note</label> <input
 									name="Remark" type="text" class="form-control"
-									id="validationCustom02" placeholder="Remark">
+									id="validationCustom02"  th:placeholder="${checkin.AgeI18n}">
 
 							</div>
 
@@ -322,19 +322,19 @@
 
 
 							<div class="col-sm-6">
-								<label for="validationCustom01">ID Number</label> <input
+								<label for="validationCustom01" th:text="${checkin.IDNoI18n}">ID Number</label> <input
 									name="IDNo" type="number" class="form-control"
-									id="validationCustom01" placeholder="IDNo">
+									id="validationCustom01"  th:placeholder="${checkin.IDNoI18n}">
 
 							</div>
 							<div class="col-sm-6">
-								<label for="validationCustom02">Name Other Person</label> <input
+								<label for="validationCustom02" th:text="${checkin.NameOtherPersonI18n}">Name Other Person</label> <input
 									name="NameOtherPerson" type="text" class="form-control"
-									id="validationCustom02" placeholder="Name Other Person">
+									id="validationCustom02"  th:placeholder="${checkin.NameOtherPersonI18n}">
 
 							</div>
 							<div class="col-sm-6">
-								<label for="validationCustom01" style="display: block;">Gender</label>
+								<label for="validationCustom01" style="display: block;" th:text="${checkin.GenderOtherPersonI18n}">Gender</label>
 								<select name="GenderOtherPerson" data-live-search="true"
 									type="text" class="form-control selectpicker">
 									<option value="Male">Male</option>
@@ -346,54 +346,49 @@
 
 
 							<div class="col-sm-6">
-								<label for="validationCustom01">Age Other Person</label> <input
+								<label for="validationCustom01" th:text="${checkin.AgeOtherPersonI18n}">Age Other Person</label> <input
 									name="AgeOtherPerson" type="number" class="form-control"
-									id="validationCustom01" placeholder="Age Other Person">
+									id="validationCustom01"  th:placeholder="${checkin.AgeOtherPersonI18n}">
 
 							</div>
 							<div class="col-sm-6">
-								<label for="validationCustom02">Address Other Person</label> <input
+								<label for="validationCustom02" th:text="${checkin.AddressOtherPersonI18n}">Address Other Person</label> <input
 									name="AddressOtherPerson" type="text" class="form-control"
-									id="validationCustom02" placeholder="Address Other Person">
+									id="validationCustom02"  th:placeholder="${checkin.AddressOtherPersonI18n}">
 
 							</div>
 							<div class="col-sm-6">
-								<label for="validationCustom02">IDNo Other Person</label> <input
+								<label for="validationCustom02" th:text="${checkin.IDNoOtherPersonI18n}">IDNo Other Person</label> <input
 									name="IDNoOtherPerson" type="number" class="form-control"
-									id="validationCustom02" placeholder="IDNo Other Person">
+									id="validationCustom02"  th:placeholder="${checkin.IDNoOtherPersonI18n}">
 
 							</div>
 
 
 							<div class="col-sm-6">
-								<label for="validationCustom01">Advance Payment</label> <input
+								<label for="validationCustom01" th:text="${checkin.AdvancePaymentI18n}">Advance Payment</label> <input
 									name="AdvancePayment" type="number" class="form-control"
-									id="validationCustom01" placeholder="Advance Payment">
+									id="validationCustom01" th:placeholder="${checkin.AdvancePaymentI18n}">
 
 							</div>
 							
 							<div class="col-sm-6">
-								<label for="validationCustom01">Username</label>
+								<label for="validationCustom01" th:text="${checkin.UsernameI18n}">Username</label>
 									<input class="form-control" name="username" id="subject"
-										type="text" placeholder="Username">
+										type="text"  th:placeholder="${checkin.UsernameI18n}">
 								
 							</div>
 
 							<div class="col-sm-6">
-								<label for="validationCustom01">Password</label>
+								<label for="validationCustom01" th:text="${checkin.PasswordI18n}">Password</label>
 									<input class="form-control" name="password" id="subject"
-										type="text" placeholder="Password">
+										type="text"  th:placeholder="${checkin.PasswordI18n}">
 								
 							</div>
 
 							<div class="col-sm-12">
 								<div class="form-group">
-									<input type="checkbox"> <span>I agree that the
-										information collected by this form will be stored in a
-										database in order to process my request. In accordance with
-										the "General Data Protection Regulation", you can exercise
-										your right to access to your data and make them rectified via
-										the contact form.</span>
+									<input type="checkbox"> <span th:text="${checkin.messageI18n}"></span>
 								
 
 								<input type="hidden" th:value="${roomid}" name="room">

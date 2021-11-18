@@ -22,6 +22,7 @@ public class BlogCategoryDTO implements DTO {
 		blogCategory1.setName("Restaurant");
 		blogCategory2.setName("Inspiration");
 		blogCategory3.setName("Product");
+		
 		blogCategoryService.save(blogCategory);
 		blogCategoryService.save(blogCategory1);
 		blogCategoryService.save(blogCategory2);
@@ -42,6 +43,31 @@ public class BlogCategoryDTO implements DTO {
 		blogCategoryI18n2.setEditTitleI18n("Bearbeiten");
 		blogCategoryI18n2.setGetAllTitleI18n("Blogkategorien");
 		blogCategoryI18nRepository.save(blogCategoryI18n2);
+		
+		blogCategoryI18n3.setLangI18n("FR");
+		blogCategoryI18n3.setNameI18n("Nom");
+		blogCategoryI18n3.setGetTitleI18n("Blog");
+		blogCategoryI18n3.setCreateTitleI18n("Créer");
+		blogCategoryI18n3.setEditTitleI18n("Editer");
+		blogCategoryI18n3.setGetAllTitleI18n("Catégories de blogs");
+		blogCategoryI18nRepository.save(blogCategoryI18n3);
+		
+		
+		blogCategoryI18n4.setLangI18n("ES");
+		blogCategoryI18n4.setNameI18n("Nombre");
+		blogCategoryI18n4.setGetTitleI18n("Blog");
+		blogCategoryI18n4.setCreateTitleI18n("Crear");
+		blogCategoryI18n4.setEditTitleI18n("Editar");
+		blogCategoryI18n4.setGetAllTitleI18n("Categorías de blogs");
+		blogCategoryI18nRepository.save(blogCategoryI18n4);
+		
+		blogCategoryI18n5.setLangI18n("AR");
+		blogCategoryI18n5.setNameI18n("اسم");
+		blogCategoryI18n5.setGetTitleI18n("مدونة");
+		blogCategoryI18n5.setCreateTitleI18n("إنشاء");
+		blogCategoryI18n5.setEditTitleI18n("يحرر");
+		blogCategoryI18n5.setGetAllTitleI18n("فئات المدونة");
+		blogCategoryI18nRepository.save(blogCategoryI18n5);
 
 	}
 
