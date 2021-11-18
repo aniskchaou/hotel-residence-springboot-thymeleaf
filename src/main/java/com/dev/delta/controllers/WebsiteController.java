@@ -235,7 +235,7 @@ public class WebsiteController {
 		
 		
 		
-		return "/home/index";
+		return "home/index";
 	}
 
 	@GetMapping("/")
