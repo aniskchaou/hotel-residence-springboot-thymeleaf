@@ -22,10 +22,10 @@ public class EmployeeDTO implements DTO{
 		
 		
 		 employeeI18n.setLangI18n("EN");
-		 employeeI18n.setGetTitleI18n("City");
+		 employeeI18n.setGetTitleI18n("Employee");
 		 employeeI18n.setCreateTitleI18n("Create");
 		 employeeI18n.setEditTitleI18n("Edit");
-		 employeeI18n.setGetAllTitleI18n("Cities");
+		 employeeI18n.setGetAllTitleI18n("Employees");
 		 employeeI18n.setAddressI18n("Address");
 		 employeeI18n.setCityI18n("City");
 		 employeeI18n.setCountryI18n("Country");

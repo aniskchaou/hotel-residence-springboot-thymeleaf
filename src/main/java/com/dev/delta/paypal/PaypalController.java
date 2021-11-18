@@ -26,7 +26,7 @@ public class PaypalController {
 		switch (order.getMethod()) {
 		case "paypal":
 			try {
-				Payment payment = service.createPayment(10.5, "EUR", "paypal",
+				Payment payment = service.createPayment(order.getPrice(), order.getCurrency(), "paypal",
 						"sale", "hello", "http://localhost:8080/" + CANCEL_URL,
 						"http://localhost:8080/" + SUCCESS_URL);
 				for (Links link : payment.getLinks()) {

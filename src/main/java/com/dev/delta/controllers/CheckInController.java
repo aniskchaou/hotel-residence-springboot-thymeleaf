@@ -46,6 +46,7 @@ import com.dev.delta.i18n.repositories.FoodOrderI18nRepository;
 import com.dev.delta.i18n.repositories.HouseKeepingOrderI18nRepository;
 import com.dev.delta.i18n.repositories.LaundryItemI18nRepository;
 import com.dev.delta.i18n.repositories.LaundryOrderI18nRepository;
+import com.dev.delta.repositories.CurrencyRepository;
 import com.dev.delta.repositories.CustomerRepository;
 import com.dev.delta.repositories.InvoiceRepository;
 import com.dev.delta.repositories.LaundryItemRepository;
@@ -162,6 +163,9 @@ public class CheckInController {
 	
 	@Autowired
 	RoomRepository roomRepository  ;
+	
+	@Autowired
+	CurrencyRepository   currencyRepository;
 	
 	
 	
@@ -467,7 +471,8 @@ public class CheckInController {
 		model.addAttribute("vatrate", vatrate);
 		model.addAttribute("ref", generateRefInvoice());
 		model.addAttribute("date", new Date().toString());
-
+		model.addAttribute("currency", currencyRepository.findById(1L).get());
+		
 		
 		
 		return "invoice/view";

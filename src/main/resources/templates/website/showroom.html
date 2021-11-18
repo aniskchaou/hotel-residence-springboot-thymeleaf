@@ -5,7 +5,7 @@
 <head>
 <meta charset="utf-8">
 <meta http-equiv="x-ua-compatible" content="ie=edge">
-<title>Montana</title>
+<title th:text="${hotel.name}">Montana</title>
 <meta name="description" content="">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -161,7 +161,7 @@
 									<a th:href="@{/detailbooking/{id}(id=${item.id}) }" class="genric-btn primary circle arrow" th:text="${booking.bookI18n}">Book
 										Now</a>
 								</div>
-								<h3 th:text="'From '+${item.RoomType.BasePrice}+'$ / night'">From US$450.00 / night</h3>
+								<h3 th:text="'From '+${item.RoomType.BasePrice}+${currency.symbol}+' / night'">From US$450.00 / night</h3>
 								<h4 th:text="'Floor '+${item.Floor}">Capacity : x5</h4>
 								<p th:text="${item.description}"></p>
 								<p>

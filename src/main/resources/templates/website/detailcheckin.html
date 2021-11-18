@@ -4,7 +4,12 @@
 
 
 
-<script src="/js/js2pdf.js"></script>
+
+
+	<div 
+		class="container d-flex justify-content-center mt-50 mb-50"
+		th:fragment="detailcheckin">
+		<script src="../js/js2pdf.js"></script>
 	<script>
 		function generatePDF() {
 			// Choose the element that our invoice is rendered in.
@@ -18,12 +23,8 @@
 			window.print();
 		}
 	</script>
-
-	<div id="invoice"
-		class="container d-flex justify-content-center mt-50 mb-50"
-		th:fragment="detailcheckin">
 		<div class="row">
-			<div class="col-md-12">
+			<div class="col-md-12" >
 				<div class="card">
 					<div class="card-header bg-transparent header-elements-inline">
 						<h6 class="card-title" th:text="${booking.invoiceI18n}">Sale invoice</h6>
@@ -102,7 +103,7 @@
 											design template</h6>
 									</td>
 									<td th:text="${item.createAt}">$120</td>
-									<td th:text="${item.price}">180</td>
+									<td th:text="${item.price}+${currency.symbol}">180</td>
 
 								</tr>
 
@@ -118,17 +119,17 @@
 										<tbody>
 											<tr>
 												<th class="text-left">Subtotal:</th>
-												<td class="text-right" th:text="${subtotal}">$1,090</td>
+												<td class="text-right" th:text="${subtotal}+${currency.symbol}">$1,090</td>
 											</tr>
 											<tr>
 												<th class="text-left">Tax: <span
 													class="font-weight-normal">(25%)</span></th>
-												<td class="text-right" th:text="${vatrate}">$27</td>
+												<td class="text-right" th:text="${vatrate}+${currency.symbol}">$27</td>
 											</tr>
 											<tr>
 												<th class="text-left">Total:</th>
 												<td class="text-right text-primary">
-													<h5 class="font-weight-semibold" th:text="${total}">$1,160</h5>
+													<h5 class="font-weight-semibold" th:text="${total}+${currency.symbol}">$1,160</h5>
 												</td>
 											</tr>
 										</tbody>

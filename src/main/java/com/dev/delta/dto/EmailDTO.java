@@ -33,8 +33,8 @@ public class EmailDTO implements DTO {
 		emailI18n.setPort("Port Number");
 		emailI18n.setPasswordI18n("Password");
 		emailI18n.setGetAllTitleI18n("Email Settings");
-		emailI18n.setCreateTitleI18n("Create new City");
-		emailI18n.setEditTitleI18n("Edit email Settings");
+		emailI18n.setCreateTitleI18n("Create");
+		emailI18n.setEditTitleI18n("Edit");
 		emailI18n.setGetTitleI18n("Email Setting");
 		emailI18n.setLangI18n("EN");
 		emailI18nRepository.save(emailI18n);
@@ -60,8 +60,8 @@ public class EmailDTO implements DTO {
 		emailI18n3.setPort("Numéro de port");
 		emailI18n3.setPasswordI18n("Mot de passe");
 		emailI18n3.setGetAllTitleI18n("Paramètres de messagerie");
-		emailI18n3.setCreateTitleI18n("Créer une nouvelle ville");
-		emailI18n3.setEditTitleI18n("Modifier les paramètres de messagerie");
+		emailI18n3.setCreateTitleI18n("Créer");
+		emailI18n3.setEditTitleI18n("Modifier");
 		emailI18n3.setGetTitleI18n("Paramètres de messagerie");
 		emailI18n3.setLangI18n("FR");
 		emailI18nRepository.save(emailI18n3);
@@ -74,8 +74,8 @@ public class EmailDTO implements DTO {
 		emailI18n4.setPort ("Número de puerto");
 		emailI18n4.setPasswordI18n ("Contraseña");
 		emailI18n4.setGetAllTitleI18n ("Configuración de correo electrónico");
-		emailI18n4.setCreateTitleI18n ("Crear nueva ciudad");
-		emailI18n4.setEditTitleI18n ("Editar configuración de correo electrónico");
+		emailI18n4.setCreateTitleI18n ("Crear");
+		emailI18n4.setEditTitleI18n ("Editar");
 		emailI18n4.setGetTitleI18n ("Configuración de correo electrónico");
 		emailI18n4.setLangI18n ("ES");
 		emailI18nRepository.save (emailI18n4);

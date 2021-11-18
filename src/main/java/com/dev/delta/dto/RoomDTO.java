@@ -87,7 +87,7 @@ public class RoomDTO implements DTO {
 		roomI18nRepository.save(roomI18n2);
 		
 		
-		roomI18n3.setFloorI18n ("Floor") ;
+		roomI18n3.setFloorI18n ("طابق") ;
 		roomI18n3.setRoomNoI18n ("رقم الغرفة") ;
 		roomI18n3.setRoomTypeI18n ("نوع الغرفة") ;
 		roomI18n3.setStatusI18n ("الحالة") ;

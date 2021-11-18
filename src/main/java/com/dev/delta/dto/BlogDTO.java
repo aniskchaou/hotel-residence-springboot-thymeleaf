@@ -87,10 +87,10 @@ public class BlogDTO implements DTO {
 		blogI18n.setMonthI18n("Month");
 		blogI18n.setBlogCategoryI18n("Blog Category");
 		blogI18n.setLangI18n("EN");
-		blogI18n.setGetTitleI18n("City");
-		blogI18n.setCreateTitleI18n("Create new City");
-		blogI18n.setEditTitleI18n("Edit City");
-		blogI18n.setGetAllTitleI18n("Cities");
+		blogI18n.setGetTitleI18n("Blog");
+		blogI18n.setCreateTitleI18n("Create");
+		blogI18n.setEditTitleI18n("Edit");
+		blogI18n.setGetAllTitleI18n("Blogs");
 		blogI18nRepository.save(blogI18n);
 		
 		blogI18n2.setTitleI18n("Titel");
@@ -102,10 +102,10 @@ public class BlogDTO implements DTO {
 		blogI18n2.setMonthI18n("Monat");
 		blogI18n2.setBlogCategoryI18n("Blog-Kategorie");
 		blogI18n2.setLangI18n("DE");
-		blogI18n2.setGetTitleI18n("Stadt");
-		blogI18n2.setCreateTitleI18n("Neue Stadt erstellen");
-		blogI18n2.setEditTitleI18n("Stadt bearbeiten");
-		blogI18n2.setGetAllTitleI18n("Städte");
+		blogI18n2.setGetTitleI18n("Blog");
+		blogI18n2.setCreateTitleI18n("Neue");
+		blogI18n2.setEditTitleI18n("Bearbeiten");
+		blogI18n2.setGetAllTitleI18n("Blog");
 		blogI18nRepository.save(blogI18n2);
 		
 		blogI18n3.setTitleI18n("Titre");
@@ -118,9 +118,9 @@ public class BlogDTO implements DTO {
 		blogI18n3.setBlogCategoryI18n("Catégorie de blog");
 		blogI18n3.setLangI18n("FR");
 		blogI18n3.setGetTitleI18n("Ville");
-		blogI18n3.setCreateTitleI18n("Créer une nouvelle ville");
-		blogI18n3.setEditTitleI18n("Modifier la ville");
-		blogI18n3.setGetAllTitleI18n("Villes");
+		blogI18n3.setCreateTitleI18n("Créer");
+		blogI18n3.setEditTitleI18n("Modifier");
+		blogI18n3.setGetAllTitleI18n("Catégorie de blog");
 		blogI18nRepository.save(blogI18n3);
 		
 		blogI18n4.setTitleI18n ("Título");
@@ -131,11 +131,11 @@ public class BlogDTO implements DTO {
 		blogI18n4.setDayI18n ("Día");
 		blogI18n4.setMonthI18n ("Mes");
 		blogI18n4.setBlogCategoryI18n ("Categoría de blog");
-		blogI18n4.setLangI18n ("EN");
+		blogI18n4.setLangI18n ("ES");
 		blogI18n4.setGetTitleI18n ("Ciudad");
-		blogI18n4.setCreateTitleI18n ("Crear nueva ciudad");
-		blogI18n4.setEditTitleI18n ("Editar ciudad");
-		blogI18n4.setGetAllTitleI18n ("Ciudades");
+		blogI18n4.setCreateTitleI18n ("Crear");
+		blogI18n4.setEditTitleI18n ("Editar");
+		blogI18n4.setGetAllTitleI18n ("Categoría de blog");
 		blogI18nRepository.save (blogI18n4);
 		
 		
@@ -151,7 +151,7 @@ public class BlogDTO implements DTO {
 		blogI18n5.setGetTitleI18n("Stadt");
 		blogI18n5.setCreateTitleI18n("Erstellen");
 		blogI18n5.setEditTitleI18n("Bearbeiten");
-		blogI18n5.setGetAllTitleI18n("Städte");
+		blogI18n5.setGetAllTitleI18n("BlogKategorie");
 		blogI18nRepository.save(blogI18n5);
 
 	}

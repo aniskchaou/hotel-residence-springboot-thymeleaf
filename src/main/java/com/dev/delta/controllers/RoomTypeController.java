@@ -18,6 +18,7 @@ import com.dev.delta.entities.RoomType;
 import com.dev.delta.i18n.entities.CityI18n;
 import com.dev.delta.i18n.entities.RoomTypeI18n;
 import com.dev.delta.i18n.repositories.RoomTypeI18nRepository;
+import com.dev.delta.repositories.CurrencyRepository;
 import com.dev.delta.services.AmenityService;
 import com.dev.delta.services.InformationService;
 import com.dev.delta.services.RoomTypeService;
@@ -40,6 +41,9 @@ public class RoomTypeController {
 	@Autowired
 	
 	RoomTypeI18nRepository  roomTypeI18nRepository;
+	
+	@Autowired
+	CurrencyRepository   currencyRepository;
 	
 	
 	@Autowired
@@ -101,6 +105,8 @@ public class RoomTypeController {
 		RoomTypeI18n cityI18n = roomTypeI18nRepository.findByLangI18n(lang);
 		model.addAttribute("itemI18n", cityI18n);
 		menuHeaderUtil.getMenuHeader(model);
+		
+		model.addAttribute("currency", currencyRepository.findById(1L).get());
 		return "roomtype/view";
 	}
 	

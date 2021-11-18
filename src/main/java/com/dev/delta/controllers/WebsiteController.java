@@ -33,7 +33,7 @@ import com.dev.delta.i18n.repositories.WebsiteHomeI18nRepository;
 import com.dev.delta.i18n.repositories.WebsiteMenuI18nRepository;
 import com.dev.delta.i18n.repositories.WebsiteRoomI18nRepository;
 import com.dev.delta.i18n.repositories.WebsiteSignInI18nRepository;
-
+import com.dev.delta.repositories.CurrencyRepository;
 import com.dev.delta.repositories.ExtraBedRequestRepository;
 import com.dev.delta.repositories.FoodOrderRequestRepository;
 import com.dev.delta.repositories.FoodOrderRespository;
@@ -177,6 +177,9 @@ public class WebsiteController {
 	@Autowired
 	UIMenuHeaderUtil  menuHeaderUtil;
 	
+	@Autowired
+	CurrencyRepository  currencyRepository;
+	
 	
 	
 	@GetMapping("/dashboard")
@@ -232,7 +235,7 @@ public class WebsiteController {
 		
 		
 		
-		return "home/index";
+		return "/home/index";
 	}
 
 	@GetMapping("/")
@@ -255,19 +258,21 @@ public class WebsiteController {
 		model.addAttribute("menu", websiteMenuI18nRepository.findByLang(lang));
 		model.addAttribute("footer", websiteFooterI18nRepository.findByLang(lang));
 		model.addAttribute("home", websiteHomeI18nRepository.findByLang(lang));
-		return "website/index";
+		return "/website/index";
 	}
 
 	@GetMapping("/about")
 	public String about(Model model) {
 		Long id = 1L;
+		
+		
 		InformationHotel informationHotel = informationService.findById(id).get();
 		String lang=informationHotel.getLang();
 		model.addAttribute("hotel", informationHotel);
 		model.addAttribute("menu", websiteMenuI18nRepository.findByLang(lang));
 		model.addAttribute("about", websiteAboutI18nRepository.findByLang(lang));
 		model.addAttribute("footer", websiteFooterI18nRepository.findByLang(lang));
-		return "website/about";
+		return "/website/about";
 	}
 
 	@GetMapping("/contact")
@@ -279,7 +284,7 @@ public class WebsiteController {
 		model.addAttribute("menu", websiteMenuI18nRepository.findByLang(lang));
 		model.addAttribute("contact", websiteContactI18nRepository.findByLang(lang));
 		model.addAttribute("footer", websiteFooterI18nRepository.findByLang(lang));
-		return "website/contact";
+		return "/website/contact";
 	}
 	
 	@GetMapping("/room")
@@ -292,7 +297,10 @@ public class WebsiteController {
 		model.addAttribute("menu", websiteMenuI18nRepository.findByLang(lang));
 		model.addAttribute("room", websiteRoomI18nRepository.findByLang(lang));
 		model.addAttribute("footer", websiteFooterI18nRepository.findByLang(lang));
-		return "website/room";
+		model.addAttribute("hotel", informationHotel);
+		model.addAttribute("currency", currencyRepository.findById(1L).get());
+		
+		return "/website/room";
 	}
 
 	@GetMapping("/blog")
@@ -308,7 +316,7 @@ public class WebsiteController {
 		model.addAttribute("menu", websiteMenuI18nRepository.findByLang(lang));
 		model.addAttribute("blog", websiteBlogI18nRepository.findByLang(lang));
 		model.addAttribute("footer", websiteFooterI18nRepository.findByLang(lang));
-		return "website/blog";
+		return "/website/blog";
 	}
 	
 	

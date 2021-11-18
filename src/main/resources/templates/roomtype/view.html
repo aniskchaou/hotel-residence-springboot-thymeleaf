@@ -124,7 +124,7 @@
 										</tr>
 										<tr>
 											<td><b th:text="${itemI18n.BasePriceI18n}">Base Price</b></b></td>
-											<td><p ><span class="badge badge-primary" th:text="${item.BasePrice}"></span></p></td>
+											<td><p ><span class="badge badge-primary" th:text="${item.BasePrice}+${currency.symbol}"></span></p></td>
 										</tr>
 										<tr>
 											<td><b th:text="${itemI18n.amenityI18n}">amenity</b></b></td>

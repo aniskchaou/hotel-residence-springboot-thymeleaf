@@ -37,7 +37,7 @@ public class AuthController {
 		model.addAttribute("menu", websiteMenuI18nRepository.findByLang(lang));
 		model.addAttribute("login", websiteSignInI18nRepository.findByLang(lang));
 		model.addAttribute("footer", websiteFooterI18nRepository.findByLang(lang));
-		return "auth/login";
+		return "/auth/login";
 	}
 	
 

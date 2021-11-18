@@ -1,5 +1,6 @@
 package com.dev.delta.entities;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -11,7 +12,9 @@ public class Shift {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	Long id;
 	String type;
+	@Column(name="start_time")
 	String start;
+	@Column(name="end_time")
 	String end;
 	
 	

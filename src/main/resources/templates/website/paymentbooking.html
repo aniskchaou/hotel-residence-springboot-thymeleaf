@@ -5,7 +5,7 @@
 <head>
 <meta charset="utf-8">
 <meta http-equiv="x-ua-compatible" content="ie=edge">
-<title>Montana</title>
+<title th:text="${hotel.name}">Montana</title>
 <meta name="description" content="">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -161,8 +161,8 @@
 			<form method="post" action="/pay">
 				
                   
-                  <input type="hidden" id="price" name="price" value="10.00"> <input
-						type="hidden" id="currency" name="currency" value="USD"
+                  <input type="hidden" id="price" name="price" th:value="${price}"> <input
+						type="hidden" id="currency" name="currency" th:value="${currency.name}"
 						placeholder="Enter Currency">  <input type="hidden"
 						id="intent" name="intent" value="sale"> <input type="hidden"
 						id="description" value="test" name="description"

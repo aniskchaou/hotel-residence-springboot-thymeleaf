@@ -241,6 +241,10 @@ public class MenuDTO implements DTO {
 		menuI18n4.setSettings("Paramètres");
 		menuI18n4.setProfile("Profil");
 		menuI18n4.setLogout("Déconnexion");
+		menuI18n4.setOrders("Ordres");
+		menuI18n4.setBlogcategories("Blog Categories");
+		menuI18n4.setBeds("Lit");
+		menuI18n4.setAmenities("Agréments");
 		uiMenuI18nRepository.save(menuI18n4);
 		
 		menuI18n5.setAmenities ("Servicios");

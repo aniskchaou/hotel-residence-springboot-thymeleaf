@@ -28,6 +28,7 @@ public class RoomTypeDTO implements DTO{
 		roomType1.setKidsCapacity("3");
 		roomType1.setShortCode("on");
 		roomType1.setWifi("on");
+		roomType1.setAmenity(amenity);
 		
 		roomType2.setTitle("Deluxe Room");
 		roomType2.setAdultCapacity("4");
@@ -39,6 +40,7 @@ public class RoomTypeDTO implements DTO{
 		roomType2.setKidsCapacity("3");
 		roomType2.setShortCode("on");
 		roomType2.setWifi("on");
+		roomType2.setAmenity(amenity);
 		
 		
 		roomType3.setTitle("Regular Room");
@@ -53,10 +55,11 @@ public class RoomTypeDTO implements DTO{
 		roomType3.setKidsCapacity("3");
 		roomType3.setShortCode("on");
 		roomType3.setWifi("on");
+		roomType3.setAmenity(amenity);
 		
-		roomType1.setBasePrice("199");
-		roomType2.setBasePrice("399");
-		roomType3.setBasePrice("299");
+		roomType1.setBasePrice("199.0");
+		roomType2.setBasePrice("399.0");
+		roomType3.setBasePrice("299.0");
 		roomTypeRepository.save(roomType1);
 		roomTypeRepository.save(roomType2);
 		roomTypeRepository.save(roomType3);
@@ -147,7 +150,7 @@ public class RoomTypeDTO implements DTO{
 		  roomTypeI18n4.setStatusI18n("Statut");
 		  roomTypeI18nRepository.save(roomTypeI18n4);
 		  
-		  roomTypeI18n5.setBasePriceI18n ("Base Pice") ;
+		  roomTypeI18n5.setBasePriceI18n ("السعر الأساسي") ;
 		  roomTypeI18n5.setTitleI18n ("نوع الغرفة");
 		  roomTypeI18n5.setGetTitleI18n ("أنواع الغرف") ;
 		  roomTypeI18n5.setCreateTitleI18n ("إنشاء") ;
@@ -156,14 +159,14 @@ public class RoomTypeDTO implements DTO{
 		  roomTypeI18n5.setLangI18n ("AR") ;
 		  roomTypeI18n5.setAdultCapacityI18n ("سعة البالغين") ;
 		  roomTypeI18n5.setAirConditionerI18n ("مكيف الهواء") ;
-		  roomTypeI18n5.setAmenityI18n ("Amenity") ;
+		  roomTypeI18n5.setAmenityI18n ("الراحة") ;
 		  roomTypeI18n5.setBathTubI18n ("حوض الاستحمام") ;
-		  roomTypeI18n5.setCoffeeMakerI18n ("Cofee Maker") ;
+		  roomTypeI18n5.setCoffeeMakerI18n ("صانع القهوة") ;
 		  roomTypeI18n5.setDoubleBedI18n ("سرير مزدوج");
 		  roomTypeI18n5.setFreeNewspaperI18n ("جريدة أخبار مجانية") ;
 		  roomTypeI18n5.setKidsCapacityI18n ("سعة الأطفال") ;
 		  roomTypeI18n5.setMiniFridgeI18n ("ثلاجة صغيرة") ;
-		  roomTypeI18n5.setShortCodeI18n ("ShortCode") ;
+		  roomTypeI18n5.setShortCodeI18n ("الرمز المختصر") ;
 		  roomTypeI18n5.setWifiI18n ("Wifi") ;
 		  roomTypeI18n5.setStatusI18n ("الحالة") ;
 		  roomTypeI18nRepository.save (roomTypeI18n5) ;

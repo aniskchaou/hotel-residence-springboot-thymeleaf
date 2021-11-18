@@ -23,10 +23,10 @@ public class CountryDTO implements DTO{
 		
 		countryI18n.setLangI18n("EN");
 		countryI18n.setNameI18n("Name");
-		countryI18n.setCreateTitleI18n("Create new Country");
-		countryI18n.setEditTitleI18n("Edit Country");
+		countryI18n.setCreateTitleI18n("Create");
+		countryI18n.setEditTitleI18n("Edit");
 		countryI18n.setGetAllTitleI18n("Countries");
-		countryI18n.setCreateTitleI18n("Create new Country");
+		countryI18n.setCreateTitleI18n("Create ");
 		countryI18nRepository.save(countryI18n);
 		
 		countryI18n2.setLangI18n("DE");
@@ -40,18 +40,18 @@ public class CountryDTO implements DTO{
 		
 		countryI18n3.setLangI18n("FR");
 		countryI18n3.setNameI18n("Nom");
-		countryI18n3.setCreateTitleI18n("Créer un nouveau pays");
+		countryI18n3.setCreateTitleI18n("Créer");
 		countryI18n3.setEditTitleI18n("Modifier le pays");
 		countryI18n3.setGetAllTitleI18n("Pays");
-		countryI18n3.setCreateTitleI18n("Créer un nouveau pays");
+		countryI18n3.setCreateTitleI18n("Créer");
 		countryI18nRepository.save(countryI18n3);
 		
 		countryI18n4.setLangI18n ("ES");
 		countryI18n4.setNameI18n ("Nombre");
-		countryI18n4.setCreateTitleI18n ("Crear nuevo país");
+		countryI18n4.setCreateTitleI18n ("Crear");
 		countryI18n4.setEditTitleI18n ("Editar país");
 		countryI18n4.setGetAllTitleI18n ("Países");
-		countryI18n4.setCreateTitleI18n ("Crear nuevo país");
+		countryI18n4.setCreateTitleI18n ("Crear");
 		countryI18nRepository.save (countryI18n4);
 		
 		countryI18n5.setLangI18n ("AR") ;

@@ -31,6 +31,7 @@ import com.dev.delta.i18n.repositories.CheckInI18nRepository;
 import com.dev.delta.i18n.repositories.WebsiteBookingRoomI18nRepository;
 import com.dev.delta.i18n.repositories.WebsiteFooterI18nRepository;
 import com.dev.delta.i18n.repositories.WebsiteMenuI18nRepository;
+import com.dev.delta.repositories.CurrencyRepository;
 import com.dev.delta.repositories.InvoiceRepository;
 import com.dev.delta.repositories.NotificationRepository;
 import com.dev.delta.repositories.RoleRepository;
@@ -105,6 +106,9 @@ public class BookingController {
 	
 	@Autowired
 	CheckInI18nRepository    checkInI18nRepository   ;
+	
+	@Autowired
+	CurrencyRepository   currencyRepository;
 	/*@GetMapping("/validationbooking/{id}")
 	public String getBlogs(@PathVariable("id") Long id,Model model) {
 		//List<Blog> blogs = blogService.getBlogs();
@@ -129,6 +133,7 @@ public class BookingController {
 		model.addAttribute("menu", websiteMenuI18nRepository.findByLang(lang));
 		model.addAttribute("footer", websiteFooterI18nRepository.findByLang(lang));
 		model.addAttribute("booking", bookingRoomI18nRepository.findByLangI18n(lang));
+		model.addAttribute("currency", currencyRepository.findById(1L).get());
 		return "website/showroom";
 	}
 	
@@ -188,6 +193,7 @@ public class BookingController {
 		model.addAttribute("menu", websiteMenuI18nRepository.findByLang(lang));
 		model.addAttribute("footer", websiteFooterI18nRepository.findByLang(lang));
 		model.addAttribute("booking", bookingRoomI18nRepository.findByLangI18n(lang));
+		model.addAttribute("currency", currencyRepository.findById(1L).get());
 		return "website/detailbooking";
 	}
 	
@@ -207,11 +213,15 @@ public class BookingController {
 		Long idd = 1L;
 		InformationHotel informationHotel = informationService.findById(idd);
 		String lang=informationHotel.getLang();
+		String  price=roomRepository.getById(id).getRoomType().getBasePrice();
 		model.addAttribute("hotel", informationHotel);
 		model.addAttribute("menu", websiteMenuI18nRepository.findByLang(lang));
 		model.addAttribute("footer", websiteFooterI18nRepository.findByLang(lang));
 		model.addAttribute("hotel", informationHotel);
 		model.addAttribute("booking", bookingRoomI18nRepository.findByLangI18n(lang));
+		model.addAttribute("currency", currencyRepository.findById(1L).get());
+		model.addAttribute("price", price);
+		
 		return "website/paymentbooking";
 	}
 	

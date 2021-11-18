@@ -45,10 +45,10 @@ public class ShiftDTO implements DTO {
 		shiftI18n3.setStartI18n ("Start") ;
 		shiftI18n3.setEndI18n ("End") ;
 		shiftI18n3.setTypeI18n ("النوع") ;
-		shiftI18n3.setGetTitleI18n ("Shift") ;
+		shiftI18n3.setGetTitleI18n ("فترة عم") ;
 		shiftI18n3.setCreateTitleI18n ("إنشاء") ;
 		shiftI18n3.setEditTitleI18n ("تحرير") ;
-		shiftI18n3.setGetAllTitleI18n ("Shifts");
+		shiftI18n3.setGetAllTitleI18n ("فترة عم");
 		shiftI18n3.setLangI18n ("AR") ;
 		
 		

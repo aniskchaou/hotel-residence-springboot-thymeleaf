@@ -31,7 +31,7 @@ public class InformationHotelDTO implements DTO {
 		informationHotel.setTwitter("https://www.twitter.com");
 		informationHotel.setInstagram("https://www.instagram.com");
 		informationHotel.setLang("EN");
-		informationHotel.setLangbackoffice("DE");
+		informationHotel.setLangbackoffice("FR");
 		informationService.save(informationHotel);
 		
 		
@@ -44,12 +44,12 @@ public class InformationHotelDTO implements DTO {
 		informationHotelI18n.setTwitterI18n("Twitter");
 		informationHotelI18n.setInstagramI18n("Instagram");
 		informationHotelI18n.setLangI18n("EN");
-		informationHotelI18n.setLangbackoficeI18n("EN");
-		informationHotelI18n.setLang("EN");
-		informationHotelI18n.setGetAllTitleI18n("Cities");
-		informationHotelI18n.setCreateTitleI18n("Create new City");
-		informationHotelI18n.setEditTitleI18n("Edit City");
-		informationHotelI18n.setGetTitleI18n("City");
+		informationHotelI18n.setLangbackoficeI18n("Admin language");
+		informationHotelI18n.setLang("Client language");
+		informationHotelI18n.setGetAllTitleI18n("Hotel Informations");
+		informationHotelI18n.setCreateTitleI18n("Create ");
+		informationHotelI18n.setEditTitleI18n("Edit");
+		informationHotelI18n.setGetTitleI18n("Hotel Informations");
 		informationI18nRepository.save(informationHotelI18n);
 		
 		
@@ -62,8 +62,8 @@ public class InformationHotelDTO implements DTO {
 		informationHotelI18n2.setTwitterI18n("Twitter");
 		informationHotelI18n2.setInstagramI18n("Instagram");
 		informationHotelI18n2.setLangI18n("DE");
-		informationHotelI18n2.setLangbackoficeI18n("DE");
-		informationHotelI18n2.setLang("Sprache");
+		informationHotelI18n2.setLangbackoficeI18n("Administratorsprache");
+		informationHotelI18n2.setLang("Benutzersprache");
 		informationHotelI18n2.setGetAllTitleI18n("Informations");
 		informationHotelI18n2.setCreateTitleI18n("Erstellen");
 		informationHotelI18n2.setEditTitleI18n("Bearbeiten");
@@ -82,12 +82,12 @@ public class InformationHotelDTO implements DTO {
 		informationHotelI18n3.setTwitterI18n ("Twitter") ;
 		informationHotelI18n3.setInstagramI18n ("Instagram") ;
 		informationHotelI18n3.setLangI18n ("AR") ;
-		informationHotelI18n3.setLangbackoficeI18n ("EN") ;
-		informationHotelI18n3.setLang ("EN") ;
-		informationHotelI18n3.setGetAllTitleI18n ("المدن") ;
-		informationHotelI18n3.setCreateTitleI18n ("إنشاء مدينة جديدة") ;
-		informationHotelI18n3.setEditTitleI18n ("تحرير المدينة") ;
-		informationHotelI18n3.setGetTitleI18n ("المدينة") ;
+		informationHotelI18n3.setLangbackoficeI18n ("لغة الادارة") ;
+		informationHotelI18n3.setLang ("لغة المستخدم") ;
+		informationHotelI18n3.setGetAllTitleI18n ("معلومات الفندق") ;
+		informationHotelI18n3.setCreateTitleI18n ("إنشاء") ;
+		informationHotelI18n3.setEditTitleI18n ("تحرير") ;
+		informationHotelI18n3.setGetTitleI18n ("معلومات الفندق") ;
 		informationI18nRepository.save (informationHotelI18n3) ;
 		
 		informationHotelI18n4.setAdressI18n("Adresse");
@@ -99,12 +99,12 @@ public class InformationHotelDTO implements DTO {
 		informationHotelI18n4.setTwitterI18n("Twitter");
 		informationHotelI18n4.setInstagramI18n("Instagram");
 		informationHotelI18n4.setLangI18n("FR");
-		informationHotelI18n4.setLangbackoficeI18n("EN");
-		informationHotelI18n4.setLang("EN");
-		informationHotelI18n4.setGetAllTitleI18n("Villes");
-		informationHotelI18n4.setCreateTitleI18n("Créer une nouvelle ville");
-		informationHotelI18n4.setEditTitleI18n("Modifier la ville");
-		informationHotelI18n4.setGetTitleI18n("Ville");
+		informationHotelI18n4.setLangbackoficeI18n("Langue admin");
+		informationHotelI18n4.setLang("Langue utilisateur");
+		informationHotelI18n4.setGetAllTitleI18n("Hotel Informations");
+		informationHotelI18n4.setCreateTitleI18n("Créer ");
+		informationHotelI18n4.setEditTitleI18n("Modifier");
+		informationHotelI18n4.setGetTitleI18n("Hotel Informations");
 		informationI18nRepository.save(informationHotelI18n4);
 		
 		informationHotelI18n5.setAdressI18n ("Dirección");
@@ -116,12 +116,12 @@ public class InformationHotelDTO implements DTO {
 		informationHotelI18n5.setTwitterI18n ("Twitter");
 		informationHotelI18n5.setInstagramI18n ("Instagram");
 		informationHotelI18n5.setLangI18n ("ES");
-		informationHotelI18n5.setLangbackoficeI18n ("EN");
-		informationHotelI18n5.setLang ("EN");
-		informationHotelI18n5.setGetAllTitleI18n ("Ciudades");
-		informationHotelI18n5.setCreateTitleI18n ("Crear nueva ciudad");
-		informationHotelI18n5.setEditTitleI18n ("Editar ciudad");
-		informationHotelI18n5.setGetTitleI18n ("Ciudad");
+		informationHotelI18n5.setLangbackoficeI18n ("idioma de administrador");
+		informationHotelI18n5.setLang ("Idioma del usuario");
+		informationHotelI18n5.setGetAllTitleI18n ("Información del hotel");
+		informationHotelI18n5.setCreateTitleI18n ("Crear");
+		informationHotelI18n5.setEditTitleI18n ("Editar ");
+		informationHotelI18n5.setGetTitleI18n ("Información del hotel");
 		informationI18nRepository.save (informationHotelI18n5);
 		
 		

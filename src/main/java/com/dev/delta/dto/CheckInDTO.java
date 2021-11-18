@@ -5,7 +5,11 @@ import java.util.Date;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.dev.delta.entities.Invoice;
+import com.dev.delta.entities.Notification;
 import com.dev.delta.i18n.repositories.CheckInI18nRepository;
+import com.dev.delta.repositories.InvoiceRepository;
+import com.dev.delta.repositories.NotificationRepository;
 import com.dev.delta.services.CheckInService;
 
 @Service
@@ -16,6 +20,12 @@ public class CheckInDTO implements DTO {
 	
 	@Autowired
 	CheckInI18nRepository  checkInI18nRepository;
+	
+	@Autowired
+	NotificationRepository  notificationRepository;
+	
+	@Autowired
+	InvoiceRepository  invoiceRepository ;
 	
 	@Override
 	public void populate() {
@@ -37,6 +47,19 @@ public class CheckInDTO implements DTO {
 		checkInService.save(checkIn);
 		
 		
+		Notification notification = new Notification();
+		notification.setDate(new Date().toString());
+		notification.setName("New checkin added by " + checkIn.getFullname());
+		notificationRepository.save(notification);
+
+		Invoice invoice = new Invoice();
+		invoice.setCheckIn(checkIn);
+		invoice.setCreateAt(new Date().toString());
+		invoice.setPrice(checkIn.getRoom().getRoomType().getBasePrice());
+		invoice.setService("Booking room no" + checkIn.getRoom().getRoomNo());
+		invoiceRepository.save(invoice);
+		
+		
 		
 		checkInI18n.setCheckInI18n("Check In");
 		checkInI18n.setCheckOutI18n("Check Out");
@@ -48,12 +71,12 @@ public class CheckInDTO implements DTO {
 		checkInI18n.setGuestTypeI18n("Guest Type");
 		checkInI18n.setCutomerI18n("Customer");
 		checkInI18n.setLangI18n("EN");
-		checkInI18n.setGetTitleI18n("City");
-		checkInI18n.setCreateTitleI18n("Create new City");
-		checkInI18n.setEditTitleI18n("Edit City");
-		checkInI18n.setGetAllTitleI18n("Cities");
+		checkInI18n.setGetTitleI18n("Check In");
+		checkInI18n.setCreateTitleI18n("Create");
+		checkInI18n.setEditTitleI18n("Edit ");
+		checkInI18n.setGetAllTitleI18n("Check In");
 		checkInI18n.setStatusI18n("Check In");
-		checkInI18n.setPaymentStatusI18n("Paid");
+		checkInI18n.setPaymentStatusI18n("Payment Status");
 		checkInI18n.setViewcheckinI18n("view");
 		checkInI18n.setCheckoutbuttonI18n("Checkout");
 		checkInI18n.setViewinvoiceI18n("Invoice");
@@ -78,14 +101,18 @@ public class CheckInDTO implements DTO {
 		checkInI18n.setBasicInformationI18n("Basic information");
 		checkInI18n.setBookingInformationI18n("Booking information");
 		checkInI18n.setAdditionalInformationI18n("Additional Information");
-		checkInI18n.setPasswordI18n("");
-		checkInI18n.setUsernameI18n("");
+		checkInI18n.setPasswordI18n("Password");
+		checkInI18n.setUsernameI18n("Username");
+		checkInI18n.setAddressI18n("Address");
 		checkInI18n.setMessageI18n("I agree that the\r\n"
 				+ "										information collected by this form will be stored in a\r\n"
 				+ "										database in order to process my request. In accordance with\r\n"
 				+ "										the \"General Data Protection Regulation\", you can exercise\r\n"
 				+ "										your right to access to your data and make them rectified via\r\n"
 				+ "										the contact form.");
+		checkInI18n.setKidsI18n("Kids");
+		checkInI18n.setAdultsI18n("Adults");
+		checkInI18n.setMobileI18n("Mobile");
 		checkInI18nRepository.save(checkInI18n);
 		
 		checkInI18n2.setCheckInI18n("Einchecken");
@@ -132,9 +159,13 @@ public class CheckInDTO implements DTO {
 		checkInI18n2.setBasicInformationI18n("Grundinformation");
 		checkInI18n2.setBookingInformationI18n("Buchungsinformation");
 		checkInI18n2.setAdditionalInformationI18n("Weitere Informationen");	
-		checkInI18n2.setPasswordI18n("");
-		checkInI18n2.setUsernameI18n("");
+		checkInI18n2.setPasswordI18n("Passwort");
+		checkInI18n2.setUsernameI18n("Benutzername");
 		checkInI18n2.setMessageI18n("Ich stimme zu, dass die über dieses Formular erhobenen Daten zur Bearbeitung meiner Anfrage in einer Datenbank gespeichert werden. Gemäß der Datenschutz-Grundverordnung können Sie Ihr Recht auf Auskunft über Ihre Daten und deren Berichtigung über das Kontaktformular ausüben.");
+	    checkInI18n2.setAddressI18n("Anschrift");
+	    checkInI18n2.setKidsI18n("Kinder");
+	    checkInI18n2.setAdultsI18n("Erwachsene");
+	    checkInI18n2.setMobileI18n("Mobiltelefon");
 		checkInI18nRepository.save(checkInI18n2);
 		
 		
@@ -149,10 +180,10 @@ public class CheckInDTO implements DTO {
 		checkInI18n3.setGuestTypeI18n("نوع الضيف");
 		checkInI18n3.setCutomerI18n("عميل");
 		checkInI18n3.setLangI18n("AR");
-		checkInI18n3.setGetTitleI18n("City");
-		checkInI18n3.setCreateTitleI18n("Create new City");
-		checkInI18n3.setEditTitleI18n("Edit City");
-		checkInI18n3.setGetAllTitleI18n("Cities");
+		checkInI18n3.setGetTitleI18n("الحجز");
+		checkInI18n3.setCreateTitleI18n("إنشاء");
+		checkInI18n3.setEditTitleI18n("تعديل");
+		checkInI18n3.setGetAllTitleI18n("الحجز");
 		checkInI18n3.setStatusI18n("تحقق في");
 		checkInI18n3.setPaymentStatusI18n("مدفوع");
 		checkInI18n3.setViewcheckinI18n("عرض");
@@ -181,9 +212,14 @@ public class CheckInDTO implements DTO {
 		checkInI18n3.setAdditionalInformationI18n("معلومة اضافية");
 		checkInI18n3.setAdultsI18n("الكبار");
 		checkInI18n3.setKidsI18n("أطفال");
-		checkInI18n3.setPasswordI18n("");
-		checkInI18n3.setUsernameI18n("");
+		checkInI18n3.setPasswordI18n("كلمة المرور");
+		checkInI18n3.setUsernameI18n("اسم المستخدم");
 		checkInI18n3.setMessageI18n("أوافق على أن المعلومات التي تم جمعها بواسطة هذا النموذج سيتم تخزينها في قاعدة البيانات من أجل معالجة طلبي. وفقًا للائحة العامة لحماية البيانات ، يمكنك ممارسة حقك في الوصول إلى بياناتك وتصحيحها عبر نموذج الاتصال.");
+		checkInI18n3.setAddressI18n("عنوان");
+		checkInI18n3.setKidsI18n ("أطفال") ;
+		checkInI18n3.setAdultsI18n ("الكبار") ;
+		checkInI18n3.setMobileI18n("التليفون المحمول");
+		
 		checkInI18nRepository.save(checkInI18n3);
 		
 		
@@ -197,10 +233,10 @@ public class CheckInDTO implements DTO {
 		checkInI18n4.setGuestTypeI18n ("Tipo de invitado");
 		checkInI18n4.setCutomerI18n ("Cliente");
 		checkInI18n4.setLangI18n ("ES");
-		checkInI18n4.setGetTitleI18n ("Ciudad");
-		checkInI18n4.setCreateTitleI18n ("Crear nueva ciudad");
-		checkInI18n4.setEditTitleI18n ("Editar ciudad");
-		checkInI18n4.setGetAllTitleI18n ("Ciudades");
+		checkInI18n4.setGetTitleI18n ("reservaciones");
+		checkInI18n4.setCreateTitleI18n ("Crear ");
+		checkInI18n4.setEditTitleI18n ("Editar ");
+		checkInI18n4.setGetAllTitleI18n ("reservaciones");
 		checkInI18n4.setStatusI18n ("Registrar");
 		checkInI18n4.setPaymentStatusI18n ("Pagado");
 		checkInI18n4.setViewcheckinI18n ("ver");
@@ -227,10 +263,15 @@ public class CheckInDTO implements DTO {
 		checkInI18n4.setBasicInformationI18n ("Información básica");
 		checkInI18n4.setBookingInformationI18n ("Información de reserva");
 		checkInI18n4.setAdditionalInformationI18n ("Información adicional");
-		checkInI18n4.setPasswordI18n ("");
-		checkInI18n4.setUsernameI18n ("");
+		checkInI18n4.setPasswordI18n ("Contraseña");
+		checkInI18n4.setUsernameI18n ("Nombre de usario");
 		checkInI18n4.setMessageI18n ("Estoy de acuerdo en que \\r \\n la información recopilada por este formulario se almacenará en  base de datos para procesar mi solicitud. De acuerdo con\"\r\n"
 				+ "				+ \"  Reglamento general de protección de datos  puede ejercer su derecho a acceder a sus datos y rectificarlos a través de \\r \\ n el formulario de contacto");
+		checkInI18n4.setAddressI18n("Dirección");
+		checkInI18n4.setKidsI18n ("Niños");
+		checkInI18n4.setAdultsI18n ("Adultos");
+		checkInI18n4.setMobileI18n("Móvil");
+		
 		checkInI18nRepository.save (checkInI18n4);
 		
 		
@@ -244,18 +285,18 @@ public class CheckInDTO implements DTO {
 		checkInI18n5.setGuestTypeI18n("Type d'invité");
 		checkInI18n5.setCutomerI18n("Client");
 		checkInI18n5.setLangI18n("FR");
-		checkInI18n5.setGetTitleI18n("Ville");
-		checkInI18n5.setCreateTitleI18n("Créer une nouvelle ville");
-		checkInI18n5.setEditTitleI18n("Modifier la ville");
-		checkInI18n5.setGetAllTitleI18n("Villes");
+		checkInI18n5.setGetTitleI18n("Enregistrement");
+		checkInI18n5.setCreateTitleI18n("Créer");
+		checkInI18n5.setEditTitleI18n("Modifier");
+		checkInI18n5.setGetAllTitleI18n("Enregistrement");
 		checkInI18n5.setStatusI18n("Enregistrement");
-		checkInI18n5.setPaymentStatusI18n("Payé");
+		checkInI18n5.setPaymentStatusI18n("Paiement");
 		checkInI18n5.setViewcheckinI18n("vue");
 		checkInI18n5.setCheckoutbuttonI18n("Checkout");
 		checkInI18n5.setViewinvoiceI18n("Facture");
 		checkInI18n5.setOrderfoodI18n("Commander de la nourriture");
 		checkInI18n5.setOrderlaundryI18n("Commander la lessive");
-		checkInI18n5.setHousekeepingI18n("Order Housekeeping");
+		checkInI18n5.setHousekeepingI18n("Commander Housekeeping");
 		checkInI18n5.setExtrabedI18n("Commander un lit supplémentaire");
 		checkInI18n5.setDurationofStayI18n("Durée");
 		checkInI18n5.setRoomPlanI18n("Plan de la pièce");
@@ -274,14 +315,18 @@ public class CheckInDTO implements DTO {
 		checkInI18n5.setBasicInformationI18n("Informations de base");
 		checkInI18n5.setBookingInformationI18n("Informations de réservation");
 		checkInI18n5.setAdditionalInformationI18n("Informations supplémentaires");
-		checkInI18n5.setPasswordI18n("");
-		checkInI18n5.setUsernameI18n("");
+		checkInI18n5.setPasswordI18n("mot de passe");
+		checkInI18n5.setUsernameI18n("Nom de utilisateur");
 		checkInI18n5.setMessageI18n("Je suis d'accord que le\r\n"
 		+ " les informations recueillies par ce formulaire seront stockées dans un\r\n"
 		+ " base de données afin de traiter ma demande. Conformément à\r\n"
 		+ " le \"Règlement Général sur la Protection des Données\", vous pouvez exercer\r\n"
 		+ " votre droit d'accéder à vos données et de les faire rectifier via\r\n"
 		+ " le formulaire de contact.");
+		checkInI18n5.setAddressI18n("Adresse");
+		checkInI18n5.setKidsI18n("Enfants");
+		checkInI18n5.setAdultsI18n("Adultes");
+		checkInI18n5.setMobileI18n("Téléphone");
 		checkInI18nRepository.save(checkInI18n5);
 	}
 

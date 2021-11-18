@@ -23,7 +23,7 @@ public class AmenityDTO implements DTO {
 		amenityI18n.setDescriptionI18n("Beschreibung");
 		amenityI18n.setNameI18n("Namen");
 		amenityI18n.setStatusI18n("Stellung");
-		amenityI18n.setGetTitleI18n("Stadt");
+		amenityI18n.setGetTitleI18n("Ausstattung");
 		amenityI18n.setCreateTitleI18n("Erstellen");
 		amenityI18n.setEditTitleI18n("Bearbeiten");
 		amenityI18n.setGetAllTitleI18n("Ausstattung");
