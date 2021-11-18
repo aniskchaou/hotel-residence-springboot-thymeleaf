@@ -258,7 +258,7 @@ public class WebsiteController {
 		model.addAttribute("menu", websiteMenuI18nRepository.findByLang(lang));
 		model.addAttribute("footer", websiteFooterI18nRepository.findByLang(lang));
 		model.addAttribute("home", websiteHomeI18nRepository.findByLang(lang));
-		return "/website/index";
+		return "website/index";
 	}
 
 	@GetMapping("/about")
@@ -272,7 +272,7 @@ public class WebsiteController {
 		model.addAttribute("menu", websiteMenuI18nRepository.findByLang(lang));
 		model.addAttribute("about", websiteAboutI18nRepository.findByLang(lang));
 		model.addAttribute("footer", websiteFooterI18nRepository.findByLang(lang));
-		return "/website/about";
+		return "website/about";
 	}
 
 	@GetMapping("/contact")
@@ -284,7 +284,7 @@ public class WebsiteController {
 		model.addAttribute("menu", websiteMenuI18nRepository.findByLang(lang));
 		model.addAttribute("contact", websiteContactI18nRepository.findByLang(lang));
 		model.addAttribute("footer", websiteFooterI18nRepository.findByLang(lang));
-		return "/website/contact";
+		return "website/contact";
 	}
 	
 	@GetMapping("/room")
@@ -300,7 +300,7 @@ public class WebsiteController {
 		model.addAttribute("hotel", informationHotel);
 		model.addAttribute("currency", currencyRepository.findById(1L).get());
 		
-		return "/website/room";
+		return "website/room";
 	}
 
 	@GetMapping("/blog")
@@ -316,7 +316,7 @@ public class WebsiteController {
 		model.addAttribute("menu", websiteMenuI18nRepository.findByLang(lang));
 		model.addAttribute("blog", websiteBlogI18nRepository.findByLang(lang));
 		model.addAttribute("footer", websiteFooterI18nRepository.findByLang(lang));
-		return "/website/blog";
+		return "website/blog";
 	}
 	
 	
